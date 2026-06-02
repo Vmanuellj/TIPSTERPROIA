@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0e1a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Tipster Pro">
+<title>⚡ TIPSTER PRO IA</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0a0e1a;
+    color: #e2e8f0;
+    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+  }
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+    border-bottom: 1px solid #1e2d45;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .logo {
+    font-size: 18px; font-weight: 800;
+    background: linear-gradient(90deg, #3b82f6, #10b981);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .badge {
+    background: #3b82f6; color: #fff; font-size: 9px; font-weight: 700;
+    padding: 2px 7px; border-radius: 99px; letter-spacing: 0.5px;
+    text-transform: uppercase; -webkit-text-fill-color: #fff;
+  }
+  .date-display { font-size: 12px; color: #94a3b8; }
+  .date-display span { color: #e2e8f0; font-weight: 600; }
+  /* CONTENT */
+  .content { padding: 14px 14px 30px; max-width: 680px; margin: 0 auto; }
+  /* LOADING */
+  .loading { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 20px; gap:16px; }
+  .spinner { width:40px; height:40px; border:3px solid #1e2d45; border-top-color:#3b82f6; border-radius:50%; animation:spin 0.8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  /* BANKROLL */
+  .bankroll {
+    background: #111827; border: 1px solid #1e2d45; border-radius: 12px;
+    padding: 12px 16px; margin-bottom: 16px;
+    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+  }
+  .bk-stat { display:flex; flex-direction:column; gap:2px; }
+  .bk-label { font-size: 10px; text-transform:uppercase; letter-spacing:0.7px; color:#94a3b8; }
+  .bk-val { font-size: 16px; font-weight: 700; color: #10b981; }
+  .bk-div { width:1px; height:32px; background:#1e2d45; }
+  /* SECTION */
+  .sec { display:flex; align-items:center; gap:8px; margin: 20px 0 12px; }
+  .sec-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; white-space:nowrap; }
+  .sec-line { flex:1; height:1px; background:#1e2d45; }
+  .sec-badge { background:#1a2235; border:1px solid #1e2d45; color:#94a3b8; font-size:10px; font-weight:700; padding:2px 7px; border-radius:99px; }
+  /* PICK CARD */
+  .card {
+    background: #111827; border: 1px solid #1e2d45; border-radius: 14px;
+    margin-bottom: 12px; overflow: hidden; transition: border-color 0.2s;
+  }
+  .card:hover { border-color: #3b82f6; }
+  .card.s3 { border-left: 3px solid #10b981; }
+  .card.s2 { border-left: 3px solid #f59e0b; }
+  .card.s1 { border-left: 3px solid #475569; }
+  .card-head {
+    padding: 12px 14px 10px;
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+    border-bottom: 1px solid #1e2d45;
+  }
+  .matchup { font-size: 14px; font-weight: 700; line-height: 1.3; }
+  .hora { font-size: 11px; color: #94a3b8; margin-top: 2px; }
+  .card-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; flex-shrink:0; }
+  .liga-tag {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px;
+    color: #3b82f6; background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 99px;
+  }
+  .stars { display:flex; gap:2px; }
+  .star { font-size:13px; }
+  .star.on { color: #f59e0b; }
+  .star.off { color: #1e2d45; }
+  /* CARD BODY */
+  .card-body { padding: 12px 14px; }
+  .row { display:flex; align-items:flex-start; gap:8px; margin-bottom:9px; flex-wrap:wrap; }
+  .lbl { font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; min-width:50px; padding-top:2px; flex-shrink:0; }
+  .val { font-size:13px; font-weight:600; flex:1; }
+  /* ODDS */
+  .odds { display:flex; gap:8px; flex-wrap:wrap; }
+  .odd-pill {
+    display:flex; align-items:center; gap:5px;
+    background:#1a2235; border:1px solid #1e2d45; border-radius:7px; padding:4px 10px;
+    font-size:12px;
+  }
+  .odd-house { font-size:9px; color:#94a3b8; }
+  .odd-val { font-weight:700; color:#10b981; }
+  /* PICK NAME */
+  .pick-name { color:#10b981; font-size:14px; font-weight:700; flex:1; }
+  /* STAKE */
+  .stake-chip {
+    display:inline-flex; align-items:center; gap:4px;
+    background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25);
+    border-radius:7px; padding:3px 9px; font-size:11px; font-weight:700; color:#3b82f6;
+    flex-shrink:0;
+  }
+  /* EV ROW */
+  .ev-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .ev-bar-wrap { flex:1; height:5px; background:#1a2235; border-radius:99px; min-width:60px; }
+  .ev-bar { height:5px; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#10b981); }
+  .ev-pct { font-size:12px; font-weight:700; color:#10b981; white-space:nowrap; }
+  .prob-txt { font-size:11px; color:#94a3b8; white-space:nowrap; }
+  /* REASONING */
+  .reason {
+    font-size:12px; color:#94a3b8; line-height:1.6;
+    background:#1a2235; border-radius:7px; padding:9px 12px; margin-top:8px;
+    border-left:2px solid #3b82f6;
+  }
+  /* SUMMARY TABLE */
+  .tbl { width:100%; border-collapse:collapse; font-size:12px; }
+  .tbl th { background:#1a2235; color:#94a3b8; font-size:9px; text-transform:uppercase; letter-spacing:0.7px; padding:7px 10px; text-align:left; font-weight:600; }
+  .tbl td { padding:9px 10px; border-bottom:1px solid #1e2d45; vertical-align:middle; }
+  .tbl tr:last-child td { border-bottom:none; }
+  /* NO BET */
+  .no-bet {
+    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2);
+    border-radius:10px; padding:12px 14px; margin-bottom:8px;
+  }
+  .no-bet-title { font-size:13px; font-weight:700; color:#ef4444; margin-bottom:3px; }
+  .no-bet-reason { font-size:12px; color:#94a3b8; line-height:1.5; }
+  /* PARLAY */
+  .parlay-card { border-left:3px solid #8b5cf6 !important; }
+  /* FOOTER */
+  .footer { font-size:11px; color:#475569; text-align:center; padding:12px 0 24px; }
+  .footer span { color:#10b981; font-weight:600; }
+  /* ERROR */
+  .error-box { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2); border-radius:12px; padding:20px; text-align:center; margin:20px 0; }
+  /* NO DATA */
+  .empty { text-align:center; padding:40px 20px; color:#475569; }
+  .empty div { font-size:32px; margin-bottom:12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center;gap:8px">
+    <div class="logo">⚡ TIPSTER PRO IA</div>
+    <div class="badge">LIVE</div>
+  </div>
+  <div class="date-display" id="headerDate">Cargando...</div>
+</div>
+
+<div class="content">
+  <div id="app">
+    <div class="loading">
+      <div class="spinner"></div>
+      <div style="font-size:13px;color:#94a3b8">Cargando picks del día...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Picks generados automáticamente cada mañana a las 5 AM -->
+<script src="picks-data.js?v=1"></script>
+<script>
+function todayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function stars(n) {
+  let s = '';
+  for(let i=1;i<=3;i++) s+=`<span class="star ${i<=n?'on':'off'}">★</span>`;
+  return `<div class="stars">${s}</div>`;
+}
+
+function evBar(ev) {
+  const w = Math.min(ev*5,100);
+  return `<div class="ev-bar-wrap"><div class="ev-bar" style="width:${w}%"></div></div>`;
+}
+
+function render(data) {
+  const fechaDisplay = data.fecha_display || data.fecha;
+  document.getElementById('headerDate').innerHTML = `<span>${fechaDisplay}</span>`;
+
+  let html = '';
+
+  // Bankroll
+  if(data.bankroll) {
+    const bk = data.bankroll;
+    html += `<div class="bankroll">
+      <div class="bk-stat"><div class="bk-label">Exposición</div><div class="bk-val">${bk.exposicion_total}</div></div>
+      <div class="bk-div"></div>
+      <div class="bk-stat"><div class="bk-label">Máx/Juego</div><div class="bk-val" style="color:#f59e0b">${bk.max_por_juego}</div></div>
+      <div class="bk-div"></div>
+      <div class="bk-stat" style="flex:1"><div class="bk-label">Estrategia</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">${bk.nota||''}</div></div>
+    </div>`;
+  }
+
+  // Picks
+  if(data.picks && data.picks.length > 0) {
+    html += `<div class="sec"><div class="sec-title">🎯 Picks del Día</div><div class="sec-line"></div><div class="sec-badge">${data.picks.length}</div></div>`;
+
+    data.picks.forEach(p => {
+      const sc = p.estrellas===3?'s3':p.estrellas===2?'s2':'s1';
+      html += `<div class="card ${sc}">
+        <div class="card-head">
+          <div><div class="matchup">${p.matchup}</div><div class="hora">${p.hora||''}</div></div>
+          <div class="card-right"><div class="liga-tag">${p.liga}</div>${stars(p.estrellas)}</div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="lbl">Pick</div>
+            <div class="pick-name">${p.pick}</div>
+            <div class="stake-chip">📦 ${p.stake}</div>
+          </div>
+          <div class="row">
+            <div class="lbl">Cuotas</div>
+            <div class="odds">
+              <div class="odd-pill"><span class="odd-house">WINPOT</span><span class="odd-val">${p.cuota_winpot}</span></div>
+              <div class="odd-pill"><span class="odd-house">BET365</span><span class="odd-val" style="color:#94a3b8">${p.cuota_bet365}</span></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="lbl">EV</div>
+            <div class="ev-row" style="flex:1">
+              <div class="prob-txt">Impl. ${p.prob_implicita}%</div>
+              <div class="prob-txt">→</div>
+              <div class="prob-txt" style="color:#10b981">Propia ${p.prob_propia}%</div>
+              ${evBar(p.ev_pct)}
+              <div class="ev-pct">+${p.ev_pct}%</div>
+            </div>
+          </div>
+          <div class="reason">💡 ${p.razonamiento}</div>
+        </div>
+      </div>`;
+    });
+  } else {
+    html += `<div class="empty"><div>🔍</div><div>No hay picks con edge hoy.<br>Todo va a la sección NO APOSTAR.</div></div>`;
+  }
+
+  // Parlay
+  const pl = data.parlay_sugerido;
+  if(pl && pl.patas && pl.patas.length > 0 && pl.cuota_total > 0) {
+    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">🎰 Parlay Sugerido</div><div class="sec-line"></div></div>
+    <div class="card parlay-card">
+      <div class="card-body">
+        <div class="row"><div class="lbl">Patas</div><div class="val">${pl.patas.join(' + ')}</div></div>
+        <div class="row">
+          <div class="lbl">Cuota</div>
+          <div class="odds">
+            <div class="odd-pill"><span class="odd-house">BASE</span><span class="odd-val">${pl.cuota_total}</span></div>
+            <div class="odd-pill"><span class="odd-house">+BOOST</span><span class="odd-val" style="color:#8b5cf6">${pl.cuota_con_boost}</span></div>
+          </div>
+          <div class="stake-chip" style="background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.25);color:#8b5cf6">📦 ${pl.stake}</div>
+        </div>
+        <div style="font-size:11px;color:#94a3b8;margin-top:4px">${pl.nota||''} · EV +${pl.ev_pct}%</div>
+      </div>
+    </div>`;
+  }
+
+  // Resumen
+  if(data.picks && data.picks.length > 0) {
+    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">📊 Resumen</div><div class="sec-line"></div></div>
+    <div class="card"><table class="tbl">
+      <thead><tr><th>Pick</th><th>Cuota</th><th>EV%</th><th>Stake</th><th>★</th></tr></thead>
+      <tbody>`;
+    data.picks.forEach(p => {
+      html += `<tr>
+        <td><b style="font-size:12px">${p.pick}</b><br><span style="font-size:10px;color:#94a3b8">${p.matchup}</span></td>
+        <td style="color:#10b981;font-weight:700">${p.cuota_winpot}</td>
+        <td style="color:#10b981;font-weight:700">+${p.ev_pct}%</td>
+        <td><span class="stake-chip">${p.stake}</span></td>
+        <td>${stars(p.estrellas)}</td>
+      </tr>`;
+    });
+    html += `</tbody></table></div>`;
+  }
+
+  // No Apostar
+  if(data.no_apostar && data.no_apostar.length > 0) {
+    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">🚫 No Apostar</div><div class="sec-line"></div><div class="sec-badge">${data.no_apostar.length}</div></div>`;
+    data.no_apostar.forEach(nb => {
+      html += `<div class="no-bet">
+        <div class="no-bet-title">${nb.matchup} <span style="font-size:10px;font-weight:400;color:#94a3b8">[${nb.liga}]</span></div>
+        <div class="no-bet-reason">⚠️ ${nb.razon}</div>
+      </div>`;
+    });
+  }
+
+  const ts = new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
+  html += `<div class="footer">Generado el ${data.fecha} · actualizado a las <span>${ts}</span><br>Próxima actualización automática: <span>5:00 AM</span></div>`;
+
+  document.getElementById('app').innerHTML = html;
+}
+
+function init() {
+  const today = todayStr();
+
+  if(typeof window.PICKS_DATA === 'undefined') {
+    document.getElementById('app').innerHTML = `
+      <div class="error-box">
+        <div style="font-size:28px;margin-bottom:10px">⚠️</div>
+        <div style="font-weight:700;margin-bottom:6px">picks-data.js no encontrado</div>
+        <div style="font-size:12px;color:#94a3b8">El archivo de picks no está disponible.<br>Se genera automáticamente cada mañana a las 5 AM.</div>
+      </div>`;
+    return;
+  }
+
+  const data = window.PICKS_DATA;
+
+  if(data.fecha !== today) {
+    document.getElementById('app').innerHTML = `
+      <div class="error-box">
+        <div style="font-size:28px;margin-bottom:10px">🕐</div>
+        <div style="font-weight:700;margin-bottom:6px">Picks de ayer (${data.fecha})</div>
+        <div style="font-size:12px;color:#94a3b8">Los picks de hoy (${today}) se generan a las 5:00 AM.<br>Mostrando último reporte disponible.</div>
+      </div>` + '<div id="old-picks"></div>';
+    // Renderizar picks viejos igual
+    const tempDiv = document.createElement('div');
+    document.getElementById('app').appendChild(tempDiv);
+    document.getElementById('app').innerHTML = document.getElementById('app').innerHTML;
+    render(data);
+    return;
+  }
+
+  render(data);
+}
+
+init();
+</script>
+</body>
+</html>
