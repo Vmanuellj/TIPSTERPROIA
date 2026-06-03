@@ -310,7 +310,7 @@ body {
 </div>
 
 <script>
-const PICKS_URL = 'https://cdn.jsdelivr.net/gh/Vmanuellj/TIPSTERPROIA@main/picks-latest.json';
+const PICKS_URL = '/picks-latest.json';
 
 /* ── Countdown ── */
 function updateCountdown() {
@@ -381,4 +381,7 @@ function copyWA(data) {
 function generateStory(data) {
   const canvas = document.createElement('canvas');
   canvas.width = 1080; canvas.height = 1920;
-  const ctx = canvas.getC
+  const ctx = canvas.getContext('2d');
+
+  // Background
+  ctx.fillStyle = '#0608
