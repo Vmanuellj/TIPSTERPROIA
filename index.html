@@ -3,146 +3,288 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0a0e1a">
+<meta name="theme-color" content="#060810">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Tipster Pro">
 <title>⚡ TIPSTER PRO IA</title>
 <style>
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: #0a0e1a;
-    color: #e2e8f0;
-    font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
-    min-height: 100vh;
-  }
-  /* HEADER */
-  .header {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-    border-bottom: 1px solid #1e2d45;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    position: sticky; top: 0; z-index: 100;
-  }
-  .logo {
-    font-size: 18px; font-weight: 800;
-    background: linear-gradient(90deg, #3b82f6, #10b981);
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  }
-  .badge {
-    background: #3b82f6; color: #fff; font-size: 9px; font-weight: 700;
-    padding: 2px 7px; border-radius: 99px; letter-spacing: 0.5px;
-    text-transform: uppercase; -webkit-text-fill-color: #fff;
-  }
-  .date-display { font-size: 12px; color: #94a3b8; }
-  .date-display span { color: #e2e8f0; font-weight: 600; }
-  /* CONTENT */
-  .content { padding: 14px 14px 30px; max-width: 680px; margin: 0 auto; }
-  /* LOADING */
-  .loading { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:80px 20px; gap:16px; }
-  .spinner { width:40px; height:40px; border:3px solid #1e2d45; border-top-color:#3b82f6; border-radius:50%; animation:spin 0.8s linear infinite; }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  /* BANKROLL */
-  .bankroll {
-    background: #111827; border: 1px solid #1e2d45; border-radius: 12px;
-    padding: 12px 16px; margin-bottom: 16px;
-    display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
-  }
-  .bk-stat { display:flex; flex-direction:column; gap:2px; }
-  .bk-label { font-size: 10px; text-transform:uppercase; letter-spacing:0.7px; color:#94a3b8; }
-  .bk-val { font-size: 16px; font-weight: 700; color: #10b981; }
-  .bk-div { width:1px; height:32px; background:#1e2d45; }
-  /* SECTION */
-  .sec { display:flex; align-items:center; gap:8px; margin: 20px 0 12px; }
-  .sec-title { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#94a3b8; white-space:nowrap; }
-  .sec-line { flex:1; height:1px; background:#1e2d45; }
-  .sec-badge { background:#1a2235; border:1px solid #1e2d45; color:#94a3b8; font-size:10px; font-weight:700; padding:2px 7px; border-radius:99px; }
-  /* PICK CARD */
-  .card {
-    background: #111827; border: 1px solid #1e2d45; border-radius: 14px;
-    margin-bottom: 12px; overflow: hidden; transition: border-color 0.2s;
-  }
-  .card:hover { border-color: #3b82f6; }
-  .card.s3 { border-left: 3px solid #10b981; }
-  .card.s2 { border-left: 3px solid #f59e0b; }
-  .card.s1 { border-left: 3px solid #475569; }
-  .card-head {
-    padding: 12px 14px 10px;
-    display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
-    border-bottom: 1px solid #1e2d45;
-  }
-  .matchup { font-size: 14px; font-weight: 700; line-height: 1.3; }
-  .hora { font-size: 11px; color: #94a3b8; margin-top: 2px; }
-  .card-right { display:flex; flex-direction:column; align-items:flex-end; gap:5px; flex-shrink:0; }
-  .liga-tag {
-    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.7px;
-    color: #3b82f6; background: rgba(59,130,246,0.1); padding: 2px 8px; border-radius: 99px;
-  }
-  .stars { display:flex; gap:2px; }
-  .star { font-size:13px; }
-  .star.on { color: #f59e0b; }
-  .star.off { color: #1e2d45; }
-  /* CARD BODY */
-  .card-body { padding: 12px 14px; }
-  .row { display:flex; align-items:flex-start; gap:8px; margin-bottom:9px; flex-wrap:wrap; }
-  .lbl { font-size:10px; text-transform:uppercase; letter-spacing:0.5px; color:#94a3b8; min-width:50px; padding-top:2px; flex-shrink:0; }
-  .val { font-size:13px; font-weight:600; flex:1; }
-  /* ODDS */
-  .odds { display:flex; gap:8px; flex-wrap:wrap; }
-  .odd-pill {
-    display:flex; align-items:center; gap:5px;
-    background:#1a2235; border:1px solid #1e2d45; border-radius:7px; padding:4px 10px;
-    font-size:12px;
-  }
-  .odd-house { font-size:9px; color:#94a3b8; }
-  .odd-val { font-weight:700; color:#10b981; }
-  /* PICK NAME */
-  .pick-name { color:#10b981; font-size:14px; font-weight:700; flex:1; }
-  /* STAKE */
-  .stake-chip {
-    display:inline-flex; align-items:center; gap:4px;
-    background:rgba(59,130,246,0.1); border:1px solid rgba(59,130,246,0.25);
-    border-radius:7px; padding:3px 9px; font-size:11px; font-weight:700; color:#3b82f6;
-    flex-shrink:0;
-  }
-  /* EV ROW */
-  .ev-row { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-  .ev-bar-wrap { flex:1; height:5px; background:#1a2235; border-radius:99px; min-width:60px; }
-  .ev-bar { height:5px; border-radius:99px; background:linear-gradient(90deg,#3b82f6,#10b981); }
-  .ev-pct { font-size:12px; font-weight:700; color:#10b981; white-space:nowrap; }
-  .prob-txt { font-size:11px; color:#94a3b8; white-space:nowrap; }
-  /* REASONING */
-  .reason {
-    font-size:12px; color:#94a3b8; line-height:1.6;
-    background:#1a2235; border-radius:7px; padding:9px 12px; margin-top:8px;
-    border-left:2px solid #3b82f6;
-  }
-  /* SUMMARY TABLE */
-  .tbl { width:100%; border-collapse:collapse; font-size:12px; }
-  .tbl th { background:#1a2235; color:#94a3b8; font-size:9px; text-transform:uppercase; letter-spacing:0.7px; padding:7px 10px; text-align:left; font-weight:600; }
-  .tbl td { padding:9px 10px; border-bottom:1px solid #1e2d45; vertical-align:middle; }
-  .tbl tr:last-child td { border-bottom:none; }
-  /* NO BET */
-  .no-bet {
-    background:rgba(239,68,68,0.06); border:1px solid rgba(239,68,68,0.2);
-    border-radius:10px; padding:12px 14px; margin-bottom:8px;
-  }
-  .no-bet-title { font-size:13px; font-weight:700; color:#ef4444; margin-bottom:3px; }
-  .no-bet-reason { font-size:12px; color:#94a3b8; line-height:1.5; }
-  /* PARLAY */
-  .parlay-card { border-left:3px solid #8b5cf6 !important; }
-  /* FOOTER */
-  .footer { font-size:11px; color:#475569; text-align:center; padding:12px 0 24px; }
-  .footer span { color:#10b981; font-weight:600; }
-  /* ERROR */
-  .error-box { background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2); border-radius:12px; padding:20px; text-align:center; margin:20px 0; }
-  /* NO DATA */
-  .empty { text-align:center; padding:40px 20px; color:#475569; }
-  .empty div { font-size:32px; margin-bottom:12px; }
+:root {
+  --bg: #060810;
+  --bg2: #0d1120;
+  --bg3: #111827;
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --text: #f0f4ff;
+  --muted: #6b7a99;
+  --green: #10d47e;
+  --green-dim: rgba(16,212,126,0.12);
+  --amber: #f5a623;
+  --amber-dim: rgba(245,166,35,0.12);
+  --blue: #4f8ef7;
+  --blue-dim: rgba(79,142,247,0.12);
+  --purple: #a78bfa;
+  --purple-dim: rgba(167,139,250,0.12);
+  --red: #f87171;
+  --red-dim: rgba(248,113,113,0.10);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+.header {
+  background: rgba(6,8,16,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.logo {
+  font-size: 17px; font-weight: 800; letter-spacing: -0.3px;
+  background: linear-gradient(90deg, #4f8ef7, #10d47e);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.live-badge {
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(16,212,126,0.12); border: 1px solid rgba(16,212,126,0.25);
+  color: var(--green); font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 99px; letter-spacing: 0.8px;
+  -webkit-text-fill-color: var(--green);
+}
+.live-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 1.8s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.7)} }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.header-date { font-size: 11px; color: var(--muted); }
+.header-date span { color: var(--text); font-weight: 600; }
+.countdown { font-size: 10px; color: var(--muted); }
+.countdown span { color: var(--blue); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* CONTENT */
+.content { padding: 16px 14px 40px; max-width: 680px; margin: 0 auto; }
+
+/* LOADING */
+.loading { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:100px 20px; gap:16px; }
+.spinner { width:36px; height:36px; border:2px solid var(--border); border-top-color: var(--blue); border-radius:50%; animation:spin 0.7s linear infinite; }
+@keyframes spin { to{ transform:rotate(360deg); } }
+.loading-txt { font-size:13px; color:var(--muted); }
+
+/* BANKROLL */
+.bankroll {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 14px; padding: 14px 16px; margin-bottom: 18px;
+  display: flex; gap: 0; flex-wrap: wrap;
+  animation: fadeUp 0.4s ease both;
+}
+.bk-stat { display:flex; flex-direction:column; gap:3px; flex:1; min-width:80px; padding: 0 12px; }
+.bk-stat:first-child { padding-left: 0; }
+.bk-div { width:1px; background: var(--border); margin: 4px 0; }
+.bk-label { font-size: 9px; text-transform:uppercase; letter-spacing:1px; color:var(--muted); font-weight:600; }
+.bk-val { font-size: 17px; font-weight: 800; }
+.bk-nota { font-size:11px; color:var(--muted); line-height:1.4; margin-top:2px; }
+
+/* SECTION HEADER */
+.sec { display:flex; align-items:center; gap:10px; margin: 22px 0 12px; }
+.sec-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--muted); white-space:nowrap; }
+.sec-line { flex:1; height:1px; background: var(--border); }
+.sec-badge {
+  background: var(--bg2); border: 1px solid var(--border);
+  color: var(--muted); font-size:10px; font-weight:700;
+  padding:2px 8px; border-radius:99px;
+}
+
+/* PICK CARD */
+.card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 16px; margin-bottom: 12px; overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+  animation: fadeUp 0.4s ease both;
+}
+.card:hover { transform: translateY(-2px); }
+.card.s3 {
+  border-color: rgba(16,212,126,0.3);
+  box-shadow: 0 0 24px rgba(16,212,126,0.08), 0 0 2px rgba(16,212,126,0.15);
+}
+.card.s3:hover {
+  border-color: rgba(16,212,126,0.5);
+  box-shadow: 0 0 40px rgba(16,212,126,0.15), 0 4px 20px rgba(0,0,0,0.4);
+}
+.card.s2 {
+  border-color: rgba(245,166,35,0.25);
+  box-shadow: 0 0 20px rgba(245,166,35,0.06);
+}
+.card.s2:hover {
+  border-color: rgba(245,166,35,0.45);
+  box-shadow: 0 0 36px rgba(245,166,35,0.12), 0 4px 20px rgba(0,0,0,0.4);
+}
+.card.s1 { border-color: var(--border2); }
+.card.s1:hover { border-color: rgba(255,255,255,0.2); box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(10px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.card:nth-child(1){animation-delay:0s}
+.card:nth-child(2){animation-delay:0.07s}
+.card:nth-child(3){animation-delay:0.14s}
+.card:nth-child(4){animation-delay:0.21s}
+.card:nth-child(5){animation-delay:0.28s}
+
+/* CARD HEAD */
+.card-head {
+  padding: 13px 15px 11px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.matchup { font-size: 14px; font-weight: 700; line-height: 1.3; color: var(--text); }
+.hora { font-size: 11px; color: var(--muted); margin-top: 3px; display:flex; align-items:center; gap:4px; }
+.card-right { display:flex; flex-direction:column; align-items:flex-end; gap:6px; flex-shrink:0; }
+.liga-tag {
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+  color: var(--blue); background: var(--blue-dim);
+  padding: 3px 9px; border-radius: 99px;
+}
+.stars { display:flex; gap:3px; }
+.star { font-size:12px; }
+.star.on3 { color: var(--green); filter: drop-shadow(0 0 4px rgba(16,212,126,0.6)); }
+.star.on2 { color: var(--amber); filter: drop-shadow(0 0 4px rgba(245,166,35,0.5)); }
+.star.on1 { color: var(--muted); }
+.star.off { color: rgba(255,255,255,0.1); }
+
+/* CARD BODY */
+.card-body { padding: 13px 15px; display:flex; flex-direction:column; gap:10px; }
+.row { display:flex; align-items:flex-start; gap:10px; flex-wrap:wrap; }
+.lbl { font-size:9px; text-transform:uppercase; letter-spacing:0.7px; color:var(--muted); font-weight:600; min-width:46px; padding-top:3px; flex-shrink:0; }
+.val { font-size:13px; font-weight:600; flex:1; }
+
+/* PICK ROW */
+.pick-name { color:var(--green); font-size:14px; font-weight:800; flex:1; }
+.stake-chip {
+  display:inline-flex; align-items:center; gap:4px;
+  background: var(--blue-dim); border: 1px solid rgba(79,142,247,0.2);
+  border-radius:8px; padding:3px 10px; font-size:11px; font-weight:700; color:var(--blue);
+  flex-shrink:0;
+}
+
+/* ODDS CHIPS */
+.odds { display:flex; gap:6px; flex-wrap:wrap; }
+.odd-chip {
+  display:flex; align-items:center; gap:5px;
+  border-radius:8px; padding:5px 10px; font-size:12px; font-weight:700;
+  border: 1px solid transparent;
+}
+.odd-chip.win {
+  background: var(--green-dim); border-color: rgba(16,212,126,0.2); color: var(--green);
+}
+.odd-chip.ref {
+  background: var(--bg3); border-color: var(--border2); color: var(--muted);
+}
+.odd-house { font-size:8px; font-weight:600; letter-spacing:0.5px; opacity:0.7; }
+
+/* EV ROW */
+.ev-wrap { flex:1; display:flex; flex-direction:column; gap:5px; }
+.ev-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.ev-probs { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--muted); }
+.ev-arrow { color: rgba(255,255,255,0.2); }
+.ev-own { color: var(--green); font-weight:700; }
+.ev-pct-badge {
+  margin-left:auto; font-size:13px; font-weight:800; color:var(--green);
+  background: var(--green-dim); border: 1px solid rgba(16,212,126,0.2);
+  padding: 2px 10px; border-radius:99px;
+}
+.ev-bar-track {
+  width:100%; height:4px; background:rgba(255,255,255,0.06); border-radius:99px; overflow:hidden;
+}
+.ev-bar-fill {
+  height:4px; border-radius:99px;
+  background: linear-gradient(90deg, var(--blue), var(--green));
+  width:0%; transition: width 1s cubic-bezier(0.16,1,0.3,1);
+}
+
+/* REASONING */
+.reason {
+  font-size:12px; color:var(--muted); line-height:1.65;
+  background: rgba(255,255,255,0.03); border-radius:10px; padding:10px 13px;
+  border-left: 2px solid var(--blue-dim);
+}
+
+/* PARLAY CARD */
+.parlay-card {
+  border-color: rgba(167,139,250,0.3) !important;
+  box-shadow: 0 0 24px rgba(167,139,250,0.07) !important;
+}
+.parlay-card:hover {
+  border-color: rgba(167,139,250,0.5) !important;
+  box-shadow: 0 0 40px rgba(167,139,250,0.14), 0 4px 20px rgba(0,0,0,0.4) !important;
+}
+.parlay-pick { color: var(--purple); font-size:14px; font-weight:800; flex:1; }
+.parlay-stake {
+  background: var(--purple-dim); border-color: rgba(167,139,250,0.2); color: var(--purple);
+}
+.odd-chip.boost {
+  background: var(--purple-dim); border-color: rgba(167,139,250,0.25); color: var(--purple);
+}
+.ev-pct-badge.purple {
+  color: var(--purple); background: var(--purple-dim); border-color: rgba(167,139,250,0.2);
+}
+.parlay-nota { font-size:11px; color:var(--muted); line-height:1.5; }
+
+/* SUMMARY TABLE */
+.tbl-wrap { overflow:hidden; border-radius:12px; border:1px solid var(--border); }
+.tbl { width:100%; border-collapse:collapse; font-size:12px; }
+.tbl th {
+  background: var(--bg3); color:var(--muted); font-size:9px;
+  text-transform:uppercase; letter-spacing:0.8px; padding:9px 12px;
+  text-align:left; font-weight:600; border-bottom:1px solid var(--border);
+}
+.tbl td { padding:10px 12px; border-bottom:1px solid var(--border); vertical-align:middle; }
+.tbl tr:last-child td { border-bottom:none; }
+.tbl tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* NO BET */
+.no-bet {
+  background: rgba(248,113,113,0.04); border:1px solid rgba(248,113,113,0.15);
+  border-radius:12px; padding:12px 15px; margin-bottom:9px;
+  animation: fadeUp 0.4s ease both;
+}
+.no-bet-title { font-size:13px; font-weight:700; color:var(--red); margin-bottom:4px; }
+.no-bet-reason { font-size:12px; color:var(--muted); line-height:1.55; }
+
+/* SHARE BUTTON */
+.share-bar {
+  display:flex; gap:8px; flex-wrap:wrap; margin-top:4px;
+}
+.share-btn {
+  display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+  font-size:11px; font-weight:700; padding:5px 13px; border-radius:8px; border:none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.share-btn:active { transform: scale(0.96); opacity:0.8; }
+.share-btn.wa {
+  background: rgba(37,211,102,0.12); color:#25d366; border:1px solid rgba(37,211,102,0.2);
+}
+.share-btn.ig {
+  background: var(--purple-dim); color:var(--purple); border:1px solid rgba(167,139,250,0.2);
+}
+.copied-msg { font-size:11px; color:var(--green); display:none; padding:4px 0; }
+
+/* FOOTER */
+.footer { font-size:11px; color:var(--muted); text-align:center; padding:16px 0 28px; line-height:1.7; }
+.footer span { color:var(--green); font-weight:600; }
+
+/* ERROR */
+.error-box {
+  background: rgba(248,113,113,0.06); border:1px solid rgba(248,113,113,0.18);
+  border-radius:14px; padding:24px 20px; text-align:center; margin:20px 0;
+}
+.empty { text-align:center; padding:50px 20px; color:var(--muted); }
 </style>
 </head>
 <body>
@@ -150,24 +292,43 @@
 <div class="header">
   <div style="display:flex;align-items:center;gap:8px">
     <div class="logo">⚡ TIPSTER PRO IA</div>
-    <div class="badge">LIVE</div>
+    <div class="live-badge"><div class="live-dot"></div>LIVE</div>
   </div>
-  <div class="date-display" id="headerDate">Cargando...</div>
+  <div class="header-right">
+    <div class="header-date" id="headerDate">Cargando...</div>
+    <div class="countdown">Próxima actualización: <span id="countdown">--:--:--</span></div>
+  </div>
 </div>
 
 <div class="content">
   <div id="app">
     <div class="loading">
       <div class="spinner"></div>
-      <div style="font-size:13px;color:#94a3b8">Cargando picks del día...</div>
+      <div class="loading-txt">Cargando picks del día...</div>
     </div>
   </div>
 </div>
 
-<!-- Picks cargados dinámicamente desde GitHub cada vez que se abre la app -->
 <script>
 const PICKS_URL = 'https://raw.githubusercontent.com/Vmanuellj/TIPSTERPROIA/main/picks-latest.json';
 
+/* ── Countdown ── */
+function updateCountdown() {
+  const now = new Date();
+  const next = new Date(now);
+  next.setHours(5, 0, 0, 0);
+  if (now >= next) next.setDate(next.getDate() + 1);
+  const diff = next - now;
+  const h = Math.floor(diff / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+  const el = document.getElementById('countdown');
+  if (el) el.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ── Helpers ── */
 function todayStr() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
@@ -175,163 +336,49 @@ function todayStr() {
 
 function stars(n) {
   let s = '';
-  for(let i=1;i<=3;i++) s+=`<span class="star ${i<=n?'on':'off'}">★</span>`;
+  const cls = n===3?'on3':n===2?'on2':'on1';
+  for (let i=1;i<=3;i++) s+=`<span class="star ${i<=n?cls:'off'}">★</span>`;
   return `<div class="stars">${s}</div>`;
 }
 
-function evBar(ev) {
-  const w = Math.min(ev*5,100);
-  return `<div class="ev-bar-wrap"><div class="ev-bar" style="width:${w}%"></div></div>`;
+function evBar(ev, id) {
+  return `<div class="ev-bar-track"><div class="ev-bar-fill" id="${id}" data-target="${Math.min(ev*5,100)}"></div></div>`;
 }
 
-function render(data) {
-  const fechaDisplay = data.fecha_display || data.fecha;
-  document.getElementById('headerDate').innerHTML = `<span>${fechaDisplay}</span>`;
-
-  let html = '';
-
-  // Bankroll
-  if(data.bankroll) {
-    const bk = data.bankroll;
-    html += `<div class="bankroll">
-      <div class="bk-stat"><div class="bk-label">Exposición</div><div class="bk-val">${bk.exposicion_total}</div></div>
-      <div class="bk-div"></div>
-      <div class="bk-stat"><div class="bk-label">Máx/Juego</div><div class="bk-val" style="color:#f59e0b">${bk.max_por_juego}</div></div>
-      <div class="bk-div"></div>
-      <div class="bk-stat" style="flex:1"><div class="bk-label">Estrategia</div><div style="font-size:11px;color:#94a3b8;margin-top:2px">${bk.nota||''}</div></div>
-    </div>`;
-  }
-
-  // Picks
-  if(data.picks && data.picks.length > 0) {
-    html += `<div class="sec"><div class="sec-title">🎯 Picks del Día</div><div class="sec-line"></div><div class="sec-badge">${data.picks.length}</div></div>`;
-
-    data.picks.forEach(p => {
-      const sc = p.estrellas===3?'s3':p.estrellas===2?'s2':'s1';
-      html += `<div class="card ${sc}">
-        <div class="card-head">
-          <div><div class="matchup">${p.matchup}</div><div class="hora">${p.hora||''}</div></div>
-          <div class="card-right"><div class="liga-tag">${p.liga}</div>${stars(p.estrellas)}</div>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="lbl">Pick</div>
-            <div class="pick-name">${p.pick}</div>
-            <div class="stake-chip">📦 ${p.stake}</div>
-          </div>
-          <div class="row">
-            <div class="lbl">Cuotas</div>
-            <div class="odds">
-              <div class="odd-pill"><span class="odd-house">WINPOT</span><span class="odd-val">${p.cuota_winpot}</span></div>
-              <div class="odd-pill"><span class="odd-house">BET365</span><span class="odd-val" style="color:#94a3b8">${p.cuota_bet365}</span></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="lbl">EV</div>
-            <div class="ev-row" style="flex:1">
-              <div class="prob-txt">Impl. ${p.prob_implicita}%</div>
-              <div class="prob-txt">→</div>
-              <div class="prob-txt" style="color:#10b981">Propia ${p.prob_propia}%</div>
-              ${evBar(p.ev_pct)}
-              <div class="ev-pct">+${p.ev_pct}%</div>
-            </div>
-          </div>
-          <div class="reason">💡 ${p.razonamiento}</div>
-        </div>
-      </div>`;
-    });
-  } else {
-    html += `<div class="empty"><div>🔍</div><div>No hay picks con edge hoy.<br>Todo va a la sección NO APOSTAR.</div></div>`;
-  }
-
-  // Parlay
-  const pl = data.parlay_sugerido;
-  if(pl && pl.patas && pl.patas.length > 0 && pl.cuota_total > 0) {
-    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">🎰 Parlay Sugerido</div><div class="sec-line"></div></div>
-    <div class="card parlay-card">
-      <div class="card-body">
-        <div class="row"><div class="lbl">Patas</div><div class="val">${pl.patas.join(' + ')}</div></div>
-        <div class="row">
-          <div class="lbl">Cuota</div>
-          <div class="odds">
-            <div class="odd-pill"><span class="odd-house">BASE</span><span class="odd-val">${pl.cuota_total}</span></div>
-            <div class="odd-pill"><span class="odd-house">+BOOST</span><span class="odd-val" style="color:#8b5cf6">${pl.cuota_con_boost}</span></div>
-          </div>
-          <div class="stake-chip" style="background:rgba(139,92,246,0.1);border-color:rgba(139,92,246,0.25);color:#8b5cf6">📦 ${pl.stake}</div>
-        </div>
-        <div style="font-size:11px;color:#94a3b8;margin-top:4px">${pl.nota||''} · EV +${pl.ev_pct}%</div>
-      </div>
-    </div>`;
-  }
-
-  // Resumen
-  if(data.picks && data.picks.length > 0) {
-    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">📊 Resumen</div><div class="sec-line"></div></div>
-    <div class="card"><table class="tbl">
-      <thead><tr><th>Pick</th><th>Cuota</th><th>EV%</th><th>Stake</th><th>★</th></tr></thead>
-      <tbody>`;
-    data.picks.forEach(p => {
-      html += `<tr>
-        <td><b style="font-size:12px">${p.pick}</b><br><span style="font-size:10px;color:#94a3b8">${p.matchup}</span></td>
-        <td style="color:#10b981;font-weight:700">${p.cuota_winpot}</td>
-        <td style="color:#10b981;font-weight:700">+${p.ev_pct}%</td>
-        <td><span class="stake-chip">${p.stake}</span></td>
-        <td>${stars(p.estrellas)}</td>
-      </tr>`;
-    });
-    html += `</tbody></table></div>`;
-  }
-
-  // No Apostar
-  if(data.no_apostar && data.no_apostar.length > 0) {
-    html += `<div class="sec" style="margin-top:22px"><div class="sec-title">🚫 No Apostar</div><div class="sec-line"></div><div class="sec-badge">${data.no_apostar.length}</div></div>`;
-    data.no_apostar.forEach(nb => {
-      html += `<div class="no-bet">
-        <div class="no-bet-title">${nb.matchup} <span style="font-size:10px;font-weight:400;color:#94a3b8">[${nb.liga}]</span></div>
-        <div class="no-bet-reason">⚠️ ${nb.razon}</div>
-      </div>`;
-    });
-  }
-
-  const ts = new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
-  html += `<div class="footer">Generado el ${data.fecha} · actualizado a las <span>${ts}</span><br>Próxima actualización automática: <span>5:00 AM</span></div>`;
-
-  document.getElementById('app').innerHTML = html;
+function animateBars() {
+  document.querySelectorAll('.ev-bar-fill').forEach(el => {
+    const t = parseFloat(el.dataset.target);
+    setTimeout(() => { el.style.width = t + '%'; }, 80);
+  });
 }
 
-function init() {
-  const today = todayStr();
-
-  fetch(PICKS_URL + '?t=' + Date.now())
-    .then(r => {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(data => {
-      if (data.fecha !== today) {
-        const warn = `<div class="error-box" style="margin-bottom:14px">
-          <div style="font-size:22px;margin-bottom:6px">🕐</div>
-          <div style="font-weight:700;margin-bottom:4px">Mostrando picks del ${data.fecha}</div>
-          <div style="font-size:12px;color:#94a3b8">Los de hoy (${today}) se generan a las 5:00 AM.</div>
-        </div>`;
-        document.getElementById('app').innerHTML = warn;
-        const tmp = document.createElement('div');
-        document.getElementById('app').appendChild(tmp);
-        tmp.outerHTML = '';
-      }
-      render(data);
-    })
-    .catch(err => {
-      document.getElementById('app').innerHTML = `
-        <div class="error-box">
-          <div style="font-size:28px;margin-bottom:10px">⚠️</div>
-          <div style="font-weight:700;margin-bottom:6px">No se pudieron cargar los picks</div>
-          <div style="font-size:12px;color:#94a3b8">${err.message}<br>Intenta recargar la página.</div>
-        </div>`;
-    });
+/* ── WhatsApp Share ── */
+function buildWAText(data) {
+  let t = `⚡ *TIPSTER PRO IA — ${data.fecha}*\n\n`;
+  (data.picks||[]).forEach(p => {
+    const stars = '★'.repeat(p.estrellas) + '☆'.repeat(3-p.estrellas);
+    t += `${stars} *${p.pick}* (${p.matchup})\n`;
+    t += `📊 EV +${p.ev_pct}% · Cuota ${p.cuota_winpot} · Stake ${p.stake}\n\n`;
+  });
+  if (data.parlay_sugerido && data.parlay_sugerido.patas && data.parlay_sugerido.patas.length) {
+    const pl = data.parlay_sugerido;
+    t += `🎰 *Parlay:* ${pl.patas.join(' + ')}\n`;
+    t += `Cuota boost: ${pl.cuota_con_boost} · EV +${pl.ev_pct}%\n\n`;
+  }
+  t += `Exposición: ${(data.bankroll||{}).exposicion_total||'—'}\n_Generado automáticamente a las 5:00 AM_`;
+  return t;
 }
 
-init();
-</script>
-</body>
-</html>
+function copyWA(data) {
+  const txt = buildWAText(data);
+  navigator.clipboard.writeText(txt).then(() => {
+    const el = document.getElementById('copied-msg');
+    if (el) { el.style.display='block'; setTimeout(()=>el.style.display='none', 2200); }
+  });
+}
+
+/* ── Instagram story canvas ── */
+function generateStory(data) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 1080; canvas.height = 1920;
+  const ctx = canva
