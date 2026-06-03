@@ -1,0 +1,121 @@
+{
+  "fecha": "2026-06-03",
+  "generado_a": "05:00 CST (tarea automática)",
+  "fuentes": [
+    "MLB.com probable pitchers",
+    "FanDuel Research (líneas de referencia)",
+    "CBS Sports / ESPN NBA Finals odds",
+    "BetMGM, DraftKings (líneas de referencia)",
+    "FanGraphs (stats avanzados)"
+  ],
+  "nota_lineas": "Líneas de referencia obtenidas de FanDuel/DraftKings/BetMGM. Verificar cuotas exactas en Winpot/365Scores antes de apostar.",
+
+  "bankroll": {
+    "exposicion_total": "4.5 u",
+    "max_por_juego": "2 u",
+    "nota": "Tres picks straight + 1 parlay. Exposición total ~4.5% de bankroll de 100u. Dentro del rango recomendado 10-15%."
+  },
+
+  "picks": [
+    {
+      "liga": "MLB",
+      "matchup": "LAD Dodgers vs ARI Diamondbacks",
+      "hora": "9:40 PM ET (22:40 ET)",
+      "pick": "Dodgers ML",
+      "cuota_winpot": 1.50,
+      "cuota_bet365": 1.50,
+      "prob_implicita": 0.667,
+      "prob_implicita_sin_margen": 0.635,
+      "prob_propia": 0.70,
+      "ev_pct": 5.0,
+      "prob_acierto": 70,
+      "estrellas": 3,
+      "stake": "2 u",
+      "razonamiento": "Ohtani (5-2, 0.82 ERA) vs Gallen (3-4, 5.16 ERA). La brecha de calidad entre los lanzadores es enorme — Ohtani en modo histórico, Gallen con ERA inflado. Dodgers -200 caro, pero con 70% de prob estimada sigue generando EV+. Línea: -200 = 1.50 decimal. EV = 0.70 × 1.50 − 1 = +5.0%. Kelly 1/4 = 2u.",
+      "kelly_completo_pct": 10.0,
+      "kelly_fraccion": "1/4"
+    },
+    {
+      "liga": "MLB",
+      "matchup": "CLE Guardians @ NYY Yankees",
+      "hora": "7:05 PM ET",
+      "pick": "Guardians ML",
+      "cuota_winpot": 2.28,
+      "cuota_bet365": 2.28,
+      "prob_implicita": 0.439,
+      "prob_implicita_sin_margen": 0.416,
+      "prob_propia": 0.47,
+      "ev_pct": 7.2,
+      "prob_acierto": 47,
+      "estrellas": 2,
+      "stake": "1 u",
+      "razonamiento": "Gavin Williams (8-3, 3.07 ERA) es el mejor lanzador del partido. Gerrit Cole regresa de Tommy John con solo 1 inicio (muestra mínima, 0.00 ERA no es confiable). Guardians underdog en Yankee Stadium pero matchup de pitchers favorece a CLE. +128 = 2.28 decimal. EV = 0.47 × 2.28 − 1 = +7.2%. Kelly 1/4 = 1u.",
+      "kelly_completo_pct": 5.6,
+      "kelly_fraccion": "1/4"
+    },
+    {
+      "liga": "NBA Finals",
+      "matchup": "NYK Knicks @ SAS Spurs — Game 1",
+      "hora": "8:30 PM ET",
+      "pick": "Spurs -4.5",
+      "cuota_winpot": 1.91,
+      "cuota_bet365": 1.91,
+      "prob_implicita": 0.524,
+      "prob_implicita_sin_margen": 0.500,
+      "prob_propia": 0.55,
+      "ev_pct": 5.0,
+      "prob_acierto": 55,
+      "estrellas": 2,
+      "stake": "1 u",
+      "razonamiento": "Wembanyama (27.3pts/10.9reb/2.7blk en FInales de Conferencia) vs una Knicks sin Robinson (fractura metacarpiano, questionable). Incluso si Robinson juega, operará limitado. Spurs 62-20 en casa de Frost Bank Center. Game 1 efecto local es real. Mi estimado: 55% Spurs cubren -4.5. EV = 0.55 × 1.91 − 1 = +5.0%. Stake conservador por incertidumbre status Robinson.",
+      "kelly_completo_pct": 5.5,
+      "kelly_fraccion": "1/4"
+    }
+  ],
+
+  "no_apostar": [
+    {
+      "matchup": "NYY Yankees ML",
+      "liga": "MLB",
+      "razon": "Cole regresa de Tommy John con 1 inicio de muestra. Cuota -154 a -168 no ofrece valor — hay que pagar demasiado por un pitcher no probado post-cirugía. El mercado ya ha sobrecomprado el regreso de Cole."
+    },
+    {
+      "matchup": "NYK Knicks ML",
+      "liga": "NBA Finals",
+      "razon": "Robinson questionable con fractura metacarpiano. Sin el principal bloqueador de Wembanyama, los Knicks tienen desventaja estructural en Game 1. Cuota +154 puede parecer tentadora pero el riesgo de Robinson aumenta la incertidumbre."
+    },
+    {
+      "matchup": "LAD Dodgers -1.5 (runline)",
+      "liga": "MLB",
+      "razon": "Runline a -115 requiere >53.5% de cobertura para EV+. Dodgers cubriendo 1.5 carreras en un juego de béisbol es menos predecible que el ML. Con ML ya capturamos el valor; la runline sobre-ajusta el riesgo."
+    },
+    {
+      "matchup": "Liga MX",
+      "liga": "Liga MX",
+      "razon": "Clausura 2026 terminado. Final Cruz Azul vs Pachuca se jugó en mayo. Sin partidos hoy."
+    }
+  ],
+
+  "parlay_sugerido": {
+    "descripcion": "Parlay LAD ML + CLE ML con boost Winpot 40%",
+    "patas": [
+      { "partido": "Dodgers ML", "cuota": 1.50 },
+      { "partido": "Guardians ML", "cuota": 2.28 }
+    ],
+    "cuota_total_base": 3.42,
+    "cuota_con_boost": 4.79,
+    "calculo_boost": "3.42 × 1.40 = 4.79 (boost 40% sobre cuota total — verificar estructura exacta del boost en Winpot)",
+    "prob_conjunta": 0.329,
+    "ev_pct_sin_boost": 12.5,
+    "ev_pct_con_boost": 57.6,
+    "stake": "0.5 u",
+    "nota": "Dos picks independientes con EV+ individual. El boost de Winpot transforma un parlay EV+12.5% en EV+57.6%. Stake pequeño porque la prob conjunta es solo 32.9%. Patas califican: cuotas 1.50 y 2.28 (mínimo 1.20 cumplido). VERIFICAR que la cuota total supere 6.0 si aplica el bono de combinadas."
+  },
+
+  "resumen_ejecutivo": [
+    { "pick": "Dodgers ML", "liga": "MLB", "cuota": 1.50, "ev_pct": 5.0, "stake": "2 u", "estrellas": "★★★" },
+    { "pick": "Guardians ML", "liga": "MLB", "cuota": 2.28, "ev_pct": 7.2, "stake": "1 u", "estrellas": "★★" },
+    { "pick": "Spurs -4.5", "liga": "NBA Finals G1", "cuota": 1.91, "ev_pct": 5.0, "stake": "1 u", "estrellas": "★★" },
+    { "pick": "Parlay LAD+CLE (boost)", "liga": "MLB Parlay", "cuota": 4.79, "ev_pct": 57.6, "stake": "0.5 u", "estrellas": "★★" }
+  ]
+}
