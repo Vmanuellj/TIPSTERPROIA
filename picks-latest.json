@@ -1,115 +1,86 @@
 {
   "fecha": "2026-06-04",
   "fecha_display": "Jueves 4 de Junio 2026",
-  "generado_a": "automatico",
-  "fuentes": ["FanDuel Research", "CBS Sports", "SportsLine model", "Baseball-Reference", "BleacherNation"],
-  "nota_lineas": "Lineas de referencia US. Verificar en Winpot/365Scores antes de apostar.",
+  "generado_a": "automatico-v2-actualizado",
+  "fuentes": ["MLB.com", "ESPN", "FanDuel Research", "Covers", "Bettorsinsider", "Athlon Sports", "CBS Sports", "Yahoo Sports / MLB.com injury reports"],
+  "nota_lineas": "Lineas de referencia US (FanDuel/DraftKings/Covers). Verificar en Winpot/365Scores antes de apostar. IMPORTANTE: pick Guardians esta condicionado a Judge OUT — confirmado por mlb.com al momento de generacion.",
 
   "bankroll": {
-    "exposicion_total": "4.5 u",
+    "exposicion_total": "5 u",
     "max_por_juego": "2 u",
-    "nota": "3 picks straight + 1 parlay. ~4.5% de bankroll 100u. Dia sin NBA — Game 2 Finales es manana 5 Jun."
+    "nota": "3 picks straight + 1 parlay sugerido. ~5% bankroll 100u. Sin NBA hoy (Game 2 Finals es 5-Jun). Liga MX terminada (Cruz Azul campeon). ACTUALIZACION CRITICA: Aaron Judge confirmado OUT vs Guardians — bone bruise costillas, 2do juego consecutivo fuera, enviado a imagenes adicionales."
   },
 
   "picks": [
     {
       "liga": "MLB",
-      "matchup": "PHI Phillies vs SD Padres",
-      "hora": "1:05 PM ET",
-      "pick": "Phillies ML",
-      "cuota_winpot": 1.52,
-      "cuota_bet365": 1.52,
-      "prob_implicita": 65.8,
-      "prob_implicita_sin_margen": 62.7,
-      "prob_propia": 69.0,
-      "ev_pct": 5.0,
-      "prob_acierto": 69,
-      "estrellas": 3,
-      "stake": "2 u",
-      "razonamiento": "Zack Wheeler (4-1, 2.27 ERA, 0.85 WHIP) vs Lucas Giolito (2-0, 4.97 ERA). Phillies ganaron los 2 juegos anteriores de la serie. Wheeler entre los mejores en FIP (2.70) y wOBA allowed. Giolito tiene ERA inflado y suele ceder jonrones. EV = 0.69 x 1.52 - 1 = +5.0%. Kelly 1/4 = 2u."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "BOS Red Sox vs BAL Orioles",
-      "hora": "1:35 PM ET",
-      "pick": "Over 10 Carreras",
-      "cuota_winpot": 1.91,
-      "cuota_bet365": 1.91,
-      "prob_implicita": 52.4,
-      "prob_implicita_sin_margen": 49.9,
-      "prob_propia": 58.0,
-      "ev_pct": 10.8,
-      "prob_acierto": 58,
-      "estrellas": 2,
-      "stake": "1 u",
-      "razonamiento": "Brayan Bello (2-5, 5.63 ERA) vs Trevor Rogers (2-6, 6.84 ERA) — dos pitchers entre los peores de su liga esta temporada. Fenway Park favorece el bateo. Con estas rotaciones la barrera de 10 carreras totales se queda corta. EV = 0.58 x 1.91 - 1 = +10.8%. Kelly 1/4 = 1u."
-    },
-    {
-      "liga": "MLB",
       "matchup": "NYY Yankees vs CLE Guardians",
       "hora": "1:35 PM ET",
-      "pick": "Yankees ML",
-      "cuota_winpot": 1.62,
-      "cuota_bet365": 1.62,
-      "prob_implicita": 61.7,
-      "prob_implicita_sin_margen": 58.8,
-      "prob_propia": 64.0,
-      "ev_pct": 3.7,
-      "prob_acierto": 64,
+      "pick": "Cleveland Guardians ML",
+      "cuota_winpot": 2.36,
+      "cuota_bet365": 2.35,
+      "prob_implicita": 0.407,
+      "prob_propia": 0.47,
+      "ev_pct": 10.9,
+      "prob_acierto": 47,
+      "estrellas": 3,
+      "stake": "2 u",
+      "razonamiento": "Aaron Judge CONFIRMADO OUT — bone bruise costillas, mas imagenes solicitadas, fuera por 2do juego consecutivo (serie 0-2 para NYY). Guardians ganaron los 2 primeros juegos (9-4 y 5-4). Rodon con serios problemas: 4.15 ERA real, 1.46 WHIP, 3+ BB por salida, retorno de cirugia de codo. Cecconi cedio 6 ER en ultimas 9.1 IP pero sin Judge NYY pierde su mejor bateador y productor ofensivo. Guardians tienen momentum, Rodon es vulnerable, linea a +136 subestima la probabilidad real. EV = 0.47 x 2.36 - 1 = +10.9%. Kelly 1/4 = 2u."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Atlanta Braves vs Toronto Blue Jays",
+      "hora": "7:15 PM ET",
+      "pick": "Atlanta Braves ML",
+      "cuota_winpot": 1.49,
+      "cuota_bet365": 1.50,
+      "prob_implicita": 0.643,
+      "prob_propia": 0.70,
+      "ev_pct": 4.3,
+      "prob_acierto": 70,
+      "estrellas": 3,
+      "stake": "2 u",
+      "razonamiento": "Chris Sale (8-3, 2.01 ERA, 0.94 WHIP, 80 K en 49 IP) — elite, lider de liga en control — vs Mason Fluharty (3-0, 3.97 ERA, 1.37 WHIP, pitcher joven sin historial extenso). Braves 42-20 overall, 19-10 en casa. Blue Jays 29-33, 12-20 de visita, racha de 4 derrotas consecutivas. Venue + pitching + momento del equipo favorecen claramente a ATL. EV = 0.70 x 1.49 - 1 = +4.3%. Kelly 1/4 = 2.2u, redondeo a 2u."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "PHI Phillies vs SD Padres",
+      "hora": "1:05 PM ET",
+      "pick": "Philadelphia Phillies ML",
+      "cuota_winpot": 1.52,
+      "cuota_bet365": 1.52,
+      "prob_implicita": 0.631,
+      "prob_propia": 0.67,
+      "ev_pct": 1.9,
+      "prob_acierto": 67,
       "estrellas": 2,
       "stake": "1 u",
-      "razonamiento": "Carlos Rodon (1-2, 3.32 ERA) vs Slade Cecconi (3-5, 5.25 ERA). Cecconi tiene FIP negativo en casa visitante y bullpen de Cleveland no inspira confianza. Yankees en casa con ventaja. Modelo SportsLine da 65.7% NYY. EV = 0.64 x 1.62 - 1 = +3.7%. Stake moderado por margen ajustado."
+      "razonamiento": "Zack Wheeler (2.55 ERA, 2.69 FIP) vs Lucas Giolito (4.97 ERA, 1.74 WHIP, 6:12 K:BB en solo 12.2 IP — batters lo dominan). Edge es delgado: xERA de Wheeler en 3.51 y velocidad bajada (94.7 mph vs 96.1 mph previo a cirugia TOS) sugieren posible regresion. Matchup de pitching es favorable pero el -192 ya descuenta gran parte de esa ventaja. Stake minimo, pick de soporte."
     }
   ],
 
   "no_apostar": [
     {
-      "matchup": "SD Padres ML",
+      "matchup": "NYY Yankees ML",
       "liga": "MLB",
-      "razon": "Giolito (4.97 ERA) vs Wheeler ace — pagar +162 por el equipo con el peor pitcher del partido es apostar contra la logica. Sin edge."
+      "razon": "Con Aaron Judge OUT (bone bruise costillas, out por 2do juego consecutivo, mas imaging pendiente), el -162 a favor de NYY es precio equivocado. Sin Judge la ofensiva pierde su motor. Guardians ya ganaron los 2 primeros juegos de la serie. Apostar Yankees es pagar de mas por un equipo sin su MVP."
     },
     {
-      "matchup": "BAL Orioles ML",
+      "matchup": "Kansas City Royals vs Minnesota Twins",
       "liga": "MLB",
-      "razon": "Rogers 6.84 ERA es el peor pitcher del dia. No hay valor en el ML de Baltimore incluso a -104."
+      "razon": "Seth Lugo (3.55 ERA) vs Andrew Morris (4.07 ERA). Diferencial minimo. Royals -118 genera EV aprox -0.3%. Twins +100 genera EV -8%. El vig (~4.1%) consume el pequeno diferencial entre pitchers. Sin edge en ninguna direccion."
     },
     {
-      "matchup": "CLE Guardians ML",
-      "liga": "MLB",
-      "razon": "Cecconi (5.25 ERA) da ventaja real a NYY. Guardians como underdogs en cartelera no ofrece edge suficiente a +124."
-    },
-    {
-      "matchup": "NBA Finals Game 2 — Knicks vs Spurs",
+      "matchup": "NBA Finals Game 2 — NYK Knicks vs SAS Spurs",
       "liga": "NBA",
-      "razon": "Game 2 es manana 5 de junio. Knicks ganaron Game 1 (105-95) con Brunson 30 pts. Las lineas de Game 2 cambiaran antes del tip off — analizar manana con alineaciones confirmadas. Spurs -5.5 en casa post-derrota podria tener valor, pero esperamos data fresca."
+      "razon": "Partido el 5-Jun, no hoy. Spurs -218 en casa tras perder G1 105-95. Precio muy elevado; lineas de G2 pueden moverse significativamente. Knicks +180 podria tener valor como underdog con ventaja de serie — analizar manana con datos de rotaciones y recuperacion post-G1."
     },
     {
-      "matchup": "Zack Wheeler Over Ks",
+      "matchup": "Liga MX — todos los equipos",
+      "liga": "Liga MX",
+      "razon": "Clausura 2026 concluido. Cruz Azul campeon ante Pumas UNAM (global 2-1 en la final). Sin partidos disponibles hasta el Apertura 2026."
+    },
+    {
+      "matchup": "Zack Wheeler Props de Ponches",
       "liga": "MLB",
-      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia. Cualquier prop de ponches por encima de 5.5 esta en zona de regresion. Evitar."
-    }
-  ],
-
-  "parlay_sugerido": {
-    "descripcion": "Parlay Phillies ML + Over BOS/BAL con boost Winpot 40%",
-    "patas": [
-      {"partido": "Phillies ML", "cuota": 1.52},
-      {"partido": "Over 10 BOS/BAL", "cuota": 1.91}
-    ],
-    "cuota_total": 2.90,
-    "cuota_con_boost": 4.06,
-    "calculo_boost": "2.90 x 1.40 = 4.06",
-    "prob_conjunta": 0.400,
-    "ev_pct_sin_boost": 16.0,
-    "ev_pct_con_boost": 62.4,
-    "stake": "0.5 u",
-    "nota": "Correlacion positiva leve: si Giolito da carreras, PHI gana Y sube el total. El boost transforma EV base +16% en +62.4%. Ambas patas califican cuota minima 1.20. Verificar cuota total supere 6.0 para bono combinadas Winpot."
-  },
-
-  "resumen_ejecutivo": [
-    {"pick": "Phillies ML", "liga": "MLB", "cuota": 1.52, "ev_pct": 5.0, "stake": "2 u", "estrellas": "★★★"},
-    {"pick": "Over 10 BOS/BAL", "liga": "MLB", "cuota": 1.91, "ev_pct": 10.8, "stake": "1 u", "estrellas": "★★"},
-    {"pick": "Yankees ML", "liga": "MLB", "cuota": 1.62, "ev_pct": 3.7, "stake": "1 u", "estrellas": "★★"},
-    {"pick": "Parlay PHI+Over (boost)", "liga": "Parlay", "cuota": 4.06, "ev_pct": 62.4, "stake": "0.5 u", "estrellas": "★★"}
-  ]
-}
+      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Cualquier prop Over de ponches por encima de 5.5 esta en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte
