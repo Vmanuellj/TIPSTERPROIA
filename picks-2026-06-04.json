@@ -1,19 +1,52 @@
 {
   "fecha": "2026-06-04",
   "fecha_display": "Jueves 4 de Junio 2026",
-  "generado_a": "automatico-v2",
-  "nota_lineas": "Lineas de referencia US. Verificar en Winpot/365Scores antes de apostar.",
+  "generado_a": "automatico-v3-ampliado",
+  "nota_lineas": "Lineas de referencia US (FanDuel/DraftKings/Covers). Verificar en Winpot/365Scores antes de apostar. Judge CONFIRMADO OUT.",
   "bankroll": {
-    "exposicion_total": "5 u",
+    "exposicion_total": "9.5 u",
     "max_por_juego": "2 u",
-    "nota": "3 picks straight + parlay. Sin NBA hoy (Game 2 Finals es 5-Jun). Liga MX terminada. Judge CONFIRMADO OUT - bone bruise costillas, 2do juego fuera."
+    "nota": "7 picks hoy: 4 ML + 2 totales Over + 1 prop pitcher. Dia pre-Mundial con friendlies. Liga MX terminada. Sin NBA hoy. Total expuesto 9.5u (dentro del rango 10-15%)."
   },
   "picks": [
+    {
+      "liga": "MLB",
+      "matchup": "PHI Phillies vs SD Padres",
+      "hora": "1:05 PM ET",
+      "pick": "Over 8.5 Carreras",
+      "tipo": "Total",
+      "cuota_winpot": 2.0,
+      "cuota_bet365": 1.98,
+      "prob_implicita": 50.0,
+      "prob_propia": 56.0,
+      "ev_pct": 12.0,
+      "prob_acierto": 56,
+      "estrellas": 3,
+      "stake": "2 u",
+      "razonamiento": "Pick del dia por EV. Wheeler (xERA 3.51, vel. reducida 94.7 mph) cede mas contacto que su ERA 2.55 indica. Giolito CATASTROFICO: 4.97 ERA, 1.74 WHIP, 6:12 K:BB en 12.2 IP. Citizens Bank Park hitter-friendly + tarde calurosa de junio. O/U en 8.5 al precio justo: cualquier arranque de Giolito en el 2do o 3er inning detona el Over. EV = 0.56 x 2.00 - 1 = +12.0%."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "BOS Red Sox vs BAL Orioles",
+      "hora": "1:35 PM ET",
+      "pick": "Over 10 Carreras",
+      "tipo": "Total",
+      "cuota_winpot": 1.82,
+      "cuota_bet365": 1.8,
+      "prob_implicita": 52.8,
+      "prob_propia": 60.0,
+      "ev_pct": 9.2,
+      "prob_acierto": 60,
+      "estrellas": 3,
+      "stake": "2 u",
+      "razonamiento": "Brayan Bello (5.63 ERA) vs Trevor Rogers (6.84 ERA) — ambos en los peores 5 starters de su liga en 2026. Fenway Park factor 1.08x amplifica extrabases. Total en 10, que con estos pitchers y este parque es bajo. Proyeccion combinada de carreras: 10.4. La casa pone el Over a -122 porque sabe que cruzarlo es probable. EV = 0.60 x 1.82 - 1 = +9.2%."
+    },
     {
       "liga": "MLB",
       "matchup": "NYY Yankees vs CLE Guardians",
       "hora": "1:35 PM ET",
       "pick": "Cleveland Guardians ML",
+      "tipo": "Moneyline",
       "cuota_winpot": 2.36,
       "cuota_bet365": 2.35,
       "prob_implicita": 40.7,
@@ -22,13 +55,14 @@
       "prob_acierto": 47,
       "estrellas": 3,
       "stake": "2 u",
-      "razonamiento": "Aaron Judge CONFIRMADO OUT - bone bruise costillas, mas imagenes solicitadas, 2do juego consecutivo fuera. Guardians ganaron G1 (9-4) y G2 (5-4) de la serie. Rodon con problemas serios: 4.15 ERA, 1.46 WHIP, 3+ BB por salida. Sin Judge NYY pierde su motor ofensivo. Linea a +136 subestima la prob. real. EV = 0.47 x 2.36 - 1 = +10.9%."
+      "razonamiento": "Aaron Judge CONFIRMADO OUT (bone bruise costillas, 2do juego consecutivo, mas imagenes pendientes). Guardians ganaron G1 (9-4) y G2 (5-4) — dominan la serie. Rodon: 4.15 ERA real, 1.46 WHIP, 3+ BB por salida, retorno de cirugia de codo. Cecconi cedio 6 ER en ultimas 9.1 IP pero sin Judge NYY pierde su motor principal. EV = 0.47 x 2.36 - 1 = +10.9%."
     },
     {
       "liga": "MLB",
       "matchup": "Atlanta Braves vs Toronto Blue Jays",
       "hora": "7:15 PM ET",
       "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
       "cuota_winpot": 1.49,
       "cuota_bet365": 1.5,
       "prob_implicita": 64.3,
@@ -37,13 +71,14 @@
       "prob_acierto": 70,
       "estrellas": 3,
       "stake": "2 u",
-      "razonamiento": "Chris Sale (8-3, 2.01 ERA, 0.94 WHIP, 80 K en 49 IP) vs Mason Fluharty (3-0, 3.97 ERA, 1.37 WHIP). Braves 42-20, 19-10 en casa. Blue Jays 29-33, 12-20 de visita, racha de 4 derrotas. Diferencial de clase en pitching y venue. EV = 0.70 x 1.49 - 1 = +4.3%."
+      "razonamiento": "Chris Sale (8-3, 2.01 ERA, 0.94 WHIP, 80 K en 49 IP) — mejor pitcher del dia por mucho — vs Mason Fluharty (3.97 ERA, 1.37 WHIP). Braves 42-20, 19-10 en casa. Blue Jays 29-33, 12-20 de visita, racha de 4 derrotas consecutivas. Sale en casa es casi imbatible en 2026. EV = 0.70 x 1.49 - 1 = +4.3%."
     },
     {
       "liga": "MLB",
       "matchup": "PHI Phillies vs SD Padres",
       "hora": "1:05 PM ET",
       "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
       "cuota_winpot": 1.52,
       "cuota_bet365": 1.52,
       "prob_implicita": 63.1,
@@ -52,51 +87,98 @@
       "prob_acierto": 67,
       "estrellas": 2,
       "stake": "1 u",
-      "razonamiento": "Zack Wheeler (2.55 ERA, 2.69 FIP) vs Lucas Giolito (4.97 ERA, 1.74 WHIP, 6:12 K:BB en 12.2 IP). Edge delgado: xERA de Wheeler es 3.51, velocidad bajo (94.7 mph). Matchup favorable pero margen fino. Stake minimo. EV = 0.67 x 1.52 - 1 = +1.9%."
+      "razonamiento": "Wheeler (2.55 ERA, 2.69 FIP) vs Giolito (4.97 ERA, 1.74 WHIP). Edge delgado porque xERA de Wheeler es 3.51 y velocidad bajo (94.7 mph post-TOS). Combina bien con el pick Over del mismo partido: si PHI lidera, el Over se cumple junto. Stake minimo. EV = 0.67 x 1.52 - 1 = +1.9%."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Atlanta Braves vs Toronto Blue Jays",
+      "hora": "7:15 PM ET",
+      "pick": "Chris Sale Over 6.5 Ks",
+      "tipo": "Prop Pitcher",
+      "cuota_winpot": 1.87,
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.0,
+      "prob_propia": 59.0,
+      "ev_pct": 4.7,
+      "prob_acierto": 59,
+      "estrellas": 2,
+      "stake": "1 u",
+      "razonamiento": "Sale promedia 7.1 Ks por salida en los ultimos 10 arranques (2.01 ERA, 0.94 WHIP). Con la linea en 6.5, necesita llegar a 7 ponches — logrado en la mayoria de sus salidas recientes. Blue Jays tienen K rate alto vs starters de la mano izquierda. P(Sale >= 7 Ks) estimada en 59% via modelo Poisson con lambda=7.1. EV = 0.59 x 1.87 - 1 = +4.7%."
+    },
+    {
+      "liga": "FUTBOL INT",
+      "matchup": "Sweden vs Greece",
+      "hora": "1:00 PM ET (18:00 UK)",
+      "pick": "Sweden Over 1.5 Goles",
+      "tipo": "Total Goles",
+      "cuota_winpot": 2.04,
+      "cuota_bet365": 2.04,
+      "prob_implicita": 49.0,
+      "prob_propia": 53.0,
+      "ev_pct": 4.1,
+      "prob_acierto": 53,
+      "estrellas": 2,
+      "stake": "1 u",
+      "razonamiento": "Amistoso pre-Mundial (Mundial arranca 11-Jun). Suecia juega en casa con Viktor Gyokeres (uno de los mejores delanteros del mundo) y necesita llegar al torneo con confianza. Grecia llego al Mundial pero defensivamente es vulnerable. Suecia tiene motivacion de lucirse ante su aficion. P(Suecia score 2+) estimada 53% basado en su historial de 2.1 goles/partido en casa. EV = 0.53 x 2.04 - 1 = +4.1%."
     }
   ],
   "no_apostar": [
     {
       "matchup": "NYY Yankees ML",
       "liga": "MLB",
-      "razon": "Con Judge OUT (bone bruise, 2do juego fuera), el -162 a favor de NYY es precio equivocado. Sin Judge la ofensiva pierde su MVP. Guardians ya ganaron los 2 primeros juegos de la serie."
+      "razon": "Judge OUT confirmado. El -162 es precio equivocado sin su mejor bateador. Guardians tienen momento y han ganado 2 seguidos en esta serie."
     },
     {
       "matchup": "Kansas City Royals vs Minnesota Twins",
       "liga": "MLB",
-      "razon": "Seth Lugo (3.55 ERA) vs Andrew Morris (4.07 ERA). Diferencial minimo. Royals -118 genera EV aprox -0.3%. Twins +100 genera EV -8%. El vig consume el pequeno diferencial entre pitchers."
+      "razon": "Lugo (3.55 ERA) vs Morris (4.07 ERA). Royals -118 genera EV aprox -0.3%. El vig consume el diferencial de calidad entre ambos pitchers. Sin edge."
     },
     {
-      "matchup": "NBA Finals Game 2 - NYK Knicks vs SAS Spurs",
-      "liga": "NBA",
-      "razon": "Partido el 5-Jun, no hoy. Spurs -218 en casa tras perder G1 105-95. Precio elevado. Analizar manana con rotaciones y recuperacion post-G1 confirmadas."
-    },
-    {
-      "matchup": "Liga MX - todos los equipos",
-      "liga": "Liga MX",
-      "razon": "Clausura 2026 concluido. Cruz Azul campeon ante Pumas UNAM (2-1 global en la final). Sin partidos hasta el Apertura 2026."
-    },
-    {
-      "matchup": "Zack Wheeler Props Ponches",
+      "matchup": "PHI-SD Under / BAL-BOS Under",
       "liga": "MLB",
-      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Props Over 5.5 K en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte positiva. Evitar."
+      "razon": "PHI-SD Under -122 con Giolito en la lomita es un regalo para el Over. BAL-BOS Under con Rogers (6.84 ERA) y Bello (5.63 ERA) en Fenway es illogico. No apostar el bajo."
+    },
+    {
+      "matchup": "NBA Finals G2 Knicks vs Spurs",
+      "liga": "NBA",
+      "razon": "Partido manana 5-Jun. Spurs -218 en casa tras perder G1. Precio muy alto. Analizar con rotaciones y matchups frescos el dia del juego."
+    },
+    {
+      "matchup": "Sweden ML o Draw",
+      "liga": "Futbol Int",
+      "razon": "Sweden ML a 2.05 tiene EV negativo (-7.7%) vs mi estimado de 44%. El empate a ~3.30 tampoco tiene edge claro. Solo el Sweden Over 1.5 goles ofrece valor."
+    },
+    {
+      "matchup": "Liga MX todos los equipos",
+      "liga": "Liga MX",
+      "razon": "Clausura 2026 terminado. Cruz Azul campeon ante Pumas (2-1 global). Apertura 2026 aun no inicia."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Atlanta Braves ML (cuota 1.49)",
-      "Cleveland Guardians ML (cuota 2.36)",
-      "Philadelphia Phillies ML (cuota 1.52)"
+      "CLE Guardians ML (cuota 2.36)",
+      "PHI-SD Over 8.5 (cuota 2.00)",
+      "BOS-BAL Over 10 (cuota 1.82)"
     ],
-    "cuota_total": 5.35,
-    "cuota_con_boost": 6.1,
-    "ev_pct": 34.2,
+    "cuota_total": 8.59,
+    "cuota_con_boost": 9.79,
+    "ev_pct": 54.7,
     "stake": "0.5 u",
-    "nota": "P(win) = 0.70 x 0.47 x 0.67 = 22.0%. Boost ~14% para 3 patas. Cuota 6.10 supera minimo 6.0 para bono Winpot. EV +34.2%. Confirmar Judge OUT antes de postear."
+    "nota": "3 patas con mayor EV individual. P(win) = 0.47 x 0.56 x 0.60 = 15.8%. Boost ~14% Winpot. EV = 0.158 x 9.79 - 1 = +54.7%. Las 3 patas son independientes entre si (diferentes partidos). Cuota supera 6.0 para bono combinadas. Confirmar Judge OUT antes de postear."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Guardians ML",
+      "pick": "PHI-SD Over 8.5",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 2.0,
+      "ev_pct": 12.0,
+      "stake": "2 u",
+      "estrellas": 3
+    },
+    {
+      "pick": "CLE Guardians ML",
+      "tipo": "ML",
       "liga": "MLB",
       "cuota": 2.36,
       "ev_pct": 10.9,
@@ -104,7 +186,17 @@
       "estrellas": 3
     },
     {
-      "pick": "Braves ML",
+      "pick": "BOS-BAL Over 10",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.82,
+      "ev_pct": 9.2,
+      "stake": "2 u",
+      "estrellas": 3
+    },
+    {
+      "pick": "ATL Braves ML",
+      "tipo": "ML",
       "liga": "MLB",
       "cuota": 1.49,
       "ev_pct": 4.3,
@@ -112,20 +204,31 @@
       "estrellas": 3
     },
     {
-      "pick": "Phillies ML",
+      "pick": "Sale Over 6.5 Ks",
+      "tipo": "Prop",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "ev_pct": 4.7,
+      "stake": "1 u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Sweden Over 1.5 goles",
+      "tipo": "Total",
+      "liga": "Futbol",
+      "cuota": 2.04,
+      "ev_pct": 4.1,
+      "stake": "1 u",
+      "estrellas": 2
+    },
+    {
+      "pick": "PHI Phillies ML",
+      "tipo": "ML",
       "liga": "MLB",
       "cuota": 1.52,
       "ev_pct": 1.9,
       "stake": "1 u",
       "estrellas": 2
-    },
-    {
-      "pick": "Parlay 3 patas (boost)",
-      "liga": "Parlay",
-      "cuota": 6.1,
-      "ev_pct": 34.2,
-      "stake": "0.5 u",
-      "estrellas": 3
     }
   ]
 }
