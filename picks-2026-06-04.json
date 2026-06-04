@@ -19,8 +19,8 @@
       "pick": "Cleveland Guardians ML",
       "cuota_winpot": 2.36,
       "cuota_bet365": 2.35,
-      "prob_implicita": 0.407,
-      "prob_propia": 0.47,
+      "prob_implicita": 40.7,
+      "prob_propia": 47.0,
       "ev_pct": 10.9,
       "prob_acierto": 47,
       "estrellas": 3,
@@ -34,8 +34,8 @@
       "pick": "Atlanta Braves ML",
       "cuota_winpot": 1.49,
       "cuota_bet365": 1.50,
-      "prob_implicita": 0.643,
-      "prob_propia": 0.70,
+      "prob_implicita": 64.3,
+      "prob_propia": 70.0,
       "ev_pct": 4.3,
       "prob_acierto": 70,
       "estrellas": 3,
@@ -49,8 +49,8 @@
       "pick": "Philadelphia Phillies ML",
       "cuota_winpot": 1.52,
       "cuota_bet365": 1.52,
-      "prob_implicita": 0.631,
-      "prob_propia": 0.67,
+      "prob_implicita": 63.1,
+      "prob_propia": 67.0,
       "ev_pct": 1.9,
       "prob_acierto": 67,
       "estrellas": 2,
@@ -83,4 +83,4 @@
     {
       "matchup": "Zack Wheeler Props de Ponches",
       "liga": "MLB",
-      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Cualquier prop Over de ponches por encima de 5.5 esta en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte
+      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Cualquier prop Over de ponches por encima de 5.5 esta en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte po
