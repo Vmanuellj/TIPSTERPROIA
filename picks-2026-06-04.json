@@ -1,16 +1,13 @@
 {
   "fecha": "2026-06-04",
   "fecha_display": "Jueves 4 de Junio 2026",
-  "generado_a": "automatico-v2-actualizado",
-  "fuentes": ["MLB.com", "ESPN", "FanDuel Research", "Covers", "Bettorsinsider", "Athlon Sports", "CBS Sports", "Yahoo Sports / MLB.com injury reports"],
-  "nota_lineas": "Lineas de referencia US (FanDuel/DraftKings/Covers). Verificar en Winpot/365Scores antes de apostar. IMPORTANTE: pick Guardians esta condicionado a Judge OUT — confirmado por mlb.com al momento de generacion.",
-
+  "generado_a": "automatico-v2",
+  "nota_lineas": "Lineas de referencia US. Verificar en Winpot/365Scores antes de apostar.",
   "bankroll": {
     "exposicion_total": "5 u",
     "max_por_juego": "2 u",
-    "nota": "3 picks straight + 1 parlay sugerido. ~5% bankroll 100u. Sin NBA hoy (Game 2 Finals es 5-Jun). Liga MX terminada (Cruz Azul campeon). ACTUALIZACION CRITICA: Aaron Judge confirmado OUT vs Guardians — bone bruise costillas, 2do juego consecutivo fuera, enviado a imagenes adicionales."
+    "nota": "3 picks straight + parlay. Sin NBA hoy (Game 2 Finals es 5-Jun). Liga MX terminada. Judge CONFIRMADO OUT - bone bruise costillas, 2do juego fuera."
   },
-
   "picks": [
     {
       "liga": "MLB",
@@ -25,7 +22,7 @@
       "prob_acierto": 47,
       "estrellas": 3,
       "stake": "2 u",
-      "razonamiento": "Aaron Judge CONFIRMADO OUT — bone bruise costillas, mas imagenes solicitadas, fuera por 2do juego consecutivo (serie 0-2 para NYY). Guardians ganaron los 2 primeros juegos (9-4 y 5-4). Rodon con serios problemas: 4.15 ERA real, 1.46 WHIP, 3+ BB por salida, retorno de cirugia de codo. Cecconi cedio 6 ER en ultimas 9.1 IP pero sin Judge NYY pierde su mejor bateador y productor ofensivo. Guardians tienen momentum, Rodon es vulnerable, linea a +136 subestima la probabilidad real. EV = 0.47 x 2.36 - 1 = +10.9%. Kelly 1/4 = 2u."
+      "razonamiento": "Aaron Judge CONFIRMADO OUT - bone bruise costillas, mas imagenes solicitadas, 2do juego consecutivo fuera. Guardians ganaron G1 (9-4) y G2 (5-4) de la serie. Rodon con problemas serios: 4.15 ERA, 1.46 WHIP, 3+ BB por salida. Sin Judge NYY pierde su motor ofensivo. Linea a +136 subestima la prob. real. EV = 0.47 x 2.36 - 1 = +10.9%."
     },
     {
       "liga": "MLB",
@@ -33,14 +30,14 @@
       "hora": "7:15 PM ET",
       "pick": "Atlanta Braves ML",
       "cuota_winpot": 1.49,
-      "cuota_bet365": 1.50,
+      "cuota_bet365": 1.5,
       "prob_implicita": 64.3,
       "prob_propia": 70.0,
       "ev_pct": 4.3,
       "prob_acierto": 70,
       "estrellas": 3,
       "stake": "2 u",
-      "razonamiento": "Chris Sale (8-3, 2.01 ERA, 0.94 WHIP, 80 K en 49 IP) — elite, lider de liga en control — vs Mason Fluharty (3-0, 3.97 ERA, 1.37 WHIP, pitcher joven sin historial extenso). Braves 42-20 overall, 19-10 en casa. Blue Jays 29-33, 12-20 de visita, racha de 4 derrotas consecutivas. Venue + pitching + momento del equipo favorecen claramente a ATL. EV = 0.70 x 1.49 - 1 = +4.3%. Kelly 1/4 = 2.2u, redondeo a 2u."
+      "razonamiento": "Chris Sale (8-3, 2.01 ERA, 0.94 WHIP, 80 K en 49 IP) vs Mason Fluharty (3-0, 3.97 ERA, 1.37 WHIP). Braves 42-20, 19-10 en casa. Blue Jays 29-33, 12-20 de visita, racha de 4 derrotas. Diferencial de clase en pitching y venue. EV = 0.70 x 1.49 - 1 = +4.3%."
     },
     {
       "liga": "MLB",
@@ -55,32 +52,80 @@
       "prob_acierto": 67,
       "estrellas": 2,
       "stake": "1 u",
-      "razonamiento": "Zack Wheeler (2.55 ERA, 2.69 FIP) vs Lucas Giolito (4.97 ERA, 1.74 WHIP, 6:12 K:BB en solo 12.2 IP — batters lo dominan). Edge es delgado: xERA de Wheeler en 3.51 y velocidad bajada (94.7 mph vs 96.1 mph previo a cirugia TOS) sugieren posible regresion. Matchup de pitching es favorable pero el -192 ya descuenta gran parte de esa ventaja. Stake minimo, pick de soporte."
+      "razonamiento": "Zack Wheeler (2.55 ERA, 2.69 FIP) vs Lucas Giolito (4.97 ERA, 1.74 WHIP, 6:12 K:BB en 12.2 IP). Edge delgado: xERA de Wheeler es 3.51, velocidad bajo (94.7 mph). Matchup favorable pero margen fino. Stake minimo. EV = 0.67 x 1.52 - 1 = +1.9%."
     }
   ],
-
   "no_apostar": [
     {
       "matchup": "NYY Yankees ML",
       "liga": "MLB",
-      "razon": "Con Aaron Judge OUT (bone bruise costillas, out por 2do juego consecutivo, mas imaging pendiente), el -162 a favor de NYY es precio equivocado. Sin Judge la ofensiva pierde su motor. Guardians ya ganaron los 2 primeros juegos de la serie. Apostar Yankees es pagar de mas por un equipo sin su MVP."
+      "razon": "Con Judge OUT (bone bruise, 2do juego fuera), el -162 a favor de NYY es precio equivocado. Sin Judge la ofensiva pierde su MVP. Guardians ya ganaron los 2 primeros juegos de la serie."
     },
     {
       "matchup": "Kansas City Royals vs Minnesota Twins",
       "liga": "MLB",
-      "razon": "Seth Lugo (3.55 ERA) vs Andrew Morris (4.07 ERA). Diferencial minimo. Royals -118 genera EV aprox -0.3%. Twins +100 genera EV -8%. El vig (~4.1%) consume el pequeno diferencial entre pitchers. Sin edge en ninguna direccion."
+      "razon": "Seth Lugo (3.55 ERA) vs Andrew Morris (4.07 ERA). Diferencial minimo. Royals -118 genera EV aprox -0.3%. Twins +100 genera EV -8%. El vig consume el pequeno diferencial entre pitchers."
     },
     {
-      "matchup": "NBA Finals Game 2 — NYK Knicks vs SAS Spurs",
+      "matchup": "NBA Finals Game 2 - NYK Knicks vs SAS Spurs",
       "liga": "NBA",
-      "razon": "Partido el 5-Jun, no hoy. Spurs -218 en casa tras perder G1 105-95. Precio muy elevado; lineas de G2 pueden moverse significativamente. Knicks +180 podria tener valor como underdog con ventaja de serie — analizar manana con datos de rotaciones y recuperacion post-G1."
+      "razon": "Partido el 5-Jun, no hoy. Spurs -218 en casa tras perder G1 105-95. Precio elevado. Analizar manana con rotaciones y recuperacion post-G1 confirmadas."
     },
     {
-      "matchup": "Liga MX — todos los equipos",
+      "matchup": "Liga MX - todos los equipos",
       "liga": "Liga MX",
-      "razon": "Clausura 2026 concluido. Cruz Azul campeon ante Pumas UNAM (global 2-1 en la final). Sin partidos disponibles hasta el Apertura 2026."
+      "razon": "Clausura 2026 concluido. Cruz Azul campeon ante Pumas UNAM (2-1 global en la final). Sin partidos hasta el Apertura 2026."
     },
     {
-      "matchup": "Zack Wheeler Props de Ponches",
+      "matchup": "Zack Wheeler Props Ponches",
       "liga": "MLB",
-      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Cualquier prop Over de ponches por encima de 5.5 esta en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte po
+      "razon": "Wheeler K% bajo de 33.3% a 23.2% en 2026 post-cirugia TOS. Props Over 5.5 K en zona de regresion. xERA 3.51 vs ERA 2.55 indica suerte positiva. Evitar."
+    }
+  ],
+  "parlay_sugerido": {
+    "patas": [
+      "Atlanta Braves ML (cuota 1.49)",
+      "Cleveland Guardians ML (cuota 2.36)",
+      "Philadelphia Phillies ML (cuota 1.52)"
+    ],
+    "cuota_total": 5.35,
+    "cuota_con_boost": 6.1,
+    "ev_pct": 34.2,
+    "stake": "0.5 u",
+    "nota": "P(win) = 0.70 x 0.47 x 0.67 = 22.0%. Boost ~14% para 3 patas. Cuota 6.10 supera minimo 6.0 para bono Winpot. EV +34.2%. Confirmar Judge OUT antes de postear."
+  },
+  "resumen_ejecutivo": [
+    {
+      "pick": "Guardians ML",
+      "liga": "MLB",
+      "cuota": 2.36,
+      "ev_pct": 10.9,
+      "stake": "2 u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Braves ML",
+      "liga": "MLB",
+      "cuota": 1.49,
+      "ev_pct": 4.3,
+      "stake": "2 u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Phillies ML",
+      "liga": "MLB",
+      "cuota": 1.52,
+      "ev_pct": 1.9,
+      "stake": "1 u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Parlay 3 patas (boost)",
+      "liga": "Parlay",
+      "cuota": 6.1,
+      "ev_pct": 34.2,
+      "stake": "0.5 u",
+      "estrellas": 3
+    }
+  ]
+}
