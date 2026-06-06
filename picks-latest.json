@@ -4,9 +4,9 @@
   "generado_a": "automatico",
   "nota_lineas": "Lineas US (FanDuel/DraftKings/Covers). Verificar en Winpot/365Scores. Judge OUT 4-6 sem (fractura estres costilla). Sin NBA hoy (Game 3 es lunes 8-Jun, MSG).",
   "bankroll": {
-    "exposicion_total": "9.5 u",
+    "exposicion_total": "11 u",
     "max_por_juego": "2 u",
-    "nota": "7 picks: 3 ML + 2 totales + 1 total futbol + 1 prop futbol. Pre-Mundial (arranca 11-Jun), 6 amistosos disponibles hoy. Judge OUT 4-6 semanas — Yankees descartados. Sin NBA."
+    "nota": "8 picks: 3 ML + 2 totales + 1 total futbol + 1 prop futbol + 1 ML extra (Rays). Pre-Mundial (arranca 11-Jun), 6 amistosos disponibles hoy. Judge OUT 4-6 semanas — Yankees descartados. Sin NBA (Game 3 lunes). Run 2 agrego pick Rays McClanahan verificado."
   },
   "picks": [
     {
@@ -107,6 +107,22 @@
     },
     {
       "liga": "MLB",
+      "matchup": "TB Rays @ MIA Marlins",
+      "hora": "~13:10 ET",
+      "pick": "Tampa Bay Rays ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.70,
+      "cuota_bet365": 1.68,
+      "prob_implicita": 58.8,
+      "prob_propia": 61.0,
+      "ev_pct": 3.9,
+      "prob_acierto": 61,
+      "estrellas": 3,
+      "stake": "1.5 u",
+      "razonamiento": "McClanahan (6-2, 2.52 ERA, 1.07 WHIP, 50:19 K:BB en 50 IP) es uno de los mejores abridores del beisbol 2026. Los Rays (37-23) enfrentan a Miami (29-35) con Lake Bachar en lomita. Diferencial elite claro. numberFire estima 56.6% Rays; mi estimacion 61% genera EV +3.9% a -142. Kelly 1/4 = 1.4% del bankroll -> 1.5u. Verificado en segunda pasada de busqueda."
+    },
+    {
+      "liga": "MLB",
       "matchup": "NYY Yankees vs BOS Red Sox",
       "hora": "7:35 PM ET",
       "pick": "Boston Red Sox ML",
@@ -187,48 +203,3 @@
     },
     {
       "pick": "SEA Mariners ML",
-      "tipo": "ML",
-      "liga": "MLB",
-      "cuota": 1.74,
-      "ev_pct": 9.7,
-      "stake": "2 u",
-      "estrellas": 3
-    },
-    {
-      "pick": "BOS Red Sox ML",
-      "tipo": "ML",
-      "liga": "MLB",
-      "cuota": 2.14,
-      "ev_pct": 7.0,
-      "stake": "1 u",
-      "estrellas": 2
-    },
-    {
-      "pick": "NYM Mets ML",
-      "tipo": "ML",
-      "liga": "MLB",
-      "cuota": 1.81,
-      "ev_pct": 4.7,
-      "stake": "1.5 u",
-      "estrellas": 2
-    },
-    {
-      "pick": "PIT Pirates ML",
-      "tipo": "ML",
-      "liga": "MLB",
-      "cuota": 2.02,
-      "ev_pct": 5.0,
-      "stake": "1 u",
-      "estrellas": 2
-    },
-    {
-      "pick": "USA vs GER Over 2.5",
-      "tipo": "Total",
-      "liga": "Futbol",
-      "cuota": 1.85,
-      "ev_pct": 5.4,
-      "stake": "1 u",
-      "estrellas": 2
-    }
-  ]
-}
