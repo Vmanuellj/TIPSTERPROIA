@@ -1,0 +1,41 @@
+name: Daily Picks Generator
+
+on:
+  schedule:
+    - cron: '0 10 * * *'   # 5am CDT (UTC-5, horario verano CDMX)
+  workflow_dispatch:         # Botón manual en GitHub para probar
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic requests
+
+      - name: Generate picks
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/generate_picks.py
+
+      - name: Commit and push
+        run: |
+          git config user.email "leunam2900@gmail.com"
+          git config user.name "Tipster Bot [Auto]"
+          FECHA=$(python3 -c "from datetime import datetime,timezone,timedelta; print(datetime.now(timezone(timedelta(hours=-5))).strftime('%Y-%m-%d'))")
+          # Borrar picks viejos (mantener solo el de hoy)
+          find . -maxdepth 1 -name "picks-*.json" ! -name "picks-${FECHA}.json" -delete 2>/dev/null || true
+          git add picks-${FECHA}.json latest.json picks-data.js
+          git diff --cached --quiet || git commit -m "picks diarios ${FECHA} [auto]"
+          git push
