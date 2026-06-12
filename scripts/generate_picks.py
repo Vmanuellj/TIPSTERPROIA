@@ -117,8 +117,18 @@ def write_picks_js(data):
 
     with open("picks-data.js", "w", encoding="utf-8") as f:
         f.write(js_content)
-
     print(f"✅ picks-data.js actualizado")
+
+    # Escribir picks-FECHA.json (archivo diario)
+    json_filename = f"picks-{today}.json"
+    with open(json_filename, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"✅ {json_filename} escrito")
+
+    # Escribir latest.json (siempre apunta a los picks más recientes)
+    with open("latest.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"✅ latest.json actualizado")
 
 if __name__ == "__main__":
     try:

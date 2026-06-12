@@ -1,0 +1,224 @@
+{
+  "fecha": "2026-06-11",
+  "fecha_display": "Jueves 11 de junio de 2026",
+  "generado_a": "automatico",
+  "nota_lineas": "Cuotas Winpot estimadas en base a FanDuel/Bet365 (margen ~4.5%). Juego inaugural Copa del Mundo 2026 en Azteca. Mariners ML estimada ~-125, confirmar antes de apostar. Picks 1-5 ya empezados o por iniciar; picks 4-7 sin iniciar al momento de generacion.",
+  "bankroll": {
+    "exposicion_total": "1.5u",
+    "max_por_juego": "0.25u",
+    "nota": "Kelly fraccional 1/4. Singles: 1.35u + parlay boost: 0.15u. No superar 0.25u en ningun pick individual."
+  },
+  "picks": [
+    {
+      "liga": "MLB",
+      "matchup": "LAD @ PIT",
+      "hora": "6:40 PM EDT",
+      "pick": "Dodgers ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.63,
+      "cuota_bet365": 1.67,
+      "prob_implicita": 58.7,
+      "prob_propia": 64.0,
+      "ev_pct": 4.3,
+      "prob_acierto": 64,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Wrobleski (7-2, 2.62 ERA) vs Keller (5-3, 4.81 ERA): brecha de pitcheo enorme. Dodgers 43-25, mejor record MLB. Keller ha cedido 4.81 ERA, mercado subvalua la diferencial calidad. Dodgers en racha caliente visitando un PNC Park que tiene el peor bullpen del NL Central."
+    },
+    {
+      "liga": "FIFA Copa del Mundo 2026",
+      "matchup": "Mexico vs Sudafrica",
+      "hora": "3:00 PM CT (5:00 PM EDT) - Estadio Azteca",
+      "pick": "Under 2.5 goles",
+      "tipo": "Total Goles",
+      "cuota_winpot": 1.71,
+      "cuota_bet365": 1.69,
+      "prob_implicita": 56.1,
+      "prob_propia": 62.0,
+      "ev_pct": 6.0,
+      "prob_acierto": 62,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "6 de ultimos 7 partidos de Mexico terminaron Under 2.5 (promedio 2.17 goles/partido en victorias). Partidos inaugurales del Mundial historicamente conservadores por nerviosismo y ritmo inicial. Sudafrica jugara repliegue profundo como visitante. Sharp money ha respaldado el Under."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "ATL @ CWS",
+      "hora": "7:40 PM EDT",
+      "pick": "Braves ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.84,
+      "cuota_bet365": 1.82,
+      "prob_implicita": 52.0,
+      "prob_propia": 58.0,
+      "ev_pct": 6.7,
+      "prob_acierto": 58,
+      "estrellas": 2,
+      "stake": "0.2u",
+      "razonamiento": "Martin Perez (4-3, 3.02 ERA) vs Anthony Kay/TBD White Sox. Atlanta es el mejor equipo de MLB (45-23) pero se cotiza solo -119 vs un White Sox 36-31. Total 7 runs anticipa juego cerrado, creando valor en el favorito claro. Braves ganan +60% de sus juegos de visitante."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "CHC @ COL",
+      "hora": "3:10 PM EDT - Coors Field",
+      "pick": "Over 11.0 carreras totales",
+      "tipo": "Total",
+      "cuota_winpot": 1.87,
+      "cuota_bet365": 1.91,
+      "prob_implicita": 51.7,
+      "prob_propia": 57.0,
+      "ev_pct": 6.6,
+      "prob_acierto": 57,
+      "estrellas": 2,
+      "stake": "0.2u",
+      "razonamiento": "Cabrera (4.99 ERA) vs Feltner (4.22 ERA) en Coors Field. Total bajo de 11.5 a 11.0, ofreciendo mejor numero. Factor altitud Coors eleva scoring ~1.5-2 runs/juego vs promedio MLB. Dos lanzadores con ERA elevada en el estadio mas ofensivo del beisbol = escenario explosivo historicamente."
+    },
+    {
+      "liga": "FIFA Copa del Mundo 2026",
+      "matchup": "Mexico vs Sudafrica",
+      "hora": "3:00 PM CT (5:00 PM EDT) - Estadio Azteca",
+      "pick": "Mexico ML (victoria en 90 min)",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.5,
+      "cuota_bet365": 1.48,
+      "prob_implicita": 63.8,
+      "prob_propia": 71.0,
+      "ev_pct": 6.5,
+      "prob_acierto": 71,
+      "estrellas": 2,
+      "stake": "0.2u",
+      "razonamiento": "Partido inaugural en Azteca con 87,000 aficionados. Mexico superior en ranking FIFA, localia historicamente decisiva. Bet365 -209 vs FanDuel -250: dispersion de lineas sugiere valor en casas con mejor precio. Sudafrica no clasifica al Mundial desde 2010, viene con baja forma de preparacion."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "SEA @ BAL",
+      "hora": "7:05 PM EDT",
+      "pick": "Mariners ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.8,
+      "cuota_bet365": 1.83,
+      "prob_implicita": 53.2,
+      "prob_propia": 57.0,
+      "ev_pct": 2.6,
+      "prob_acierto": 57,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Bryan Woo (5-4, 3.74 ERA) vs Kyle Bradish (3-7, 3.89 ERA). Mariners 36-33 tienen mejor record y mejor pitcher de arranque. Bradish con record perdedor y Orioles 32-37 en caida. ADVERTENCIA: linea estimada ~-125; si Winpot tiene -140 o mas, EV se reduce. Verificar antes de apostar."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "LAD @ PIT",
+      "hora": "6:40 PM EDT",
+      "pick": "Dodgers -1.5 (Run Line)",
+      "tipo": "Run Line",
+      "cuota_winpot": 2.2,
+      "cuota_bet365": 2.18,
+      "prob_implicita": 43.3,
+      "prob_propia": 48.0,
+      "ev_pct": 5.6,
+      "prob_acierto": 48,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Extension natural del pick Dodgers ML: con Wrobleski dominando (2.62 ERA) vs Keller (4.81 ERA), victoria por 2+ es escenario probable cuando LA gana. Cuota +120 ofrece mejor retorno que el ML simple. Correlacion directa con Pick #1 (no apostar ambos si buscas diversificacion)."
+    }
+  ],
+  "no_apostar": [
+    {
+      "matchup": "Corea del Sur vs Republica Checa",
+      "liga": "FIFA Copa del Mundo 2026",
+      "razon": "Mercado 3-vias perfectamente calibrado: SK +160, Empate +200, CZE +195. Kalshi: SK 37%, Draw 32%, Czech 33%. Sin edge en ninguna opcion. Chequia Over 2.5 en 5/5 recientes pero linea de goles refleja esto. Tres resultados posibles reducen margen de ventaja."
+    },
+    {
+      "matchup": "Wrobleski Over 4.5 Ks (Prop)",
+      "liga": "MLB",
+      "razon": "Prop a -136 (57.8% implicita ajustada a 55.3%) pero Wrobleski promedia 4.0 Ks/juego en 11 apariciones (44 SO en 11 starts). Su promedio real esta BAJO el prop line de 4.5. La casa cobra premium por encima de su promedio real. Sin edge."
+    },
+    {
+      "matchup": "Rangers @ Royals",
+      "liga": "MLB",
+      "razon": "Rocker (2-5, 3.54 ERA) vs Wacha (4-4, 3.44 ERA): diferencial de ERA practicamente inexistente. No se obtuvieron lineas confirmadas para calcular EV. Sin datos suficientes = sin pick."
+    },
+    {
+      "matchup": "Cardinals @ Mets / D-backs @ Marlins / Twins @ Tigers",
+      "liga": "MLB",
+      "razon": "Partidos en curso al momento de generacion del reporte (innings 2-3). No se aceptan picks mid-game por riesgo de informacion asimetrica y lineas sesgadas en vivo."
+    }
+  ],
+  "parlay_sugerido": {
+    "patas": [
+      "Dodgers ML (cuota 1.63)",
+      "Mexico Under 2.5 goles (cuota 1.71)",
+      "Braves ML (cuota 1.84)"
+    ],
+    "cuota_total": 5.13,
+    "cuota_con_boost": 7.18,
+    "ev_pct": 47.2,
+    "stake": "0.15u",
+    "nota": "3 patas, todas con cuota >= 1.20 (califican para boost Winpot hasta 40%). Combinacion logica: sin correlacion negativa entre patas. Mexico Under 2.5 + Mexico ML son complementarios (Mexico gana 1-0 o 2-0 cashea ambas). EV calculado conservadoramente: 60% x 60% x 57% = 20.5% de hit rate x 7.18 = +47.2% EV. Cuota total original 5.13, necesita ganar 1 de cada 5 parlays para breakeven sin boost."
+  },
+  "resumen_ejecutivo": [
+    {
+      "pick": "Dodgers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.63,
+      "ev_pct": 4.3,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Mexico Under 2.5 goles",
+      "tipo": "Total Goles",
+      "liga": "Copa del Mundo",
+      "cuota": 1.71,
+      "ev_pct": 6.0,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Braves ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.84,
+      "ev_pct": 6.7,
+      "stake": "0.2u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Over 11.0 CHC @ COL (Coors)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "ev_pct": 6.6,
+      "stake": "0.2u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Mexico ML",
+      "tipo": "Moneyline",
+      "liga": "Copa del Mundo",
+      "cuota": 1.5,
+      "ev_pct": 6.5,
+      "stake": "0.2u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Mariners ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "ev_pct": 2.6,
+      "stake": "0.15u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Dodgers -1.5 Run Line",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 2.2,
+      "ev_pct": 5.6,
+      "stake": "0.15u",
+      "estrellas": 2
+    }
+  ]
+}

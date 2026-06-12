@@ -150,15 +150,16 @@ tbody tr:hover td{background:rgba(255,255,255,.02);}
 <script>
 function pad(n){return String(n).padStart(2,'0');}
 function td(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
-var U='/picks-'+td()+'.json';
+var U='/latest.json';
+var U2='/picks-'+td()+'.json';
 function tick(){var n=new Date(),x=new Date(n);x.setHours(5,0,0,0);if(n>=x)x.setDate(x.getDate()+1);var d=x-n;var e=document.getElementById('cdwn');if(e)e.textContent=pad(Math.floor(d/3600000))+':'+pad(Math.floor(d%3600000/60000))+':'+pad(Math.floor(d%60000/1000));}
 setInterval(tick,1000);tick();
 function st(n){var s='',on=n===3?'sc':n===2?'sa':'sg';for(var i=1;i<=3;i++)s+='<span class="si '+(i<=n?on:'so')+'">&#9733;</span>';return'<div class="sr">'+s+'</div>';}
 function eb(ev,id,th){var cls='ef ef'+(th||'c');return'<div class="etr"><div class="'+cls+'" id="'+id+'" data-w="'+Math.min(ev*5,100)+'"></div></div>';}
 function ab(){document.querySelectorAll('.ef').forEach(function(e){setTimeout(function(){e.style.width=e.dataset.w+'%';},100);});}
-function wat(d){var t='&#9889; *TIPSTER PRO IA - '+d.fecha+'*\n\n';(d.picks||[]).forEach(function(p){t+='*'+p.pick+'* ('+p.matchup+')\nEV +'+p.ev_pct+'%  Cuota '+p.cuota_winpot+'  Stake '+p.stake+'\n\n';});var pl=d.parlay_sugerido;if(pl&&pl.patas&&pl.patas.length){t+='PARLAY: '+pl.patas.map(function(x){return typeof x==='object'?x.partido||'':x;}).join(' + ')+'\nBoost: '+pl.cuota_con_boost+' EV +'+pl.ev_pct+'%\n\n';}t+='Exposicion: '+((d.bankroll||{}).exposicion_total||'-')+'\ntipsterproia.netlify.app';return t;}
+function wat(d){var t='&#9889; *TIPSTER PRO IA - '+d.fecha+'*\n\n';(d.picks||[]).forEach(function(p){t+='*'+p.pick+'* ('+p.matchup+')\nEV +'+p.ev_pct+'%  Cuota '+p.cuota_winpot+'  Stake '+p.stake+'\n\n';});var pl=d.parlay_sugerido;if(pl&&pl.patas&&pl.patas.length){t+='PARLAY: '+pl.patas.map(function(x){return typeof x==='object'?x.partido||'':x;}).join(' + ')+'\nBoost: '+pl.cuota_con_boost+' EV +'+pl.ev_pct+'%\n\n';}t+='Exposicion: '+((d.bankroll||{}).exposicion_total||'-')+'\ntipsterproia.vercel.app';return t;}
 function cwa(d){navigator.clipboard.writeText(wat(d)).then(function(){var e=document.getElementById('cpd');if(e){e.style.display='block';setTimeout(function(){e.style.display='none';},2400);}});}
-function gs(d){var c=document.createElement('canvas');c.width=1080;c.height=1920;var ctx=c.getContext('2d');var bg=ctx.createLinearGradient(0,0,1080,1920);bg.addColorStop(0,'#04060f');bg.addColorStop(1,'#080c1a');ctx.fillStyle=bg;ctx.fillRect(0,0,1080,1920);var g=ctx.createRadialGradient(200,300,0,200,300,450);g.addColorStop(0,'rgba(0,212,170,0.3)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,1080,1920);var g2=ctx.createRadialGradient(900,800,0,900,800,400);g2.addColorStop(0,'rgba(124,58,237,0.3)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,1080,1920);var hg=ctx.createLinearGradient(0,0,1080,0);hg.addColorStop(0,'#00d4aa');hg.addColorStop(.5,'#60a5fa');hg.addColorStop(1,'#a78bfa');ctx.fillStyle=hg;ctx.fillRect(0,0,1080,6);ctx.fillStyle='#eef2ff';ctx.font='bold 72px Arial';ctx.fillText('TIPSTER PRO IA',80,140);ctx.fillStyle='#94a3b8';ctx.font='40px Arial';ctx.fillText(d.fecha,80,200);var y=300;(d.picks||[]).slice(0,3).forEach(function(p){var color=p.estrellas===3?'#00d4aa':p.estrellas===2?'#fbbf24':'#94a3b8';ctx.fillStyle='rgba(8,12,26,0.9)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.globalAlpha=0.4;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=color;ctx.fillRect(60,y,6,175);ctx.fillStyle=color;ctx.font='bold 42px Arial';ctx.fillText(p.pick,95,y+58);ctx.fillStyle='#94a3b8';ctx.font='32px Arial';ctx.fillText(p.matchup,95,y+105);ctx.fillStyle='#eef2ff';ctx.font='bold 36px Arial';ctx.fillText('EV +'+p.ev_pct+'%   Cuota '+p.cuota_winpot+'   '+p.stake,95,y+155);y+=200;});ctx.fillStyle='#475569';ctx.font='30px Arial';ctx.fillText('tipsterproia.netlify.app',80,1880);var a=document.createElement('a');a.download='picks-'+d.fecha+'.png';a.href=c.toDataURL();a.click();}
+function gs(d){var c=document.createElement('canvas');c.width=1080;c.height=1920;var ctx=c.getContext('2d');var bg=ctx.createLinearGradient(0,0,1080,1920);bg.addColorStop(0,'#04060f');bg.addColorStop(1,'#080c1a');ctx.fillStyle=bg;ctx.fillRect(0,0,1080,1920);var g=ctx.createRadialGradient(200,300,0,200,300,450);g.addColorStop(0,'rgba(0,212,170,0.3)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,1080,1920);var g2=ctx.createRadialGradient(900,800,0,900,800,400);g2.addColorStop(0,'rgba(124,58,237,0.3)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,1080,1920);var hg=ctx.createLinearGradient(0,0,1080,0);hg.addColorStop(0,'#00d4aa');hg.addColorStop(.5,'#60a5fa');hg.addColorStop(1,'#a78bfa');ctx.fillStyle=hg;ctx.fillRect(0,0,1080,6);ctx.fillStyle='#eef2ff';ctx.font='bold 72px Arial';ctx.fillText('TIPSTER PRO IA',80,140);ctx.fillStyle='#94a3b8';ctx.font='40px Arial';ctx.fillText(d.fecha,80,200);var y=300;(d.picks||[]).slice(0,3).forEach(function(p){var color=p.estrellas===3?'#00d4aa':p.estrellas===2?'#fbbf24':'#94a3b8';ctx.fillStyle='rgba(8,12,26,0.9)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.globalAlpha=0.4;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=color;ctx.fillRect(60,y,6,175);ctx.fillStyle=color;ctx.font='bold 42px Arial';ctx.fillText(p.pick,95,y+58);ctx.fillStyle='#94a3b8';ctx.font='32px Arial';ctx.fillText(p.matchup,95,y+105);ctx.fillStyle='#eef2ff';ctx.font='bold 36px Arial';ctx.fillText('EV +'+p.ev_pct+'%   Cuota '+p.cuota_winpot+'   '+p.stake,95,y+155);y+=200;});ctx.fillStyle='#475569';ctx.font='30px Arial';ctx.fillText('tipsterproia.vercel.app',80,1880);var a=document.createElement('a');a.download='picks-'+d.fecha+'.png';a.href=c.toDataURL();a.click();}
 function render(data){
   var today=td(),fd=data.fecha_display||data.fecha;
   document.getElementById('hDate').innerHTML='<strong>'+fd+'</strong>';
@@ -210,12 +211,18 @@ function render(data){
 }
 function init(){
   var dbg=function(t){var e=document.getElementById('ltxt');if(e)e.textContent=t;};
-  var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
-  dbg('Conectando...');
-  fetch(U,{signal:ctrl.signal})
-    .then(function(r){clearTimeout(tmo);dbg('HTTP '+r.status);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(function(d){render(d);})
-    .catch(function(err){document.getElementById('app').innerHTML='<div class="ebox"><div style="font-size:32px;margin-bottom:10px">&#9888;</div><div style="font-weight:700;margin-bottom:6px">Error al cargar picks</div><div style="font-size:12px;color:var(--tx2)">'+err.message+'<br><br><button onclick="location.reload()" style="margin-top:8px;padding:9px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:var(--tx);cursor:pointer;font-size:13px;font-weight:600">Reintentar</button></div></div>';});
+  function tryFetch(url,fallback){
+    var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
+    dbg('Conectando...');
+    fetch(url,{signal:ctrl.signal})
+      .then(function(r){clearTimeout(tmo);dbg('HTTP '+r.status);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+      .then(function(d){render(d);})
+      .catch(function(err){
+        if(fallback){dbg('Intentando picks del dia...');tryFetch(fallback,null);}
+        else{document.getElementById('app').innerHTML='<div class="ebox"><div style="font-size:32px;margin-bottom:10px">&#9888;</div><div style="font-weight:700;margin-bottom:6px">Error al cargar picks</div><div style="font-size:12px;color:var(--tx2)">'+err.message+'<br><br><button onclick="location.reload()" style="margin-top:8px;padding:9px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:var(--tx);cursor:pointer;font-size:13px;font-weight:600">Reintentar</button></div></div>';}
+      });
+  }
+  tryFetch(U,U2);
 }
 init();
 </script>

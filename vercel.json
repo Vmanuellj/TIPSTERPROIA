@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "framework": null,
+  "routes": [
+    {
+      "src": "/picks-(.*)",
+      "dest": "/picks-$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*).json",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=300, stale-while-revalidate=600" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}
