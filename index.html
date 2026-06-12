@@ -101,7 +101,8 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── TEAM LOGO ──────────────────────────────────── */
 .t-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;}
 .t-logo img{width:100%;height:100%;object-fit:contain;display:block;}
-.t-logo .t-init{font-family:var(--hf);font-weight:900;line-height:1;color:var(--tx2);}
+.t-logo .t-init{font-family:var(--hf);font-weight:900;line-height:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.t-init::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.015) 3px,rgba(255,255,255,.015) 4px);pointer-events:none;z-index:1;}
 .t-flag{font-size:1em;line-height:1;}
 
 /* ─── GOLD PICK CARD ─────────────────────────────── */
@@ -367,6 +368,19 @@ var MLB_IDS={LAD:119,PIT:134,ATL:144,CWS:145,CHW:145,CHC:112,COL:115,SEA:136,BAL
 var NBA_IDS={NYK:1610612752,SAS:1610612759,GSW:1610612744,LAL:1610612747,BOS:1610612738,MIA:1610612748,PHX:1610612756,DEN:1610612743,MIL:1610612749,MEM:1610612745,CLE:1610612739,OKC:1610612760,MIN:1610612750,PHI:1610612755,HOU:1610612745,SAC:1610612758,CHI:1610612741,DAL:1610612742,BKN:1610612751,TOR:1610612761,NOP:1610612740,POR:1610612757,LAC:1610612746,UTA:1610612762,ORL:1610612753,IND:1610612754,ATL:1610612737,CHA:1610612766,DET:1610612765,WAS:1610612764};
 var CUP_FLAGS={MEXICO:'🇲🇽',SUDAFRICA:'🇿🇦','SOUTH AFRICA':'🇿🇦','COREA DEL SUR':'🇰🇷','REPUBLICA CHECA':'🇨🇿',CZECHIA:'🇨🇿','ESTADOS UNIDOS':'🇺🇸',USA:'🇺🇸',BRASIL:'🇧🇷',ARGENTINA:'🇦🇷',ALEMANIA:'🇩🇪',FRANCE:'🇫🇷',FRANCIA:'🇫🇷',ESPANA:'🇪🇸',JAPON:'🇯🇵',PORTUGAL:'🇵🇹',COLOMBIA:'🇨🇴',URUGUAY:'🇺🇾',CHILE:'🇨🇱',ECUADOR:'🇪🇨',CANADA:'🇨🇦',MARRUECOS:'🇲🇦',SENEGAL:'🇸🇳',GHANA:'🇬🇦',CAMERUN:'🇨🇲',CROACIA:'🇭🇷',BELGICA:'🇧🇪',SUIZA:'🇨🇭',IRAN:'🇮🇷','ARABIA SAUDITA':'🇸🇦',AUSTRALIA:'🇦🇺',GALES:'🏴󠁧󠁢󠁷󠁬󠁳󠁿'};
 var TEAM_COLORS={LAD:'#005A9C',PIT:'#FDB827',ATL:'#CE1141',CWS:'#27251F',CHW:'#27251F',CHC:'#0E3386',COL:'#33006F',SEA:'#0C2C56',BAL:'#DF4601',NYY:'#003087',CLE:'#00385D',NYM:'#002D72',STL:'#C41E3A',TEX:'#003278',KC:'#004687',MIL:'#12284B',OAK:'#003831',HOU:'#EB6E1F',MIA:'#00A3E0',ARI:'#A71930',WSH:'#AB0003',WSN:'#AB0003',SF:'#FD5A1E',SFG:'#FD5A1E',SD:'#2F241D',SDP:'#2F241D',PHI:'#E81828',TOR:'#134A8E',MIN:'#002B5C',DET:'#0C2340',TB:'#092C5C',TBR:'#092C5C',BOS:'#BD3039',LAA:'#BA0021',CIN:'#C6011F',NYK:'#F58426',SAS:'#C4CED4',GSW:'#1D428A',LAL:'#FDB927'};
+// Colores neon para badges de fallback (más brillantes que los colores de equipo)
+var NEON_COLORS={
+  LAD:'#00aaff',PIT:'#ffcc00',ATL:'#ff3366',CWS:'#00ffcc',CHW:'#00ffcc',
+  CHC:'#4488ff',COL:'#cc44ff',SEA:'#00ddaa',BAL:'#ff6600',NYY:'#66ccff',
+  CLE:'#00aaff',NYM:'#0077ff',STL:'#ff2244',TEX:'#0066ff',KC:'#4488ff',
+  MIL:'#ffcc00',OAK:'#00ff88',HOU:'#ff8800',MIA:'#00ffcc',ARI:'#ff3300',
+  WSH:'#ff3344',WSN:'#ff3344',SF:'#ff7700',SFG:'#ff7700',SD:'#ffaa44',
+  SDP:'#ffaa44',PHI:'#ff3355',TOR:'#0088ff',MIN:'#ff2244',DET:'#0077cc',
+  TB:'#00aaff',TBR:'#00aaff',BOS:'#ff3344',LAA:'#ff3344',CIN:'#ff2244',
+  NYK:'#ff8800',SAS:'#00ccff',GSW:'#ffcc00',LAL:'#ffcc00',BOS_NBA:'#00ff88',
+  MIA_NBA:'#ff0066',PHX:'#ff6600',DEN:'#ffcc00',MIL_NBA:'#00ff88',
+  OKC:'#00aaff',DEN:'#ffcc00',LAC:'#0077ff',LAL:'#ffcc00'
+};
 
 function normName(n){
   return n.replace(/[ÁÀÂÄ]/g,'A').replace(/[ÉÈÊË]/g,'E').replace(/[ÍÌÎÏ]/g,'I').replace(/[ÓÒÔÖ]/g,'O').replace(/[ÚÙÛÜ]/g,'U').replace(/Ñ/g,'N');
@@ -377,10 +391,12 @@ function getInitials(n){
 }
 // Función global para manejar error de logo (evita quotes anidadas en onerror)
 window._logoErr=function(img,abbr,sport){
-  var col=TEAM_COLORS[abbr]||{mlb:'#1e3a8a',nba:'#1e3a5f',copa:'#14532d',futbol:'#14532d',otros:'#1e293b'}[sport]||'#1e293b';
+  var nc=NEON_COLORS[abbr]||{mlb:'#00aaff',nba:'#00aaff',copa:'#00ffcc',futbol:'#00ffcc',otros:'#00e5b4'}[sport]||'#00e5b4';
   var ini=getInitials(abbr);
   var sz=parseInt(img.parentNode.style.width)||40;
-  img.parentNode.innerHTML='<span class="t-init" style="font-size:'+Math.round(sz*.34)+'px;background:'+col+';width:100%;height:100%;border-radius:'+Math.round(sz*.18)+'px">'+ini+'</span>';
+  var r=Math.round(sz*.16);
+  var fs=Math.round(sz*.36);
+  img.parentNode.innerHTML='<span class="t-init" style="font-size:'+fs+'px;color:'+nc+';text-shadow:0 0 '+Math.round(sz*.22)+'px '+nc+',0 0 '+Math.round(sz*.4)+'px '+nc+'55;background:#010812;width:100%;height:100%;border-radius:'+r+'px;border:1.5px solid '+nc+';box-shadow:0 0 '+Math.round(sz*.25)+'px '+nc+'66,inset 0 0 '+Math.round(sz*.3)+'px '+nc+'11;letter-spacing:-.5px">'+ini+'</span>';
 };
 
 function logoHTML(rawName,liga,sizePx){
@@ -413,12 +429,13 @@ function logoHTML(rawName,liga,sizePx){
       '</div>';
     }
   }
-  // Fallback → iniciales badge
-  var fbC={mlb:'#1e3a8a',nba:'#1e3a5f',copa:'#14532d',futbol:'#14532d',otros:'#1e293b'}[sport]||'#1e293b';
-  var ini=getInitials(name||'—');
+  // Fallback neon badge
+  var nc2=NEON_COLORS[name]||{mlb:'#00aaff',nba:'#00aaff',copa:'#00ffcc',futbol:'#00ffcc',otros:'#00e5b4'}[sport]||'#00e5b4';
+  var ini=getInitials(name||'\u2014');
+  var r2=Math.round(sz*.16),fs2=Math.round(sz*.36);
   return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
-    '<span class="t-init" style="font-size:'+Math.round(sz*.34)+'px;background:'+fbC+';width:100%;height:100%;border-radius:'+Math.round(sz*.18)+'px">'+ini+'</span>'+
-  '</div>';
+    '<span class="t-init" style="font-size:'+fs2+'px;color:'+nc2+';text-shadow:0 0 '+Math.round(sz*.22)+'px '+nc2+',0 0 '+Math.round(sz*.4)+'px '+nc2+'55;background:#010812;width:100%;height:100%;border-radius:'+r2+'px;border:1.5px solid '+nc2+';box-shadow:0 0 '+Math.round(sz*.25)+'px '+nc2+'66,inset 0 0 '+Math.round(sz*.3)+'px '+nc2+'11;letter-spacing:-.5px">'+ini+'</span>'+
+  '</div>;
 }
 
 // ─── SVG HELPERS ─────────────────────────────────────────────────────────────
