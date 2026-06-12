@@ -126,8 +126,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── TEAM LOGO ──────────────────────────────────── */
 .t-logo{display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;}
 .t-logo img{width:100%;height:100%;object-fit:contain;display:block;}
-.t-logo .t-init{font-family:var(--hf);font-weight:900;line-height:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
-.t-init::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,.015) 3px,rgba(255,255,255,.015) 4px);pointer-events:none;z-index:1;}
+.t-logo .t-init{font-family:var(--hf);font-weight:900;line-height:1;display:flex;align-items:center;justify-content:center;letter-spacing:1px;}
 .t-flag{font-size:1em;line-height:1;}
 
 /* ─── GOLD PICK CARD ─────────────────────────────── */
@@ -306,16 +305,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 <div class="topbar">
   <div class="tb-inner">
     <div class="tb-hdr">
-      <div class="logo">
-  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-right:7px;vertical-align:middle">
-    <circle cx="12" cy="12" r="9.5" stroke="#00e5b4" stroke-width="1.4"/>
-    <circle cx="12" cy="12" r="5" stroke="#60a5fa" stroke-width="1.4"/>
-    <circle cx="12" cy="12" r="1.8" fill="#00e5b4"/>
-    <line x1="2.5" y1="12" x2="7" y2="12" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="17" y1="12" x2="21.5" y2="12" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="12" y1="2.5" x2="12" y2="7" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
-    <line x1="12" y1="17" x2="12" y2="21.5" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
-  </svg>TIPSTER PRO <span class="logo-star">★</span></div>
+      <div class="logo">TIPSTER PRO <span class="logo-star">★</span></div>
       <div class="tb-right">
         <div class="live-badge"><div class="live-dot"></div>LIVE</div>
         <div class="hdr-date">
@@ -428,9 +418,21 @@ window._logoErr=function(img,abbr,sport){
   var nc=NEON_COLORS[abbr]||{mlb:'#00aaff',nba:'#00aaff',copa:'#00ffcc',futbol:'#00ffcc',otros:'#00e5b4'}[sport]||'#00e5b4';
   var ini=getInitials(abbr);
   var sz=parseInt(img.parentNode.style.width)||40;
-  var r=Math.round(sz*.16);
-  var fs=Math.round(sz*.36);
-  img.parentNode.innerHTML='<span class="t-init" style="font-size:'+fs+'px;color:'+nc+';text-shadow:0 0 '+Math.round(sz*.22)+'px '+nc+',0 0 '+Math.round(sz*.4)+'px '+nc+'55;background:#010812;width:100%;height:100%;border-radius:'+r+'px;border:1.5px solid '+nc+';box-shadow:0 0 '+Math.round(sz*.25)+'px '+nc+'66,inset 0 0 '+Math.round(sz*.3)+'px '+nc+'11;letter-spacing:-.5px">'+ini+'</span>';
+  var r=Math.round(sz*.14);
+  var fs=Math.round(sz*.38);
+  var g=Math.round(sz*.2);
+  img.parentNode.innerHTML='<span class="t-init" style="'+
+    'font-size:'+fs+'px;'+
+    'color:'+nc+';'+
+    'text-shadow:0 0 '+g+'px '+nc+',0 0 '+(g*2)+'px '+nc+'66;'+
+    'background:#000;'+
+    'background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);'+
+    'background-size:4px 4px;'+
+    'width:100%;height:100%;'+
+    'border-radius:'+r+'px;'+
+    'border:2px solid '+nc+';'+
+    'box-shadow:0 0 0 1px rgba(0,0,0,.8),0 0 '+g+'px '+nc+'99,0 0 '+(g*2)+'px '+nc+'44,inset 0 0 '+g+'px '+nc+'18;'+
+    'letter-spacing:1px">'+ini+'</span>';
 };
 
 function logoHTML(rawName,liga,sizePx){
@@ -463,12 +465,23 @@ function logoHTML(rawName,liga,sizePx){
       '</div>';
     }
   }
-  // Fallback neon badge
+  // Fallback LED panel badge
   var nc2=NEON_COLORS[name]||{mlb:'#00aaff',nba:'#00aaff',copa:'#00ffcc',futbol:'#00ffcc',otros:'#00e5b4'}[sport]||'#00e5b4';
   var ini=getInitials(name||'\u2014');
-  var r2=Math.round(sz*.16),fs2=Math.round(sz*.36);
+  var r2=Math.round(sz*.14),fs2=Math.round(sz*.38),g2=Math.round(sz*.2);
   return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
-    '<span class="t-init" style="font-size:'+fs2+'px;color:'+nc2+';text-shadow:0 0 '+Math.round(sz*.22)+'px '+nc2+',0 0 '+Math.round(sz*.4)+'px '+nc2+'55;background:#010812;width:100%;height:100%;border-radius:'+r2+'px;border:1.5px solid '+nc2+';box-shadow:0 0 '+Math.round(sz*.25)+'px '+nc2+'66,inset 0 0 '+Math.round(sz*.3)+'px '+nc2+'11;letter-spacing:-.5px">'+ini+'</span>'+
+    '<span class="t-init" style="'+
+      'font-size:'+fs2+'px;'+
+      'color:'+nc2+';'+
+      'text-shadow:0 0 '+g2+'px '+nc2+',0 0 '+(g2*2)+'px '+nc2+'66;'+
+      'background:#000;'+
+      'background-image:radial-gradient(circle,rgba(255,255,255,.07) 1px,transparent 1px);'+
+      'background-size:4px 4px;'+
+      'width:100%;height:100%;'+
+      'border-radius:'+r2+'px;'+
+      'border:2px solid '+nc2+';'+
+      'box-shadow:0 0 0 1px rgba(0,0,0,.8),0 0 '+g2+'px '+nc2+'99,0 0 '+(g2*2)+'px '+nc2+'44,inset 0 0 '+g2+'px '+nc2+'18;'+
+      'letter-spacing:1px">'+ini+'</span>'+
   '</div>';
 }
 
