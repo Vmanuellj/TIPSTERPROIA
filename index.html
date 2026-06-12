@@ -92,6 +92,31 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .dst{background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rd);padding:12px 16px;text-align:center;min-width:76px;}
 .dst-v{font-family:var(--hf);font-size:28px;font-weight:900;line-height:1;}
 .dst-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:3px;font-weight:600;}
+/* NUEVO HERO REPORT */
+.hero-report{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);overflow:hidden;margin-bottom:22px;}
+.hr-top{background:linear-gradient(90deg,rgba(0,229,180,.1),rgba(96,165,250,.06),transparent);border-bottom:1px solid var(--bd);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.hr-brand{display:flex;align-items:center;gap:10px;}
+.hr-brand-ico{width:36px;height:36px;border-radius:var(--rds);background:var(--cyd);border:1px solid var(--cyb);display:flex;align-items:center;justify-content:center;}
+.hr-brand-txt{}
+.hr-brand-name{font-family:var(--hf);font-size:16px;font-weight:900;letter-spacing:-.3px;background:linear-gradient(105deg,#00e5b4,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hr-brand-sub{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);margin-top:1px;}
+.hr-date{text-align:right;}
+.hr-date-main{font-family:var(--hf);font-size:15px;font-weight:800;letter-spacing:-.2px;color:var(--tx);}
+.hr-date-sub{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);margin-top:2px;}
+.hr-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.hrs{padding:14px 8px;text-align:center;border-right:1px solid var(--bd);position:relative;}
+.hrs:last-child{border-right:none;}
+.hrs-v{font-family:var(--hf);font-size:30px;font-weight:900;line-height:1;}
+.hrs-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:3px;font-weight:600;}
+.hrs-bar{position:absolute;bottom:0;left:10%;right:10%;height:2px;border-radius:99px;}
+.hr-sports{padding:10px 20px;border-top:1px solid var(--bd);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.sport-tag{font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;padding:3px 10px;border-radius:99px;border:1px solid;}
+.st-mlb{color:var(--cy);background:var(--cyd);border-color:var(--cyb);}
+.st-nba{color:var(--am);background:var(--amd);border-color:var(--amb);}
+.st-copa{color:var(--pu);background:var(--pud);border-color:var(--pub);}
+.st-futbol{color:var(--gr);background:var(--grd);border-color:var(--grb);}
+.hr-method{margin-left:auto;font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);}
+@media(max-width:500px){.hr-stats{grid-template-columns:repeat(2,1fr);}.hrs:nth-child(2){border-right:none;}.hrs:nth-child(3){border-top:1px solid var(--bd)}}
 
 /* ─── NEWS BAR ───────────────────────────────────── */
 .news-bar{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
@@ -281,7 +306,16 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 <div class="topbar">
   <div class="tb-inner">
     <div class="tb-hdr">
-      <div class="logo">TIPSTER PRO <span class="logo-star">★</span></div>
+      <div class="logo">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;margin-right:7px;vertical-align:middle">
+    <circle cx="12" cy="12" r="9.5" stroke="#00e5b4" stroke-width="1.4"/>
+    <circle cx="12" cy="12" r="5" stroke="#60a5fa" stroke-width="1.4"/>
+    <circle cx="12" cy="12" r="1.8" fill="#00e5b4"/>
+    <line x1="2.5" y1="12" x2="7" y2="12" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="17" y1="12" x2="21.5" y2="12" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="12" y1="2.5" x2="12" y2="7" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
+    <line x1="12" y1="17" x2="12" y2="21.5" stroke="#00e5b4" stroke-width="1.4" stroke-linecap="round"/>
+  </svg>TIPSTER PRO <span class="logo-star">★</span></div>
       <div class="tb-right">
         <div class="live-badge"><div class="live-dot"></div>LIVE</div>
         <div class="hdr-date">
@@ -663,18 +697,46 @@ function render(data){
     var best=picks.slice().sort(function(a,b){return((b.estrellas||0)-(a.estrellas||0))||((b.ev_pct||0)-(a.ev_pct||0));})[0];
     var rest=picks.filter(function(p){return p!==best;});
     var ligaSet=[...new Set(picks.map(function(p){return getSport(p.liga).toUpperCase();}))];
+    var goldPicks=picks.filter(function(p){return(p.estrellas||0)>=3;}).length;
+    var ev5Picks=picks.filter(function(p){return(p.ev_pct||0)>5;}).length;
+    var avgEV=picks.length?picks.reduce(function(a,p){return a+(p.ev_pct||0);},0)/picks.length:0;
+    var sportTags=Object.entries(SC).filter(function(e){return e[1]>0;}).map(function(e){
+      var labels={mlb:'⚾ MLB',nba:'🏀 NBA',copa:'🏆 COPA',futbol:'⚽ FÚTBOL'};
+      var cls={mlb:'st-mlb',nba:'st-nba',copa:'st-copa',futbol:'st-futbol'};
+      return'<span class="sport-tag '+(cls[e[0]]||'st-mlb')+'">'+(labels[e[0]]||e[0].toUpperCase())+' '+e[1]+'</span>';
+    }).join('');
     var heroHTML=
-      '<div class="date-hero">'+
-        '<div>'+
-          '<div class="dh-eyebrow">ANÁLISIS EV+ · QUARTER-KELLY</div>'+
-          '<div class="dh-title"><span class="dh-grad">TIPSTER</span><br>PRO IA</div>'+
-          '<div class="dh-sub">'+ligaSet.join(' · ')+' · <b>'+total+' PICKS HOY</b></div>'+
+      '<div class="hero-report">'+
+        '<div class="hr-top">'+
+          '<div class="hr-brand">'+
+            '<div class="hr-brand-ico">'+
+              '<svg width="20" height="20" viewBox="0 0 24 24" fill="none">'+
+                '<circle cx="12" cy="12" r="9.5" stroke="#00e5b4" stroke-width="1.5"/>'+
+                '<circle cx="12" cy="12" r="5" stroke="#60a5fa" stroke-width="1.5"/>'+
+                '<circle cx="12" cy="12" r="2" fill="#00e5b4"/>'+
+                '<line x1="2.5" y1="12" x2="7" y2="12" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="17" y1="12" x2="21.5" y2="12" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="12" y1="2.5" x2="12" y2="7" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="12" y1="17" x2="12" y2="21.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
+              '</svg>'+
+            '</div>'+
+            '<div class="hr-brand-txt">'+
+              '<div class="hr-brand-name">TIPSTER PRO IA</div>'+
+              '<div class="hr-brand-sub">ANÁLISIS CUANTITATIVO · VALOR ESPERADO</div>'+
+            '</div>'+
+          '</div>'+
+          '<div class="hr-date">'+
+            '<div class="hr-date-main">'+fmtDate(new Date()).toUpperCase()+'</div>'+
+            '<div class="hr-date-sub">REPORTE DIARIO AUTOMÁTICO</div>'+
+          '</div>'+
         '</div>'+
-        '<div class="dh-stats">'+
-          '<div class="dst"><div class="dst-v" style="color:var(--cy)">'+total+'</div><div class="dst-l">Picks</div></div>'+
-          '<div class="dst"><div class="dst-v" style="color:var(--am)">'+picks.filter(function(p){return(p.estrellas||0)>=3;}).length+'</div><div class="dst-l">Gold ★★★</div></div>'+
-          '<div class="dst"><div class="dst-v" style="color:var(--gr)">'+picks.filter(function(p){return(p.ev_pct||0)>5;}).length+'</div><div class="dst-l">EV&gt;5%</div></div>'+
+        '<div class="hr-stats">'+
+          '<div class="hrs"><div class="hrs-v" style="color:var(--cy)">'+total+'</div><div class="hrs-l">Picks Hoy</div><div class="hrs-bar" style="background:var(--cy)"></div></div>'+
+          '<div class="hrs"><div class="hrs-v" style="color:var(--am)">'+goldPicks+'</div><div class="hrs-l">Gold ★★★</div><div class="hrs-bar" style="background:var(--am)"></div></div>'+
+          '<div class="hrs"><div class="hrs-v" style="color:var(--gr)">'+ev5Picks+'</div><div class="hrs-l">EV &gt; 5%</div><div class="hrs-bar" style="background:var(--gr)"></div></div>'+
+          '<div class="hrs"><div class="hrs-v" style="color:var(--bl)">'+avgEV.toFixed(1)+'<span style="font-size:14px">%</span></div><div class="hrs-l">EV Promedio</div><div class="hrs-bar" style="background:var(--bl)"></div></div>'+
         '</div>'+
+        '<div class="hr-sports">'+sportTags+'<div class="hr-method">Q-KELLY · WINPOT MXN</div></div>'+
       '</div>';
     var newsHTML=data.nota_lineas?'<div class="news-bar"><div class="news-tag">NOTA</div><div class="news-txt">'+data.nota_lineas+'</div></div>':'';
     var goldHdr=best?'<div class="sh"><div class="sh-ico" style="background:var(--amd);color:var(--am)">'+useIco('ico-star')+'</div><div class="sh-title">PICK DEL DÍA</div><div class="sh-line"></div><div class="sh-ct">CONFIANZA MÁXIMA</div></div>':'';
