@@ -1,230 +1,274 @@
 {
   "fecha": "2026-06-11",
-  "fecha_display": "Jueves 11 de junio, 2026 — INAUGURACION FIFA WORLD CUP 2026",
-  "generado_a": "automatico",
-  "nota_lineas": "Cuotas Winpot estimadas con base en FanDuel, BetMGM y Bet365 (referencia). Verificar en Winpot antes de apostar — SK vs CZE Under 2.5 linea no confirmada directamente en Winpot.",
+  "fecha_display": "Jueves 11 de Junio 2026",
+  "generado_a": "automatico-github-actions",
+  "nota_lineas": "Datos: MLB Stats API + The Odds API. Cuotas Winpot estimadas.",
   "bankroll": {
-    "exposicion_total": "7.5u",
-    "max_por_juego": "2u (Mexico ML)",
-    "nota": "1u = ~2% bankroll. Exposicion total ~15%. ALERTA: 3u expuestos a Mexico (2u ML + 1u Under, correlacion alta ~0.85). Braves juego tiene 2u (1u ML + 1u prop Perez, correlacion parcial). Ajustar si bankroll es limitado."
+    "exposicion_total": "1.55u",
+    "max_por_juego": "0.3u",
+    "nota": "Kelly 1/4"
   },
   "picks": [
     {
       "liga": "FIFA World Cup 2026",
-      "matchup": "Mexico vs South Africa",
-      "hora": "15:00 CST / 16:00 EDT — Estadio Azteca",
-      "pick": "Mexico ML",
+      "matchup": "Curaçao @ Germany",
+      "hora": "12:00 PM EDT",
+      "pick": "Germany ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.05,
+      "cuota_bet365": 1.05,
+      "prob_implicita": 95.2,
+      "prob_propia": 98.5,
+      "ev_pct": 3.4,
+      "prob_acierto": 98,
+      "estrellas": 2,
+      "stake": "0.2u",
+      "razonamiento": "Alemania es amplio favorito ante Curaçao (población 150k). El diferencial de calidad es abismal. Aunque la cuota es baja, la probabilidad de victoria alemana supera el 98%. EV positivo por la certeza casi absoluta del resultado."
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Cape Verde @ Spain",
+      "hora": "3:00 PM EDT",
+      "pick": "Spain -1.5 (Over 3.5 Total)",
+      "tipo": "Total Goles",
+      "cuota_winpot": 1.91,
+      "cuota_bet365": 1.91,
+      "prob_implicita": 50.1,
+      "prob_propia": 57.0,
+      "ev_pct": 8.9,
+      "prob_acierto": 57,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "España domina posesión y genera ocasiones. Cabo Verde es selección limitada. El Over 3.5 tiene valor dado el diferencial ofensivo. España debería marcar 3+ goles en este contexto de Mundial con ritmo alto."
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Switzerland @ Qatar",
+      "hora": "9:00 AM EDT",
+      "pick": "Switzerland ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.22,
+      "cuota_bet365": 1.22,
+      "prob_implicita": 78.5,
+      "prob_propia": 84.0,
+      "ev_pct": 2.5,
+      "prob_acierto": 84,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Suiza es selección consistente de primer nivel europeo. Qatar demostró limitaciones en su Mundial 2022. El diferencial de calidad justifica la cuota corta con EV marginal positivo."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Los Angeles Dodgers @ Chicago White Sox",
+      "hora": "8:10 PM EDT",
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.7,
+      "cuota_bet365": 1.7,
+      "prob_implicita": 56.3,
+      "prob_propia": 63.0,
+      "ev_pct": 7.1,
+      "prob_acierto": 63,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Dodgers con roster elite vs White Sox en reconstrucción. Chicago proyectaba <70 victorias. LA tiene ventaja en pitching, lineup y bullpen. La línea -142 subestima el diferencial real entre estos equipos."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Seattle Mariners @ Washington Nationals",
+      "hora": "6:45 PM EDT",
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.68,
+      "cuota_bet365": 1.68,
+      "prob_implicita": 56.9,
+      "prob_propia": 62.5,
+      "ev_pct": 5.0,
+      "prob_acierto": 62,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Seattle tiene rotación sólida y bullpen top-10. Nationals en rebuild con pitching inconsistente. Mariners favorecidos en matchup interligas. Línea -148 ofrece valor dado el diferencial de calidad."
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Scotland @ Haiti",
+      "hora": "6:00 PM EDT",
+      "pick": "Scotland ML",
+      "tipo": "Moneyline",
+      "cuota_winpot": 1.57,
+      "cuota_bet365": 1.57,
+      "prob_implicita": 60.9,
+      "prob_propia": 68.0,
+      "ev_pct": 6.8,
+      "prob_acierto": 68,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Escocia cuenta con jugadores de Premier League y experiencia en Euros. Haití tiene plantel limitado de ligas menores. El diferencial técnico-táctico es significativo. La línea -175 tiene valor."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Philadelphia Phillies @ Milwaukee Brewers",
+      "hora": "8:10 PM EDT",
+      "pick": "Milwaukee Brewers ML",
       "tipo": "Moneyline",
       "cuota_winpot": 1.43,
-      "cuota_bet365": 1.48,
-      "prob_implicita": 69.9,
-      "prob_propia": 76.0,
-      "ev_pct": 8.68,
-      "prob_acierto": 76,
-      "estrellas": 3,
-      "stake": "2u",
-      "razonamiento": "Mexico invicto en 2026 (6-2-0 ultimos 8 partidos), goleo 5-1 a Serbia en preparacion. Juega en casa ante 87k aficionados en Azteca. Sudafrica en pesima forma (0-3-2 en 2026), sin gol en mayoria de partidos recientes. Lineup completo de Mexico: Alvarez, Gimenez y Montes aptos. Cuota de 1.43 infravalora ventaja real estimada en 76%."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Mexico vs South Africa",
-      "hora": "15:00 CST / 16:00 EDT — Estadio Azteca",
-      "pick": "Under 2.5 goles",
-      "tipo": "Total Goles",
-      "cuota_winpot": 1.65,
-      "cuota_bet365": 1.7,
-      "prob_implicita": 60.6,
-      "prob_propia": 64.0,
-      "ev_pct": 5.6000000000000005,
-      "prob_acierto": 64,
-      "estrellas": 3,
-      "stake": "1u",
-      "razonamiento": "Mexico promedió 2.17 goles/partido en victorias del Gold Cup 2025; 6 de sus ultimos 7 juegos Under 2.5. Sudafrica defensiva y sin ataque real — planteamiento de bus esperado. Correlacion positiva con Mexico ML: si ganan 1-0 o 2-0, ambas patas ganan. Ligero riesgo si Mexico arrasa 3+."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Atlanta Braves @ Chicago White Sox",
-      "hora": "18:40 CST / 19:40 EDT — Rate Field",
-      "pick": "Martin Perez Over 4.5 Ks",
-      "tipo": "Prop Pitcher",
-      "cuota_winpot": 2.08,
-      "cuota_bet365": 2.0,
-      "prob_implicita": 48.1,
-      "prob_propia": 54.0,
-      "ev_pct": 12.32,
-      "prob_acierto": 54,
-      "estrellas": 3,
-      "stake": "1u",
-      "razonamiento": "Perez acumula K/9 de 7.47 en 56.2 IP en 2026 (47 Ks). Promedio de 4.76 Ks/inicio; P(>=5 Ks) ~53-54% por modelo Poisson. Cuota de +108 solo requiere 48.1% — hay edge de 12.3% EV. Enfrenta lineup de White Sox con alta tasa de ponches. Mayor pick de valor relativo hoy en MLB."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "LA Dodgers @ Pittsburgh Pirates",
-      "hora": "17:40 CST / 18:40 EDT — PNC Park",
-      "pick": "Dodgers ML",
-      "tipo": "Moneyline",
-      "cuota_winpot": 1.62,
-      "cuota_bet365": 1.65,
-      "prob_implicita": 61.7,
-      "prob_propia": 67.0,
-      "ev_pct": 8.540000000000001,
-      "prob_acierto": 67,
+      "cuota_bet365": 1.43,
+      "prob_implicita": 66.9,
+      "prob_propia": 72.0,
+      "ev_pct": 2.9,
+      "prob_acierto": 72,
       "estrellas": 2,
-      "stake": "1u",
-      "razonamiento": "Wrobleski (7-2, 2.62 ERA, xERA 3.82, FIP 3.22): 1 CE en 13 IP en ultimas 2 salidas. Keller cedió 24 CE en 26 IP en sus ultimas 5 aperturas (4+ CE en 4 de 5). Dodgers son el mejor equipo de MLB (43-25). La cuota a -149 subestima la diferencia real entre ambos pitchers y clubes."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Atlanta Braves @ Chicago White Sox",
-      "hora": "18:40 CST / 19:40 EDT — Rate Field",
-      "pick": "Braves ML",
-      "tipo": "Moneyline",
-      "cuota_winpot": 1.8,
-      "cuota_bet365": 1.82,
-      "prob_implicita": 55.6,
-      "prob_propia": 62.0,
-      "ev_pct": 11.600000000000001,
-      "prob_acierto": 62,
-      "estrellas": 2,
-      "stake": "1u",
-      "razonamiento": "Braves (45-23, mejor récord MLB) vs White Sox (36-31). Perez con 3.02 ERA en forma solida. Anthony Kay (5-1, 4.40 ERA) es el abridor de CWS — record engañoso, ERA mayor y menor confiabilidad en segunda mitad de temporada. Cuota de -118 es regalo para el equipo con mejor récord de la liga americana."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "South Korea vs Czech Republic",
-      "hora": "21:00 CST / 22:00 EDT — Estadio Akron, Guadalajara",
-      "pick": "Under 2.5 goles",
-      "tipo": "Total Goles",
-      "cuota_winpot": 1.82,
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.9,
-      "prob_propia": 59.0,
-      "ev_pct": 7.380000000000001,
-      "prob_acierto": 59,
-      "estrellas": 2,
-      "stake": "0.5u",
-      "razonamiento": "ADVERTENCIA: Linea estimada — verificar en Winpot antes de apostar. Partido inaugural del Mundial para ambas selecciones; necesitan no perder para avanzar — tactica conservadora esperada. Primer partido de grupos WC 2022 promedio 2.1 goles/partido. Chequia solida defensivamente (Schick peligroso pero apoyado por estructura). Corea apuesta al contraataque con Son."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Chicago Cubs @ Colorado Rockies",
-      "hora": "14:10 CST / 15:10 EDT — Coors Field",
-      "pick": "Under 12 carreras",
-      "tipo": "Total",
-      "cuota_winpot": 1.85,
-      "cuota_bet365": 1.87,
-      "prob_implicita": 54.1,
-      "prob_propia": 57.0,
-      "ev_pct": 5.45,
-      "prob_acierto": 57,
-      "estrellas": 1,
-      "stake": "0.5u",
-      "razonamiento": "BAJA CONFIANZA — Coors siempre es wildcard. Rockies tienen la ofensiva mas floja del NL Oeste (26-42) y Feltner ya tiene 4.22 ERA pitchando en Coors. La linea se movio de 11.5 a menor por accion sharpe en el Under. Total de 12 es techo muy alto incluso para este parque con Cabrera (4.99 ERA) visitando. Stake minimo; Coors puede hacer cualquier cosa."
+      "stake": "0.2u",
+      "razonamiento": "Brewers en casa con ventaja de rotación proyectada. La línea -235 sugiere starter dominante. Milwaukee tiene excelente record en American Family Field. Phillies posiblemente con pitcher de spot start."
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Texas Rangers @ Kansas City Royals",
+      "matchup": "Miami Marlins @ Pittsburgh Pirates",
       "liga": "MLB",
-      "razon": "Sin edge: Kumar Rocker (3.54 ERA, 49 Ks) vs Michael Wacha (3.44 ERA, 67 Ks) — pitcheo equilibrado, lineas muy ajustadas. Rangers 33-34, Royals 28-40. ML cerrado sin ventaja medible en ninguna direccion."
+      "razon": "Dos equipos en rebuild con varianza alta. Sin edge claro en ninguna dirección. EV negativo o marginal."
     },
     {
-      "matchup": "Seattle Mariners @ Baltimore Orioles",
+      "matchup": "Detroit Tigers @ Cleveland Guardians",
       "liga": "MLB",
-      "razon": "EV marginal en Mariners ML (~3.7%). Bradish (3-7, 3.89 ERA) es inconsistente pero no suficientemente malo para crear edge claro. Bryan Woo Over 5.5 Ks rechazado: juice de -164 deja margen minimo dado inconsistencia reciente (4 Ks en ultima salida, promedio 6.67 en 3 salidas anteriores)."
+      "razon": "Línea muy ajustada (-110/-106) refleja paridad real. Sin información de pitchers para encontrar edge."
     },
     {
-      "matchup": "LA Dodgers @ Pittsburgh Pirates — Run Line -1.5",
+      "matchup": "Atlanta Braves @ New York Mets",
       "liga": "MLB",
-      "razon": "EV de ~2% en el Run Line -1.5 (-104): demasiado pequeño para el riesgo adicional vs el ML directo. Con Keller erratico el ML de Dodgers captura mejor el edge sin requerir margen de 2 carreras en un parque favorable a pitchers como PNC Park."
+      "razon": "Rivalidad pareja. Línea eficiente (-102/-118). Necesitaría info de pitchers para edge."
     },
     {
-      "matchup": "South Korea vs Czech Republic — Moneylines individuales",
+      "matchup": "New York Yankees @ Toronto Blue Jays",
+      "liga": "MLB",
+      "razon": "Pick'em (-110/-110) indica mercado eficiente. Sin edge identificable sin datos de pitchers."
+    },
+    {
+      "matchup": "New York Knicks @ San Antonio Spurs",
+      "liga": "NBA",
+      "razon": "Fuera de temporada regular NBA. Partido inusual para junio. Datos sospechosos, evitar."
+    },
+    {
+      "matchup": "Morocco @ Brazil",
       "liga": "FIFA World Cup 2026",
-      "razon": "Mercado muy equilibrado: SK +165, CZE +175, Draw +210 — probabilidades casi identicas sin edge verificable en ninguno de los tres resultados. El Under de goles tiene mejor argumento que cualquier resultado para este partido inaugural."
+      "razon": "Brasil favorito pero Marruecos demostró nivel en Qatar 2022. Línea -165 no ofrece valor suficiente vs equipo africano top."
     },
     {
-      "matchup": "Twins @ Tigers / Cardinals @ Mets / D-backs @ Marlins",
+      "matchup": "Japan @ Netherlands",
+      "liga": "FIFA World Cup 2026",
+      "razon": "Partido muy parejo (250/100/250). Japón en ascenso, Holanda inconsistente. Sin edge claro."
+    },
+    {
+      "matchup": "Czech Republic @ South Korea",
+      "liga": "FIFA World Cup 2026",
+      "razon": "Dos selecciones de nivel medio similar. Varianza alta, sin edge identificable."
+    },
+    {
+      "matchup": "Paraguay @ USA",
+      "liga": "FIFA World Cup 2026",
+      "razon": "USA local con presión. Paraguay disciplinado. Línea -105 no ofrece valor suficiente."
+    },
+    {
+      "matchup": "Texas Rangers @ Boston Red Sox",
       "liga": "MLB",
-      "razon": "Partidos ya en curso al momento de generacion del reporte (iniciados entre 12:00-13:00 EDT). No apostar en juegos con informacion parcial comprometida."
+      "razon": "Línea ajustada (108/-126). Ambos equipos competitivos. Sin edge sin info de pitchers."
+    },
+    {
+      "matchup": "San Diego Padres @ Baltimore Orioles",
+      "liga": "MLB",
+      "razon": "Dos equipos de playoff. Línea eficiente. Sin edge claro en este matchup de calidad."
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ Cincinnati Reds",
+      "liga": "MLB",
+      "razon": "Parques de hitters, alta varianza. Línea pareja sin edge identificable."
+    },
+    {
+      "matchup": "Houston Astros @ Kansas City Royals",
+      "liga": "MLB",
+      "razon": "Houston en transición, KC mejorado. Línea -116 no ofrece suficiente valor."
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Minnesota Twins",
+      "liga": "MLB",
+      "razon": "Twins favoritos legítimos en casa. Línea -142 eficiente. Sin edge."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Mexico ML (cuota 1.43)",
-      "Dodgers ML (cuota 1.62)",
-      "Braves ML (cuota 1.80)",
-      "Perez Over 4.5 Ks (cuota 2.08)"
+      "Germany ML vs Curaçao (1.05)",
+      "Spain Over 3.5 goles vs Cape Verde (1.91)",
+      "Los Angeles Dodgers ML vs White Sox (1.70)"
     ],
-    "cuota_total": 8.67,
-    "cuota_con_boost": 11.74,
-    "ev_pct": 100.1,
-    "stake": "0.5u",
-    "nota": "Boost Winpot +40% sobre ganancia neta (cada pata >=1.20 ok, cuota total 8.67>6.0 ok). Prob combinada ~17.0% — perdes el 83% del tiempo, pero el EV matematico es extraordinariamente positivo gracias al boost. Stake conservador de 0.5u por la baja frecuencia de acierto. No incluye los dos picks del Mexico ya que aumentaria la correlacion en el parlay."
+    "cuota_total": 3.41,
+    "cuota_con_boost": 4.77,
+    "ev_pct": 18.2,
+    "stake": "0.15u",
+    "nota": "Boost Winpot 40%. Combina favoritos sólidos con edge en cada pata individual."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Mexico ML",
+      "pick": "Germany ML",
       "tipo": "Moneyline",
-      "liga": "World Cup",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.05,
+      "ev_pct": 3.4,
+      "stake": "0.2u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Spain Over 3.5",
+      "tipo": "Total Goles",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.91,
+      "ev_pct": 8.9,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Switzerland ML",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.22,
+      "ev_pct": 2.5,
+      "stake": "0.15u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "ev_pct": 7.1,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.68,
+      "ev_pct": 5.0,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Scotland ML",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.57,
+      "ev_pct": 6.8,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Milwaukee Brewers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
       "cuota": 1.43,
-      "ev_pct": 8.7,
-      "stake": "2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Mexico/SA Under 2.5",
-      "tipo": "Total Goles",
-      "liga": "World Cup",
-      "cuota": 1.65,
-      "ev_pct": 5.6000000000000005,
-      "stake": "1u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Perez Over 4.5 Ks",
-      "tipo": "Prop Pitcher",
-      "liga": "MLB",
-      "cuota": 2.08,
-      "ev_pct": 12.3,
-      "stake": "1u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Dodgers ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.62,
-      "ev_pct": 8.5,
-      "stake": "1u",
+      "ev_pct": 2.9,
+      "stake": "0.2u",
       "estrellas": 2
-    },
-    {
-      "pick": "Braves ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.8,
-      "ev_pct": 11.600000000000001,
-      "stake": "1u",
-      "estrellas": 2
-    },
-    {
-      "pick": "SK/CZE Under 2.5",
-      "tipo": "Total Goles",
-      "liga": "World Cup",
-      "cuota": 1.82,
-      "ev_pct": 7.3999999999999995,
-      "stake": "0.5u",
-      "estrellas": 2
-    },
-    {
-      "pick": "Cubs/Rockies Under 12",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.85,
-      "ev_pct": 5.4,
-      "stake": "0.5u",
-      "estrellas": 1
     }
   ]
 }
