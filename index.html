@@ -2,230 +2,868 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#04060f">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="theme-color" content="#080c18">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Tipster Pro">
 <title>TIPSTER PRO IA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#04060f;--bg2:#080c1a;--sf:rgba(255,255,255,0.04);--sf2:rgba(255,255,255,0.07);--bd:rgba(255,255,255,0.08);--bd2:rgba(255,255,255,0.14);--tx:#eef2ff;--tx2:#94a3b8;--tx3:#475569;--cy:#00d4aa;--cy-g:rgba(0,212,170,0.18);--cy-r:rgba(0,212,170,0.35);--pu:#a78bfa;--pu-g:rgba(167,139,250,0.15);--pu-r:rgba(167,139,250,0.35);--am:#fbbf24;--am-g:rgba(251,191,36,0.13);--am-r:rgba(251,191,36,0.3);--bl:#60a5fa;--bl-g:rgba(96,165,250,0.13);--re:#f87171;--rd:16px;--rds:10px;}
+:root{
+  --bg:#080c18;--bg2:#0d1120;--bg3:#111827;
+  --sf:rgba(255,255,255,.04);--sf2:rgba(255,255,255,.07);--sf3:rgba(255,255,255,.11);
+  --bd:rgba(255,255,255,.08);--bd2:rgba(255,255,255,.15);
+  --tx:#f0f4ff;--tx2:#8b9ab8;--tx3:#4a5568;
+  --cy:#00e5b4;--cy2:#00b894;--cyd:rgba(0,229,180,.15);--cyb:rgba(0,229,180,.35);
+  --pu:#a78bfa;--pud:rgba(167,139,250,.15);--pub:rgba(167,139,250,.35);
+  --am:#f59e0b;--amd:rgba(245,158,11,.15);--amb:rgba(245,158,11,.35);
+  --bl:#60a5fa;--bld:rgba(96,165,250,.15);--blb:rgba(96,165,250,.35);
+  --re:#f87171;--red:rgba(248,113,113,.15);
+  --gr:#10b981;--grd:rgba(16,185,129,.15);
+  --rd:14px;--rds:8px;--rdxs:6px;
+  --font:'Barlow Condensed',sans-serif;
+  --font2:'Barlow',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{background:var(--bg);color:var(--tx);font-family:-apple-system,'SF Pro Display','Segoe UI',system-ui,sans-serif;min-height:100vh;overflow-x:hidden;}
-.orb-wrap{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.22;animation:drift 14s ease-in-out infinite alternate;}
-.o1{width:420px;height:420px;background:#00d4aa;top:-120px;left:-80px;animation-delay:0s;}
-.o2{width:350px;height:350px;background:#7c3aed;top:30%;right:-100px;animation-delay:-5s;}
-.o3{width:300px;height:300px;background:#2563eb;bottom:10%;left:20%;animation-delay:-9s;}
-.o4{width:250px;height:250px;background:#f59e0b;bottom:-60px;right:15%;animation-delay:-3s;}
-@keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(30px,20px) scale(1.06)}}
-.hdr{position:sticky;top:0;z-index:100;background:rgba(4,6,15,.78);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);padding:13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.logo{font-size:18px;font-weight:800;letter-spacing:-.5px;background:linear-gradient(105deg,#00d4aa 0%,#60a5fa 55%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.live-pill{display:flex;align-items:center;gap:5px;border:1px solid rgba(0,212,170,.3);background:rgba(0,212,170,.08);padding:3px 9px;border-radius:99px;font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--cy);-webkit-text-fill-color:var(--cy);}
-.live-dot{width:5px;height:5px;border-radius:50%;background:var(--cy);animation:ping 1.6s ease-in-out infinite;}
-@keyframes ping{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.65)}}
-.h-r{text-align:right;}
-.h-date{font-size:12px;color:var(--tx2);}
-.h-date strong{color:var(--tx);font-weight:600;}
-.h-cd{font-size:10px;color:var(--tx3);margin-top:2px;}
-.h-cd span{color:var(--bl);font-weight:700;font-variant-numeric:tabular-nums;}
-.page{position:relative;z-index:1;padding:18px 14px 50px;max-width:700px;margin:0 auto;}
-.glass{background:var(--sf);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--bd);border-radius:var(--rd);transition:border-color .25s,box-shadow .25s,transform .2s;}
-.glass:hover{transform:translateY(-2px);}
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 20px;gap:16px;}
-.spin{width:40px;height:40px;border-radius:50%;border:2px solid rgba(0,212,170,.15);border-top-color:var(--cy);animation:sp .75s linear infinite;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:var(--font2);min-height:100vh;overflow-x:hidden;}
+
+/* ORBS */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.18;animation:drift 16s ease-in-out infinite alternate;}
+.ob1{width:500px;height:500px;background:#00e5b4;top:-150px;left:-100px;animation-delay:0s;}
+.ob2{width:400px;height:400px;background:#7c3aed;top:25%;right:-80px;animation-delay:-6s;}
+.ob3{width:350px;height:350px;background:#1d4ed8;bottom:5%;left:15%;animation-delay:-11s;}
+.ob4{width:280px;height:280px;background:#d97706;bottom:-50px;right:10%;animation-delay:-4s;}
+@keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(25px,18px) scale(1.07)}}
+
+/* TOPBAR */
+.topbar{position:sticky;top:0;z-index:200;background:rgba(8,12,24,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--bd);}
+.tb-inner{max-width:900px;margin:0 auto;padding:0 16px;}
+.tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 0 10px;}
+.logo{font-family:var(--font);font-size:22px;font-weight:900;letter-spacing:-.5px;background:linear-gradient(110deg,#00e5b4 0%,#60a5fa 50%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo span{color:#f59e0b;-webkit-text-fill-color:#f59e0b;}
+.tb-right{display:flex;align-items:center;gap:8px;}
+.live-badge{display:flex;align-items:center;gap:4px;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:99px;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--cy);animation:blink 1.5s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hdr-date{text-align:right;}
+.hdr-d1{font-family:var(--font);font-size:13px;font-weight:700;color:var(--tx);letter-spacing:.3px;}
+.hdr-d2{font-size:10px;color:var(--tx3);margin-top:1px;}
+.hdr-d2 span{color:var(--bl);font-weight:700;}
+
+/* TABS NAV */
+.nav-tabs{display:flex;gap:2px;padding-bottom:1px;overflow-x:auto;scrollbar-width:none;}
+.nav-tabs::-webkit-scrollbar{display:none;}
+.tab-btn{flex-shrink:0;font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:8px 16px;border-radius:var(--rds) var(--rds) 0 0;border:none;cursor:pointer;transition:all .2s;color:var(--tx3);background:transparent;border-bottom:2px solid transparent;position:relative;}
+.tab-btn:hover{color:var(--tx2);background:var(--sf);}
+.tab-btn.active{color:var(--cy);background:var(--sf);border-bottom-color:var(--cy);}
+.tab-btn .t-ct{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:16px;background:var(--cyd);border:1px solid var(--cyb);border-radius:99px;font-size:9px;font-weight:800;color:var(--cy);padding:0 5px;margin-left:5px;}
+.tab-btn .t-ct.empty{background:var(--sf);border-color:var(--bd);color:var(--tx3);}
+
+/* MAIN */
+.main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:20px 16px 60px;}
+
+/* SECTIONS */
+.section{display:none;}
+.section.active{display:block;}
+
+/* DATE HERO */
+.date-hero{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+.dh-left{}
+.dh-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);margin-bottom:8px;}
+.dh-tag::before{content:'';width:16px;height:1px;background:var(--bd2);}
+.dh-title{font-family:var(--font);font-size:42px;font-weight:900;line-height:.95;letter-spacing:-1px;}
+.dh-title .gr{background:linear-gradient(110deg,#00e5b4,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.dh-sub{font-family:var(--font);font-size:11px;letter-spacing:2.5px;color:var(--tx3);text-transform:uppercase;margin-top:6px;}
+.dh-sub span{color:var(--tx2);}
+.dh-stats{display:flex;gap:12px;flex-wrap:wrap;}
+.dst{text-align:center;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rd);padding:10px 16px;min-width:80px;}
+.dst-v{font-family:var(--font);font-size:26px;font-weight:900;line-height:1;}
+.dst-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:3px;font-weight:600;}
+
+/* SECTION HEADER */
+.sec-hdr{display:flex;align-items:center;gap:12px;margin:28px 0 16px;}
+.sec-ico{width:32px;height:32px;border-radius:var(--rds);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.sec-title{font-family:var(--font);font-size:20px;font-weight:800;letter-spacing:-.3px;}
+.sec-line{flex:1;height:1px;background:var(--bd);}
+.sec-ct{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--tx3);}
+
+/* PICK DEL DÍA (GOLD) */
+.gold-card{position:relative;border-radius:var(--rd);border:1px solid var(--cyb);background:linear-gradient(135deg,rgba(0,229,180,.06) 0%,rgba(8,12,24,.8) 60%);box-shadow:0 0 40px rgba(0,229,180,.12),inset 0 1px 0 rgba(0,229,180,.1);overflow:hidden;margin-bottom:20px;}
+.gold-stripe{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00e5b4,#60a5fa,#a78bfa);box-shadow:0 0 12px #00e5b4;}
+.gold-badge{position:absolute;top:14px;right:14px;font-family:var(--font);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;background:linear-gradient(110deg,#00e5b4,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;border:1px solid var(--cyb);padding:3px 10px;border-radius:99px;}
+.gc-inner{padding:20px;}
+.gc-context{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);margin-bottom:10px;}
+.gc-matchup{display:flex;align-items:center;gap:16px;margin-bottom:16px;}
+.team-block{display:flex;align-items:center;gap:10px;}
+.team-logo{width:48px;height:48px;border-radius:50%;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.team-logo img{width:38px;height:38px;object-fit:contain;}
+.team-logo .emoji-logo{font-size:26px;line-height:1;}
+.team-name{font-family:var(--font);font-size:32px;font-weight:900;letter-spacing:-1px;line-height:1;}
+.team-name.away{color:var(--tx2);}
+.team-name.home{color:var(--tx);}
+.vs-sep{font-family:var(--font);font-size:14px;font-weight:700;color:var(--tx3);flex-shrink:0;}
+.gc-pick-row{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.pick-badge{font-family:var(--font);font-size:16px;font-weight:900;letter-spacing:.5px;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);padding:6px 18px;border-radius:var(--rds);text-transform:uppercase;}
+.ev-badge{font-family:var(--font);font-size:13px;font-weight:800;background:var(--grd);border:1px solid rgba(16,185,129,.3);color:#10b981;padding:5px 14px;border-radius:var(--rds);}
+.tipo-badge{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bld);border:1px solid var(--blb);color:var(--bl);padding:4px 12px;border-radius:99px;}
+.hora-badge{font-family:var(--font);font-size:10px;font-weight:600;color:var(--tx3);padding:4px 10px;border:1px solid var(--bd);border-radius:99px;}
+.gc-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.gi-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 12px;}
+.gi-label{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx3);margin-bottom:5px;display:flex;align-items:center;gap:4px;}
+.gi-team{font-family:var(--font);font-size:16px;font-weight:800;margin-bottom:4px;text-transform:uppercase;}
+.gi-player{font-size:13px;font-weight:600;color:var(--tx2);margin-bottom:2px;}
+.gi-stat{font-size:11px;color:var(--tx3);line-height:1.6;}
+.gi-stat b{color:var(--tx2);font-weight:600;}
+.gi-riesgo{color:var(--re);}
+.gi-ok{color:var(--cy);}
+.gc-analysis{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:12px 14px;margin-bottom:14px;font-size:12px;line-height:1.6;color:var(--tx2);}
+.gc-analysis::before{content:'"';font-size:20px;color:var(--cy);opacity:.5;font-style:italic;margin-right:4px;}
+.prob-section{margin-bottom:14px;}
+.prob-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.prob-txt{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--tx3);}
+.prob-pct{font-family:var(--font);font-size:22px;font-weight:900;color:var(--cy);}
+.prob-bar{height:6px;background:var(--sf2);border-radius:99px;overflow:hidden;}
+.prob-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--cy2),var(--cy));transition:width 1s ease;width:0;}
+.gc-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.stars-row{display:flex;gap:3px;}
+.star{font-size:16px;}
+.star.on-cy{color:var(--cy);filter:drop-shadow(0 0 5px rgba(0,229,180,.6));}
+.star.on-am{color:var(--am);filter:drop-shadow(0 0 5px rgba(245,158,11,.6));}
+.star.off{color:rgba(255,255,255,.1);}
+.stake-badge{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.8px;background:var(--sf2);border:1px solid var(--bd2);color:var(--tx2);padding:5px 14px;border-radius:99px;}
+.cuota-row{display:flex;gap:8px;align-items:center;}
+.cuota-item{font-family:var(--font);font-size:12px;font-weight:700;color:var(--tx3);}
+.cuota-item span{color:var(--tx);}
+
+/* PICKS GRID */
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-bottom:20px;}
+.pick-card{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);overflow:hidden;transition:transform .2s,border-color .25s,box-shadow .25s;cursor:pointer;}
+.pick-card:hover{transform:translateY(-3px);}
+.pick-card.s3{border-color:var(--cyb);box-shadow:0 0 20px rgba(0,229,180,.1);}
+.pick-card.s3:hover{box-shadow:0 0 40px rgba(0,229,180,.18);}
+.pick-card.s2{border-color:var(--amb);box-shadow:0 0 16px rgba(245,158,11,.08);}
+.pick-card.s2:hover{box-shadow:0 0 32px rgba(245,158,11,.15);}
+.pc-stripe{height:3px;}
+.pc-stripe.s3{background:linear-gradient(90deg,#00e5b4,#0ea5e9);}
+.pc-stripe.s2{background:linear-gradient(90deg,#f59e0b,#ef4444);}
+.pc-stripe.s1{background:linear-gradient(90deg,#64748b,#334155);}
+.pc-body{padding:14px;}
+.pc-context{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);margin-bottom:8px;}
+.pc-teams{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.pc-logo{width:32px;height:32px;border-radius:50%;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;}
+.pc-logo img{width:24px;height:24px;object-fit:contain;}
+.pc-logo .e-logo{font-size:18px;}
+.pc-vs{font-family:var(--font);font-size:11px;color:var(--tx3);flex-shrink:0;}
+.pc-matchup-name{font-family:var(--font);font-size:17px;font-weight:800;letter-spacing:-.3px;text-transform:uppercase;line-height:1.1;}
+.pc-mid{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;}
+.pc-pick-name{font-family:var(--font);font-size:14px;font-weight:800;letter-spacing:.3px;text-transform:uppercase;color:var(--cy);}
+.pc-ev{font-family:var(--font);font-size:14px;font-weight:900;color:#10b981;}
+.pc-bar{height:3px;background:var(--sf2);border-radius:99px;overflow:hidden;margin-bottom:10px;}
+.pc-bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--cy2),var(--cy));transition:width 1s ease;width:0;}
+.pc-reason{font-size:11px;color:var(--tx3);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.pc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--bd);}
+.pc-stars{display:flex;gap:2px;}
+.pc-star{font-size:11px;}
+.pc-stake{font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--tx3);background:var(--sf2);border:1px solid var(--bd);padding:3px 9px;border-radius:99px;}
+.pc-tipo{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--bl);background:var(--bld);border:1px solid var(--blb);padding:2px 8px;border-radius:99px;}
+
+/* EXPANDED DETAIL */
+.pick-detail{display:none;background:var(--sf);border-top:1px solid var(--bd);padding:12px 14px;}
+.pick-detail.open{display:block;}
+.pd-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.pd-item{flex:1;min-width:80px;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rds);padding:8px 10px;text-align:center;}
+.pd-val{font-family:var(--font);font-size:16px;font-weight:800;line-height:1;}
+.pd-lbl{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--tx3);margin-top:2px;}
+.pd-text{font-size:11px;color:var(--tx2);line-height:1.6;}
+
+/* PARLAY */
+.parlay-card{border-radius:var(--rd);border:1px solid var(--pub);background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(8,12,24,.9));box-shadow:0 0 30px rgba(167,139,250,.1);overflow:hidden;margin-bottom:20px;}
+.parlay-hdr{background:linear-gradient(90deg,rgba(167,139,250,.15),transparent);border-bottom:1px solid var(--pub);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.parlay-title{font-family:var(--font);font-size:16px;font-weight:900;letter-spacing:.3px;color:var(--pu);}
+.parlay-sub{font-family:var(--font);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);margin-top:2px;}
+.parlay-cuota-big{font-family:var(--font);font-size:36px;font-weight:900;color:var(--pu);line-height:1;}
+.parlay-cuota-lbl{font-size:10px;color:var(--tx3);text-transform:uppercase;letter-spacing:.8px;}
+.parlay-body{padding:16px 18px;}
+.parlay-legs{display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+.pl-leg{display:flex;align-items:center;gap:10px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 12px;}
+.pl-num{font-family:var(--font);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pl-text{font-family:var(--font);font-size:13px;font-weight:700;flex:1;}
+.pl-cuota{font-family:var(--font);font-size:13px;font-weight:800;color:var(--pu);}
+.parlay-stats{display:flex;gap:8px;flex-wrap:wrap;}
+.pst{flex:1;min-width:80px;text-align:center;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:8px;}
+.pst-v{font-family:var(--font);font-size:20px;font-weight:900;line-height:1;}
+.pst-l{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--tx3);margin-top:3px;}
+.pst-v.cy{color:var(--cy);}
+.pst-v.pu{color:var(--pu);}
+.pst-v.gr{color:#10b981;}
+.parlay-note{font-size:11px;color:var(--tx3);line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd);}
+
+/* EMPTY STATE */
+.empty-state{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px;text-align:center;gap:14px;}
+.es-icon{font-size:40px;opacity:.4;}
+.es-title{font-family:var(--font);font-size:20px;font-weight:800;letter-spacing:-.3px;color:var(--tx2);}
+.es-sub{font-size:12px;color:var(--tx3);max-width:260px;line-height:1.6;}
+.es-time{font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--cy);background:var(--cyd);border:1px solid var(--cyb);padding:5px 14px;border-radius:99px;margin-top:4px;}
+
+/* NO APOSTAR */
+.no-apostar-section{}
+.na-card{border-radius:var(--rds);border:1px solid var(--red);background:rgba(248,113,113,.04);padding:12px 14px;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start;}
+.na-ico{font-size:16px;flex-shrink:0;margin-top:1px;}
+.na-match{font-family:var(--font);font-size:14px;font-weight:800;text-transform:uppercase;margin-bottom:3px;}
+.na-liga{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--re);margin-bottom:4px;}
+.na-razon{font-size:11px;color:var(--tx3);line-height:1.5;}
+
+/* BANKROLL CALC */
+.bkr-card{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);padding:18px;margin-bottom:20px;}
+.bkr-title{font-family:var(--font);font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.bkr-title span{font-size:18px;}
+.bkr-input-row{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+.bkr-lbl{font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--tx3);white-space:nowrap;}
+.bkr-input{background:var(--sf2);border:1px solid var(--bd2);border-radius:var(--rds);color:var(--tx);font-family:var(--font);font-size:20px;font-weight:800;padding:8px 14px;width:180px;outline:none;}
+.bkr-input:focus{border-color:var(--cy);box-shadow:0 0 0 3px rgba(0,229,180,.1);}
+.bkr-currency{font-family:var(--font);font-size:14px;font-weight:700;color:var(--tx2);}
+.bkr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;}
+.bkr-item{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 12px;}
+.bkr-pick{font-family:var(--font);font-size:11px;font-weight:700;text-transform:uppercase;color:var(--tx2);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bkr-amount{font-family:var(--font);font-size:20px;font-weight:900;color:var(--cy);line-height:1;}
+.bkr-stake-pct{font-size:10px;color:var(--tx3);margin-top:1px;}
+
+/* TABLE */
+.exec-table{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:20px;}
+.exec-table th{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx3);padding:10px 12px;border-bottom:1px solid var(--bd);text-align:left;}
+.exec-table td{padding:10px 12px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:middle;}
+.exec-table tr:hover td{background:var(--sf);}
+.et-pick{font-family:var(--font);font-size:13px;font-weight:800;text-transform:uppercase;}
+.et-tipo{font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--bl);background:var(--bld);padding:2px 7px;border-radius:99px;}
+.et-cuota{font-family:var(--font);font-size:14px;font-weight:800;}
+.et-ev{font-family:var(--font);font-size:14px;font-weight:800;color:#10b981;}
+.et-stake{font-family:var(--font);font-size:12px;font-weight:700;color:var(--tx2);}
+
+/* BOTTOM STATS */
+.bottom-stats{display:flex;gap:8px;flex-wrap:wrap;padding:14px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rd);}
+.bs-item{flex:1;min-width:80px;text-align:center;}
+.bs-v{font-family:var(--font);font-size:22px;font-weight:900;}
+.bs-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:2px;font-weight:600;}
+
+/* LOADING */
+.loading-screen{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:100px 20px;gap:16px;}
+.spin{width:36px;height:36px;border-radius:50%;border:2px solid rgba(0,229,180,.15);border-top-color:var(--cy);animation:sp .7s linear infinite;}
 @keyframes sp{to{transform:rotate(360deg)}}
-.ltxt{font-size:13px;color:var(--tx2);}
-.bkr{display:flex;gap:0;flex-wrap:wrap;padding:14px 18px;margin-bottom:20px;animation:rise .4s ease both;}
-.bk-i{flex:1;min-width:90px;padding:0 14px;border-right:1px solid var(--bd);}
-.bk-i:first-child{padding-left:0;}
-.bk-i:last-child{border-right:none;}
-.bk-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);font-weight:600;margin-bottom:4px;}
-.bk-v{font-size:18px;font-weight:800;line-height:1;}
-.bk-n{font-size:10px;color:var(--tx2);margin-top:3px;line-height:1.45;}
-.sec{display:flex;align-items:center;gap:10px;margin:24px 0 12px;}
-.sec-lb{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--tx3);white-space:nowrap;}
-.sec-ln{flex:1;height:1px;background:var(--bd);}
-.sec-ch{background:var(--sf2);border:1px solid var(--bd);color:var(--tx3);font-size:10px;font-weight:700;padding:2px 9px;border-radius:99px;}
-.card{margin-bottom:14px;overflow:hidden;animation:rise .4s ease both;}
-.card:nth-child(1){animation-delay:.04s}.card:nth-child(2){animation-delay:.1s}.card:nth-child(3){animation-delay:.16s}.card:nth-child(4){animation-delay:.22s}.card:nth-child(5){animation-delay:.28s}
-@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.cs3{border-color:var(--cy-r)!important;box-shadow:0 0 28px var(--cy-g),inset 0 1px 0 rgba(0,212,170,.08);}
-.cs3:hover{border-color:rgba(0,212,170,.55)!important;box-shadow:0 0 50px var(--cy-g),0 6px 28px rgba(0,0,0,.5)!important;}
-.cs2{border-color:var(--am-r)!important;box-shadow:0 0 22px var(--am-g),inset 0 1px 0 rgba(251,191,36,.06);}
-.cs2:hover{border-color:rgba(251,191,36,.5)!important;box-shadow:0 0 42px var(--am-g),0 6px 28px rgba(0,0,0,.5)!important;}
-.cs1:hover{border-color:rgba(255,255,255,.18)!important;box-shadow:0 6px 28px rgba(0,0,0,.5)!important;}
-.cpar{border-color:var(--pu-r)!important;box-shadow:0 0 28px var(--pu-g),inset 0 1px 0 rgba(167,139,250,.08);}
-.cpar:hover{border-color:rgba(167,139,250,.55)!important;box-shadow:0 0 50px var(--pu-g),0 6px 28px rgba(0,0,0,.5)!important;}
-.cin{position:relative;padding:14px 15px 14px 20px;}
-.stripe{width:3px;position:absolute;left:0;top:0;bottom:0;border-radius:3px 0 0 3px;}
-.st3{background:linear-gradient(180deg,#00d4aa,#0ea5e9);box-shadow:0 0 10px #00d4aa;}
-.st2{background:linear-gradient(180deg,#fbbf24,#f97316);box-shadow:0 0 10px #fbbf24;}
-.st1{background:linear-gradient(180deg,#64748b,#334155);}
-.stp{background:linear-gradient(180deg,#a78bfa,#7c3aed);box-shadow:0 0 10px #a78bfa;}
-.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--bd);margin-bottom:12px;}
-.ct{font-size:14px;font-weight:700;line-height:1.3;}
-.cti{font-size:11px;color:var(--tx2);margin-top:3px;}
-.cm{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0;}
-.ltag{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:99px;border:1px solid transparent;}
-.ltb{color:var(--bl);background:var(--bl-g);border-color:rgba(96,165,250,.2);}
-.ltp{color:var(--pu);background:var(--pu-g);border-color:rgba(167,139,250,.22);}
-.sr{display:flex;gap:2px;}
-.si{font-size:13px;}
-.sc{color:var(--cy);filter:drop-shadow(0 0 5px rgba(0,212,170,.7));}
-.sa{color:var(--am);filter:drop-shadow(0 0 5px rgba(251,191,36,.6));}
-.sg{color:var(--tx3);}
-.so{color:rgba(255,255,255,.08);}
-.row{display:flex;align-items:flex-start;gap:10px;flex-wrap:wrap;margin-bottom:9px;}
-.rl{font-size:9px;text-transform:uppercase;letter-spacing:.6px;color:var(--tx3);font-weight:600;min-width:48px;padding-top:3px;flex-shrink:0;}
-.pn{font-size:14px;font-weight:800;flex:1;}
-.pnc{color:var(--cy)}.pna{color:var(--am)}.png{color:var(--tx2)}.pnp{color:var(--pu);}
-.sk{display:inline-flex;align-items:center;gap:4px;background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.22);color:var(--bl);font-size:11px;font-weight:700;padding:4px 11px;border-radius:8px;flex-shrink:0;}
-.skp{background:rgba(167,139,250,.1)!important;border-color:rgba(167,139,250,.25)!important;color:var(--pu)!important;}
-.ods{display:flex;gap:7px;flex-wrap:wrap;}
-.oc{display:flex;align-items:center;gap:6px;border-radius:9px;padding:6px 12px;font-size:12px;font-weight:700;border:1px solid transparent;}
-.ocw{background:rgba(0,212,170,.09);border-color:rgba(0,212,170,.22);color:var(--cy);}
-.ocr{background:rgba(255,255,255,.04);border-color:var(--bd2);color:var(--tx3);}
-.ocb{background:rgba(167,139,250,.09);border-color:rgba(167,139,250,.25);color:var(--pu);}
-.ol{font-size:8px;font-weight:600;letter-spacing:.5px;opacity:.7;}
-.evb{flex:1;display:flex;flex-direction:column;gap:6px;}
-.evt{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.evp{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--tx2);}
-.evo{color:var(--cy);font-weight:700;}
-.evbg{margin-left:auto;font-size:13px;font-weight:800;padding:3px 11px;border-radius:99px;border:1px solid transparent;}
-.ebc{color:var(--cy);background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.22);}
-.eba{color:var(--am);background:rgba(251,191,36,.1);border-color:rgba(251,191,36,.22);}
-.ebg{color:var(--tx2);background:rgba(255,255,255,.04);border-color:var(--bd2);}
-.ebp{color:var(--pu);background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.22);}
-.etr{width:100%;height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;}
-.ef{height:4px;border-radius:99px;width:0%;transition:width 1.1s cubic-bezier(.16,1,.3,1);}
-.efc{background:linear-gradient(90deg,#0ea5e9,#00d4aa);}
-.efa{background:linear-gradient(90deg,#f97316,#fbbf24);}
-.efg{background:linear-gradient(90deg,#475569,#94a3b8);}
-.efp{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
-.rsn{font-size:12px;color:var(--tx2);line-height:1.65;background:rgba(255,255,255,.025);border-radius:10px;padding:10px 13px;border-left:2px solid rgba(96,165,250,.25);margin-top:2px;}
-.sbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
-.sbt{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;padding:7px 15px;border-radius:10px;border:none;cursor:pointer;transition:opacity .15s,transform .15s;}
-.sbt:active{transform:scale(.96);opacity:.8;}
-.swa{background:rgba(37,211,102,.12);color:#25d366;border:1px solid rgba(37,211,102,.22);}
-.sig{background:rgba(167,139,250,.12);color:var(--pu);border:1px solid rgba(167,139,250,.22);}
-.cpd{font-size:11px;color:var(--cy);display:none;padding:4px 0;}
-.tg{overflow:hidden;border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);}
-table{width:100%;border-collapse:collapse;font-size:12px;}
-thead th{background:rgba(255,255,255,.03);color:var(--tx3);font-size:9px;text-transform:uppercase;letter-spacing:.8px;padding:10px 13px;text-align:left;font-weight:600;border-bottom:1px solid var(--bd);}
-tbody td{padding:11px 13px;border-bottom:1px solid var(--bd);vertical-align:middle;}
-tbody tr:last-child td{border:none;}
-tbody tr:hover td{background:rgba(255,255,255,.02);}
-.nb{background:rgba(248,113,113,.05);border:1px solid rgba(248,113,113,.15);border-radius:12px;padding:13px 16px;margin-bottom:9px;animation:rise .4s ease both;}
-.nbt{font-size:13px;font-weight:700;color:var(--re);margin-bottom:4px;}
-.nbr{font-size:12px;color:var(--tx2);line-height:1.55;}
-.foot{font-size:11px;color:var(--tx3);text-align:center;padding:18px 0 30px;line-height:1.8;}
-.foot strong{color:var(--cy);font-weight:600;}
-.ebox{background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.18);border-radius:var(--rd);padding:26px 20px;text-align:center;margin:20px 0;}
+.load-txt{font-family:var(--font);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);}
+#app{display:none;}
+#app.loaded{display:block;}
+
+/* COPY BTN */
+.copy-btn{display:flex;align-items:center;gap:6px;background:var(--sf2);border:1px solid var(--bd2);color:var(--tx2);font-family:var(--font);font-size:11px;font-weight:700;letter-spacing:.5px;padding:7px 14px;border-radius:var(--rds);cursor:pointer;transition:all .2s;}
+.copy-btn:hover{background:var(--cyd);border-color:var(--cyb);color:var(--cy);}
+.copy-success{font-family:var(--font);font-size:11px;color:var(--cy);display:none;align-items:center;gap:4px;font-weight:700;}
+
+/* NEWS TICKER */
+.news-bar{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:10px;overflow:hidden;}
+.news-lbl{font-family:var(--font);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--cy);background:var(--cyd);border:1px solid var(--cyb);padding:3px 8px;border-radius:99px;white-space:nowrap;}
+.news-txt{font-size:12px;color:var(--tx2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+@media(max-width:500px){
+  .dh-title{font-size:32px;}
+  .picks-grid{grid-template-columns:1fr;}
+  .gc-info-grid{grid-template-columns:1fr;}
+  .gc-matchup{gap:8px;}
+  .team-name{font-size:24px;}
+  .team-logo{width:36px;height:36px;}
+  .parlay-cuota-big{font-size:28px;}
+}
 </style>
 </head>
 <body>
-<div class="orb-wrap">
-  <div class="orb o1"></div><div class="orb o2"></div>
-  <div class="orb o3"></div><div class="orb o4"></div>
-</div>
-<header class="hdr">
-  <div style="display:flex;align-items:center;gap:10px">
-    <div class="logo">&#9889; TIPSTER PRO IA</div>
-    <div class="live-pill"><div class="live-dot"></div>LIVE</div>
-  </div>
-  <div class="h-r">
-    <div class="h-date" id="hDate">Cargando...</div>
-    <div class="h-cd">Prox. act.: <span id="cdwn">--:--:--</span></div>
-  </div>
-</header>
-<main class="page">
-  <div id="app">
-    <div class="loading">
-      <div class="spin"></div>
-      <div class="ltxt" id="ltxt">Cargando picks del dia...</div>
+<div class="orbs"><div class="orb ob1"></div><div class="orb ob2"></div><div class="orb ob3"></div><div class="orb ob4"></div></div>
+
+<div class="topbar">
+  <div class="tb-inner">
+    <div class="tb-hdr">
+      <div class="logo">TIPSTER PRO <span>★</span></div>
+      <div class="tb-right">
+        <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+        <div class="hdr-date">
+          <div class="hdr-d1" id="hdrDate">—</div>
+          <div class="hdr-d2">PRÓXIMO REPORT EN <span id="cdwn">—</span></div>
+        </div>
+      </div>
     </div>
+    <nav class="nav-tabs" id="navTabs">
+      <button class="tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">🏠 INICIO <span class="t-ct" id="ct-inicio">—</span></button>
+      <button class="tab-btn" data-tab="mlb" onclick="switchTab('mlb')">⚾ MLB <span class="t-ct empty" id="ct-mlb">0</span></button>
+      <button class="tab-btn" data-tab="nba" onclick="switchTab('nba')">🏀 NBA <span class="t-ct empty" id="ct-nba">0</span></button>
+      <button class="tab-btn" data-tab="futbol" onclick="switchTab('futbol')">⚽ FÚTBOL <span class="t-ct empty" id="ct-futbol">0</span></button>
+      <button class="tab-btn" data-tab="copa" onclick="switchTab('copa')">🏆 COPA DEL MUNDO <span class="t-ct empty" id="ct-copa">0</span></button>
+      <button class="tab-btn" data-tab="resumen" onclick="switchTab('resumen')">📊 RESUMEN</button>
+    </nav>
   </div>
-</main>
+</div>
+
+<div id="loadingScreen" class="loading-screen">
+  <div class="spin"></div>
+  <div class="load-txt" id="loadTxt">CARGANDO PICKS...</div>
+</div>
+
+<div id="app" class="main">
+
+  <!-- ===== INICIO ===== -->
+  <div id="sec-inicio" class="section active">
+    <div id="heroSection"></div>
+    <div id="newsBar"></div>
+    <div id="goldPickSection"></div>
+    <div id="solidPicksSection"></div>
+    <div id="parlaySection"></div>
+    <div id="bankrollCalc"></div>
+  </div>
+
+  <!-- ===== MLB ===== -->
+  <div id="sec-mlb" class="section">
+    <div id="mlbContent"></div>
+  </div>
+
+  <!-- ===== NBA ===== -->
+  <div id="sec-nba" class="section">
+    <div id="nbaContent"></div>
+  </div>
+
+  <!-- ===== FÚTBOL ===== -->
+  <div id="sec-futbol" class="section">
+    <div id="futbolContent"></div>
+  </div>
+
+  <!-- ===== COPA DEL MUNDO ===== -->
+  <div id="sec-copa" class="section">
+    <div id="copaContent"></div>
+  </div>
+
+  <!-- ===== RESUMEN ===== -->
+  <div id="sec-resumen" class="section">
+    <div id="resumenContent"></div>
+  </div>
+
+</div>
+
 <script>
+// ─── HELPERS ───────────────────────────────────────────────────
 function pad(n){return String(n).padStart(2,'0');}
-function td(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
-var U='/latest.json';
-var U2='/picks-'+td()+'.json';
-function tick(){var n=new Date(),x=new Date(n);x.setHours(5,0,0,0);if(n>=x)x.setDate(x.getDate()+1);var d=x-n;var e=document.getElementById('cdwn');if(e)e.textContent=pad(Math.floor(d/3600000))+':'+pad(Math.floor(d%3600000/60000))+':'+pad(Math.floor(d%60000/1000));}
+function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());}
+var DIAS=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+function fmtDate(d){return DIAS[d.getDay()]+' '+d.getDate()+' '+MESES[d.getMonth()]+' '+d.getFullYear();}
+
+// ─── COUNTDOWN ─────────────────────────────────────────────────
+function tick(){
+  var n=new Date(),x=new Date(n);
+  x.setHours(5,0,0,0);if(n>=x)x.setDate(x.getDate()+1);
+  var dt=x-n;
+  var e=document.getElementById('cdwn');
+  if(e)e.textContent=pad(Math.floor(dt/3600000))+':'+pad(Math.floor(dt%3600000/60000))+':'+pad(Math.floor(dt%60000/1000));
+}
 setInterval(tick,1000);tick();
-function st(n){var s='',on=n===3?'sc':n===2?'sa':'sg';for(var i=1;i<=3;i++)s+='<span class="si '+(i<=n?on:'so')+'">&#9733;</span>';return'<div class="sr">'+s+'</div>';}
-function eb(ev,id,th){var cls='ef ef'+(th||'c');return'<div class="etr"><div class="'+cls+'" id="'+id+'" data-w="'+Math.min(ev*5,100)+'"></div></div>';}
-function ab(){document.querySelectorAll('.ef').forEach(function(e){setTimeout(function(){e.style.width=e.dataset.w+'%';},100);});}
-function wat(d){var t='&#9889; *TIPSTER PRO IA - '+d.fecha+'*\n\n';(d.picks||[]).forEach(function(p){t+='*'+p.pick+'* ('+p.matchup+')\nEV +'+p.ev_pct+'%  Cuota '+p.cuota_winpot+'  Stake '+p.stake+'\n\n';});var pl=d.parlay_sugerido;if(pl&&pl.patas&&pl.patas.length){t+='PARLAY: '+pl.patas.map(function(x){return typeof x==='object'?x.partido||'':x;}).join(' + ')+'\nBoost: '+pl.cuota_con_boost+' EV +'+pl.ev_pct+'%\n\n';}t+='Exposicion: '+((d.bankroll||{}).exposicion_total||'-')+'\ntipsterproia.vercel.app';return t;}
-function cwa(d){navigator.clipboard.writeText(wat(d)).then(function(){var e=document.getElementById('cpd');if(e){e.style.display='block';setTimeout(function(){e.style.display='none';},2400);}});}
-function gs(d){var c=document.createElement('canvas');c.width=1080;c.height=1920;var ctx=c.getContext('2d');var bg=ctx.createLinearGradient(0,0,1080,1920);bg.addColorStop(0,'#04060f');bg.addColorStop(1,'#080c1a');ctx.fillStyle=bg;ctx.fillRect(0,0,1080,1920);var g=ctx.createRadialGradient(200,300,0,200,300,450);g.addColorStop(0,'rgba(0,212,170,0.3)');g.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g;ctx.fillRect(0,0,1080,1920);var g2=ctx.createRadialGradient(900,800,0,900,800,400);g2.addColorStop(0,'rgba(124,58,237,0.3)');g2.addColorStop(1,'rgba(0,0,0,0)');ctx.fillStyle=g2;ctx.fillRect(0,0,1080,1920);var hg=ctx.createLinearGradient(0,0,1080,0);hg.addColorStop(0,'#00d4aa');hg.addColorStop(.5,'#60a5fa');hg.addColorStop(1,'#a78bfa');ctx.fillStyle=hg;ctx.fillRect(0,0,1080,6);ctx.fillStyle='#eef2ff';ctx.font='bold 72px Arial';ctx.fillText('TIPSTER PRO IA',80,140);ctx.fillStyle='#94a3b8';ctx.font='40px Arial';ctx.fillText(d.fecha,80,200);var y=300;(d.picks||[]).slice(0,3).forEach(function(p){var color=p.estrellas===3?'#00d4aa':p.estrellas===2?'#fbbf24':'#94a3b8';ctx.fillStyle='rgba(8,12,26,0.9)';ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.fill();ctx.strokeStyle=color;ctx.lineWidth=1.5;ctx.globalAlpha=0.4;ctx.beginPath();if(ctx.roundRect)ctx.roundRect(60,y,960,175,20);else ctx.rect(60,y,960,175);ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=color;ctx.fillRect(60,y,6,175);ctx.fillStyle=color;ctx.font='bold 42px Arial';ctx.fillText(p.pick,95,y+58);ctx.fillStyle='#94a3b8';ctx.font='32px Arial';ctx.fillText(p.matchup,95,y+105);ctx.fillStyle='#eef2ff';ctx.font='bold 36px Arial';ctx.fillText('EV +'+p.ev_pct+'%   Cuota '+p.cuota_winpot+'   '+p.stake,95,y+155);y+=200;});ctx.fillStyle='#475569';ctx.font='30px Arial';ctx.fillText('tipsterproia.vercel.app',80,1880);var a=document.createElement('a');a.download='picks-'+d.fecha+'.png';a.href=c.toDataURL();a.click();}
-function render(data){
-  var today=td(),fd=data.fecha_display||data.fecha;
-  document.getElementById('hDate').innerHTML='<strong>'+fd+'</strong>';
-  var H='';
-  if(data.bankroll){var b=data.bankroll;H+='<div class="glass bkr"><div class="bk-i"><div class="bk-l">Exposicion</div><div class="bk-v" style="color:var(--cy)">'+b.exposicion_total+'</div></div><div class="bk-i"><div class="bk-l">Max/Juego</div><div class="bk-v" style="color:var(--am)">'+b.max_por_juego+'</div></div><div class="bk-i" style="flex:2"><div class="bk-l">Estrategia</div><div class="bk-n">'+(b.nota||'')+'</div></div></div>';}
-  H+='<div class="sbar"><button class="sbt swa" id="bwa">&#128242; Copiar WhatsApp</button><button class="sbt sig" id="big">&#128444; Story Instagram</button></div><div class="cpd" id="cpd">&#10003; Copiado! Pegalo en WhatsApp.</div>';
-  if(data.picks&&data.picks.length){
-    H+='<div class="sec"><div class="sec-lb">Picks del Dia</div><div class="sec-ln"></div><div class="sec-ch">'+data.picks.length+'</div></div>';
-    data.picks.forEach(function(p,i){
-      var sn=p.estrellas===3?'s3':p.estrellas===2?'s2':'s1',th=p.estrellas===3?'c':p.estrellas===2?'a':'g',ec=p.estrellas===3?'ebc':p.estrellas===2?'eba':'ebg',pnc=p.estrellas===3?'pnc':p.estrellas===2?'pna':'png';
-      var bid='b'+i;
-      H+='<div class="glass card c'+sn+'"><div class="cin"><div class="stripe st'+sn[1]+'"></div>'
-        +'<div class="ch"><div><div class="ct">'+p.matchup+'</div><div class="cti">'+p.hora+'</div></div><div class="cm"><div class="ltag ltb">'+p.liga+'</div>'+st(p.estrellas)+'</div></div>'
-        +'<div class="row"><div class="rl">Pick</div><div class="pn '+pnc+'">'+p.pick+'</div><div class="sk">'+p.stake+'</div></div>'
-        +'<div class="row"><div class="rl">Cuotas</div><div class="ods"><div class="oc ocw"><span class="ol">WINPOT&nbsp;</span>'+p.cuota_winpot+'</div><div class="oc ocr"><span class="ol">BET365&nbsp;</span>'+p.cuota_bet365+'</div></div></div>'
-        +'<div class="row"><div class="rl">EV</div><div class="evb"><div class="evt"><div class="evp"><span>Impl. '+p.prob_implicita+'%</span><span style="margin:0 3px;color:rgba(255,255,255,.2)">&#8594;</span><span class="evo">Propia '+p.prob_propia+'%</span></div><div class="evbg '+ec+'">+'+p.ev_pct+'%</div></div>'+eb(p.ev_pct,bid,th)+'</div></div>'
-        +'<div class="rsn">'+p.razonamiento+'</div>'
-        +'</div></div>';
+
+// ─── TABS ──────────────────────────────────────────────────────
+function switchTab(id){
+  document.querySelectorAll('.section').forEach(function(s){s.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  var sec=document.getElementById('sec-'+id);
+  if(sec)sec.classList.add('active');
+  var btn=document.querySelector('[data-tab="'+id+'"]');
+  if(btn)btn.classList.add('active');
+}
+
+// ─── SPORT DETECTION ───────────────────────────────────────────
+function getSport(liga){
+  var l=(liga||'').toLowerCase();
+  if(l.includes('mlb')) return 'mlb';
+  if(l.includes('nba')||l.includes('finals')&&!l.includes('copa')) return 'nba';
+  if(l.includes('copa')||l.includes('world cup')||l.includes('mundial')||l.includes('fifa')) return 'copa';
+  if(l.includes('liga mx')||l.includes('premier')||l.includes('la liga')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer')||l.includes('mls')) return 'futbol';
+  return 'otros';
+}
+
+// ─── TEAM LOGOS ────────────────────────────────────────────────
+var MLB_IDS={
+  'LAD':119,'PIT':134,'ATL':144,'CWS':145,'CHC':112,'COL':115,'SEA':136,
+  'BAL':110,'NYY':147,'CLE':114,'NYM':121,'STL':138,'TEX':140,'KC':118,
+  'MIL':158,'OAK':133,'HOU':117,'MIA':146,'ARI':109,'WSH':120,'WSN':120,
+  'SF':137,'SD':135,'PHI':143,'TOR':141,'MIN':142,'DET':116,'TB':139,
+  'BOS':111,'LAA':108,'CIN':113,'CHW':145
+};
+var NBA_IDS={
+  'NYK':1610612752,'SAS':1610612759,'GSW':1610612744,'LAL':1610612747,
+  'BOS':1610612738,'MIA':1610612748,'PHX':1610612756,'DEN':1610612743,
+  'MIL':1610612749,'MEM':1610612745,'CLE':1610612739,'OKC':1610612760,
+  'MIN':1610612750,'PHI':1610612755,'HOU':1610612745,'SAC':1610612758
+};
+var WORLD_FLAGS={
+  'MEXICO':'🇲🇽','SUDÁFRICA':'🇿🇦','SOUTH AFRICA':'🇿🇦','COREA DEL SUR':'🇰🇷',
+  'REPÚBLICA CHECA':'🇨🇿','CZECHIA':'🇨🇿','ESTADOS UNIDOS':'🇺🇸','USA':'🇺🇸',
+  'BRASIL':'🇧🇷','ARGENTINA':'🇦🇷','ALEMANIA':'🇩🇪','FRANCE':'🇫🇷','FRANCIA':'🇫🇷',
+  'ESPAÑA':'🇪🇸','ENGLAND':'🏴󠁧󠁢󠁥󠁮󠁧󠁿','JAPÓN':'🇯🇵','PORTUGAL':'🇵🇹',
+  'COLOMBIA':'🇨🇴','URUGUAY':'🇺🇾','CHILE':'🇨🇱','ECUADOR':'🇪🇨','CANADA':'🇨🇦'
+};
+function getMLBLogo(abbr){
+  var a=(abbr||'').toUpperCase().replace(/\s/g,'');
+  var id=MLB_IDS[a];
+  if(id)return'https://www.mlbstatic.com/team-logos/'+id+'.svg';
+  return null;
+}
+function getNBALogo(abbr){
+  var a=(abbr||'').toUpperCase().replace(/\s/g,'');
+  var id=NBA_IDS[a];
+  if(id)return'https://cdn.nba.com/logos/nba/'+id+'/global/L/logo.svg';
+  return null;
+}
+function getCountryFlag(name){
+  var n=(name||'').toUpperCase().trim();
+  return WORLD_FLAGS[n]||null;
+}
+
+function parseTeams(matchup,liga){
+  var m=matchup||'';
+  var sep=m.includes(' @ ')?'@':m.includes(' vs ')||m.includes(' VS ')||m.includes(' Vs ')?'vs':'';
+  if(sep){
+    var parts=m.split(new RegExp('\\s+'+sep+'\\s+','i'));
+    return{away:(parts[0]||'').trim().toUpperCase(),home:(parts[1]||'').trim().toUpperCase()};
+  }
+  return{away:m.toUpperCase(),home:''};
+}
+
+function logoHTML(name,liga,size){
+  var s=size||32;
+  var sport=getSport(liga);
+  var logo=null;
+  var flag=getCountryFlag(name);
+  if(flag){return'<div class="team-logo" style="width:'+s+'px;height:'+s+'px"><span class="emoji-logo">'+flag+'</span></div>';}
+  if(sport==='mlb'){logo=getMLBLogo(name.replace('@ ','').trim());}
+  if(sport==='nba'){logo=getNBALogo(name);}
+  if(logo){
+    return'<div class="team-logo" style="width:'+s+'px;height:'+s+'px"><img src="'+logo+'" alt="'+name+'" onerror="this.parentNode.innerHTML=\'<span style=\\\"font-size:'+Math.round(s*.5)+'px\\\">⚾</span>\'"></div>';
+  }
+  var icons={'mlb':'⚾','nba':'🏀','copa':'🏆','futbol':'⚽','otros':'🎯'};
+  return'<div class="team-logo" style="width:'+s+'px;height:'+s+'px"><span class="emoji-logo" style="font-size:'+Math.round(s*.5)+'px">'+(icons[sport]||'🎯')+'</span></div>';
+}
+
+// ─── STARS ─────────────────────────────────────────────────────
+function starsHTML(n,cls){
+  var c=cls||'cy';
+  var s='';
+  for(var i=1;i<=3;i++)s+='<span class="star '+(i<=n?'on-'+c:'off')+'">★</span>';
+  return'<div class="stars-row">'+s+'</div>';
+}
+function pcStarsHTML(n){
+  var c=n===3?'cy':'am';
+  var s='';
+  for(var i=1;i<=3;i++)s+='<span class="pc-star '+(i<=n?'on-'+c:'off')+'">★</span>';
+  return'<div class="pc-stars">'+s+'</div>';
+}
+
+// ─── PICK CARD (compact) ───────────────────────────────────────
+function buildPickCard(p,idx){
+  var sc='s'+(p.estrellas||1);
+  var teams=parseTeams(p.matchup,p.liga);
+  var sport=getSport(p.liga);
+  var ligaDisplay=(p.liga||'').toUpperCase();
+  var horaDisplay=(p.hora||'').replace(/\s*(CDT|EDT|CT|ET)\s*/gi,'').trim();
+
+  var el=document.createElement('div');
+  el.className='pick-card '+sc;
+  el.onclick=function(){
+    var det=this.querySelector('.pick-detail');
+    if(det)det.classList.toggle('open');
+  };
+
+  var logoA=teams.away?logoHTML(teams.away,p.liga,32):'';
+  var logoB=teams.home?logoHTML(teams.home,p.liga,32):'';
+  var vsRow=teams.home
+    ?'<div class="pc-teams">'+logoA+'<span class="pc-vs">@</span>'+logoB+'<div class="pc-matchup-name">'+teams.away+'&nbsp;<span style="color:var(--tx3)">vs</span>&nbsp;'+teams.home+'</div></div>'
+    :'<div class="pc-teams">'+logoA+'<div class="pc-matchup-name">'+teams.away+'</div></div>';
+
+  el.innerHTML=
+    '<div class="pc-stripe '+sc+'"></div>'+
+    '<div class="pc-body">'+
+      '<div class="pc-context">'+ligaDisplay+' · '+horaDisplay+'</div>'+
+      vsRow+
+      '<div class="pc-mid">'+
+        '<div class="pc-pick-name">'+p.pick.toUpperCase()+'</div>'+
+        '<div class="pc-ev">EV +'+p.ev_pct+'%</div>'+
+      '</div>'+
+      '<div class="pc-bar"><div class="pc-bar-fill" data-w="'+Math.min((p.prob_propia||50),100)+'"></div></div>'+
+      '<div class="pc-reason">'+(p.razonamiento||'')+'</div>'+
+      '<div class="pc-footer">'+
+        pcStarsHTML(p.estrellas||1)+
+        '<span class="pc-tipo">'+(p.tipo||'Pick')+'</span>'+
+        '<span class="pc-stake">'+p.stake+'</span>'+
+      '</div>'+
+    '</div>'+
+    '<div class="pick-detail">'+
+      '<div class="pd-row">'+
+        '<div class="pd-item"><div class="pd-val">'+p.cuota_winpot+'</div><div class="pd-lbl">Winpot</div></div>'+
+        '<div class="pd-item"><div class="pd-val">'+p.cuota_bet365+'</div><div class="pd-lbl">Bet365</div></div>'+
+        '<div class="pd-item"><div class="pd-val">'+p.prob_implicita+'%</div><div class="pd-lbl">Prob Casa</div></div>'+
+        '<div class="pd-item"><div class="pd-val">'+p.prob_propia+'%</div><div class="pd-lbl">Prob Propia</div></div>'+
+      '</div>'+
+      '<div class="pd-text">'+(p.razonamiento||'')+'</div>'+
+    '</div>';
+
+  return el;
+}
+
+// ─── GOLD PICK (featured) ──────────────────────────────────────
+function buildGoldPick(p){
+  var teams=parseTeams(p.matchup,p.liga);
+  var sport=getSport(p.liga);
+  var logoA=teams.away?logoHTML(teams.away,p.liga,52):'';
+  var logoB=teams.home?logoHTML(teams.home,p.liga,52):'';
+  var ctxLine=(p.liga||'').toUpperCase()+' · '+(p.hora||'').replace(/\s*(CDT|EDT|CT|ET)\s*/gi,'').trim();
+
+  var hasInfo = (sport==='mlb');
+
+  return'<div class="gold-card">'+
+    '<div class="gold-stripe"></div>'+
+    '<div class="gold-badge">★ PICK DEL DÍA</div>'+
+    '<div class="gc-inner">'+
+      '<div class="gc-context">'+ctxLine+'</div>'+
+      '<div class="gc-matchup">'+
+        '<div class="team-block">'+logoA+
+          '<div class="team-name away">'+teams.away+'</div>'+
+        '</div>'+
+        '<div class="vs-sep">VS</div>'+
+        '<div class="team-block">'+logoB+
+          '<div class="team-name home">'+teams.home+'</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="gc-pick-row">'+
+        '<div class="pick-badge">'+p.pick.toUpperCase()+'</div>'+
+        '<div class="ev-badge">EV +'+p.ev_pct+'%</div>'+
+        '<div class="tipo-badge">'+(p.tipo||'Pick')+'</div>'+
+        '<div class="hora-badge">'+p.cuota_winpot+' Winpot</div>'+
+      '</div>'+
+      '<div class="gc-analysis">'+(p.razonamiento||'')+'</div>'+
+      '<div class="prob-section">'+
+        '<div class="prob-label">'+
+          '<div class="prob-txt">PROBABILIDAD DE VICTORIA</div>'+
+          '<div class="prob-pct">'+p.prob_propia+'%</div>'+
+        '</div>'+
+        '<div class="prob-bar"><div class="prob-fill" data-w="'+Math.min(p.prob_propia,100)+'"></div></div>'+
+      '</div>'+
+      '<div class="gc-footer">'+
+        starsHTML(p.estrellas||3,'cy')+
+        '<div style="display:flex;gap:8px;align-items:center">'+
+          '<div class="stake-badge">STAKE: '+p.stake+'</div>'+
+          '<div class="cuota-row">'+
+            '<div class="cuota-item">WP <span>'+p.cuota_winpot+'</span></div>'+
+            '<div class="cuota-item" style="color:var(--tx3)">·</div>'+
+            '<div class="cuota-item">B365 <span>'+p.cuota_bet365+'</span></div>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+// ─── PARLAY ────────────────────────────────────────────────────
+function buildParlay(pl){
+  if(!pl||!pl.patas||!pl.patas.length)return'';
+  var legs=pl.patas.map(function(pt,i){
+    var txt=typeof pt==='object'?pt.partido||JSON.stringify(pt):pt;
+    var parts=txt.split('(cuota');
+    var name=parts[0].trim();
+    var cuota=parts[1]?parts[1].replace(')','').trim():'';
+    return'<div class="pl-leg">'+
+      '<div class="pl-num">L'+(i+1)+'</div>'+
+      '<div class="pl-text">'+name.toUpperCase()+'</div>'+
+      (cuota?'<div class="pl-cuota">'+cuota+'</div>':'')+
+    '</div>';
+  }).join('');
+
+  return'<div class="parlay-card">'+
+    '<div class="parlay-hdr">'+
+      '<div>'+
+        '<div class="parlay-title">⚡ PARLAY SUGERIDO</div>'+
+        '<div class="parlay-sub">'+pl.patas.length+' LEGS · BOOST WINPOT</div>'+
+      '</div>'+
+      '<div>'+
+        '<div class="parlay-cuota-big">'+pl.cuota_con_boost+'<span style="font-size:16px;color:var(--tx3)">x</span></div>'+
+        '<div class="parlay-cuota-lbl">CUOTA CON BOOST</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="parlay-body">'+
+      '<div class="parlay-legs">'+legs+'</div>'+
+      '<div class="parlay-stats">'+
+        '<div class="pst"><div class="pst-v cy">'+pl.cuota_total+'x</div><div class="pst-l">Cuota Normal</div></div>'+
+        '<div class="pst"><div class="pst-v pu">'+pl.cuota_con_boost+'x</div><div class="pst-l">Con Boost 40%</div></div>'+
+        '<div class="pst"><div class="pst-v gr">+'+pl.ev_pct+'%</div><div class="pst-l">EV Estimado</div></div>'+
+        '<div class="pst"><div class="pst-v" style="color:var(--am)">'+pl.stake+'</div><div class="pst-l">Stake</div></div>'+
+      '</div>'+
+      (pl.nota?'<div class="parlay-note">'+pl.nota+'</div>':'')+
+    '</div>'+
+  '</div>';
+}
+
+// ─── SPORT SECTION BUILD ───────────────────────────────────────
+function buildSportSection(picks,sport,label,icon,noApostar){
+  var sportPicks=picks.filter(function(p){return getSport(p.liga)===sport;});
+  var sportNA=(noApostar||[]).filter(function(p){
+    var lig=(p.liga||'').toLowerCase();
+    if(sport==='mlb')return lig.includes('mlb');
+    if(sport==='nba')return lig.includes('nba');
+    if(sport==='copa')return lig.includes('copa')||lig.includes('mundial')||lig.includes('fifa');
+    if(sport==='futbol')return lig.includes('liga')||lig.includes('premier')||lig.includes('futbol')||lig.includes('fútbol');
+    return false;
+  });
+
+  var html='<div class="sec-hdr">'+
+    '<div class="sec-ico" style="background:var(--cyd)">'+icon+'</div>'+
+    '<div class="sec-title">'+label+'</div>'+
+    '<div class="sec-line"></div>'+
+    '<div class="sec-ct">'+sportPicks.length+' PICKS</div>'+
+  '</div>';
+
+  if(!sportPicks.length){
+    html+='<div class="empty-state">'+
+      '<div class="es-icon">'+icon+'</div>'+
+      '<div class="es-title">SIN PICKS HOY</div>'+
+      '<div class="es-sub">No se encontraron apuestas con valor esperado positivo en '+label+' para hoy. Regresa mañana o revisa la sección INICIO para picks de otras ligas.</div>'+
+      '<div class="es-time">PRÓXIMO ANÁLISIS: 05:00 AM</div>'+
+    '</div>';
+  }else{
+    html+='<div class="picks-grid" id="grid-'+sport+'"></div>';
+  }
+
+  if(sportNA.length){
+    html+='<div class="sec-hdr" style="margin-top:20px">'+
+      '<div class="sec-ico" style="background:var(--red)">🚫</div>'+
+      '<div class="sec-title">NO APOSTAR</div>'+
+      '<div class="sec-line"></div>'+
+    '</div>';
+    sportNA.forEach(function(na){
+      html+='<div class="na-card">'+
+        '<div class="na-ico">⛔</div>'+
+        '<div>'+
+          '<div class="na-liga">'+(na.liga||'').toUpperCase()+'</div>'+
+          '<div class="na-match">'+(na.matchup||'').toUpperCase()+'</div>'+
+          '<div class="na-razon">'+(na.razon||'')+'</div>'+
+        '</div>'+
+      '</div>';
     });
-  }else{H+='<div style="text-align:center;padding:50px 20px;color:var(--tx3)"><div style="font-size:42px;margin-bottom:14px">&#128269;</div><div>No hay picks con edge hoy.</div></div>';}
-  var pl=data.parlay_sugerido;
-  if(pl&&pl.patas&&pl.patas.length&&pl.cuota_total>0){
-    var pp=pl.patas.map(function(x){return typeof x==='object'?x.partido||'':x;}).join(' + ');
-    H+='<div class="sec" style="margin-top:26px"><div class="sec-lb">Parlay Sugerido</div><div class="sec-ln"></div></div>'
-      +'<div class="glass card cpar"><div class="cin"><div class="stripe stp"></div>'
-      +'<div class="ch"><div><div class="ct">'+pp+'</div></div><div class="cm"><div class="ltag ltp">PARLAY</div></div></div>'
-      +'<div class="row"><div class="rl">Pick</div><div class="pn pnp">Combinada Boost Winpot</div><div class="sk skp">'+pl.stake+'</div></div>'
-      +'<div class="row"><div class="rl">Cuotas</div><div class="ods"><div class="oc ocr"><span class="ol">BASE&nbsp;</span>'+pl.cuota_total+'</div><div class="oc ocb"><span class="ol">+BOOST&nbsp;</span>'+pl.cuota_con_boost+'</div></div></div>'
-      +'<div class="row"><div class="rl">EV</div><div class="evb"><div class="evt"><div class="evp" style="flex:1">'+(pl.nota||'')+'</div><div class="evbg ebp">+'+pl.ev_pct+'%</div></div>'+eb(pl.ev_pct,'bpl','p')+'</div></div>'
-      +'</div></div>';
   }
-  if(data.picks&&data.picks.length){
-    H+='<div class="sec" style="margin-top:26px"><div class="sec-lb">Resumen Ejecutivo</div><div class="sec-ln"></div></div>'
-      +'<div class="tg"><table><thead><tr><th>Pick</th><th>Cuota</th><th>EV%</th><th>Stake</th><th>Conf.</th></tr></thead><tbody>';
-    data.picks.forEach(function(p){var col=p.estrellas===3?'var(--cy)':p.estrellas===2?'var(--am)':'var(--tx2)';H+='<tr><td><b style="color:var(--tx)">'+p.pick+'</b><br><span style="font-size:10px;color:var(--tx3)">'+p.matchup+'</span></td><td style="color:'+col+';font-weight:700">'+p.cuota_winpot+'</td><td style="color:'+col+';font-weight:700">+'+p.ev_pct+'%</td><td><span class="sk" style="font-size:10px;padding:3px 8px">'+p.stake+'</span></td><td>'+st(p.estrellas)+'</td></tr>';});
-    H+='</tbody></table></div>';
-  }
-  if(data.no_apostar&&data.no_apostar.length){
-    H+='<div class="sec" style="margin-top:26px"><div class="sec-lb">No Apostar</div><div class="sec-ln"></div><div class="sec-ch">'+data.no_apostar.length+'</div></div>';
-    data.no_apostar.forEach(function(nb){H+='<div class="nb"><div class="nbt">'+nb.matchup+' <span style="font-size:10px;font-weight:400;color:var(--tx3)">['+nb.liga+']</span></div><div class="nbr">'+nb.razon+'</div></div>';});
-  }
-  var ts=new Date().toLocaleTimeString('es-MX',{hour:'2-digit',minute:'2-digit'});
-  if(data.fecha!==today){H='<div class="ebox" style="margin-bottom:16px"><div style="font-size:26px;margin-bottom:8px">&#128336;</div><div style="font-weight:700;margin-bottom:4px">Picks del '+data.fecha+'</div><div style="font-size:12px;color:var(--tx2)">Los de hoy ('+today+') se generan a las 5 AM.</div></div>'+H;}
-  H+='<div class="foot">Generado '+data.fecha+' actualizado <strong>'+ts+'</strong><br>Proxima actualizacion automatica: <strong>5:00 AM</strong></div>';
-  document.getElementById('app').innerHTML=H;
-  setTimeout(ab,120);
-  document.getElementById('bwa').onclick=function(){cwa(data);};
-  document.getElementById('big').onclick=function(){gs(data);};
+
+  return{html:html,picks:sportPicks};
 }
-function init(){
-  var dbg=function(t){var e=document.getElementById('ltxt');if(e)e.textContent=t;};
-  function tryFetch(url,fallback){
-    var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
-    dbg('Conectando...');
-    fetch(url,{signal:ctrl.signal})
-      .then(function(r){clearTimeout(tmo);dbg('HTTP '+r.status);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-      .then(function(d){render(d);})
-      .catch(function(err){
-        if(fallback){dbg('Intentando picks del dia...');tryFetch(fallback,null);}
-        else{document.getElementById('app').innerHTML='<div class="ebox"><div style="font-size:32px;margin-bottom:10px">&#9888;</div><div style="font-weight:700;margin-bottom:6px">Error al cargar picks</div><div style="font-size:12px;color:var(--tx2)">'+err.message+'<br><br><button onclick="location.reload()" style="margin-top:8px;padding:9px 20px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:var(--tx);cursor:pointer;font-size:13px;font-weight:600">Reintentar</button></div></div>';}
-      });
-  }
-  tryFetch(U,U2);
+
+// ─── BANKROLL CALC ────────────────────────────────────────────
+function buildBankrollCalc(picks,bankroll){
+  var html='<div class="bkr-card">'+
+    '<div class="bkr-title"><span>💰</span> CALCULADORA DE STAKES</div>'+
+    '<div class="bkr-input-row">'+
+      '<div class="bkr-lbl">MI BANKROLL:</div>'+
+      '<div style="display:flex;align-items:center;gap:6px">'+
+        '<div class="bkr-currency">MXN $</div>'+
+        '<input class="bkr-input" id="bankrollInput" type="number" value="1000" min="100" step="100" oninput="updateCalc()">'+
+      '</div>'+
+    '</div>'+
+    '<div class="bkr-grid" id="bkrGrid"></div>'+
+  '</div>';
+  return html;
 }
-init();
+
+function updateCalc(){
+  var val=parseFloat(document.getElementById('bankrollInput').value)||1000;
+  var grid=document.getElementById('bkrGrid');
+  if(!grid||!window._PICKS)return;
+  var html='';
+  window._PICKS.forEach(function(p){
+    var stakeStr=(p.stake||'').replace('u','').trim();
+    var stakePct=parseFloat(stakeStr)||0;
+    var amount=(val*stakePct/100);
+    html+='<div class="bkr-item">'+
+      '<div class="bkr-pick">'+p.pick.toUpperCase()+'</div>'+
+      '<div class="bkr-amount">$'+amount.toFixed(0)+'</div>'+
+      '<div class="bkr-stake-pct">'+stakeStr+'% bankroll</div>'+
+    '</div>';
+  });
+  grid.innerHTML=html;
+}
+
+// ─── EXEC TABLE ───────────────────────────────────────────────
+function buildExecTable(picks){
+  var rows=picks.map(function(p){
+    var ev=p.ev_pct||0;
+    var evCol=ev>5?'style="color:#10b981"':ev>0?'style="color:var(--am)"':'style="color:var(--re)"';
+    return'<tr>'+
+      '<td><div class="et-pick">'+p.pick.toUpperCase()+'</div><div style="font-size:10px;color:var(--tx3)">'+p.matchup.toUpperCase()+'</div></td>'+
+      '<td><span class="et-tipo">'+(p.tipo||'Pick')+'</span></td>'+
+      '<td class="et-cuota">'+p.cuota_winpot+'</td>'+
+      '<td class="et-ev" '+evCol+'>+'+ev+'%</td>'+
+      '<td>'+starsHTML(p.estrellas||1,'am')+'</td>'+
+      '<td class="et-stake">'+p.stake+'</td>'+
+    '</tr>';
+  }).join('');
+
+  return'<table class="exec-table">'+
+    '<thead><tr>'+
+      '<th>PARTIDO / PICK</th><th>TIPO</th><th>CUOTA WP</th><th>EV%</th><th>CONF.</th><th>STAKE</th>'+
+    '</tr></thead>'+
+    '<tbody>'+rows+'</tbody>'+
+  '</table>';
+}
+
+// ─── MAIN RENDER ──────────────────────────────────────────────
+function render(data){
+  var picks=data.picks||[];
+  var noApostar=data.no_apostar||[];
+  var parlay=data.parlay_sugerido||{};
+  var bkr=data.bankroll||{};
+  window._PICKS=picks;
+
+  // Date header
+  var d=new Date();
+  document.getElementById('hdrDate').textContent=fmtDate(d);
+
+  // Tab counts
+  var sports={mlb:0,nba:0,futbol:0,copa:0};
+  picks.forEach(function(p){var s=getSport(p.liga);if(sports[s]!==undefined)sports[s]++;});
+  Object.keys(sports).forEach(function(s){
+    var el=document.getElementById('ct-'+s);
+    if(el){el.textContent=sports[s];el.className='t-ct'+(sports[s]===0?' empty':'');}
+  });
+  var startEl=document.getElementById('ct-inicio');
+  if(startEl){startEl.textContent=picks.length;}
+
+  // HERO
+  var heroEl=document.getElementById('heroSection');
+  if(heroEl){
+    var dateStr=data.fecha_display||fmtDate(d);
+    var ligasSet=new Set(picks.map(function(p){return getSport(p.liga).toUpperCase();}));
+    heroEl.innerHTML=
+      '<div class="date-hero">'+
+        '<div class="dh-left">'+
+          '<div class="dh-tag">ANÁLISIS EV+ · Q-KELLY</div>'+
+          '<div class="dh-title"><span class="gr">TIPSTER</span><br>PRO IA</div>'+
+          '<div class="dh-sub">'+Array.from(ligasSet).join(' · ')+' · <span>'+picks.length+' PICKS</span></div>'+
+        '</div>'+
+        '<div class="dh-stats">'+
+          '<div class="dst"><div class="dst-v" style="color:var(--cy)">'+picks.length+'</div><div class="dst-l">Picks</div></div>'+
+          '<div class="dst"><div class="dst-v" style="color:var(--am)">'+(picks.filter(function(p){return(p.estrellas||0)>=3;}).length)+'</div><div class="dst-l">Gold</div></div>'+
+          '<div class="dst"><div class="dst-v" style="color:#10b981">'+picks.filter(function(p){return(p.ev_pct||0)>5;}).length+'</div><div class="dst-l">EV &gt;5%</div></div>'+
+          '<div class="dst"><div class="dst-v" style="color:var(--pu)">'+noApostar.length+'</div><div class="dst-l">No Bet</div></div>'+
+        '</div>'+
+      '</div>';
+  }
+
+  // News bar
+  var newsEl=document.getElementById('newsBar');
+  if(newsEl&&data.nota_lineas){
+    newsEl.innerHTML='<div class="news-bar"><div class="news-lbl">📡 NOTA</div><div class="news-txt">'+data.nota_lineas+'</div></div>';
+  }
+
+  // Gold pick (best)
+  var best=picks.slice().sort(function(a,b){return(b.estrellas||0)-(a.estrellas||0)||(b.ev_pct||0)-(a.ev_pct||0);})[0];
+  var goldEl=document.getElementById('goldPickSection');
+  if(goldEl&&best){
+    goldEl.innerHTML=
+      '<div class="sec-hdr"><div class="sec-ico" style="background:rgba(245,158,11,.2)">⭐</div><div class="sec-title">PICK DE ORO DEL DÍA</div><div class="sec-line"></div><div class="sec-ct">CONFIANZA MÁXIMA</div></div>'+
+      buildGoldPick(best);
+  }
+
+  // Solid picks (others)
+  var solidPicks=picks.filter(function(p){return p!==best;});
+  var solidEl=document.getElementById('solidPicksSection');
+  if(solidEl&&solidPicks.length){
+    solidEl.innerHTML='<div class="sec-hdr"><div class="sec-ico" style="background:var(--bld)">💎</div><div class="sec-title">PICKS SÓLIDOS</div><div class="sec-line"></div><div class="sec-ct">'+solidPicks.length+' SELECCIONES</div></div><div class="picks-grid" id="solidGrid"></div>';
+    var solidGrid=document.getElementById('solidGrid');
+    if(solidGrid)solidPicks.forEach(function(p){solidGrid.appendChild(buildPickCard(p));});
+  }
+
+  // Parlay
+  var parlayEl=document.getElementById('parlaySection');
+  if(parlayEl)parlayEl.innerHTML=buildParlay(parlay);
+
+  // Bankroll calc
+  var bkrEl=document.getElementById('bankrollCalc');
+  if(bkrEl){
+    bkrEl.innerHTML=buildBankrollCalc(picks,bkr);
+    updateCalc();
+  }
+
+  // Sport sections
+  var sportDefs=[
+    {id:'mlb',label:'MLB BÉISBOL',icon:'⚾'},
+    {id:'nba',label:'NBA',icon:'🏀'},
+    {id:'futbol',label:'FÚTBOL',icon:'⚽'},
+    {id:'copa',label:'COPA DEL MUNDO',icon:'🏆'}
+  ];
+  sportDefs.forEach(function(sd){
+    var el=document.getElementById(sd.id+'Content');
+    if(!el)return;
+    var res=buildSportSection(picks,sd.id,sd.label,sd.icon,noApostar);
+    el.innerHTML=res.html;
+    if(res.picks.length){
+      var grid=document.getElementById('grid-'+sd.id);
+      if(grid)res.picks.forEach(function(p){grid.appendChild(buildPickCard(p));});
+    }
+  });
+
+  // Resumen
+  var resEl=document.getElementById('resumenContent');
+  if(resEl){
+    resEl.innerHTML=
+      '<div class="sec-hdr"><div class="sec-ico" style="background:var(--bld)">📊</div><div class="sec-title">RESUMEN EJECUTIVO</div><div class="sec-line"></div></div>'+
+      buildExecTable(picks)+
+      '<div class="sec-hdr"><div class="sec-ico" style="background:var(--red)">🚫</div><div class="sec-title">NO APOSTAR</div><div class="sec-line"></div></div>'+
+      noApostar.map(function(na){
+        return'<div class="na-card"><div class="na-ico">⛔</div><div>'+
+          '<div class="na-liga">'+(na.liga||'').toUpperCase()+'</div>'+
+          '<div class="na-match">'+(na.matchup||'').toUpperCase()+'</div>'+
+          '<div class="na-razon">'+(na.razon||'')+'</div>'+
+        '</div></div>';
+      }).join('')+
+      '<div class="bottom-stats" style="margin-top:20px">'+
+        '<div class="bs-item"><div class="bs-v" style="color:var(--cy)">'+picks.length+'</div><div class="bs-l">Total Picks</div></div>'+
+        '<div class="bs-item"><div class="bs-v" style="color:var(--am)">'+(bkr.exposicion_total||'—')+'</div><div class="bs-l">Exposición</div></div>'+
+        '<div class="bs-item"><div class="bs-v" style="color:var(--re)">'+(bkr.max_por_juego||'—')+'</div><div class="bs-l">Máx/Juego</div></div>'+
+        '<div class="bs-item"><div class="bs-v" style="color:var(--bl)">Q-KELLY</div><div class="bs-l">Método</div></div>'+
+      '</div>';
+  }
+
+  // Animate bars
+  setTimeout(function(){
+    document.querySelectorAll('.prob-fill,.pc-bar-fill').forEach(function(el){
+      el.style.width=(el.dataset.w||0)+'%';
+    });
+  },200);
+
+  // Show app
+  document.getElementById('loadingScreen').style.display='none';
+  var appEl=document.getElementById('app');
+  appEl.style.display='block';
+  appEl.classList.add('loaded');
+}
+
+// ─── FETCH ────────────────────────────────────────────────────
+function tryFetch(url,fallback){
+  var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
+  var ltxt=document.getElementById('loadTxt');
+  if(ltxt)ltxt.textContent='CARGANDO PICKS...';
+  fetch(url,{signal:ctrl.signal})
+    .then(function(r){clearTimeout(tmo);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+    .then(function(d){render(d);})
+    .catch(function(err){
+      if(fallback){if(ltxt)ltxt.textContent='INTENTANDO PICKS DEL DÍA...';tryFetch(fallback,null);}
+      else{
+        document.getElementById('loadingScreen').innerHTML=
+          '<div style="text-align:center;padding:40px"><div style="font-size:32px;margin-bottom:12px">⚠️</div>'+
+          '<div style="font-family:var(--font);font-size:18px;font-weight:800;margin-bottom:8px">ERROR AL CARGAR PICKS</div>'+
+          '<div style="font-size:12px;color:var(--tx3);margin-bottom:16px">'+err.message+'</div>'+
+          '<button onclick="location.reload()" style="font-family:var(--font);font-size:13px;font-weight:700;padding:10px 22px;border-radius:10px;border:1px solid var(--cyb);background:var(--cyd);color:var(--cy);cursor:pointer">REINTENTAR</button></div>';
+      }
+    });
+}
+tryFetch('/latest.json','/picks-'+todayStr()+'.json');
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
