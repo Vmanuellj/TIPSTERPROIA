@@ -403,7 +403,65 @@ function parseTeams(matchup){
 // ─── LOGO SYSTEM ─────────────────────────────────────────────────────────────
 var MLB_IDS={LAD:119,PIT:134,ATL:144,CWS:145,CHW:145,CHC:112,COL:115,SEA:136,BAL:110,NYY:147,CLE:114,NYM:121,STL:138,TEX:140,KC:118,KCR:118,MIL:158,OAK:133,HOU:117,MIA:146,ARI:109,WSH:120,WSN:120,SF:137,SFG:137,SD:135,SDP:135,PHI:143,TOR:141,MIN:142,DET:116,TB:139,TBR:139,BOS:111,LAA:108,CIN:113};
 var NBA_IDS={NYK:1610612752,SAS:1610612759,GSW:1610612744,LAL:1610612747,BOS:1610612738,MIA:1610612748,PHX:1610612756,DEN:1610612743,MIL:1610612749,MEM:1610612745,CLE:1610612739,OKC:1610612760,MIN:1610612750,PHI:1610612755,HOU:1610612745,SAC:1610612758,CHI:1610612741,DAL:1610612742,BKN:1610612751,TOR:1610612761,NOP:1610612740,POR:1610612757,LAC:1610612746,UTA:1610612762,ORL:1610612753,IND:1610612754,ATL:1610612737,CHA:1610612766,DET:1610612765,WAS:1610612764};
-var CUP_FLAGS={MEXICO:'🇲🇽',SUDAFRICA:'🇿🇦','SOUTH AFRICA':'🇿🇦','COREA DEL SUR':'🇰🇷','REPUBLICA CHECA':'🇨🇿',CZECHIA:'🇨🇿','ESTADOS UNIDOS':'🇺🇸',USA:'🇺🇸',BRASIL:'🇧🇷',ARGENTINA:'🇦🇷',ALEMANIA:'🇩🇪',FRANCE:'🇫🇷',FRANCIA:'🇫🇷',ESPANA:'🇪🇸',JAPON:'🇯🇵',PORTUGAL:'🇵🇹',COLOMBIA:'🇨🇴',URUGUAY:'🇺🇾',CHILE:'🇨🇱',ECUADOR:'🇪🇨',CANADA:'🇨🇦',MARRUECOS:'🇲🇦',SENEGAL:'🇸🇳',GHANA:'🇬🇦',CAMERUN:'🇨🇲',CROACIA:'🇭🇷',BELGICA:'🇧🇪',SUIZA:'🇨🇭',IRAN:'🇮🇷','ARABIA SAUDITA':'🇸🇦',AUSTRALIA:'🇦🇺',GALES:'🏴󠁧󠁢󠁷󠁬󠁳󠁿'};
+var CUP_FLAGS={MEXICO:'🇲🇽',SUDAFRICA:'🇿🇦','SOUTH AFRICA':'🇿🇦','COREA DEL SUR':'🇰🇷','REPUBLICA CHECA':'🇨🇿',CZECHIA:'🇨🇿','ESTADOS UNIDOS':'🇺🇸',USA:'🇺🇸',BRASIL:'🇧🇷',ARGENTINA:'🇦🇷',ALEMANIA:'🇩🇪',FRANCE:'🇫🇷',FRANCIA:'🇫🇷',ESPANA:'🇪🇸',JAPON:'🇯🇵',PORTUGAL:'🇵🇹',COLOMBIA:'🇨🇴',URUGUAY:'🇺🇾',CHILE:'🇨🇱',ECUADOR:'🇪🇨',CANADA:'🇨🇦',MARRUECOS:'🇲🇦',SENEGAL:'🇸🇳',GHANA:'🇬🇦',CAMERUN:'🇨🇲',CROACIA:'🇭🇷',BELGICA:'🇧🇪',SUIZA:'🇨🇭',IRAN:'🇮🇷','ARABIA SAUDITA':'🇸🇦',AUSTRALIA:'🇦🇺',GALES:'🏴󠁧󠁢󠁷󠁬󠁳󠁿',
+  GERMANY:'🇩🇪',ALEMANIA:'🇩🇪',
+  CURACAO:'🇨🇼','CURAÇAO':'🇨🇼',
+  SWITZERLAND:'🇨🇭',SUIZA:'🇨🇭',
+  QATAR:'🇶🇦',
+  SCOTLAND:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',ESCOCIA:'🏴󠁧󠁢󠁳󠁣󠁴󠁿',
+  HAITI:'🇭🇹','HAITÍ':'🇭🇹',
+  NIGERIA:'🇳🇬',GHANA:'🇬🇭',IVORY:'🇨🇮','IVORY COAST':'🇨🇮',
+  SENEGAL:'🇸🇳',CAMEROON:'🇨🇲','CAMERÚN':'🇨🇲',
+  MOROCCO:'🇲🇦',MARRUECOS:'🇲🇦',
+  TUNISIA:'🇹🇳',EGYPT:'🇪🇬','EGIPTO':'🇪🇬',
+  IRAN:'🇮🇷',IRAQ:'🇮🇶',JORDAN:'🇯🇴',
+  NETHERLANDS:'🇳🇱','PAÍSES BAJOS':'🇳🇱',HOLLAND:'🇳🇱',HOLANDA:'🇳🇱',
+  BELGIUM:'🇧🇪','BÉLGICA':'🇧🇪',BELGIUM:'🇧🇪',
+  POLAND:'🇵🇱','POLONIA':'🇵🇱',SERBIA:'🇷🇸',
+  DENMARK:'🇩🇰','DINAMARCA':'🇩🇰',SWEDEN:'🇸🇪',SUECIA:'🇸🇪',
+  NORWAY:'🇳🇴',NORUEGA:'🇳🇴',AUSTRIA:'🇦🇹',TURKEY:'🇹🇷','TURQUÍA':'🇹🇷',
+  GREECE:'🇬🇷',GRECIA:'🇬🇷',HUNGARY:'🇭🇺','HUNGRÍA':'🇭🇺',
+  CZECHIA:'🇨🇿','CZECH REPUBLIC':'🇨🇿','REPÚBLICA CHECA':'🇨🇿',
+  SLOVAKIA:'🇸🇰',SLOVENIA:'🇸🇮',ROMANIA:'🇷🇴','RUMANIA':'🇷🇴',
+  UKRAINE:'🇺🇦',UCRANIA:'🇺🇦',RUSSIA:'🇷🇺',RUSIA:'🇷🇺',
+  PERU:'🇵🇪','PERÚ':'🇵🇪',BOLIVIA:'🇧🇴',PARAGUAY:'🇵🇾',
+  VENEZUELA:'🇻🇪',HONDURAS:'🇭🇳',GUATEMALA:'🇬🇹',
+  'EL SALVADOR':'🇸🇻',PANAMA:'🇵🇦','PANAMÁ':'🇵🇦',
+  'COSTA RICA':'🇨🇷',JAMAICA:'🇯🇲',TRINIDAD:'🇹🇹',
+  'NEW ZEALAND':'🇳🇿','NUEVA ZELANDA':'🇳🇿',
+  'SOUTH KOREA':'🇰🇷','KOREA':'🇰🇷','COREA':'🇰🇷',
+  CHINA:'🇨🇳',INDIA:'🇮🇳',INDONESIA:'🇮🇩',
+  VIETNAM:'🇻🇳',THAILAND:'🇹🇭','TAILANDIA':'🇹🇭'
+};
+var MLB_FULLNAMES={
+  'LOS ANGELES DODGERS':119,'PITTSBURGH PIRATES':134,'ATLANTA BRAVES':144,
+  'CHICAGO WHITE SOX':145,'CHICAGO CUBS':112,'COLORADO ROCKIES':115,
+  'SEATTLE MARINERS':136,'BALTIMORE ORIOLES':110,'NEW YORK YANKEES':147,
+  'CLEVELAND GUARDIANS':114,'NEW YORK METS':121,'ST. LOUIS CARDINALS':138,
+  'TEXAS RANGERS':140,'KANSAS CITY ROYALS':118,'MILWAUKEE BREWERS':158,
+  'OAKLAND ATHLETICS':133,'ATHLETICS':133,'HOUSTON ASTROS':117,
+  'MIAMI MARLINS':146,'ARIZONA DIAMONDBACKS':109,'WASHINGTON NATIONALS':120,
+  'SAN FRANCISCO GIANTS':137,'SAN DIEGO PADRES':135,'PHILADELPHIA PHILLIES':143,
+  'TORONTO BLUE JAYS':141,'MINNESOTA TWINS':142,'DETROIT TIGERS':116,
+  'TAMPA BAY RAYS':139,'BOSTON RED SOX':111,'LOS ANGELES ANGELS':108,
+  'CINCINNATI REDS':113,'LOS ANGELES':108
+};
+var NBA_FULLNAMES={
+  'NEW YORK KNICKS':1610612752,'SAN ANTONIO SPURS':1610612759,
+  'GOLDEN STATE WARRIORS':1610612744,'LOS ANGELES LAKERS':1610612747,
+  'BOSTON CELTICS':1610612738,'MIAMI HEAT':1610612748,'PHOENIX SUNS':1610612756,
+  'DENVER NUGGETS':1610612743,'MILWAUKEE BUCKS':1610612749,
+  'MEMPHIS GRIZZLIES':1610612745,'CLEVELAND CAVALIERS':1610612739,
+  'OKLAHOMA CITY THUNDER':1610612760,'MINNESOTA TIMBERWOLVES':1610612750,
+  'PHILADELPHIA 76ERS':1610612755,'HOUSTON ROCKETS':1610612745,
+  'SACRAMENTO KINGS':1610612758,'CHICAGO BULLS':1610612741,
+  'DALLAS MAVERICKS':1610612742,'BROOKLYN NETS':1610612751,
+  'TORONTO RAPTORS':1610612761,'NEW ORLEANS PELICANS':1610612740,
+  'PORTLAND TRAIL BLAZERS':1610612757,'LOS ANGELES CLIPPERS':1610612746,
+  'UTAH JAZZ':1610612762,'ORLANDO MAGIC':1610612753,'INDIANA PACERS':1610612754,
+  'ATLANTA HAWKS':1610612737,'CHARLOTTE HORNETS':1610612766,
+  'DETROIT PISTONS':1610612765,'WASHINGTON WIZARDS':1610612764
+};
 var TEAM_COLORS={LAD:'#005A9C',PIT:'#FDB827',ATL:'#CE1141',CWS:'#27251F',CHW:'#27251F',CHC:'#0E3386',COL:'#33006F',SEA:'#0C2C56',BAL:'#DF4601',NYY:'#003087',CLE:'#00385D',NYM:'#002D72',STL:'#C41E3A',TEX:'#003278',KC:'#004687',MIL:'#12284B',OAK:'#003831',HOU:'#EB6E1F',MIA:'#00A3E0',ARI:'#A71930',WSH:'#AB0003',WSN:'#AB0003',SF:'#FD5A1E',SFG:'#FD5A1E',SD:'#2F241D',SDP:'#2F241D',PHI:'#E81828',TOR:'#134A8E',MIN:'#002B5C',DET:'#0C2340',TB:'#092C5C',TBR:'#092C5C',BOS:'#BD3039',LAA:'#BA0021',CIN:'#C6011F',NYK:'#F58426',SAS:'#C4CED4',GSW:'#1D428A',LAL:'#FDB927'};
 // Colores neon para badges de fallback (más brillantes que los colores de equipo)
 var NEON_COLORS={
@@ -462,7 +520,7 @@ function logoHTML(rawName,liga,sizePx){
   }
   // MLB → logo oficial, onerror llama función global sin HTML embebido
   if(sport==='mlb'){
-    var id=MLB_IDS[name];
+    var id=MLB_IDS[name]||MLB_FULLNAMES[name];
     if(id){
       return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
         '<img src="https://www.mlbstatic.com/team-logos/'+id+'.svg" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" onerror="_logoErr(this,\''+name+'\',\'mlb\')">'+
@@ -471,7 +529,7 @@ function logoHTML(rawName,liga,sizePx){
   }
   // NBA → logo oficial
   if(sport==='nba'){
-    var nid=NBA_IDS[name];
+    var nid=NBA_IDS[name]||NBA_FULLNAMES[name];
     if(nid){
       return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
         '<img src="https://cdn.nba.com/logos/nba/'+nid+'/global/L/logo.svg" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" onerror="_logoErr(this,\''+name+'\',\'nba\')">'+
