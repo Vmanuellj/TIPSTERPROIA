@@ -355,6 +355,12 @@ function getSport(liga){
   if(l.includes('liga')||l.includes('premier')||l.includes('mls')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer'))return'futbol';
   return'otros';
 }
+function parseTeams(matchup){
+  var m=matchup||'';
+  if(m.indexOf(' @ ')>-1){var p=m.split(' @ ');return{away:p[0].trim().toUpperCase(),home:(p[1]||'').trim().toUpperCase()};}
+  if(m.toLowerCase().indexOf(' vs ')>-1){var p=m.split(/ vs /i);return{away:p[0].trim().toUpperCase(),home:(p[1]||'').trim().toUpperCase()};}
+  return{away:m.toUpperCase(),home:''};
+}
 
 // ─── LOGO SYSTEM ─────────────────────────────────────────────────────────────
 var MLB_IDS={LAD:119,PIT:134,ATL:144,CWS:145,CHW:145,CHC:112,COL:115,SEA:136,BAL:110,NYY:147,CLE:114,NYM:121,STL:138,TEX:140,KC:118,KCR:118,MIL:158,OAK:133,HOU:117,MIA:146,ARI:109,WSH:120,WSN:120,SF:137,SFG:137,SD:135,SDP:135,PHI:143,TOR:141,MIN:142,DET:116,TB:139,TBR:139,BOS:111,LAA:108,CIN:113};
