@@ -45,8 +45,10 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .topbar{position:sticky;top:0;z-index:200;background:rgba(6,10,20,.88);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid var(--bd);}
 .tb-inner{max-width:920px;margin:0 auto;padding:0 18px;}
 .tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 0 9px;}
-.logo{font-family:var(--hf);font-size:21px;font-weight:900;letter-spacing:-.3px;background:linear-gradient(105deg,#00e5b4 0%,#60a5fa 55%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.logo-star{display:inline-block;background:linear-gradient(135deg,#f59e0b,#f97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--hf);font-size:21px;font-weight:900;letter-spacing:-.3px;}
+.logo-circle{width:32px;height:32px;border-radius:50%;background:#000;border:2px solid #00e5b4;box-shadow:0 0 10px #00e5b499,0 0 22px #00e5b433,inset 0 0 8px #00e5b418;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-t{color:#00e5b4;text-shadow:0 0 14px #00e5b488;}
+.logo-p{color:#eef2ff;}
 .tb-right{display:flex;align-items:center;gap:10px;}
 .live-badge{display:flex;align-items:center;gap:5px;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:99px;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--cy);animation:blink 1.6s ease-in-out infinite;}
@@ -305,7 +307,18 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 <div class="topbar">
   <div class="tb-inner">
     <div class="tb-hdr">
-      <div class="logo">TIPSTER PRO <span class="logo-star">★</span></div>
+      <div class="logo">
+  <div class="logo-circle">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <line x1="8" y1="1.5" x2="8" y2="5.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="8" y1="10.5" x2="8" y2="14.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="1.5" y1="8" x2="5.5" y2="8" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="10.5" y1="8" x2="14.5" y2="8" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="8" cy="8" r="2" fill="#00e5b4"/>
+    </svg>
+  </div>
+  <span class="logo-t">TIPSTER</span><span class="logo-p">&nbsp;PRO</span>
+</div>
       <div class="tb-right">
         <div class="live-badge"><div class="live-dot"></div>LIVE</div>
         <div class="hdr-date">
