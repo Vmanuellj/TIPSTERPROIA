@@ -20,6 +20,7 @@
   --bl:#60a5fa;--bld:rgba(96,165,250,.12);--blb:rgba(96,165,250,.28);
   --re:#f87171;--red:rgba(248,113,113,.12);--reb:rgba(248,113,113,.3);
   --gr:#10b981;--grd:rgba(16,185,129,.12);--grb:rgba(16,185,129,.3);
+  --nfl:#ff6b35;--nfld:rgba(255,107,53,.12);--nflb:rgba(255,107,53,.3);
   --rd:16px;--rds:10px;--rdxs:6px;
   --hf:'Barlow Condensed',sans-serif;
   --bf:'Barlow',sans-serif;
@@ -117,6 +118,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .st-nba{color:var(--am);background:var(--amd);border-color:var(--amb);}
 .st-copa{color:var(--pu);background:var(--pud);border-color:var(--pub);}
 .st-futbol{color:var(--gr);background:var(--grd);border-color:var(--grb);}
+.st-nfl{color:var(--nfl);background:var(--nfld);border-color:var(--nflb);}
 .hr-method{margin-left:auto;font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);}
 @media(max-width:500px){.hr-stats{grid-template-columns:repeat(2,1fr);}.hrs:nth-child(2){border-right:none;}.hrs:nth-child(3){border-top:1px solid var(--bd)}}
 
@@ -145,10 +147,11 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .gc-tname.home{color:var(--tx);}
 .gc-vs{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--tx4);flex-shrink:0;padding:0 4px;}
 .gc-badges{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-.badge-pick{font-family:var(--hf);font-size:15px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);padding:6px 18px;border-radius:var(--rds);}
-.badge-ev{font-family:var(--hf);font-size:13px;font-weight:800;background:var(--grd);border:1px solid var(--grb);color:var(--gr);padding:5px 14px;border-radius:var(--rds);}
+.badge-pick{font-family:var(--hf);font-size:15px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);padding:6px 18px;border-radius:var(--rds);box-shadow:0 0 18px rgba(0,229,180,.15);}
+.badge-ev{font-family:var(--hf);font-size:14px;font-weight:900;background:var(--grd);border:1px solid var(--grb);color:var(--gr);padding:6px 16px;border-radius:var(--rds);box-shadow:0 0 14px rgba(16,185,129,.18);}
+.badge-ev.high{background:rgba(16,185,129,.2);border-color:var(--gr);box-shadow:0 0 22px rgba(16,185,129,.3);}
 .badge-tipo{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bld);border:1px solid var(--blb);color:var(--bl);padding:4px 11px;border-radius:99px;}
-.badge-cuota{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--tx3);border:1px solid var(--bd);padding:4px 11px;border-radius:99px;}
+.badge-cuota{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--cy);border:1px solid var(--cyb);padding:4px 11px;border-radius:99px;background:var(--cyd);}
 .gc-analysis{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-left:3px solid var(--cyb);border-radius:0 var(--rds) var(--rds) 0;padding:11px 14px;margin-bottom:16px;font-size:12px;line-height:1.65;color:var(--tx2);}
 .prob-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
 .prob-lbl{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);}
@@ -170,10 +173,11 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:12px;margin-bottom:20px;}
 .pick-card{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);overflow:hidden;cursor:pointer;transition:transform .18s,border-color .22s,box-shadow .22s;}
 .pick-card:hover{transform:translateY(-3px);}
-.pick-card.s3{border-color:var(--cyb);box-shadow:var(--shadow-glow-cy);}
-.pick-card.s3:hover{box-shadow:0 0 44px rgba(0,229,180,.2);}
-.pick-card.s2{border-color:var(--amb);}
-.pick-card.s2:hover{box-shadow:var(--shadow-glow-am);}
+.pick-card.s3{border-color:var(--cyb);box-shadow:var(--shadow-glow-cy),0 2px 12px rgba(0,0,0,.35);}
+.pick-card.s3:hover{box-shadow:0 0 44px rgba(0,229,180,.25),0 4px 24px rgba(0,0,0,.5);}
+.pick-card.s2{border-color:var(--amb);box-shadow:0 2px 12px rgba(0,0,0,.3);}
+.pick-card.s2:hover{box-shadow:var(--shadow-glow-am),0 4px 20px rgba(0,0,0,.45);}
+.pick-card.s1:hover{box-shadow:0 4px 20px rgba(0,0,0,.4);}
 .pc-stripe{height:3px;}
 .pc-s3{background:linear-gradient(90deg,#00e5b4,#0ea5e9);}
 .pc-s2{background:linear-gradient(90deg,#f59e0b,#ef4444);}
@@ -196,7 +200,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .pc-stake{font-family:var(--hf);font-size:10px;font-weight:700;color:var(--tx3);background:var(--sf2);border:1px solid var(--bd);padding:2px 8px;border-radius:99px;}
 .pc-detail{display:none;background:var(--bg3);border-top:1px solid var(--bd);padding:12px 15px;}
 .pc-detail.open{display:block;}
-.pd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:9px;}
+.pd-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:9px;}
 .pd-cell{background:var(--bg4);border:1px solid var(--bd);border-radius:var(--rdxs);padding:8px 6px;text-align:center;}
 .pd-v{font-family:var(--hf);font-size:15px;font-weight:800;}
 .pd-l{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:var(--tx3);margin-top:2px;}
@@ -215,7 +219,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .pl-num{font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .pl-txt{font-family:var(--hf);font-size:13px;font-weight:700;flex:1;text-transform:uppercase;}
 .pl-cuota{font-family:var(--hf);font-size:13px;font-weight:800;color:var(--pu);}
-.pl-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.pl-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
 .pls{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 8px;text-align:center;}
 .pls-v{font-family:var(--hf);font-size:20px;font-weight:900;}
 .pls-l{font-size:9px;text-transform:uppercase;letter-spacing:.8px;color:var(--tx3);margin-top:3px;}
@@ -302,6 +306,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
   <symbol id="ico-wallet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M20 12a2 2 0 0 1 0 4H6a2 2 0 0 1-2-2v-9"/><path d="M20 16v4H6a2 2 0 0 1-2-2V8"/></symbol>
   <symbol id="ico-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></symbol>
   <symbol id="ico-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+  <symbol id="ico-football" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9" ry="6" transform="rotate(-30 12 12)"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="8.5" y1="13" x2="15.5" y2="13"/></symbol>
 </svg>
 
 <div class="topbar">
@@ -343,6 +348,9 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
       <button class="tab-btn" data-tab="copa" onclick="switchTab('copa')">
         <svg><use href="#ico-trophy"/></svg>COPA<span class="tab-ct zero" id="ct-copa">0</span>
       </button>
+      <button class="tab-btn" data-tab="nfl" onclick="switchTab('nfl')">
+        <svg><use href="#ico-football"/></svg>NFL<span class="tab-ct zero" id="ct-nfl">0</span>
+      </button>
       <button class="tab-btn" data-tab="resumen" onclick="switchTab('resumen')">
         <svg><use href="#ico-chart"/></svg>RESUMEN
       </button>
@@ -358,6 +366,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
   <div id="sec-nba"    class="section"></div>
   <div id="sec-futbol" class="section"></div>
   <div id="sec-copa"   class="section"></div>
+  <div id="sec-nfl"    class="section"></div>
   <div id="sec-resumen"class="section"></div>
 </div>
 
@@ -391,6 +400,7 @@ function getSport(liga){
   if(l.includes('nba'))return'nba';
   if(l.includes('copa')||l.includes('world cup')||l.includes('mundial')||l.includes('fifa'))return'copa';
   if(l.includes('liga')||l.includes('premier')||l.includes('mls')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer'))return'futbol';
+  if(l.includes('nfl')||l.includes('american football')||l.includes('football'))return'nfl';
   return'otros';
 }
 function parseTeams(matchup){
@@ -592,9 +602,9 @@ function buildGold(p){
       vs+
       '<div class="gc-badges">'+
         '<div class="badge-pick">'+p.pick.toUpperCase()+'</div>'+
-        '<div class="badge-ev">EV +'+p.ev_pct+'%</div>'+
+        '<div class="badge-ev'+(p.ev_pct>=10?' high':'')+'">EV +'+p.ev_pct+'%</div>'+
         '<div class="badge-tipo">'+(p.tipo||'Pick')+'</div>'+
-        '<div class="badge-cuota">'+p.cuota_winpot+' Winpot · '+p.cuota_bet365+' Bet365</div>'+
+        '<div class="badge-cuota">'+p.cuota_bet365+' Bet365</div>'+
       '</div>'+
       '<div class="gc-analysis">'+(p.razonamiento||'')+'</div>'+
       '<div class="prob-row"><span class="prob-lbl">PROBABILIDAD PROPIA</span><span class="prob-pct">'+p.prob_propia+'%</span></div>'+
@@ -638,10 +648,9 @@ function buildCard(p){
     '</div>'+
     '<div class="pc-detail">'+
       '<div class="pd-grid">'+
-        '<div class="pd-cell"><div class="pd-v">'+p.cuota_winpot+'</div><div class="pd-l">Winpot</div></div>'+
-        '<div class="pd-cell"><div class="pd-v">'+p.cuota_bet365+'</div><div class="pd-l">Bet365</div></div>'+
-        '<div class="pd-cell"><div class="pd-v">'+p.prob_implicita+'%</div><div class="pd-l">Prob Casa</div></div>'+
-        '<div class="pd-cell"><div class="pd-v">'+p.prob_propia+'%</div><div class="pd-l">Prob Propia</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--cy)">'+p.cuota_bet365+'</div><div class="pd-l">Bet365</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--tx2)">'+p.prob_implicita+'%</div><div class="pd-l">Prob Casa</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+p.prob_propia+'%</div><div class="pd-l">Prob Propia</div></div>'+
       '</div>'+
       '<div class="pd-txt">'+(p.razonamiento||'')+'</div>'+
     '</div>';
@@ -662,18 +671,17 @@ function buildParlay(pl){
     '<div class="parlay-head">'+
       '<div>'+
         '<div class="parlay-title">PARLAY SUGERIDO</div>'+
-        '<div class="parlay-sub">'+pl.patas.length+' LEGS · BOOST WINPOT HASTA 40%</div>'+
+        '<div class="parlay-sub">'+pl.patas.length+' LEGS · BET365 · CORRELACIÓN POSITIVA</div>'+
       '</div>'+
       '<div>'+
-        '<div class="parlay-big">'+pl.cuota_con_boost+'<span style="font-size:16px;color:var(--tx3)">x</span></div>'+
-        '<div class="parlay-big-lbl">CUOTA CON BOOST</div>'+
+        '<div class="parlay-big">'+pl.cuota_total+'<span style="font-size:16px;color:var(--tx3)">x</span></div>'+
+        '<div class="parlay-big-lbl">CUOTA COMBINADA</div>'+
       '</div>'+
     '</div>'+
     '<div class="parlay-body">'+
       '<div class="pl-legs">'+legs+'</div>'+
       '<div class="pl-stats">'+
-        '<div class="pls"><div class="pls-v" style="color:var(--tx2)">'+pl.cuota_total+'x</div><div class="pls-l">Normal</div></div>'+
-        '<div class="pls"><div class="pls-v" style="color:var(--pu)">'+pl.cuota_con_boost+'x</div><div class="pls-l">Con Boost</div></div>'+
+        '<div class="pls"><div class="pls-v" style="color:var(--pu)">'+pl.cuota_total+'x</div><div class="pls-l">Cuota</div></div>'+
         '<div class="pls"><div class="pls-v" style="color:var(--gr)">+'+pl.ev_pct+'%</div><div class="pls-l">EV Est.</div></div>'+
         '<div class="pls"><div class="pls-v" style="color:var(--am)">'+pl.stake+'</div><div class="pls-l">Stake</div></div>'+
       '</div>'+
@@ -689,18 +697,27 @@ function buildSport(allPicks,allNA,sport,label,icoId){
     var l=(p.liga||'').toLowerCase();
     return(sport==='mlb'&&l.includes('mlb'))||(sport==='nba'&&l.includes('nba'))||
            (sport==='copa'&&(l.includes('copa')||l.includes('mundial')||l.includes('fifa')))||
-           (sport==='futbol'&&(l.includes('liga')||l.includes('premier')||l.includes('futbol')||l.includes('fútbol')));
+           (sport==='futbol'&&(l.includes('liga')||l.includes('premier')||l.includes('futbol')||l.includes('fútbol')))||
+           (sport==='nfl'&&(l.includes('nfl')||l.includes('football')));
   });
   var wrap=document.createElement('div');
   var hdr='<div class="sh"><div class="sh-ico" style="background:var(--cyd);color:var(--cy)">'+useIco(icoId)+'</div><div class="sh-title">'+label+'</div><div class="sh-line"></div><div class="sh-ct">'+picks.length+' PICKS</div></div>';
   var body='';
   if(!picks.length){
-    body='<div class="empty">'+
-      '<div class="empty-icon" style="color:var(--tx3)">'+useIco(icoId,24)+'</div>'+
-      '<div class="empty-title">SIN PICKS HOY</div>'+
-      '<div class="empty-sub">No se identificó valor esperado positivo en '+label+'. Vuelve mañana a las 5:00 AM para el siguiente análisis.</div>'+
-      '<div class="empty-pill">PRÓXIMO ANÁLISIS 05:00 AM CT</div>'+
-    '</div>';
+    var emptyMsg=sport==='nfl'
+      ?'<div class="empty">'+
+          '<div class="empty-icon" style="color:var(--nfl)">'+useIco(icoId,24)+'</div>'+
+          '<div class="empty-title" style="color:var(--nfl)">TEMPORADA NFL</div>'+
+          '<div class="empty-sub">La temporada regular NFL 2026 inicia en septiembre. Esta sección se activará automáticamente cuando haya juegos disponibles.</div>'+
+          '<div class="empty-pill" style="color:var(--nfl);background:var(--nfld);border-color:var(--nflb)">ACTIVA EN SEP 2026 · DRAFT MAYO</div>'+
+        '</div>'
+      :'<div class="empty">'+
+          '<div class="empty-icon" style="color:var(--tx3)">'+useIco(icoId,24)+'</div>'+
+          '<div class="empty-title">SIN PICKS HOY</div>'+
+          '<div class="empty-sub">No se identificó valor esperado positivo en '+label+'. Vuelve mañana a las 5:00 AM para el siguiente análisis.</div>'+
+          '<div class="empty-pill">PRÓXIMO ANÁLISIS 05:00 AM CT</div>'+
+        '</div>';
+    body=emptyMsg;
   } else {
     body='<div class="picks-grid" id="pgrid-'+sport+'"></div>';
   }
@@ -746,13 +763,13 @@ function buildTable(picks){
     return'<tr>'+
       '<td><div class="et-pick">'+p.pick.toUpperCase()+'</div><div class="et-match">'+p.matchup.toUpperCase()+'</div></td>'+
       '<td><span class="et-tipo">'+(p.tipo||'Pick')+'</span></td>'+
-      '<td class="et-cuota">'+p.cuota_winpot+'</td>'+
+      '<td class="et-cuota" style="color:var(--cy)">'+p.cuota_bet365+'</td>'+
       '<td class="et-ev" style="'+evC+'">+'+ev+'%</td>'+
       '<td>'+starsHTML(p.estrellas||1,'am',12)+'</td>'+
       '<td style="font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx2)">'+p.stake+'</td>'+
     '</tr>';
   }).join('');
-  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>CUOTA WP</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>BET365</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
 // ─── MAIN RENDER ──────────────────────────────────────────────────────────────
@@ -766,10 +783,10 @@ function render(data){
   document.getElementById('hdrDate').textContent=fmtDate(new Date());
 
   // Tab counts
-  var SC={mlb:0,nba:0,futbol:0,copa:0};
+  var SC={mlb:0,nba:0,futbol:0,copa:0,nfl:0};
   picks.forEach(function(p){var s=getSport(p.liga);if(SC[s]!==undefined)SC[s]++;});
   var total=picks.length;
-  ['mlb','nba','futbol','copa'].forEach(function(s){
+  ['mlb','nba','futbol','copa','nfl'].forEach(function(s){
     var el=document.getElementById('ct-'+s);
     if(el){el.textContent=SC[s];el.className='tab-ct'+(SC[s]===0?' zero':'');}
   });
@@ -785,8 +802,8 @@ function render(data){
     var ev5Picks=picks.filter(function(p){return(p.ev_pct||0)>5;}).length;
     var avgEV=picks.length?picks.reduce(function(a,p){return a+(p.ev_pct||0);},0)/picks.length:0;
     var sportTags=Object.entries(SC).filter(function(e){return e[1]>0;}).map(function(e){
-      var labels={mlb:'⚾ MLB',nba:'🏀 NBA',copa:'🏆 COPA',futbol:'⚽ FÚTBOL'};
-      var cls={mlb:'st-mlb',nba:'st-nba',copa:'st-copa',futbol:'st-futbol'};
+      var labels={mlb:'⚾ MLB',nba:'🏀 NBA',copa:'🏆 COPA',futbol:'⚽ FÚTBOL',nfl:'🏈 NFL'};
+      var cls={mlb:'st-mlb',nba:'st-nba',copa:'st-copa',futbol:'st-futbol',nfl:'st-nfl'};
       return'<span class="sport-tag '+(cls[e[0]]||'st-mlb')+'">'+(labels[e[0]]||e[0].toUpperCase())+' '+e[1]+'</span>';
     }).join('');
     var heroHTML=
@@ -820,7 +837,7 @@ function render(data){
           '<div class="hrs"><div class="hrs-v" style="color:var(--gr)">'+ev5Picks+'</div><div class="hrs-l">EV &gt; 5%</div><div class="hrs-bar" style="background:var(--gr)"></div></div>'+
           '<div class="hrs"><div class="hrs-v" style="color:var(--bl)">'+avgEV.toFixed(1)+'<span style="font-size:14px">%</span></div><div class="hrs-l">EV Promedio</div><div class="hrs-bar" style="background:var(--bl)"></div></div>'+
         '</div>'+
-        '<div class="hr-sports">'+sportTags+'<div class="hr-method">Q-KELLY · WINPOT MXN</div></div>'+
+        '<div class="hr-sports">'+sportTags+'<div class="hr-method">Q-KELLY · BET365 MXN</div></div>'+
       '</div>';
     var newsHTML=data.nota_lineas?'<div class="news-bar"><div class="news-tag">NOTA</div><div class="news-txt">'+data.nota_lineas+'</div></div>':'';
     var goldHdr=best?'<div class="sh"><div class="sh-ico" style="background:var(--amd);color:var(--am)">'+useIco('ico-star')+'</div><div class="sh-title">PICK DEL DÍA</div><div class="sh-line"></div><div class="sh-ct">CONFIANZA MÁXIMA</div></div>':'';
@@ -833,7 +850,7 @@ function render(data){
   }
 
   // SPORT SECTIONS
-  var defs=[{id:'mlb',label:'MLB BÉISBOL',ico:'ico-baseball'},{id:'nba',label:'NBA',ico:'ico-basketball'},{id:'futbol',label:'FÚTBOL',ico:'ico-soccer'},{id:'copa',label:'COPA DEL MUNDO',ico:'ico-trophy'}];
+  var defs=[{id:'mlb',label:'MLB BÉISBOL',ico:'ico-baseball'},{id:'nba',label:'NBA',ico:'ico-basketball'},{id:'futbol',label:'FÚTBOL',ico:'ico-soccer'},{id:'copa',label:'COPA DEL MUNDO',ico:'ico-trophy'},{id:'nfl',label:'NFL FÚTBOL AMERICANO',ico:'ico-football'}];
   defs.forEach(function(d){
     var sec=document.getElementById('sec-'+d.id);if(!sec)return;
     var res=buildSport(picks,na,d.id,d.label,d.ico);

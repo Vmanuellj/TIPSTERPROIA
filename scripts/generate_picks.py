@@ -199,6 +199,10 @@ METODOLOGÍA OBLIGATORIA (por cada pick):
 3. EV% = (prob_propia/100 × cuota_decimal - 1) × 100  →  solo incluir si EV > 0
 4. Stake: Kelly fraccional 1/4. Máx 0.3u por pick. Total sesión ≤ 3u
 5. Parlays: 2-3 patas con correlación positiva; cuota mínima 1.20 por pata
+6. COHERENCIA DE CUOTAS: la cuota_bet365 DEBE ser consistente con prob_implicita.
+   Verifica: 1/cuota_bet365 ≈ prob_implicita/100 (margen ±3%). Si no coincide, corrige.
+   Nunca pongas cuota 1.85 con prob_implicita 45% — son contradictorias.
+7. Casa de apuestas ÚNICA: solo Bet365. No incluir cuota_winpot en el JSON.
 
 Responde ÚNICAMENTE JSON válido, sin markdown, sin texto extra."""
 
@@ -208,7 +212,7 @@ SCHEMA_PICK = {
     "hora":          "H:MM AM/PM CDT (CDMX)",
     "pick":          "descripción concreta",
     "tipo":          "Moneyline | Total | Run Line | Total Goles | Spread | Prop",
-    "cuota_bet365":  1.85,
+    "cuota_bet365":  1.85,   # Única casa de apuestas (sin Winpot)
     "prob_implicita": 55.5,
     "prob_propia":   61.0,
     "ev_pct":        5.3,
@@ -230,12 +234,11 @@ def generate_picks(context: str) -> dict:
         "picks":         [SCHEMA_PICK],
         "no_apostar":    [{"matchup": "...", "liga": "...", "razon": "..."}],
         "parlay_sugerido": {
-            "patas":          ["Pick A (X.XX)", "Pick B (X.XX)"],
-            "cuota_total":    3.50,
-            "cuota_con_boost": 3.50,
-            "ev_pct":         5.0,
-            "stake":          "0.15u",
-            "nota":           "razón de la correlación",
+            "patas":      ["Pick A (X.XX)", "Pick B (X.XX)"],
+            "cuota_total": 3.50,
+            "ev_pct":      5.0,
+            "stake":       "0.15u",
+            "nota":        "razón de la correlación",
         },
         "resumen_ejecutivo": [
             {"pick": "...", "tipo": "Moneyline", "liga": "MLB",
