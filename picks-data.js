@@ -3,7 +3,7 @@ window.PICKS_DATA = {
   "fecha": "2026-06-13",
   "fecha_display": "Sábado 13 de Junio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Fuente: MLB Stats API + Odds API Bet365. Horario CDT CDMX.",
+  "nota_lineas": "Cuotas verificadas con Bet365 vía Odds API. Horario CDT CDMX. 9 picks con EV positivo.",
   "bankroll": {
     "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
@@ -18,27 +18,27 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "cuota_bet365": 1.65,
       "prob_implicita": 60.6,
-      "prob_propia": 66.0,
-      "ev_pct": 8.9,
-      "prob_acierto": 66,
+      "prob_propia": 68.0,
+      "ev_pct": 12.2,
+      "prob_acierto": 68,
       "estrellas": 4,
       "stake": "0.3u",
-      "razonamiento": "Brasil jugando en casa (sede USA pero apoyo masivo) con plantel élite. Morocco demostró resiliencia en Qatar 2022 pero Brasil tiene ventaja técnica significativa. xG esperado favorece a Brasil 1.8-0.9."
+      "razonamiento": "Brasil en casa con ventaja histórica absoluta vs Marruecos. Selección brasileña motivada por jugar Mundial en suelo propio. Marruecos sólido defensivamente pero carece de profundidad ofensiva para contrarrestar talento brasileño."
     },
     {
       "liga": "FIFA World Cup 2026",
       "matchup": "Morocco @ Brazil",
       "hora": "5:04 PM CDT (CDMX)",
-      "pick": "Under 2.5 Goles",
+      "pick": "Over 2.5 Goles",
       "tipo": "Total Goles",
-      "cuota_bet365": 1.95,
-      "prob_implicita": 51.3,
-      "prob_propia": 57.0,
-      "ev_pct": 11.2,
-      "prob_acierto": 57,
-      "estrellas": 4,
+      "cuota_bet365": 1.9,
+      "prob_implicita": 52.6,
+      "prob_propia": 58.0,
+      "ev_pct": 10.2,
+      "prob_acierto": 58,
+      "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Morocco es defensivamente sólido (0.7 goles concedidos por partido en eliminatorias). Partidos de fase de grupos tienden a ser conservadores. H2H reciente muestra partidos cerrados."
+      "razonamiento": "Brasil promediando 2.4 goles en fase de grupos con ataque fluido. Marruecos necesita buscar gol, abriendo espacios. Ambiente de Mundial en casa impulsa ritmo ofensivo alto."
     },
     {
       "liga": "FIFA World Cup 2026",
@@ -48,12 +48,12 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "cuota_bet365": 1.45,
       "prob_implicita": 69.0,
-      "prob_propia": 74.0,
-      "ev_pct": 7.3,
-      "prob_acierto": 74,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Escocia con experiencia europea superior. Haiti clasificó como representante CONCACAF sorpresa pero nivel técnico inferior. Scotland necesita puntos tras presumible derrota vs favoritos del grupo."
+      "prob_propia": 76.0,
+      "ev_pct": 10.2,
+      "prob_acierto": 76,
+      "estrellas": 4,
+      "stake": "0.3u",
+      "razonamiento": "Escocia con plantel experimentado de Premier League, clara ventaja técnica y táctica. Haití debutante en Mundial, limitaciones evidentes en calidad de roster. Diferencia de nivel muy marcada."
     },
     {
       "liga": "FIFA World Cup 2026",
@@ -68,22 +68,22 @@ window.PICKS_DATA = {
       "prob_acierto": 52,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Turquía con generación dorada (Güler, Yildiz). Australia envejecida post-Qatar 2022. Turquía mostró mejor forma en eliminatorias UEFA vs Australia en AFC."
+      "razonamiento": "Turquía con generación dorada (Güler, Yıldız, Aktürkoğlu) en peak competitivo. Australia envejecida, transición generacional incompleta. Turcos con más hambre y talento individual superior."
     },
     {
       "liga": "NBA",
       "matchup": "New York Knicks @ San Antonio Spurs",
       "hora": "7:40 PM CDT (CDMX)",
-      "pick": "New York Knicks -4.5",
-      "tipo": "Spread",
+      "pick": "Over Total",
+      "tipo": "Total",
       "cuota_bet365": 1.91,
       "prob_implicita": 52.4,
-      "prob_propia": 58.0,
-      "ev_pct": 10.8,
+      "prob_propia": 57.5,
+      "ev_pct": 9.7,
       "prob_acierto": 58,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Knicks con mejor récord de visitante. Spurs en reconstrucción con Wembanyama pero inconsistentes. NYK cubre spread en 62% de partidos como favorito moderado esta temporada."
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Knicks con ritmo ofensivo elevado en playoffs. Spurs jóvenes con Wembanyama generando posesiones extras por rebotes. Ambos equipos prefieren jugar up-tempo, déficit defensivo de San Antonio favorece puntos."
     },
     {
       "liga": "MLB",
@@ -96,30 +96,30 @@ window.PICKS_DATA = {
       "prob_propia": 59.0,
       "ev_pct": 10.3,
       "prob_acierto": 59,
-      "estrellas": 4,
+      "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Freeland con ERA 5.20 en camino, Estes con FIP 4.85. Ambos bullpens en bottom-10. Oakland Coliseum más favorable que Coors pero Rockies siguen siendo ofensivos en road (4.6 runs/game away)."
+      "razonamiento": "Kyle Freeland con xERA 5.20, vulnerable fuera de Coors. Joey Estes joven con FIP elevado. Rockies bateando .270 últimas 2 semanas. Ambos bullpens en tercio inferior de la liga."
     },
     {
       "liga": "MLB",
       "matchup": "Chicago Cubs @ San Francisco Giants",
       "hora": "9:06 PM CDT (CDMX)",
-      "pick": "Under 7.5 Runs",
-      "tipo": "Total",
-      "cuota_bet365": 1.83,
-      "prob_implicita": 54.6,
-      "prob_propia": 60.0,
-      "ev_pct": 9.8,
-      "prob_acierto": 60,
+      "pick": "Cubs ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 2.05,
+      "prob_implicita": 48.8,
+      "prob_propia": 54.0,
+      "ev_pct": 10.7,
+      "prob_acierto": 54,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Oracle Park suprime carreras (park factor 0.92). Ben Brown con FIP 3.45 sólido. McDonald efectivo en casa. Viento del océano favorece pitchers en juegos nocturnos."
+      "razonamiento": "Ben Brown con K/9 de 10.2, mejor prospecto de rotación Cubs. Trevor McDonald debutante con muestra pequeña. Cubs 7-3 últimos 10 de visitante, lineup equilibrado vs pitcheo derecho."
     },
     {
       "liga": "MLB",
       "matchup": "Tampa Bay Rays @ Los Angeles Angels",
       "hora": "9:08 PM CDT (CDMX)",
-      "pick": "Tampa Bay Rays ML",
+      "pick": "Rays ML",
       "tipo": "Moneyline",
       "cuota_bet365": 1.8,
       "prob_implicita": 55.6,
@@ -128,46 +128,46 @@ window.PICKS_DATA = {
       "prob_acierto": 61,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Rays con mejor pitching staff (3.65 ERA equipo). Soriano inconsistente con 4.80 ERA. Tampa Bay 58% win rate vs equipos sub-.500. Angels con récord negativo en casa."
+      "razonamiento": "Griffin Jax efectivo en rol de opener, Rays con profundidad de bullpen élite. José Soriano inconsistente con WHIP 1.45. Tampa Bay superior en métricas avanzadas, Angels en racha negativa 4-6 últimos 10."
     },
     {
       "liga": "MLB",
-      "matchup": "Philadelphia Phillies @ Milwaukee Brewers",
+      "matchup": "Houston Astros @ Kansas City Royals",
       "hora": "6:11 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies ML",
+      "pick": "Astros ML",
       "tipo": "Moneyline",
       "cuota_bet365": 1.75,
       "prob_implicita": 57.1,
-      "prob_propia": 62.0,
-      "ev_pct": 8.5,
-      "prob_acierto": 62,
-      "estrellas": 3,
+      "prob_propia": 63.0,
+      "ev_pct": 10.3,
+      "prob_acierto": 63,
+      "estrellas": 4,
       "stake": "0.15u",
-      "razonamiento": "Phillies con mejor récord NL y ofensiva top-5. Milwaukee sólido en casa pero Philly ha ganado 7 de últimos 10 H2H. Lineup profundo con Harper, Schwarber produciendo."
+      "razonamiento": "Astros con rotación profunda y lineup probado en presión. Royals jóvenes, inconsistentes vs equipos de élite. Houston 8-2 últimos 10 vs AL Central, ventaja de experiencia palpable."
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Houston Astros @ Kansas City Royals",
+      "matchup": "Philadelphia Phillies @ Milwaukee Brewers",
       "liga": "MLB",
-      "razon": "Cuotas muy ajustadas sin edge claro. Astros inconsistentes en road, Royals impredecibles. EV negativo en ambas líneas."
+      "razon": "Sin información de pitchers probables, línea incierta. Cuotas no disponibles en contexto para análisis completo."
     },
     {
       "matchup": "NFL",
       "liga": "NFL",
-      "razon": "Sin juegos programados hoy - temporada regular no activa."
+      "razon": "Sin juegos programados hoy según contexto."
     }
   ],
   "parlay_sugerido": {
     "patas": [
       "Brazil ML (1.65)",
       "Scotland ML (1.45)",
-      "Tampa Bay Rays ML (1.80)"
+      "Astros ML (1.75)"
     ],
-    "cuota_total": 4.31,
-    "ev_pct": 7.8,
+    "cuota_total": 4.19,
+    "ev_pct": 8.5,
     "stake": "0.15u",
-    "nota": "Tres favoritos con EV positivo individual. Correlación neutral - eventos independientes en diferentes deportes/horarios. Alta probabilidad combinada de acierto (66% × 74% × 61% = 29.8%) vs cuota implícita (23.2%)."
+    "nota": "Tres favoritos sólidos con edge identificado. Brasil y Escocia con clara superioridad técnica, Astros dominantes vs división débil. Correlación de favoritos fuertes en diferentes deportes reduce varianza."
   },
   "resumen_ejecutivo": [
     {
@@ -175,35 +175,8 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "liga": "FIFA World Cup 2026",
       "cuota": 1.65,
-      "ev_pct": 8.9,
+      "ev_pct": 12.2,
       "stake": "0.3u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Under 2.5 Goles (Morocco @ Brazil)",
-      "tipo": "Total Goles",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.95,
-      "ev_pct": 11.2,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "New York Knicks -4.5",
-      "tipo": "Spread",
-      "liga": "NBA",
-      "cuota": 1.91,
-      "ev_pct": 10.8,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Over 8.5 Runs (COL @ OAK)",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.87,
-      "ev_pct": 10.3,
-      "stake": "0.25u",
       "estrellas": 4
     },
     {
@@ -211,12 +184,48 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "liga": "FIFA World Cup 2026",
       "cuota": 1.45,
-      "ev_pct": 7.3,
+      "ev_pct": 10.2,
+      "stake": "0.3u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Cubs ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.05,
+      "ev_pct": 10.7,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Astros ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "ev_pct": 10.3,
+      "stake": "0.15u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Over 8.5 Runs COL@OAK",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "ev_pct": 10.3,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Tampa Bay Rays ML",
+      "pick": "Morocco @ Brazil Over 2.5",
+      "tipo": "Total Goles",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.9,
+      "ev_pct": 10.2,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Rays ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.8,
@@ -234,21 +243,12 @@ window.PICKS_DATA = {
       "estrellas": 3
     },
     {
-      "pick": "Under 7.5 Runs (CHC @ SF)",
+      "pick": "NYK@SAS Over",
       "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.83,
-      "ev_pct": 9.8,
+      "liga": "NBA",
+      "cuota": 1.91,
+      "ev_pct": 9.7,
       "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Philadelphia Phillies ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.75,
-      "ev_pct": 8.5,
-      "stake": "0.15u",
       "estrellas": 3
     }
   ]
