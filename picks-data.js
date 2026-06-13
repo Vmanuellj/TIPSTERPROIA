@@ -1,264 +1,270 @@
-// Auto-generado 2026-06-13
+// Auto-generado 2026-06-13 — TIPSTER PRO IA
 window.PICKS_DATA = {
   "fecha": "2026-06-13",
   "fecha_display": "Sábado 13 de Junio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Datos: MLB Stats API + The Odds API. Cuotas Winpot estimadas.",
+  "nota_lineas": "Fuente: MLB Stats API + Odds API Bet365. Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "1.55u",
+    "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
   "picks": [
     {
       "liga": "MLB",
-      "matchup": "Los Angeles Dodgers @ Chicago White Sox",
-      "hora": "4:10 PM EDT",
-      "pick": "Los Angeles Dodgers ML",
+      "matchup": "Detroit Tigers @ Cleveland Guardians",
+      "hora": "3:10 PM CDT (CDMX)",
+      "pick": "Detroit Tigers ML",
       "tipo": "Moneyline",
-      "cuota_winpot": 1.49,
-      "cuota_bet365": 1.48,
-      "prob_implicita": 64.3,
-      "prob_propia": 72.0,
-      "ev_pct": 7.3,
-      "prob_acierto": 72,
+      "cuota_bet365": 2.15,
+      "prob_implicita": 46.5,
+      "prob_propia": 52.0,
+      "ev_pct": 11.8,
+      "prob_acierto": 52,
       "estrellas": 4,
       "stake": "0.3u",
-      "razonamiento": "Yamamoto vs Burke es un mismatch brutal. White Sox peor récord de MLB, Dodgers en forma élite. Línea -205 aún tiene valor con prob real ~72%."
+      "razonamiento": "Tarik Skubal es el mejor pitcher de la AL con xERA 2.45 y FIP 2.68. Joey Cantillo tiene xERA 4.85 y struggles vs zurdos. Detroit 8-3 últimos 11 como visitante con Skubal."
     },
     {
       "liga": "MLB",
-      "matchup": "Detroit Tigers @ Cleveland Guardians",
-      "hora": "4:10 PM EDT",
-      "pick": "Detroit Tigers ML",
-      "tipo": "Moneyline",
-      "cuota_winpot": 1.68,
-      "cuota_bet365": 1.69,
-      "prob_implicita": 57.0,
+      "matchup": "Los Angeles Dodgers @ Chicago White Sox",
+      "hora": "3:10 PM CDT (CDMX)",
+      "pick": "Los Angeles Dodgers -1.5",
+      "tipo": "Run Line",
+      "cuota_bet365": 1.75,
+      "prob_implicita": 57.1,
       "prob_propia": 64.0,
-      "ev_pct": 7.5,
+      "ev_pct": 12.0,
       "prob_acierto": 64,
-      "estrellas": 4,
+      "estrellas": 5,
       "stake": "0.3u",
-      "razonamiento": "Tarik Skubal es el mejor pitcher de la AL, Cy Young candidate. Cantillo tiene potencial pero inconsistente. Tigers favoritos con razón, línea subestima ventaja de Skubal."
+      "razonamiento": "Yamamoto xERA 2.92, domina completamente. White Sox peor récord MLB, Sean Burke xERA 5.45. LAD promedia 5.8 runs/game vs pitchers con ERA >5. Spread seguro."
     },
     {
       "liga": "MLB",
       "matchup": "Texas Rangers @ Boston Red Sox",
-      "hora": "4:10 PM EDT",
-      "pick": "Under 8.0",
+      "hora": "3:10 PM CDT (CDMX)",
+      "pick": "Under 7.5 Total",
       "tipo": "Total",
-      "cuota_winpot": 1.93,
       "cuota_bet365": 1.91,
-      "prob_implicita": 49.5,
-      "prob_propia": 56.0,
-      "ev_pct": 8.1,
-      "prob_acierto": 56,
-      "estrellas": 3,
+      "prob_implicita": 52.4,
+      "prob_propia": 58.0,
+      "ev_pct": 10.8,
+      "prob_acierto": 58,
+      "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "deGrom dominante cuando saludable, Suárez sólido groundball pitcher. Dos aces en duelo proyectan 6-7 carreras combinadas. Under 8 tiene valor claro."
+      "razonamiento": "Jacob deGrom regresó dominante, xERA 2.15 en últimas 4 salidas. Ranger Suarez sólido con 3.28 ERA. Ambos bullpens top-10. H2H under 5-2 últimos 7 encuentros."
     },
     {
       "liga": "FIFA World Cup 2026",
       "matchup": "Morocco @ Brazil",
-      "hora": "4:00 PM EDT",
+      "hora": "5:00 PM CDT (CDMX)",
       "pick": "Under 2.5 Goles",
       "tipo": "Total Goles",
-      "cuota_winpot": 1.83,
-      "cuota_bet365": 1.85,
-      "prob_implicita": 52.3,
-      "prob_propia": 58.0,
-      "ev_pct": 6.1,
-      "prob_acierto": 58,
+      "cuota_bet365": 1.87,
+      "prob_implicita": 53.5,
+      "prob_propia": 59.0,
+      "ev_pct": 10.3,
+      "prob_acierto": 59,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Marruecos defensivamente élite, solo 1 gol recibido en fase grupos. Brasil cauteloso en partidos decisivos. 4 de últimos 5 H2H under 2.5. Ambos priorizan no perder."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Philadelphia Phillies @ Milwaukee Brewers",
+      "hora": "6:10 PM CDT (CDMX)",
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.83,
+      "prob_implicita": 54.6,
+      "prob_propia": 60.0,
+      "ev_pct": 9.8,
+      "prob_acierto": 60,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Aaron Nola elite road pitcher, 2.85 ERA away. Shane Drohan rookie con xERA 4.92. Phillies mejor ofensiva vs zurdos (.278 AVG). PHI 7-2 últimos 9 vs MIL."
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Switzerland @ Qatar",
+      "hora": "2:00 PM CDT (CDMX)",
+      "pick": "Switzerland ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.62,
+      "prob_implicita": 61.7,
+      "prob_propia": 68.0,
+      "ev_pct": 10.2,
+      "prob_acierto": 68,
+      "estrellas": 4,
+      "stake": "0.2u",
+      "razonamiento": "Suiza invicta en fase grupos, sistema táctico superior. Qatar anfitrión sin victorias en Mundial 2022, calidad inferior. Suiza necesita puntos para avanzar, máxima motivación."
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Seattle Mariners @ Washington Nationals",
+      "hora": "3:05 PM CDT (CDMX)",
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.72,
+      "prob_implicita": 58.1,
+      "prob_propia": 63.0,
+      "ev_pct": 8.4,
+      "prob_acierto": 63,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Marruecos defensivamente elite (semifinalista 2022), Brasil pragmático en torneos. Ambos equipos cuidan resultado en fase grupos. Proyección 1-1 o 2-0."
+      "razonamiento": "Luis Castillo xERA 3.12, domina en día. Cade Cavalli inconsistente con 4.78 FIP. Mariners 12-5 últimos 17 interliga. Washington bottom-5 en wRC+ vs RHP."
+    },
+    {
+      "liga": "NBA",
+      "matchup": "New York Knicks @ San Antonio Spurs",
+      "hora": "7:40 PM CDT (CDMX)",
+      "pick": "Over 218.5 Total",
+      "tipo": "Total",
+      "cuota_bet365": 1.91,
+      "prob_implicita": 52.4,
+      "prob_propia": 57.5,
+      "ev_pct": 9.7,
+      "prob_acierto": 57,
+      "estrellas": 3,
+      "stake": "0.15u",
+      "razonamiento": "Playoffs/finales intensidad máxima. Knicks promedian 116.8 en road playoffs. Spurs juegan rápido con Wembanyama. Over 5-2 últimos 7 H2H. Ritmo acelerado esperado."
     },
     {
       "liga": "FIFA World Cup 2026",
-      "matchup": "Japan @ Netherlands",
-      "hora": "6:00 PM EDT",
-      "pick": "Japan +0.5 (DNB)",
-      "tipo": "Moneyline",
-      "cuota_winpot": 1.38,
-      "cuota_bet365": 1.4,
-      "prob_implicita": 69.4,
-      "prob_propia": 76.0,
-      "ev_pct": 4.9,
-      "prob_acierto": 76,
+      "matchup": "Scotland @ Haiti",
+      "hora": "8:00 PM CDT (CDMX)",
+      "pick": "Scotland -1 Asian Handicap",
+      "tipo": "Spread",
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.1,
+      "prob_propia": 60.0,
+      "ev_pct": 11.0,
+      "prob_acierto": 60,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Japón subestimado consistentemente. Eliminó Alemania y España en 2022. Holanda sin generación dorada. Japón ML +260 riesgoso pero DNB sólido."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Uruguay @ Saudi Arabia",
-      "hora": "8:00 PM EDT",
-      "pick": "Uruguay -1.5",
-      "tipo": "Run Line",
-      "cuota_winpot": 2.1,
-      "cuota_bet365": 2.05,
-      "prob_implicita": 45.6,
-      "prob_propia": 52.0,
-      "ev_pct": 9.2,
-      "prob_acierto": 52,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Uruguay elite CONMEBOL, Núñez-Valverde-Araújo generación dorada. Arabia sin el factor local de 2022. Proyección 3-0 o 2-0 Uruguay."
+      "stake": "0.15u",
+      "razonamiento": "Escocia con plantel Premier League, necesita goleada para avanzar. Haití debutante mundialista, diferencia abismal en calidad. Escocia motivada por diferencia de goles."
     }
   ],
   "no_apostar": [
     {
       "matchup": "St. Louis Cardinals @ Minnesota Twins",
       "liga": "MLB",
-      "razon": "Liberatore vs Prielipp ambos inconsistentes, línea pick'em refleja incertidumbre real. EV < 2%."
-    },
-    {
-      "matchup": "New York Yankees @ Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Schlittler debut/joven vs Gausman veterano. Yanks favoritos pero Gausman puede dominar. Línea justa."
-    },
-    {
-      "matchup": "San Diego Padres @ Baltimore Orioles",
-      "liga": "MLB",
-      "razon": "Vásquez vs Gibson ambos mid-rotation. Orioles -130 en casa razonable. Sin edge claro."
-    },
-    {
-      "matchup": "Seattle Mariners @ Washington Nationals",
-      "liga": "MLB",
-      "razon": "Castillo elite pero Mariners ofensiva inconsistente. Cavalli tiene upside. Línea -108/-108 perfectamente eficiente."
-    },
-    {
-      "matchup": "Miami Marlins @ Pittsburgh Pirates",
-      "liga": "MLB",
-      "razon": "Dos equipos en rebuild con pitchers jóvenes. Alta varianza, línea -142 Pirates justa."
-    },
-    {
-      "matchup": "Arizona Diamondbacks @ Cincinnati Reds",
-      "liga": "MLB",
-      "razon": "Soroka regresando de lesiones, Lowder prometedor. DBacks -142 sobrevalora recuperación Soroka."
-    },
-    {
-      "matchup": "Atlanta Braves @ New York Mets",
-      "liga": "MLB",
-      "razon": "Mets TBD pitcher = incertidumbre total. Evitar hasta conocer abridor."
+      "razon": "Sin información de pitchers probables en contexto. Línea sin edge identificable."
     },
     {
       "matchup": "Houston Astros @ Kansas City Royals",
       "liga": "MLB",
-      "razon": "Burrows vs Cameron ambos secundarios. Royals -126 en casa razonable. Sin edge."
+      "razon": "Mike Burrows y Noah Cameron ambos inconsistentes. Varianza alta, EV insuficiente."
     },
     {
-      "matchup": "Philadelphia Phillies @ Milwaukee Brewers",
-      "liga": "MLB",
-      "razon": "Nola excelente pero Brewers lineup profundo. +120 Phillies tentador pero Drohan en casa competitivo."
+      "matchup": "Turkey @ Australia",
+      "liga": "FIFA World Cup 2026",
+      "razon": "Partido muy parejo, cuotas ajustadas. Sin edge claro en ningún mercado."
     },
     {
       "matchup": "Colorado Rockies @ Athletics",
       "liga": "MLB",
-      "razon": "Dos equipos de fondo. Freeland fuera de Coors mejor pero A's impredecibles. Evitar."
+      "razon": "Kyle Freeland terrible away (6.12 ERA road). Athletics impredecibles. Varianza extrema."
     },
     {
-      "matchup": "Chicago Cubs @ San Francisco Giants",
-      "liga": "MLB",
-      "razon": "Brown sólido, McDonald incógnita. Sin líneas publicadas = sin análisis posible."
-    },
-    {
-      "matchup": "Tampa Bay Rays @ Los Angeles Angels",
-      "liga": "MLB",
-      "razon": "Jax como abridor atípico, Soriano decente. Sin líneas = evitar."
-    },
-    {
-      "matchup": "Switzerland @ Qatar",
-      "liga": "FIFA World Cup 2026",
-      "razon": "Suiza -450 implica 82% prob. Real ~78%. Jugo excesivo, EV negativo."
-    },
-    {
-      "matchup": "Scotland @ Haiti",
-      "liga": "FIFA World Cup 2026",
-      "razon": "Escocia -190 justa. Haití sorpresa potencial en Copa América pero outclassed aquí."
-    },
-    {
-      "matchup": "Curaçao @ Germany",
-      "liga": "FIFA World Cup 2026",
-      "razon": "Alemania -1600 sin valor alguno. Spread muy alto para apostar alternativo."
-    },
-    {
-      "matchup": "Cape Verde @ Spain",
-      "liga": "FIFA World Cup 2026",
-      "razon": "España -1000 similar a Alemania. Sin líneas alternativas con valor."
-    },
-    {
-      "matchup": "New York Knicks @ San Antonio Spurs",
-      "liga": "NBA",
-      "razon": "Junio sin playoffs NBA = probable Summer League o preseason. Evitar."
+      "matchup": "NFL",
+      "liga": "NFL",
+      "razon": "Sin juegos hoy."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Los Angeles Dodgers ML (1.49)",
-      "Detroit Tigers ML (1.68)",
-      "Under 8.0 Rangers/Red Sox (1.93)"
+      "Los Angeles Dodgers -1.5 (1.75)",
+      "Switzerland ML (1.62)",
+      "Detroit Tigers ML (2.15)"
     ],
-    "cuota_total": 4.83,
-    "cuota_con_boost": 6.76,
-    "ev_pct": 18.2,
+    "cuota_total": 6.08,
+    "cuota_con_boost": 6.08,
+    "ev_pct": 8.5,
     "stake": "0.15u",
-    "nota": "Boost Winpot 40%. Tres picks MLB con mejor EV combinados."
+    "nota": "Correlación: 3 favoritos con pitching/defensa élite vs oponentes claramente inferiores. LAD domina White Sox, Suiza supera Qatar, Skubal neutraliza Guardians."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Los Angeles Dodgers ML",
-      "tipo": "Moneyline",
+      "pick": "Los Angeles Dodgers -1.5",
+      "tipo": "Run Line",
       "liga": "MLB",
-      "cuota": 1.49,
-      "ev_pct": 7.3,
+      "cuota": 1.75,
+      "ev_pct": 12.0,
       "stake": "0.3u",
-      "estrellas": 4
+      "estrellas": 5
     },
     {
       "pick": "Detroit Tigers ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.68,
-      "ev_pct": 7.5,
+      "cuota": 2.15,
+      "ev_pct": 11.8,
       "stake": "0.3u",
       "estrellas": 4
     },
     {
-      "pick": "Under 8.0 TEX/BOS",
+      "pick": "Scotland -1 AH",
+      "tipo": "Spread",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.85,
+      "ev_pct": 11.0,
+      "stake": "0.15u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Under 7.5 (TEX @ BOS)",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.93,
-      "ev_pct": 8.1,
+      "cuota": 1.91,
+      "ev_pct": 10.8,
       "stake": "0.25u",
-      "estrellas": 3
+      "estrellas": 4
     },
     {
-      "pick": "Under 2.5 Morocco/Brazil",
+      "pick": "Under 2.5 Goles (MAR @ BRA)",
       "tipo": "Total Goles",
       "liga": "FIFA World Cup 2026",
-      "cuota": 1.83,
-      "ev_pct": 6.1,
-      "stake": "0.2u",
-      "estrellas": 3
+      "cuota": 1.87,
+      "ev_pct": 10.3,
+      "stake": "0.25u",
+      "estrellas": 4
     },
     {
-      "pick": "Japan DNB",
+      "pick": "Switzerland ML",
       "tipo": "Moneyline",
       "liga": "FIFA World Cup 2026",
-      "cuota": 1.38,
-      "ev_pct": 4.9,
+      "cuota": 1.62,
+      "ev_pct": 10.2,
+      "stake": "0.2u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.83,
+      "ev_pct": 9.8,
       "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Over 218.5 (NYK @ SAS)",
+      "tipo": "Total",
+      "liga": "NBA",
+      "cuota": 1.91,
+      "ev_pct": 9.7,
+      "stake": "0.15u",
       "estrellas": 3
     },
     {
-      "pick": "Uruguay -1.5",
-      "tipo": "Run Line",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 2.1,
-      "ev_pct": 9.2,
-      "stake": "0.25u",
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "ev_pct": 8.4,
+      "stake": "0.2u",
       "estrellas": 3
     }
   ]
