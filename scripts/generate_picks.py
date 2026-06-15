@@ -78,18 +78,36 @@ def fetch_mlb_schedule():
         return []
 
 # ── 2. Odds API (Bet365) ──────────────────────────────────────────────────────
+# Mercados por tipo de deporte:
+#   Fútbol/Soccer: h2h (1X2) + totals (O/U goles) + spreads (Asian Handicap) + btts (ambos anotan)
+#   Baseball/Basket: h2h + totals + spreads (run line / punto y medio)
+SPORT_MARKETS = {
+    "soccer_fifa_world_cup": "h2h,totals,spreads,btts",
+    "soccer_":               "h2h,totals,spreads,btts",   # prefijo para cualquier soccer
+    "baseball_mlb":          "h2h,totals,spreads",
+    "basketball_nba":        "h2h,totals,spreads",
+    "americanfootball_nfl":  "h2h,totals,spreads",
+}
+
+def _markets_for(sport_key: str) -> str:
+    for prefix, mkts in SPORT_MARKETS.items():
+        if sport_key.startswith(prefix) or sport_key == prefix:
+            return mkts
+    return "h2h,totals,spreads"
+
 def fetch_odds_today(sport_key: str) -> list:
     if not ODDS_KEY:
         print(f"  ⚠ ODDS_API_KEY no configurada — saltando {sport_key}")
         return []
     try:
+        markets = _markets_for(sport_key)
         r = requests.get(
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/",
             params={
                 "apiKey":      ODDS_KEY,
                 "regions":     "eu",
                 "bookmakers":  "bet365",
-                "markets":     "h2h,totals",
+                "markets":     markets,
                 "oddsFormat":  "decimal",
             },
             timeout=15,
@@ -97,8 +115,8 @@ def fetch_odds_today(sport_key: str) -> list:
         remaining = r.headers.get("x-requests-remaining", "?")
         all_games = r.json() if r.ok else []
         today_games = [g for g in all_games if is_today_cdmx(g.get("commence_time", ""))]
-        print(f"  Odds API ({sport_key}) → {len(today_games)}/{len(all_games)} juegos HOY "
-              f"| requests restantes: {remaining}")
+        print(f"  Odds API ({sport_key}) mkts={markets} → "
+              f"{len(today_games)}/{len(all_games)} juegos HOY | requests restantes: {remaining}")
         return today_games
     except Exception as e:
         print(f"  ⚠ Odds API ({sport_key}): {e}")
@@ -141,8 +159,21 @@ def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds) -> str:
                         draw = oc.get("Draw", "")
                         dstr = f" | Empate {draw}" if draw else ""
                         lines.append(
-                            f"  Bet365 ML: {away} {oc.get(away, '—')} / "
+                            f"  Bet365 1X2/ML: {away} {oc.get(away, '—')} / "
                             f"{home} {oc.get(home, '—')}{dstr}"
+                        )
+                    elif mkt["key"] == "spreads":
+                        for o in mkt["outcomes"]:
+                            pt = o.get("point", "")
+                            lines.append(
+                                f"  Bet365 Handicap/Spread: {o['name']} {pt:+g} → {o['price']}"
+                                if isinstance(pt, (int, float)) else
+                                f"  Bet365 Handicap/Spread: {o['name']} {pt} → {o['price']}"
+                            )
+                    elif mkt["key"] == "btts":
+                        oc = {o["name"]: o["price"] for o in mkt["outcomes"]}
+                        lines.append(
+                            f"  Bet365 Ambos Anotan: Sí {oc.get('Yes','—')} / No {oc.get('No','—')}"
                         )
                     elif mkt["key"] == "totals":
                         for o in mkt["outcomes"]:
@@ -179,20 +210,45 @@ def _team_match(name_a: str, name_b: str) -> bool:
     sa, sb = set(wa), set(wb)
     return len(sa & sb) >= 2
 
+def _pick_is_away(pick_txt: str, away_raw: str) -> bool:
+    """True si el pick corresponde al equipo visitante."""
+    words = [w for w in re.split(r'\W+', away_raw.upper()) if len(w) > 2]
+    return any(w in pick_txt for w in words)
+
+def _pick_is_home(pick_txt: str, home_raw: str) -> bool:
+    """True si el pick corresponde al equipo local."""
+    words = [w for w in re.split(r'\W+', home_raw.upper()) if len(w) > 2]
+    return any(w in pick_txt for w in words)
+
+def _extract_handicap_value(pick_txt: str) -> float | None:
+    """Extrae el número de handicap del texto del pick (ej: '-2.5' de 'SPAIN -2.5 ASIAN HANDICAP')."""
+    m = re.search(r'([+-]?\d+\.?\d*)\s*(?:ASIAN\s+HANDICAP|HANDICAP|SPREAD|RUN\s+LINE)', pick_txt, re.IGNORECASE)
+    if m:
+        return float(m.group(1))
+    return None
+
 def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
     """
     Busca la cuota real de Bet365 para un pick dado.
+    Cubre: h2h (1X2/ML), totals (O/U), spreads (AH/Run Line), btts (Ambos Anotan).
     Retorna el precio (float) o None si no se encontró.
     """
     matchup  = pick.get("matchup", "")
     tipo     = (pick.get("tipo") or "").lower()
     pick_txt = (pick.get("pick") or "").upper()
 
-    if " @ " not in matchup:
+    # Separar equipos — acepta " @ " y " VS "
+    if " @ " in matchup:
+        away_raw, home_raw = matchup.split(" @ ", 1)
+    elif " VS " in matchup.upper():
+        parts = re.split(r'\s+vs\s+', matchup, flags=re.IGNORECASE)
+        away_raw, home_raw = parts[0], parts[1]
+    else:
         return None
-    away_raw, home_raw = matchup.split(" @ ", 1)
     away_raw = away_raw.strip()
     home_raw = home_raw.strip()
+
+    hcap_val = _extract_handicap_value(pick_txt)
 
     for game in odds_list:
         away_g = game.get("away_team", "")
@@ -204,29 +260,59 @@ def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
             if bm.get("key") != "bet365":
                 continue
             for mkt in bm.get("markets", []):
-                # ── Totals (Over / Under) ──────────────────────────────────
+
+                # ── Totals: Over / Under (goles, carreras, puntos) ─────────
                 if mkt["key"] == "totals":
-                    if "over" in pick_txt:
+                    if any(k in pick_txt for k in ("OVER", "MAS DE", "MÁS DE", "+")):
                         for o in mkt["outcomes"]:
                             if o["name"].upper() == "OVER":
                                 return o["price"]
-                    elif "under" in pick_txt:
+                    elif any(k in pick_txt for k in ("UNDER", "MENOS DE", "-")):
                         for o in mkt["outcomes"]:
                             if o["name"].upper() == "UNDER":
                                 return o["price"]
 
-                # ── Moneyline / Run Line / Spread ──────────────────────────
-                if mkt["key"] == "h2h":
+                # ── Spreads: Asian Handicap / Run Line / Handicap ──────────
+                elif mkt["key"] == "spreads":
+                    is_away = _pick_is_away(pick_txt, away_raw)
+                    is_home = _pick_is_home(pick_txt, home_raw)
                     for o in mkt["outcomes"]:
                         oname = o["name"]
-                        # Identificar qué equipo es el pick
-                        if _team_match(oname, away_raw) and any(
-                            w in pick_txt for w in re.split(r'\W+', away_raw.upper()) if len(w) > 2
-                        ):
+                        opt_point = o.get("point")
+                        # Filtrar por valor de handicap si está disponible
+                        if hcap_val is not None and opt_point is not None:
+                            # El visitante tiene handicap positivo en spreads (la API lo invierte)
+                            # Buscar la línea más cercana al valor pedido
+                            if abs(float(opt_point) - abs(hcap_val)) > 0.26:
+                                continue
+                        if is_away and _team_match(oname, away_g):
                             return o["price"]
-                        if _team_match(oname, home_raw) and any(
-                            w in pick_txt for w in re.split(r'\W+', home_raw.upper()) if len(w) > 2
-                        ):
+                        if is_home and _team_match(oname, home_g):
+                            return o["price"]
+
+                # ── BTTS: Ambos Anotan / Both Teams to Score ───────────────
+                elif mkt["key"] == "btts":
+                    if any(k in pick_txt for k in ("AMBOS ANOTAN", "BOTH TEAMS", "BTTS", "SI ANOTAN", "SÍ")):
+                        for o in mkt["outcomes"]:
+                            if o["name"].upper() in ("YES", "SÍ", "SI"):
+                                return o["price"]
+                    elif "NO ANOTAN" in pick_txt or "NO BTTS" in pick_txt:
+                        for o in mkt["outcomes"]:
+                            if o["name"].upper() == "NO":
+                                return o["price"]
+
+                # ── Moneyline / 1X2 ───────────────────────────────────────
+                elif mkt["key"] == "h2h":
+                    # Draw / Empate
+                    if any(k in pick_txt for k in ("DRAW", "EMPATE", "TIE")):
+                        for o in mkt["outcomes"]:
+                            if o["name"].upper() in ("DRAW", "EMPATE", "TIE"):
+                                return o["price"]
+                    for o in mkt["outcomes"]:
+                        oname = o["name"]
+                        if _team_match(oname, away_raw) and _pick_is_away(pick_txt, away_raw):
+                            return o["price"]
+                        if _team_match(oname, home_raw) and _pick_is_home(pick_txt, home_raw):
                             return o["price"]
     return None
 
@@ -257,8 +343,9 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
 
         if real_cuota:
             old = p.get("cuota_bet365", "?")
-            p["cuota_bet365"]  = real_cuota
-            p["prob_implicita"] = round(100 / real_cuota, 1)
+            p["cuota_bet365"]    = real_cuota
+            p["cuota_verificada"] = True
+            p["prob_implicita"]  = round(100 / real_cuota, 1)
             prob_propia = p.get("prob_propia", 50)
             ev = round((prob_propia / 100 * real_cuota - 1) * 100, 1)
             p["ev_pct"] = ev
@@ -268,13 +355,14 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
                 moved_to_na.append({
                     "matchup": p["matchup"],
                     "liga":    p.get("liga", ""),
-                    "razon":   f"EV negativo tras corregir cuota real Bet365 ({real_cuota}). Claude estimó {old}."
+                    "razon":   f"EV negativo tras cuota real Bet365 ({real_cuota}). Claude estimó {old}."
                 })
             else:
                 good_picks.append(p)
         else:
-            print(f"  ⚠ Sin cuota real para: [{p['matchup']}] {p['pick']} — se conserva cuota Claude ({p.get('cuota_bet365')})")
-            good_picks.append(p)  # Conservar pero sin corrección
+            p["cuota_verificada"] = False
+            print(f"  ⚠ Sin cuota API para: [{p['matchup']}] {p['pick']} — cuota estimada ({p.get('cuota_bet365')})")
+            good_picks.append(p)
 
     picks_data["picks"] = good_picks
     picks_data["no_apostar"] = picks_data.get("no_apostar", []) + moved_to_na
@@ -295,8 +383,13 @@ REGLAS ABSOLUTAS:
    NO pongas ningún partido del Mundial en picks ni en resumen_ejecutivo.
 3. Todos los horarios deben mostrarse en hora CDMX (CDT/CST).
 4. NO inventes partidos, equipos, ni cuotas que no estén en el contexto.
-5. IMPORTANTE: las cuotas que aparecen en el contexto son las REALES de Bet365.
-   Cópialas exactamente tal como aparecen. NO las modifiques ni redondees.
+5. CUOTAS REALES: el contexto incluye cuotas REALES de Bet365 para estos mercados:
+   - "1X2/ML" → moneyline (usa para picks Moneyline)
+   - "Handicap/Spread: EQUIPO +X.X → Y.YY" → Asian Handicap (usa para picks AH)
+   - "Total X.X: Over Y.YY / Under Z.ZZ" → totales goles/carreras (usa para picks O/U)
+   - "Ambos Anotan: Sí X.XX / No Y.YY" → BTTS (usa para picks ambos anotan)
+   Copia la cuota EXACTA del contexto. Si un mercado no aparece, NO lo inventes.
+6. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
 
 METODOLOGÍA OBLIGATORIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)

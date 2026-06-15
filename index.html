@@ -155,6 +155,8 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .badge-ev.high{background:rgba(16,185,129,.2);border-color:var(--gr);box-shadow:0 0 22px rgba(16,185,129,.3);}
 .badge-tipo{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bld);border:1px solid var(--blb);color:var(--bl);padding:4px 11px;border-radius:99px;}
 .badge-cuota{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--pu);border:1px solid var(--pub);padding:4px 11px;border-radius:99px;background:var(--pud);}
+.badge-verified{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--gr);background:var(--grd);border:1px solid var(--grb);padding:3px 8px;border-radius:99px;}
+.badge-estimated{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--am);background:var(--amd);border:1px solid var(--amb);padding:3px 8px;border-radius:99px;}
 .gc-analysis{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-left:3px solid var(--cyb);border-radius:0 var(--rds) var(--rds) 0;padding:11px 14px;margin-bottom:16px;font-size:12px;line-height:1.65;color:var(--tx2);}
 .prob-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
 .prob-lbl{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);}
@@ -708,6 +710,7 @@ function buildGold(p){
         '<div class="badge-ev'+(p.ev_pct>=10?' high':'')+'">EV +'+p.ev_pct+'%</div>'+
         '<div class="badge-tipo">'+(p.tipo||'Pick')+'</div>'+
         '<div class="badge-cuota">'+p.cuota_bet365+' Bet365</div>'+
+        (p.cuota_verificada===true?'<div class="badge-verified">✓ REAL</div>':p.cuota_verificada===false?'<div class="badge-estimated">~ ESTIMADA</div>':'')+
       '</div>'+
       '<div class="gc-analysis">'+(p.razonamiento||'')+'</div>'+
       '<div class="prob-row"><span class="prob-lbl">PROBABILIDAD PROPIA</span><span class="prob-pct">'+p.prob_propia+'%</span></div>'+
