@@ -419,97 +419,90 @@ function parseTeams(matchup){
 }
 
 // ─── LOGO SYSTEM ─────────────────────────────────────────────────────────────
-// ─── SELECCIONES NACIONALES ──────────────────────────────────────────────────
-var SEL_BASE='https://paladarnegro.net/escudoteca/selecciones/img/';
-var SELECCIONES_SHIELDS={
-  // América
-  'MEXICO':'mexico.jpg','MÉXICO':'mexico.jpg','MEX':'mexico.jpg',
-  'ARGENTINA':'argentina.jpg','ARG':'argentina.jpg',
-  'BRASIL':'brasil.jpg','BRAZIL':'brasil.jpg','BRA':'brasil.jpg',
-  'ESTADOS UNIDOS':'estadosunidos.jpg','UNITED STATES':'estadosunidos.jpg','USA':'estadosunidos.jpg','USMNT':'estadosunidos.jpg','EE.UU.':'estadosunidos.jpg',
-  'COLOMBIA':'colombia.jpg','COL':'colombia.jpg',
-  'URUGUAY':'uruguay.jpg','URU':'uruguay.jpg',
-  'CHILE':'chile.jpg','CHI':'chile.jpg',
-  'ECUADOR':'ecuador.jpg','ECU':'ecuador.jpg',
-  'PERU':'peru.jpg','PERÚ':'peru.jpg','PER':'peru.jpg',
-  'VENEZUELA':'venezuela.jpg','VEN':'venezuela.jpg',
-  'PARAGUAY':'paraguay.jpg','PAR':'paraguay.jpg',
-  'BOLIVIA':'bolivia.jpg','BOL':'bolivia.jpg',
-  'CANADA':'canada.jpg','CANADÁ':'canada.jpg','CAN':'canada.jpg',
-  'PANAMA':'panama.jpg','PANAMÁ':'panama.jpg','PAN':'panama.jpg',
-  'COSTA RICA':'costarica.jpg','CRC':'costarica.jpg',
-  'HONDURAS':'honduras.jpg','HON':'honduras.jpg',
-  'JAMAICA':'jamaica.jpg','JAM':'jamaica.jpg',
-  'CUBA':'cuba.jpg','CUB':'cuba.jpg',
-  'CURACAO':'curazao.jpg','CURAÇAO':'curazao.jpg','CURAZAO':'curazao.jpg','CUW':'curazao.jpg',
-  'MARTINIQUE':'martinica.jpg','MARTINICA':'martinica.jpg','MTQ':'martinica.jpg',
-  'DOMINICAN REPUBLIC':'rep_dominicana.jpg','REP. DOMINICANA':'rep_dominicana.jpg','REPÚBLICA DOMINICANA':'rep_dominicana.jpg','DOM':'rep_dominicana.jpg',
-  'EL SALVADOR':'elsalvador.jpg','SLV':'elsalvador.jpg',
-  'NICARAGUA':'nicaragua.jpg','NCA':'nicaragua.jpg',
-  // Europa
-  'SPAIN':'espana.jpg','ESPAÑA':'espana.jpg','ESPANA':'espana.jpg','ESP':'espana.jpg',
-  'GERMANY':'alemania.jpg','ALEMANIA':'alemania.jpg','GER':'alemania.jpg',
-  'FRANCE':'francia.jpg','FRANCIA':'francia.jpg','FRA':'francia.jpg',
-  'PORTUGAL':'portugal.jpg','POR':'portugal.jpg',
-  'ITALY':'italia.jpg','ITALIA':'italia.jpg','ITA':'italia.jpg',
-  'NETHERLANDS':'paises-bajos.jpg','HOLLAND':'paises-bajos.jpg','PAISES BAJOS':'paises-bajos.jpg','PAÍSES BAJOS':'paises-bajos.jpg','HOLANDA':'paises-bajos.jpg','NED':'paises-bajos.jpg',
-  'BELGIUM':'belgica.jpg','BELGICA':'belgica.jpg','BÉLGICA':'belgica.jpg','BEL':'belgica.jpg',
-  'SWITZERLAND':'suiza.jpg','SUIZA':'suiza.jpg','SUI':'suiza.jpg',
-  'CROATIA':'croacia.jpg','CROACIA':'croacia.jpg','CRO':'croacia.jpg',
-  'POLAND':'polonia.jpg','POLONIA':'polonia.jpg','POL':'polonia.jpg',
-  'SERBIA':'serbia.jpg','SRB':'serbia.jpg',
-  'UKRAINE':'ucrania.jpg','UCRANIA':'ucrania.jpg','UKR':'ucrania.jpg',
-  'RUSSIA':'rusia.jpg','RUSIA':'rusia.jpg','RUS':'rusia.jpg',
-  'DENMARK':'dinamarca.jpg','DINAMARCA':'dinamarca.jpg','DEN':'dinamarca.jpg',
-  'SWEDEN':'suecia.jpg','SUECIA':'suecia.jpg','SWE':'suecia.jpg',
-  'NORWAY':'noruega.jpg','NORUEGA':'noruega.jpg','NOR':'noruega.jpg',
-  'FINLAND':'finlandia.jpg','FINLANDIA':'finlandia.jpg','FIN':'finlandia.jpg',
-  'ICELAND':'islandia.jpg','ISLANDIA':'islandia.jpg','ISL':'islandia.jpg',
-  'AUSTRIA':'austria.jpg','AUT':'austria.jpg',
-  'SCOTLAND':'escocia.jpg','ESCOCIA':'escocia.jpg','SCO':'escocia.jpg',
-  'IRELAND':'irlanda.jpg','IRLANDA':'irlanda.jpg','IRL':'irlanda.jpg',
-  'NORTHERN IRELAND':'irlandadelnorte.jpg','IRLANDA DEL NORTE':'irlandadelnorte.jpg','NIR':'irlandadelnorte.jpg',
-  'TURKEY':'turquia.jpg','TURQUIA':'turquia.jpg','TURQUÍA':'turquia.jpg','TUR':'turquia.jpg',
-  'ROMANIA':'rumania.jpg','RUMANIA':'rumania.jpg','ROU':'rumania.jpg',
-  'ALBANIA':'albania.jpg','ALB':'albania.jpg',
-  'SLOVENIA':'eslovenia.jpg','ESLOVENIA':'eslovenia.jpg','SVN':'eslovenia.jpg',
-  'SLOVAKIA':'eslovaquia.jpg','ESLOVAQUIA':'eslovaquia.jpg','SVK':'eslovaquia.jpg',
-  'CZECH REPUBLIC':'republicacheca.jpg','CZECHIA':'republicacheca.jpg','REPUBLICA CHECA':'republicacheca.jpg','REPÚBLICA CHECA':'republicacheca.jpg','CZE':'republicacheca.jpg',
-  'GEORGIA':'georgia.jpg','GEO':'georgia.jpg',
-  'BOSNIA':'bosnia.jpg','BOSNIA AND HERZEGOVINA':'bosnia.jpg','BIH':'bosnia.jpg',
-  'UZBEKISTAN':'uzbekistan.jpg','UZB':'uzbekistan.jpg',
-  // África
-  'MOROCCO':'marruecos.jpg','MARRUECOS':'marruecos.jpg','MAR':'marruecos.jpg',
-  'SENEGAL':'senegal.jpg','SEN':'senegal.jpg',
-  'NIGERIA':'nigeria.jpg','NGA':'nigeria.jpg',
-  'CAMEROON':'camerun.jpg','CAMERUN':'camerun.jpg','CAMERÚN':'camerun.jpg','CMR':'camerun.jpg',
-  'GHANA':'ghana.jpg','GHA':'ghana.jpg',
-  "IVORY COAST":"costa_de_marfil.jpg","COTE D'IVOIRE":"costa_de_marfil.jpg",'COSTA DE MARFIL':'costa_de_marfil.jpg','CIV':'costa_de_marfil.jpg',
-  'SOUTH AFRICA':'sudafrica.jpg','SUDAFRICA':'sudafrica.jpg','SUDÁFRICA':'sudafrica.jpg','RSA':'sudafrica.jpg',
-  'EGYPT':'egipto.jpg','EGIPTO':'egipto.jpg','EGY':'egipto.jpg',
-  'TUNISIA':'tunez.jpg','TUNEZ':'tunez.jpg','TÚNEZ':'tunez.jpg','TUN':'tunez.jpg',
-  'MALI':'mali.jpg','MLI':'mali.jpg',
-  'CONGO':'congo.jpg','COD':'congo.jpg',
-  'CAPE VERDE':'cabo_verde.jpg','CABO VERDE':'cabo_verde.jpg','CPV':'cabo_verde.jpg',
-  'ALGERIA':'argelia.jpg','ARGELIA':'argelia.jpg','ALG':'argelia.jpg',
-  // Asia / Oceanía
-  'JAPAN':'japon.jpg','JAPON':'japon.jpg','JAPÓN':'japon.jpg','JPN':'japon.jpg',
-  'SOUTH KOREA':'coreadelsur.jpg','COREA DEL SUR':'coreadelsur.jpg','KOREA':'coreadelsur.jpg','KOR':'coreadelsur.jpg',
-  'AUSTRALIA':'australia.jpg','AUS':'australia.jpg',
-  'NEW ZEALAND':'nuevazelanda.jpg','NUEVA ZELANDA':'nuevazelanda.jpg','NZL':'nuevazelanda.jpg',
-  'NEW CALEDONIA':'nueva_caledonia.jpg','NUEVA CALEDONIA':'nueva_caledonia.jpg','NCL':'nueva_caledonia.jpg',
-  'CHINA':'china.jpg','CHN':'china.jpg',
-  'QATAR':'qatar.jpg','QAT':'qatar.jpg',
-  'SAUDI ARABIA':'arabiasaudita.jpg','ARABIA SAUDITA':'arabiasaudita.jpg','KSA':'arabiasaudita.jpg',
-  'IRAN':'iran.jpg','IRN':'iran.jpg',
-  'IRAQ':'irak.jpg','IRAK':'irak.jpg','IRQ':'irak.jpg',
-  'JORDAN':'jordania.jpg','JORDANIA':'jordania.jpg','JOR':'jordania.jpg',
-  'UNITED ARAB EMIRATES':'emiratos_arabes_unidos.jpg','EMIRATOS ARABES UNIDOS':'emiratos_arabes_unidos.jpg','UAE':'emiratos_arabes_unidos.jpg',
-  'TAHITI':'tahiti.jpg','PYF':'tahiti.jpg',
-  'FAROE ISLANDS':'islas_feroe.jpg','ISLAS FEROE':'islas_feroe.jpg','FRO':'islas_feroe.jpg',
-  'KAZAJISTAN':'kazakhstan.jpg','KAZ':'kazakhstan.jpg',
-  'TAHITI':'tahiti.jpg','PYF':'tahiti.jpg',
-  'ISLAS FEROE':'islas_feroe.jpg','FRO':'islas_feroe.jpg'
+// ─── SELECCIONES NACIONALES (flagcdn.com — CDN público sin restricciones) ─────
+var SEL_ISO2={
+  // ISO2 directos (como vienen del JSON)
+  'MX':'mx','AR':'ar','BR':'br','US':'us','CO':'co','UY':'uy','CL':'cl','EC':'ec',
+  'PE':'pe','VE':'ve','PY':'py','BO':'bo','CA':'ca','PA':'pa','CR':'cr','HN':'hn',
+  'JM':'jm','CU':'cu','CW':'cw','MQ':'mq','DO':'do','SV':'sv','NI':'ni','GT':'gt',
+  'ES':'es','DE':'de','FR':'fr','PT':'pt','IT':'it','NL':'nl','BE':'be','CH':'ch',
+  'HR':'hr','PL':'pl','RS':'rs','UA':'ua','RU':'ru','DK':'dk','SE':'se','NO':'no',
+  'FI':'fi','IS':'is','AT':'at','IE':'ie','TR':'tr','RO':'ro','AL':'al','SI':'si',
+  'SK':'sk','CZ':'cz','GE':'ge','BA':'ba','UZ':'uz','HU':'hu','GR':'gr','BG':'bg',
+  'MA':'ma','SN':'sn','NG':'ng','CM':'cm','GH':'gh','CI':'ci','ZA':'za','EG':'eg',
+  'TN':'tn','ML':'ml','CD':'cd','CV':'cv','DZ':'dz','AO':'ao','MZ':'mz','TZ':'tz',
+  'JP':'jp','KR':'kr','AU':'au','NZ':'nz','NC':'nc','CN':'cn','QA':'qa','SA':'sa',
+  'IR':'ir','IQ':'iq','JO':'jo','AE':'ae','KZ':'kz','PF':'pf','FO':'fo',
+  // Nombres completos en inglés → ISO2
+  'MEXICO':'mx','ARGENTINA':'ar','BRAZIL':'br','BRASIL':'br',
+  'UNITED STATES':'us','USA':'us','USMNT':'us','ESTADOS UNIDOS':'us','EE.UU.':'us',
+  'COLOMBIA':'co','URUGUAY':'uy','CHILE':'cl','ECUADOR':'ec','PERU':'pe','PERÚ':'pe',
+  'VENEZUELA':'ve','PARAGUAY':'py','BOLIVIA':'bo','CANADA':'ca','CANADÁ':'ca',
+  'PANAMA':'pa','PANAMÁ':'pa','COSTA RICA':'cr','HONDURAS':'hn','JAMAICA':'jm',
+  'CUBA':'cu','CURACAO':'cw','CURAÇAO':'cw','CURAZAO':'cw',
+  'MARTINIQUE':'mq','MARTINICA':'mq',
+  'DOMINICAN REPUBLIC':'do','REP. DOMINICANA':'do','REPÚBLICA DOMINICANA':'do',
+  'EL SALVADOR':'sv','NICARAGUA':'ni','GUATEMALA':'gt',
+  'SPAIN':'es','ESPAÑA':'es','ESPANA':'es',
+  'GERMANY':'de','ALEMANIA':'de',
+  'FRANCE':'fr','FRANCIA':'fr',
+  'PORTUGAL':'pt','ITALY':'it','ITALIA':'it',
+  'NETHERLANDS':'nl','HOLLAND':'nl','HOLANDA':'nl','PAÍSES BAJOS':'nl','PAISES BAJOS':'nl',
+  'BELGIUM':'be','BELGICA':'be','BÉLGICA':'be',
+  'SWITZERLAND':'ch','SUIZA':'ch',
+  'CROATIA':'hr','CROACIA':'hr',
+  'POLAND':'pl','POLONIA':'pl',
+  'SERBIA':'rs','UKRAINE':'ua','UCRANIA':'ua','RUSSIA':'ru','RUSIA':'ru',
+  'DENMARK':'dk','DINAMARCA':'dk','SWEDEN':'se','SUECIA':'se',
+  'NORWAY':'no','NORUEGA':'no','FINLAND':'fi','FINLANDIA':'fi',
+  'ICELAND':'is','ISLANDIA':'is','AUSTRIA':'at',
+  'SCOTLAND':'gb-sct','ESCOCIA':'gb-sct',
+  'IRELAND':'ie','IRLANDA':'ie',
+  'NORTHERN IRELAND':'gb-nir','IRLANDA DEL NORTE':'gb-nir',
+  'WALES':'gb-wls','GALES':'gb-wls',
+  'ENGLAND':'gb-eng','INGLATERRA':'gb-eng',
+  'TURKEY':'tr','TURQUIA':'tr','TURQUÍA':'tr',
+  'ROMANIA':'ro','RUMANIA':'ro','ALBANIA':'al',
+  'SLOVENIA':'si','ESLOVENIA':'si','SLOVAKIA':'sk','ESLOVAQUIA':'sk',
+  'CZECH REPUBLIC':'cz','CZECHIA':'cz','REPUBLICA CHECA':'cz','REPÚBLICA CHECA':'cz',
+  'GEORGIA':'ge','BOSNIA':'ba','BOSNIA AND HERZEGOVINA':'ba',
+  'UZBEKISTAN':'uz','HUNGARY':'hu','HUNGRÍA':'hu','GREECE':'gr','GRECIA':'gr',
+  'MOROCCO':'ma','MARRUECOS':'ma',
+  'SENEGAL':'sn','NIGERIA':'ng',
+  'CAMEROON':'cm','CAMERUN':'cm','CAMERÚN':'cm',
+  'GHANA':'gh',"IVORY COAST":'ci',"COTE D'IVOIRE":'ci','COSTA DE MARFIL':'ci',
+  'SOUTH AFRICA':'za','SUDAFRICA':'za','SUDÁFRICA':'za',
+  'EGYPT':'eg','EGIPTO':'eg',
+  'TUNISIA':'tn','TUNEZ':'tn','TÚNEZ':'tn',
+  'MALI':'ml','CONGO':'cd','CAPE VERDE':'cv','CABO VERDE':'cv',
+  'ALGERIA':'dz','ARGELIA':'dz',
+  'JAPAN':'jp','JAPON':'jp','JAPÓN':'jp',
+  'SOUTH KOREA':'kr','COREA DEL SUR':'kr','KOREA':'kr',
+  'AUSTRALIA':'au','NEW ZEALAND':'nz','NUEVA ZELANDA':'nz',
+  'NEW CALEDONIA':'nc','NUEVA CALEDONIA':'nc',
+  'CHINA':'cn','QATAR':'qa',
+  'SAUDI ARABIA':'sa','ARABIA SAUDITA':'sa',
+  'IRAN':'ir','IRAQ':'iq','IRAK':'iq',
+  'JORDAN':'jo','JORDANIA':'jo',
+  'UNITED ARAB EMIRATES':'ae','EMIRATOS ARABES UNIDOS':'ae',
+  'TAHITI':'pf','FAROE ISLANDS':'fo','ISLAS FEROE':'fo',
+  'KAZAKHSTAN':'kz','KAZAJISTAN':'kz',
+  // Abreviaturas de 3 letras FIFA/UEFA → ISO2
+  'MEX':'mx','ARG':'ar','BRA':'br','COL':'co','URU':'uy','CHI':'cl','ECU':'ec',
+  'PER':'pe','VEN':'ve','PAR':'py','BOL':'bo','CAN':'ca','PAN':'pa','CRC':'cr',
+  'HON':'hn','JAM':'jm','CUB':'cu','CUW':'cw','MTQ':'mq','DOM':'do','SLV':'sv',
+  'NCA':'ni','GUA':'gt',
+  'ESP':'es','GER':'de','FRA':'fr','POR':'pt','ITA':'it','NED':'nl','BEL':'be',
+  'SUI':'ch','CRO':'hr','POL':'pl','SRB':'rs','UKR':'ua','RUS':'ru','DEN':'dk',
+  'SWE':'se','NOR':'no','FIN':'fi','ISL':'is','AUT':'at','SCO':'gb-sct',
+  'IRL':'ie','NIR':'gb-nir','WAL':'gb-wls','ENG':'gb-eng',
+  'TUR':'tr','ROU':'ro','ALB':'al','SVN':'si','SVK':'sk','CZE':'cz',
+  'GEO':'ge','BIH':'ba','UZB':'uz','HUN':'hu','GRE':'gr',
+  'MAR':'ma','SEN':'sn','NGA':'ng','CMR':'cm','GHA':'gh','CIV':'ci',
+  'RSA':'za','EGY':'eg','TUN':'tn','MLI':'ml','COD':'cd','CPV':'cv','ALG':'dz',
+  'JPN':'jp','KOR':'kr','AUS':'au','NZL':'nz','NCL':'nc','CHN':'cn','QAT':'qa',
+  'KSA':'sa','IRN':'ir','IRQ':'iq','JOR':'jo','UAE':'ae','KAZ':'kz',
+  'PYF':'pf','FRO':'fo'
 };
 
 var MLB_IDS={LAD:119,PIT:134,ATL:144,CWS:145,CHW:145,CHC:112,COL:115,SEA:136,BAL:110,NYY:147,CLE:114,NYM:121,STL:138,TEX:140,KC:118,KCR:118,MIL:158,OAK:133,HOU:117,MIA:146,ARI:109,WSH:120,WSN:120,SF:137,SFG:137,SD:135,SDP:135,PHI:143,TOR:141,MIN:142,DET:116,TB:139,TBR:139,BOS:111,LAA:108,CIN:113};
@@ -622,13 +615,15 @@ function logoHTML(rawName,liga,sizePx){
   var name=(rawName||'').toUpperCase().trim().replace(/^@\s*/,'').trim();
   var sport=getSport(liga);
 
-  // Copa → escudo oficial desde paladarnegro (fallback: bandera emoji)
+  // Copa → bandera desde flagcdn.com (CDN público, sin restricciones)
   if(sport==='copa'){
-    var shield=SELECCIONES_SHIELDS[name]||SELECCIONES_SHIELDS[normName(name)];
-    if(shield){
-      return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px;border-radius:4px;overflow:hidden">'+
-        '<img src="'+SEL_BASE+shield+'" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" '+
-        'onerror="var f=CUP_FLAGS[\''+name+'\']||\'🌐\';this.parentNode.innerHTML=\'<span class=t-flag style=font-size:'+Math.round(sz*.7)+'px>\'+f+\'</span>\'">'+
+    var iso2=SEL_ISO2[name]||SEL_ISO2[normName(name)];
+    if(iso2){
+      var fw=Math.round(sz*1.4),fh=sz;
+      return'<div class="t-logo" style="width:'+fw+'px;height:'+fh+'px;border-radius:5px;overflow:hidden;border:1px solid rgba(255,255,255,.12);flex-shrink:0">'+
+        '<img src="https://flagcdn.com/'+fw+'x'+fh+'/'+iso2+'.png" alt="'+name+'" '+
+        'style="width:100%;height:100%;object-fit:cover" '+
+        'onerror="var f=CUP_FLAGS[\''+name+'\']||\'🏳\';this.parentNode.innerHTML=\'<span class=t-flag style=font-size:'+Math.round(sz*.65)+'px>\'+f+\'</span>\'">'+
       '</div>';
     }
     var flag=CUP_FLAGS[name]||CUP_FLAGS[normName(name)];
