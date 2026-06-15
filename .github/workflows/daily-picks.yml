@@ -2,7 +2,7 @@ name: Daily Picks Generator
 
 on:
   schedule:
-    - cron: '0 7 * * *'   # 2am CDT (UTC-5, horario verano CDMX)
+    - cron: '30 5 * * *'  # 12:30am CDT (UTC-5, horario verano CDMX)
   workflow_dispatch:         # Botón manual en GitHub para probar
 
 jobs:
