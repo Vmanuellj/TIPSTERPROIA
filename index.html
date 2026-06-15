@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#060a14;--bg2:#0b1022;--bg3:#101828;--bg4:#161f2e;
-  --sf:rgba(255,255,255,.035);--sf2:rgba(255,255,255,.06);--sf3:rgba(255,255,255,.1);
-  --bd:rgba(255,255,255,.07);--bd2:rgba(255,255,255,.13);--bd3:rgba(255,255,255,.2);
-  --tx:#eef2ff;--tx2:#8b9dc3;--tx3:#3d5070;--tx4:#2a3a54;
-  --cy:#00e5b4;--cy2:#00b894;--cyd:rgba(0,229,180,.12);--cyb:rgba(0,229,180,.3);--cys:rgba(0,229,180,.06);
-  --pu:#a78bfa;--pud:rgba(167,139,250,.12);--pub:rgba(167,139,250,.28);
+  --bg:#08061a;--bg2:#0f0b26;--bg3:#15102e;--bg4:#1c1640;
+  --sf:rgba(139,92,246,.04);--sf2:rgba(139,92,246,.07);--sf3:rgba(139,92,246,.12);
+  --bd:rgba(139,92,246,.12);--bd2:rgba(139,92,246,.22);--bd3:rgba(139,92,246,.35);
+  --tx:#eef2ff;--tx2:#a8b2d8;--tx3:#4a4270;--tx4:#2e2850;
+  --cy:#00e5b4;--cy2:#00b894;--cyd:rgba(0,229,180,.10);--cyb:rgba(0,229,180,.28);--cys:rgba(0,229,180,.05);
+  --pu:#a78bfa;--pu2:#8b5cf6;--pud:rgba(139,92,246,.15);--pub:rgba(139,92,246,.38);--pus:rgba(139,92,246,.07);
   --am:#f59e0b;--amd:rgba(245,158,11,.12);--amb:rgba(245,158,11,.3);
   --bl:#60a5fa;--bld:rgba(96,165,250,.12);--blb:rgba(96,165,250,.28);
   --re:#f87171;--red:rgba(248,113,113,.12);--reb:rgba(248,113,113,.3);
@@ -24,9 +24,9 @@
   --rd:16px;--rds:10px;--rdxs:6px;
   --hf:'Barlow Condensed',sans-serif;
   --bf:'Barlow',sans-serif;
-  --shadow-card:0 4px 24px rgba(0,0,0,.4);
-  --shadow-glow-cy:0 0 32px rgba(0,229,180,.15);
-  --shadow-glow-pu:0 0 32px rgba(167,139,250,.15);
+  --shadow-card:0 4px 28px rgba(0,0,0,.55);
+  --shadow-glow-cy:0 0 32px rgba(0,229,180,.12);
+  --shadow-glow-pu:0 0 36px rgba(139,92,246,.22);
   --shadow-glow-am:0 0 32px rgba(245,158,11,.12);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
@@ -36,23 +36,24 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── ORBS ──────────────────────────────────────── */
 .orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
 .orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.14;animation:drift 18s ease-in-out infinite alternate;}
-.ob1{width:560px;height:560px;background:#00e5b4;top:-180px;left:-120px;}
-.ob2{width:440px;height:440px;background:#7c3aed;top:30%;right:-100px;animation-delay:-7s;}
-.ob3{width:380px;height:380px;background:#1e40af;bottom:5%;left:10%;animation-delay:-13s;}
-.ob4{width:300px;height:300px;background:#b45309;bottom:-60px;right:8%;animation-delay:-4s;}
+.ob1{width:600px;height:600px;background:#6d28d9;top:-200px;left:-140px;}
+.ob2{width:480px;height:480px;background:#4c1d95;top:25%;right:-120px;animation-delay:-7s;}
+.ob3{width:360px;height:360px;background:#312e81;bottom:5%;left:8%;animation-delay:-13s;}
+.ob4{width:280px;height:280px;background:#7c3aed;bottom:-60px;right:6%;animation-delay:-4s;}
 @keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(28px,20px) scale(1.08)}}
 
 /* ─── TOPBAR ─────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:200;background:rgba(6,10,20,.88);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid var(--bd);}
+.topbar{position:sticky;top:0;z-index:200;background:linear-gradient(180deg,rgba(13,9,32,.96) 0%,rgba(8,6,26,.92) 100%);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid rgba(139,92,246,.18);box-shadow:0 1px 40px rgba(109,40,217,.12);}
 .tb-inner{max-width:920px;margin:0 auto;padding:0 18px;}
 .tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 0 9px;}
 .logo{display:flex;align-items:center;gap:9px;font-family:var(--hf);font-size:21px;font-weight:900;letter-spacing:-.3px;}
-.logo-circle{width:32px;height:32px;border-radius:50%;background:#000;border:2px solid #00e5b4;box-shadow:0 0 10px #00e5b499,0 0 22px #00e5b433,inset 0 0 8px #00e5b418;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.logo-t{color:#00e5b4;text-shadow:0 0 14px #00e5b488;}
+.logo-circle{width:32px;height:32px;border-radius:50%;background:#0a0720;border:2px solid #8b5cf6;box-shadow:0 0 10px #8b5cf699,0 0 22px #8b5cf633,inset 0 0 8px #8b5cf618;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-t{color:#a78bfa;text-shadow:0 0 14px #8b5cf688;}
 .logo-p{color:#eef2ff;}
 .tb-right{display:flex;align-items:center;gap:10px;}
-.live-badge{display:flex;align-items:center;gap:5px;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:99px;}
-.live-dot{width:5px;height:5px;border-radius:50%;background:var(--cy);animation:blink 1.6s ease-in-out infinite;}
+.live-badge{display:flex;align-items:center;gap:5px;background:var(--pud);border:1px solid var(--pub);color:var(--pu);font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:99px;}
+.live-dot{width:5px;height:5px;border-radius:50%;background:var(--pu);animation:blink 1.6s ease-in-out infinite;}
+.hdr-date .hdr-d2 span{color:var(--pu);font-weight:700;}
 @keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.25;transform:scale(.6)}}
 .hdr-date .hdr-d1{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx);text-align:right;}
 .hdr-date .hdr-d2{font-size:10px;color:var(--tx3);text-align:right;margin-top:1px;}
@@ -61,13 +62,15 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── TABS ───────────────────────────────────────── */
 .nav-tabs{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding-bottom:0;}
 .nav-tabs::-webkit-scrollbar{display:none;}
-.tab-btn{flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:var(--hf);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:9px 16px;border:none;cursor:pointer;transition:all .18s;color:var(--tx3);background:transparent;border-bottom:2px solid transparent;position:relative;}
-.tab-btn:hover{color:var(--tx2);}
-.tab-btn.active{color:var(--cy);border-bottom-color:var(--cy);}
+.nav-tabs{padding:4px 0 6px;}
+.tab-btn{flex-shrink:0;display:flex;align-items:center;gap:6px;font-family:var(--hf);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:7px 14px;border:none;cursor:pointer;transition:all .2s;color:var(--tx3);background:transparent;border-radius:99px;position:relative;}
+.tab-btn:hover{color:var(--tx2);background:rgba(139,92,246,.06);}
+.tab-btn.active{color:#fff;background:linear-gradient(135deg,#7c3aed,#a78bfa);box-shadow:0 2px 16px rgba(139,92,246,.35);}
 .tab-btn svg{width:14px;height:14px;flex-shrink:0;opacity:.7;}
 .tab-btn.active svg{opacity:1;}
-.tab-ct{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:15px;border-radius:99px;font-size:9px;font-weight:800;padding:0 4px;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);}
+.tab-ct{display:inline-flex;align-items:center;justify-content:center;min-width:17px;height:15px;border-radius:99px;font-size:9px;font-weight:800;padding:0 4px;background:var(--pud);border:1px solid var(--pub);color:var(--pu);}
 .tab-ct.zero{background:var(--sf);border-color:var(--bd);color:var(--tx4);}
+.tab-btn.active .tab-ct{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.35);color:#fff;}
 
 /* ─── MAIN ───────────────────────────────────────── */
 .main{position:relative;z-index:1;max-width:920px;margin:0 auto;padding:22px 18px 70px;}
@@ -134,10 +137,10 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .t-flag{font-size:1em;line-height:1;}
 
 /* ─── GOLD PICK CARD ─────────────────────────────── */
-.gold-card{position:relative;border-radius:var(--rd);border:1px solid var(--cyb);background:linear-gradient(140deg,rgba(0,229,180,.07) 0%,var(--bg2) 55%);box-shadow:var(--shadow-glow-cy),var(--shadow-card);overflow:hidden;margin-bottom:20px;transition:box-shadow .25s;}
-.gold-card:hover{box-shadow:0 0 56px rgba(0,229,180,.22),var(--shadow-card);}
-.gold-topbar{height:3px;background:linear-gradient(90deg,#00e5b4,#60a5fa,#a78bfa);box-shadow:0 0 14px #00e5b4;}
-.gold-badge{position:absolute;top:16px;right:16px;font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--cyb);color:var(--cy);padding:4px 12px;border-radius:99px;background:var(--cyd);}
+.gold-card{position:relative;border-radius:var(--rd);border:1px solid var(--pub);background:linear-gradient(140deg,rgba(139,92,246,.1) 0%,var(--bg2) 55%);box-shadow:var(--shadow-glow-pu),var(--shadow-card);overflow:hidden;margin-bottom:20px;transition:box-shadow .25s;}
+.gold-card:hover{box-shadow:0 0 56px rgba(139,92,246,.28),var(--shadow-card);}
+.gold-topbar{height:3px;background:linear-gradient(90deg,#7c3aed,#a78bfa,#60a5fa);box-shadow:0 0 14px #8b5cf6;}
+.gold-badge{position:absolute;top:16px;right:16px;font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--pub);color:var(--pu);padding:4px 12px;border-radius:99px;background:var(--pud);}
 .gc-inner{padding:20px 22px;}
 .gc-ctx{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--tx3);margin-bottom:14px;}
 .gc-matchup{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
@@ -147,7 +150,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .gc-tname.home{color:var(--tx);}
 .gc-vs{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--tx4);flex-shrink:0;padding:0 4px;}
 .gc-badges{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-.badge-pick{font-family:var(--hf);font-size:15px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:var(--cyd);border:1px solid var(--cyb);color:var(--cy);padding:6px 18px;border-radius:var(--rds);box-shadow:0 0 18px rgba(0,229,180,.15);}
+.badge-pick{font-family:var(--hf);font-size:15px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:linear-gradient(135deg,#7c3aed,#a78bfa);border:1px solid var(--pub);color:#fff;padding:6px 18px;border-radius:var(--rds);box-shadow:0 0 18px rgba(139,92,246,.3);}
 .badge-ev{font-family:var(--hf);font-size:14px;font-weight:900;background:var(--grd);border:1px solid var(--grb);color:var(--gr);padding:6px 16px;border-radius:var(--rds);box-shadow:0 0 14px rgba(16,185,129,.18);}
 .badge-ev.high{background:rgba(16,185,129,.2);border-color:var(--gr);box-shadow:0 0 22px rgba(16,185,129,.3);}
 .badge-tipo{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bld);border:1px solid var(--blb);color:var(--bl);padding:4px 11px;border-radius:99px;}
@@ -157,7 +160,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .prob-lbl{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);}
 .prob-pct{font-family:var(--hf);font-size:24px;font-weight:900;color:var(--cy);}
 .prob-bar{height:5px;background:var(--sf2);border-radius:99px;overflow:hidden;}
-.prob-fill{height:100%;background:linear-gradient(90deg,var(--cy2),var(--cy));border-radius:99px;transition:width 1.1s cubic-bezier(.22,1,.36,1);width:0;}
+.prob-fill{height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:99px;transition:width 1.1s cubic-bezier(.22,1,.36,1);width:0;}
 .gc-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bd);}
 .stars{display:flex;gap:3px;}
 .star{font-size:15px;}
@@ -173,13 +176,13 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:12px;margin-bottom:20px;}
 .pick-card{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);overflow:hidden;cursor:pointer;transition:transform .18s,border-color .22s,box-shadow .22s;}
 .pick-card:hover{transform:translateY(-3px);}
-.pick-card.s3{border-color:var(--cyb);box-shadow:var(--shadow-glow-cy),0 2px 12px rgba(0,0,0,.35);}
-.pick-card.s3:hover{box-shadow:0 0 44px rgba(0,229,180,.25),0 4px 24px rgba(0,0,0,.5);}
+.pick-card.s3{border-color:var(--pub);box-shadow:var(--shadow-glow-pu),0 2px 12px rgba(0,0,0,.35);}
+.pick-card.s3:hover{box-shadow:0 0 44px rgba(139,92,246,.3),0 4px 24px rgba(0,0,0,.5);}
 .pick-card.s2{border-color:var(--amb);box-shadow:0 2px 12px rgba(0,0,0,.3);}
 .pick-card.s2:hover{box-shadow:var(--shadow-glow-am),0 4px 20px rgba(0,0,0,.45);}
 .pick-card.s1:hover{box-shadow:0 4px 20px rgba(0,0,0,.4);}
 .pc-stripe{height:3px;}
-.pc-s3{background:linear-gradient(90deg,#00e5b4,#0ea5e9);}
+.pc-s3{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
 .pc-s2{background:linear-gradient(90deg,#f59e0b,#ef4444);}
 .pc-s1{background:var(--bg4);}
 .pc-inner{padding:14px 15px;}
@@ -188,10 +191,10 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .pc-vs{font-family:var(--hf);font-size:10px;color:var(--tx4);flex-shrink:0;}
 .pc-name{font-family:var(--hf);font-size:18px;font-weight:800;letter-spacing:-.3px;text-transform:uppercase;line-height:1.1;}
 .pc-mid{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;}
-.pc-pick{font-family:var(--hf);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--cy);letter-spacing:.3px;}
+.pc-pick{font-family:var(--hf);font-size:14px;font-weight:800;text-transform:uppercase;color:var(--pu);letter-spacing:.3px;}
 .pc-ev{font-family:var(--hf);font-size:14px;font-weight:900;color:var(--gr);}
 .pc-pbar{height:3px;background:var(--sf2);border-radius:99px;overflow:hidden;margin-bottom:9px;}
-.pc-pfill{height:100%;background:linear-gradient(90deg,var(--cy2),var(--cy));border-radius:99px;transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
+.pc-pfill{height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:99px;transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
 .pc-reason{font-size:11px;color:var(--tx3);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .pc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:11px;padding-top:11px;border-top:1px solid var(--bd);}
 .pc-stars{display:flex;gap:2px;}
@@ -266,7 +269,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .empty-icon svg{width:24px;height:24px;opacity:.4;}
 .empty-title{font-family:var(--hf);font-size:19px;font-weight:800;color:var(--tx2);}
 .empty-sub{font-size:12px;color:var(--tx3);max-width:270px;line-height:1.65;}
-.empty-pill{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--cy);background:var(--cyd);border:1px solid var(--cyb);padding:5px 14px;border-radius:99px;}
+.empty-pill{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);padding:5px 14px;border-radius:99px;}
 
 /* ─── BOTTOM STATS ───────────────────────────────── */
 .b-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
@@ -315,11 +318,11 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
       <div class="logo">
   <div class="logo-circle">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <line x1="8" y1="1.5" x2="8" y2="5.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="8" y1="10.5" x2="8" y2="14.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="1.5" y1="8" x2="5.5" y2="8" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="10.5" y1="8" x2="14.5" y2="8" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>
-      <circle cx="8" cy="8" r="2" fill="#00e5b4"/>
+      <line x1="8" y1="1.5" x2="8" y2="5.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="8" y1="10.5" x2="8" y2="14.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="1.5" y1="8" x2="5.5" y2="8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="10.5" y1="8" x2="14.5" y2="8" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>
+      <circle cx="8" cy="8" r="2" fill="#a78bfa"/>
     </svg>
   </div>
   <span class="logo-t">TIPSTER</span><span class="logo-p">&nbsp;PRO</span>
@@ -416,6 +419,92 @@ function parseTeams(matchup){
 }
 
 // ─── LOGO SYSTEM ─────────────────────────────────────────────────────────────
+// ─── SELECCIONES NACIONALES ──────────────────────────────────────────────────
+var SEL_BASE='https://paladarnegro.net/escudoteca/selecciones/img/';
+var SELECCIONES_SHIELDS={
+  'MEXICO':'mexico.jpg','MÉXICO':'mexico.jpg','MEX':'mexico.jpg',
+  'ARGENTINA':'argentina.jpg','ARG':'argentina.jpg',
+  'BRASIL':'brasil.jpg','BRAZIL':'brasil.jpg','BRA':'brasil.jpg',
+  'ESTADOS UNIDOS':'estadosunidos.jpg','USA':'estadosunidos.jpg','USMNT':'estadosunidos.jpg','EE.UU.':'estadosunidos.jpg',
+  'ESPAÑA':'espana.jpg','ESPANA':'espana.jpg','ESP':'espana.jpg',
+  'ALEMANIA':'alemania.jpg','GERMANY':'alemania.jpg','GER':'alemania.jpg','GER.':'alemania.jpg',
+  'FRANCIA':'francia.jpg','FRANCE':'francia.jpg','FRA':'francia.jpg',
+  'PORTUGAL':'portugal.jpg','POR':'portugal.jpg',
+  'ITALIA':'italia.jpg','ITA':'italia.jpg',
+  'COLOMBIA':'colombia.jpg','COL':'colombia.jpg',
+  'URUGUAY':'uruguay.jpg','URU':'uruguay.jpg',
+  'CHILE':'chile.jpg','CHI':'chile.jpg',
+  'ECUADOR':'ecuador.jpg','ECU':'ecuador.jpg',
+  'PERU':'peru.jpg','PERÚ':'peru.jpg','PER':'peru.jpg',
+  'VENEZUELA':'venezuela.jpg','VEN':'venezuela.jpg',
+  'PARAGUAY':'paraguay.jpg','PAR':'paraguay.jpg',
+  'BOLIVIA':'bolivia.jpg','BOL':'bolivia.jpg',
+  'CANADA':'canada.jpg','CANADÁ':'canada.jpg','CAN':'canada.jpg',
+  'PANAMA':'panama.jpg','PANAMÁ':'panama.jpg','PAN':'panama.jpg',
+  'COSTA RICA':'costarica.jpg','CRC':'costarica.jpg',
+  'HONDURAS':'honduras.jpg','HON':'honduras.jpg',
+  'JAMAICA':'jamaica.jpg','JAM':'jamaica.jpg',
+  'CUBA':'cuba.jpg','CUB':'cuba.jpg',
+  'CURACAO':'curazao.jpg','CURAÇAO':'curazao.jpg','CURAZAO':'curazao.jpg','CUW':'curazao.jpg',
+  'MARTINICA':'martinica.jpg','MTQ':'martinica.jpg',
+  'REP. DOMINICANA':'rep_dominicana.jpg','REPÚBLICA DOMINICANA':'rep_dominicana.jpg','DOM':'rep_dominicana.jpg',
+  'EL SALVADOR':'elsalvador.jpg','SLV':'elsalvador.jpg',
+  'NICARAGUA':'nicaragua.jpg','NCA':'nicaragua.jpg',
+  'MARRUECOS':'marruecos.jpg','MOROCCO':'marruecos.jpg','MAR':'marruecos.jpg',
+  'SENEGAL':'senegal.jpg','SEN':'senegal.jpg',
+  'NIGERIA':'nigeria.jpg','NGA':'nigeria.jpg',
+  'CAMERUN':'camerun.jpg','CAMERÚN':'camerun.jpg','CMR':'camerun.jpg',
+  'GHANA':'ghana.jpg','GHA':'ghana.jpg',
+  'COSTA DE MARFIL':'costa_de_marfil.jpg','IVORY COAST':'costa_de_marfil.jpg','CIV':'costa_de_marfil.jpg',
+  'SUDAFRICA':'sudafrica.jpg','SUDÁFRICA':'sudafrica.jpg','RSA':'sudafrica.jpg',
+  'EGIPTO':'egipto.jpg','EGY':'egipto.jpg',
+  'TUNEZ':'tunez.jpg','TÚNEZ':'tunez.jpg','TUN':'tunez.jpg',
+  'MALI':'mali.jpg','MLI':'mali.jpg',
+  'CONGO':'congo.jpg','COD':'congo.jpg',
+  'CABO VERDE':'cabo_verde.jpg','CPV':'cabo_verde.jpg',
+  'ARGELIA':'argelia.jpg','ALG':'argelia.jpg',
+  'JAPON':'japon.jpg','JAPÓN':'japon.jpg','JPN':'japon.jpg',
+  'COREA DEL SUR':'coreadelsur.jpg','SOUTH KOREA':'coreadelsur.jpg','KOR':'coreadelsur.jpg','KOREA':'coreadelsur.jpg',
+  'AUSTRALIA':'australia.jpg','AUS':'australia.jpg',
+  'NUEVA ZELANDA':'nuevazelanda.jpg','NEW ZEALAND':'nuevazelanda.jpg','NZL':'nuevazelanda.jpg',
+  'NUEVA CALEDONIA':'nueva_caledonia.jpg','NCL':'nueva_caledonia.jpg',
+  'CHINA':'china.jpg','CHN':'china.jpg',
+  'QATAR':'qatar.jpg','QAT':'qatar.jpg',
+  'ARABIA SAUDITA':'arabiasaudita.jpg','KSA':'arabiasaudita.jpg',
+  'IRAN':'iran.jpg','IRN':'iran.jpg',
+  'JORDANIA':'jordania.jpg','JOR':'jordania.jpg',
+  'EMIRATOS ARABES UNIDOS':'emiratos_arabes_unidos.jpg','UAE':'emiratos_arabes_unidos.jpg',
+  'RUSIA':'rusia.jpg','RUS':'rusia.jpg',
+  'UCRANIA':'ucrania.jpg','UKR':'ucrania.jpg',
+  'POLONIA':'polonia.jpg','POL':'polonia.jpg',
+  'CROACIA':'croacia.jpg','CRO':'croacia.jpg',
+  'SERBIA':'serbia.jpg','SRB':'serbia.jpg',
+  'DINAMARCA':'dinamarca.jpg','DEN':'dinamarca.jpg',
+  'NORUEGA':'noruega.jpg','NOR':'noruega.jpg',
+  'SUECIA':'suecia.jpg','SWE':'suecia.jpg',
+  'FINLANDIA':'finlandia.jpg','FIN':'finlandia.jpg',
+  'ISLANDIA':'islandia.jpg','ISL':'islandia.jpg',
+  'AUSTRIA':'austria.jpg','AUT':'austria.jpg',
+  'SUIZA':'suiza.jpg','SWITZERLAND':'suiza.jpg','SUI':'suiza.jpg',
+  'BELGICA':'belgica.jpg','BÉLGICA':'belgica.jpg','BEL':'belgica.jpg',
+  'PAISES BAJOS':'paises-bajos.jpg','PAÍSES BAJOS':'paises-bajos.jpg','HOLANDA':'paises-bajos.jpg','NED':'paises-bajos.jpg','NETHERLANDS':'paises-bajos.jpg',
+  'ESCOCIA':'escocia.jpg','SCO':'escocia.jpg',
+  'IRLANDA':'irlanda.jpg','IRL':'irlanda.jpg',
+  'IRLANDA DEL NORTE':'irlandadelnorte.jpg','NIR':'irlandadelnorte.jpg',
+  'TURQUIA':'turquia.jpg','TURQUÍA':'turquia.jpg','TUR':'turquia.jpg',
+  'RUMANIA':'rumania.jpg','ROU':'rumania.jpg',
+  'ALBANIA':'albania.jpg','ALB':'albania.jpg',
+  'ESLOVENIA':'eslovenia.jpg','SVN':'eslovenia.jpg',
+  'ESLOVAQUIA':'eslovaquia.jpg','SVK':'eslovaquia.jpg',
+  'REPUBLICA CHECA':'republicacheca.jpg','REPÚBLICA CHECA':'republicacheca.jpg','CZE':'republicacheca.jpg',
+  'GEORGIA':'georgia.jpg','GEO':'georgia.jpg',
+  'BOSNIA':'bosnia.jpg','BIH':'bosnia.jpg',
+  'UZBEKISTAN':'uzbekistan.jpg','UZB':'uzbekistan.jpg',
+  'KAZAJISTAN':'kazakhstan.jpg','KAZ':'kazakhstan.jpg',
+  'TAHITI':'tahiti.jpg','PYF':'tahiti.jpg',
+  'ISLAS FEROE':'islas_feroe.jpg','FRO':'islas_feroe.jpg'
+};
+
 var MLB_IDS={LAD:119,PIT:134,ATL:144,CWS:145,CHW:145,CHC:112,COL:115,SEA:136,BAL:110,NYY:147,CLE:114,NYM:121,STL:138,TEX:140,KC:118,KCR:118,MIL:158,OAK:133,HOU:117,MIA:146,ARI:109,WSH:120,WSN:120,SF:137,SFG:137,SD:135,SDP:135,PHI:143,TOR:141,MIN:142,DET:116,TB:139,TBR:139,BOS:111,LAA:108,CIN:113};
 var NBA_IDS={NYK:1610612752,SAS:1610612759,GSW:1610612744,LAL:1610612747,BOS:1610612738,MIA:1610612748,PHX:1610612756,DEN:1610612743,MIL:1610612749,MEM:1610612745,CLE:1610612739,OKC:1610612760,MIN:1610612750,PHI:1610612755,HOU:1610612745,SAC:1610612758,CHI:1610612741,DAL:1610612742,BKN:1610612751,TOR:1610612761,NOP:1610612740,POR:1610612757,LAC:1610612746,UTA:1610612762,ORL:1610612753,IND:1610612754,ATL:1610612737,CHA:1610612766,DET:1610612765,WAS:1610612764};
 var CUP_FLAGS={MEXICO:'🇲🇽',SUDAFRICA:'🇿🇦','SOUTH AFRICA':'🇿🇦','COREA DEL SUR':'🇰🇷','REPUBLICA CHECA':'🇨🇿',CZECHIA:'🇨🇿','ESTADOS UNIDOS':'🇺🇸',USA:'🇺🇸',BRASIL:'🇧🇷',ARGENTINA:'🇦🇷',ALEMANIA:'🇩🇪',FRANCE:'🇫🇷',FRANCIA:'🇫🇷',ESPANA:'🇪🇸',JAPON:'🇯🇵',PORTUGAL:'🇵🇹',COLOMBIA:'🇨🇴',URUGUAY:'🇺🇾',CHILE:'🇨🇱',ECUADOR:'🇪🇨',CANADA:'🇨🇦',MARRUECOS:'🇲🇦',SENEGAL:'🇸🇳',GHANA:'🇬🇦',CAMERUN:'🇨🇲',CROACIA:'🇭🇷',BELGICA:'🇧🇪',SUIZA:'🇨🇭',IRAN:'🇮🇷','ARABIA SAUDITA':'🇸🇦',AUSTRALIA:'🇦🇺',GALES:'🏴󠁧󠁢󠁷󠁬󠁳󠁿',
@@ -526,8 +615,15 @@ function logoHTML(rawName,liga,sizePx){
   var name=(rawName||'').toUpperCase().trim().replace(/^@\s*/,'').trim();
   var sport=getSport(liga);
 
-  // Copa → bandera semántica
+  // Copa → escudo oficial desde paladarnegro (fallback: bandera emoji)
   if(sport==='copa'){
+    var shield=SELECCIONES_SHIELDS[name]||SELECCIONES_SHIELDS[normName(name)];
+    if(shield){
+      return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px;border-radius:4px;overflow:hidden">'+
+        '<img src="'+SEL_BASE+shield+'" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" '+
+        'onerror="var f=CUP_FLAGS[\''+name+'\']||\'🌐\';this.parentNode.innerHTML=\'<span class=t-flag style=font-size:'+Math.round(sz*.7)+'px>\'+f+\'</span>\'">'+
+      '</div>';
+    }
     var flag=CUP_FLAGS[name]||CUP_FLAGS[normName(name)];
     if(flag){
       return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px"><span class="t-flag" style="font-size:'+Math.round(sz*.7)+'px">'+flag+'</span></div>';
@@ -719,8 +815,8 @@ function buildSport(allPicks,allNA,sport,label,icoId){
       :'<div class="empty">'+
           '<div class="empty-icon" style="color:var(--tx3)">'+useIco(icoId,24)+'</div>'+
           '<div class="empty-title">SIN PICKS HOY</div>'+
-          '<div class="empty-sub">No se identificó valor esperado positivo en '+label+'. Vuelve mañana a las 5:00 AM para el siguiente análisis.</div>'+
-          '<div class="empty-pill">PRÓXIMO ANÁLISIS 05:00 AM CT</div>'+
+          '<div class="empty-sub">No se identificó valor esperado positivo en '+label+'. Vuelve mañana a las 12:30 AM para el siguiente análisis.</div>'+
+          '<div class="empty-pill">PRÓXIMO ANÁLISIS 12:30 AM CDMX</div>'+
         '</div>';
     body=emptyMsg;
   } else {
@@ -817,13 +913,13 @@ function render(data){
           '<div class="hr-brand">'+
             '<div class="hr-brand-ico">'+
               '<svg width="20" height="20" viewBox="0 0 24 24" fill="none">'+
-                '<circle cx="12" cy="12" r="9.5" stroke="#00e5b4" stroke-width="1.5"/>'+
-                '<circle cx="12" cy="12" r="5" stroke="#60a5fa" stroke-width="1.5"/>'+
-                '<circle cx="12" cy="12" r="2" fill="#00e5b4"/>'+
-                '<line x1="2.5" y1="12" x2="7" y2="12" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
-                '<line x1="17" y1="12" x2="21.5" y2="12" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
-                '<line x1="12" y1="2.5" x2="12" y2="7" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
-                '<line x1="12" y1="17" x2="12" y2="21.5" stroke="#00e5b4" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<circle cx="12" cy="12" r="9.5" stroke="#a78bfa" stroke-width="1.5"/>'+
+                '<circle cx="12" cy="12" r="5" stroke="#8b5cf6" stroke-width="1.5"/>'+
+                '<circle cx="12" cy="12" r="2" fill="#a78bfa"/>'+
+                '<line x1="2.5" y1="12" x2="7" y2="12" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="17" y1="12" x2="21.5" y2="12" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="12" y1="2.5" x2="12" y2="7" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>'+
+                '<line x1="12" y1="17" x2="12" y2="21.5" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round"/>'+
               '</svg>'+
             '</div>'+
             '<div class="hr-brand-txt">'+
@@ -837,7 +933,7 @@ function render(data){
           '</div>'+
         '</div>'+
         '<div class="hr-stats">'+
-          '<div class="hrs"><div class="hrs-v" style="color:var(--cy)">'+total+'</div><div class="hrs-l">Picks Hoy</div><div class="hrs-bar" style="background:var(--cy)"></div></div>'+
+          '<div class="hrs"><div class="hrs-v" style="color:var(--pu)">'+total+'</div><div class="hrs-l">Picks Hoy</div><div class="hrs-bar" style="background:var(--pu)"></div></div>'+
           '<div class="hrs"><div class="hrs-v" style="color:var(--am)">'+goldPicks+'</div><div class="hrs-l">Gold ★★★</div><div class="hrs-bar" style="background:var(--am)"></div></div>'+
           '<div class="hrs"><div class="hrs-v" style="color:var(--gr)">'+ev5Picks+'</div><div class="hrs-l">EV &gt; 5%</div><div class="hrs-bar" style="background:var(--gr)"></div></div>'+
           '<div class="hrs"><div class="hrs-v" style="color:var(--bl)">'+avgEV.toFixed(1)+'<span style="font-size:14px">%</span></div><div class="hrs-l">EV Promedio</div><div class="hrs-bar" style="background:var(--bl)"></div></div>'+
@@ -906,7 +1002,7 @@ function tryFetch(url,fb){
     .then(function(d){render(d);})
     .catch(function(err){
       if(fb){if(lt)lt.textContent='INTENTANDO PICKS DEL DÍA...';tryFetch(fb,null);}
-      else{document.getElementById('loadScreen').innerHTML='<div style="text-align:center;padding:40px;max-width:300px"><div style="font-size:28px;margin-bottom:12px">⚠️</div><div style="font-family:var(--hf);font-size:17px;font-weight:800;margin-bottom:8px">ERROR AL CARGAR</div><div style="font-size:12px;color:var(--tx3);margin-bottom:16px">'+err.message+'</div><button onclick="location.reload()" style="font-family:var(--hf);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid var(--cyb);background:var(--cyd);color:var(--cy);cursor:pointer">REINTENTAR</button></div>';}
+      else{document.getElementById('loadScreen').innerHTML='<div style="text-align:center;padding:40px;max-width:300px"><div style="font-size:28px;margin-bottom:12px">⚠️</div><div style="font-family:var(--hf);font-size:17px;font-weight:800;margin-bottom:8px">ERROR AL CARGAR</div><div style="font-size:12px;color:var(--tx3);margin-bottom:16px">'+err.message+'</div><button onclick="location.reload()" style="font-family:var(--hf);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid var(--pub);background:var(--pud);color:var(--pu);cursor:pointer">REINTENTAR</button></div>';}
     });
 }
 tryFetch('/latest.json','/picks-'+todayStr()+'.json');
