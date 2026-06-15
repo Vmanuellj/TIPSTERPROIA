@@ -379,9 +379,14 @@ var MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Se
 function fmtDate(d){return DIAS[d.getDay()]+' '+d.getDate()+' de '+MESES[d.getMonth()]+' '+d.getFullYear();}
 
 function tick(){
-  var n=new Date(),x=new Date(n);
-  x.setHours(5,0,0,0);if(n>=x)x.setDate(x.getDate()+1);
-  var dt=x-n,e=document.getElementById('cdwn');
+  var n=new Date();
+  // Próxima 12:30 AM hora CDMX (UTC-5) = 05:30 UTC
+  var utcMs=n.getTime()+n.getTimezoneOffset()*60000;
+  var cdmxNow=new Date(utcMs-5*3600000);
+  var next=new Date(cdmxNow);
+  next.setHours(0,30,0,0);
+  if(cdmxNow>=next)next.setDate(next.getDate()+1);
+  var dt=next-cdmxNow,e=document.getElementById('cdwn');
   if(e)e.textContent=pad(Math.floor(dt/3600000))+':'+pad(Math.floor(dt%3600000/60000))+':'+pad(Math.floor(dt%60000/1000));
 }
 setInterval(tick,1000);tick();
