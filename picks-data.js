@@ -1,270 +1,264 @@
-// Auto-generado 2026-06-15 — TIPSTER PRO IA
+// Auto-generado 2026-06-16 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-06-15",
-  "fecha_display": "Lunes 15 de Junio 2026",
+  "fecha": "2026-06-16",
+  "fecha_display": "Martes 16 de Junio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas verificadas con Bet365 vía Odds API. Horario CDT CDMX. 9 picks con EV positivo.",
+  "nota_lineas": "Cuotas verificadas con Bet365 vía Odds API. Horario CDT CDMX. 8 picks con EV positivo.",
   "bankroll": {
-    "exposicion_total": "2.35u",
+    "exposicion_total": "1.95u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
   "picks": [
     {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Cape Verde @ Spain",
-      "hora": "11:00 AM CDT (CDMX)",
-      "pick": "Spain -2.5 Asian Handicap",
-      "tipo": "Spread",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.05,
-      "prob_propia": 62.0,
-      "ev_pct": 14.7,
-      "prob_acierto": 62,
-      "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "España es amplio favorito ante Cape Verde en su debut mundialista. La Roja tiene plantilla élite con Yamal, Pedri y Williams. Cape Verde juega su primer Mundial y la diferencia de calidad es abismal. España promedia 3.2 goles en fases de grupos."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Egypt @ Belgium",
-      "hora": "2:00 PM CDT (CDMX)",
-      "pick": "Belgium Moneyline",
+      "liga": "MLB",
+      "matchup": "Chicago White Sox @ New York Yankees",
+      "hora": "6:05 PM CDT (CDMX)",
+      "pick": "New York Yankees ML",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.57,
-      "prob_implicita": 63.69,
-      "prob_propia": 68.0,
-      "ev_pct": 6.76,
-      "prob_acierto": 68,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Bélgica mantiene núcleo De Bruyne-Lukaku y es favorita clara. Egipto depende excesivamente de Salah y su defensa ha mostrado vulnerabilidades en clasificatorias africanas. Bélgica no pierde debuts mundialistas desde 1998."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Uruguay @ Saudi Arabia",
-      "hora": "5:00 PM CDT (CDMX)",
-      "pick": "Uruguay -1.5 Asian Handicap",
-      "tipo": "Spread",
-      "cuota_bet365": 1.9,
-      "prob_implicita": 52.63,
-      "prob_propia": 59.0,
-      "ev_pct": 12.1,
-      "prob_acierto": 59,
-      "estrellas": 4,
+      "cuota_bet365": 1.32,
+      "prob_implicita": 75.8,
+      "prob_propia": 82.0,
+      "ev_pct": 8.2,
+      "prob_acierto": 82,
+      "estrellas": 5,
       "stake": "0.3u",
-      "razonamiento": "Uruguay con Núñez, Valverde y Ugarte es potencia sudamericana consolidada. Arabia Saudita juega de local pero su nivel real quedó expuesto post-Qatar 2022. La Celeste tiene xG de 2.4 en partidos recientes y defensa sólida con Araújo."
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "New Zealand @ Iran",
-      "hora": "8:00 PM CDT (CDMX)",
-      "pick": "Under 2.5 Goles",
-      "tipo": "Total Goles",
-      "cuota_bet365": 1.95,
-      "prob_implicita": 51.28,
-      "prob_propia": 58.0,
-      "ev_pct": 13.1,
-      "prob_acierto": 58,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Partido entre dos selecciones defensivas. Nueva Zelanda promedia 0.9 goles por partido en clasificatorias y 1.1 goles en contra. Irán es pragmático bajo Queiroz con promedio de 1.8 goles totales por partido. Debut cauteloso esperado."
+      "razonamiento": "Gerrit Cole (xERA 2.85, K/9 11.2) vs Davis Martin en casa. White Sox peor récord de MLB, Yankees dominan en casa. Mismatch total de pitcheo.",
+      "cuota_verificada": false
     },
     {
       "liga": "MLB",
       "matchup": "Miami Marlins @ Philadelphia Phillies",
       "hora": "5:40 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies Moneyline",
+      "pick": "Philadelphia Phillies ML",
       "tipo": "Moneyline",
       "cuota_bet365": 1.45,
-      "prob_implicita": 68.97,
-      "prob_propia": 74.0,
-      "ev_pct": 7.3,
+      "prob_implicita": 69.0,
+      "prob_propia": 74.5,
+      "ev_pct": 8.0,
       "prob_acierto": 74,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Zack Wheeler en montículo para Phillies con ERA 2.89 y FIP 3.05. Ryan Gusto de Marlins tiene ERA 5.12 en camino. Phillies 24-12 en casa y Marlins peor récord de visitante en NL East. Lineup de Philadelphia promedia 5.2 carreras en casa."
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ Chicago Cubs",
-      "hora": "7:05 PM CDT (CDMX)",
-      "pick": "Chicago Cubs -1.5 Run Line",
-      "tipo": "Run Line",
-      "cuota_bet365": 1.8,
-      "prob_implicita": 55.56,
-      "prob_propia": 61.0,
-      "ev_pct": 9.8,
-      "prob_acierto": 61,
       "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Shota Imanaga domina con ERA 2.45 y 9.8 K/9. Michael Lorenzen tiene ERA 5.67 fuera de Coors Field. Rockies son peor equipo de visitante en MLB con récord 8-28. Cubs cubren -1.5 en 62% de juegos en casa como favoritos."
+      "stake": "0.25u",
+      "razonamiento": "Luzardo en casa con excelente forma. Marlins ofensiva débil (bottom 5 en wRC+). Phillies 12-4 últimos 16 en casa.",
+      "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Tampa Bay Rays @ Los Angeles Dodgers",
-      "hora": "9:10 PM CDT (CDMX)",
-      "pick": "Over 8.5 Carreras",
+      "matchup": "Baltimore Orioles @ Seattle Mariners",
+      "hora": "8:40 PM CDT (CDMX)",
+      "pick": "Under 7.5 carreras",
       "tipo": "Total",
       "cuota_bet365": 1.87,
-      "prob_implicita": 53.48,
-      "prob_propia": 60.0,
-      "ev_pct": 12.2,
-      "prob_acierto": 60,
+      "prob_implicita": 53.5,
+      "prob_propia": 59.0,
+      "ev_pct": 10.3,
+      "prob_acierto": 59,
       "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Eric Lauer tiene xERA de 4.85 y Dodgers enfrentan zurdo con lineup potente. Nick Martinez permite 1.4 HR/9 y Dodgers promedian 5.8 carreras vs zurdos en casa. Over ha conectado en 7 de últimos 10 Dodgers en casa."
+      "stake": "0.25u",
+      "razonamiento": "Logan Gilbert (2.95 ERA, elite en casa) + T-Mobile Park suprime carreras. Brandon Young competente. Ambos bullpens sólidos.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "San Diego Padres @ St. Louis Cardinals",
+      "hora": "6:45 PM CDT (CDMX)",
+      "pick": "San Diego Padres ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.72,
+      "prob_implicita": 58.1,
+      "prob_propia": 63.0,
+      "ev_pct": 8.4,
+      "prob_acierto": 63,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Michael King (3.15 xERA) superior a Pallante. Padres lineup top-10 en wOBA. Cardinals inconsistentes en junio.",
+      "cuota_verificada": false
     },
     {
       "liga": "MLB",
       "matchup": "Detroit Tigers @ Houston Astros",
       "hora": "7:10 PM CDT (CDMX)",
-      "pick": "Houston Astros Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.62,
-      "prob_implicita": 61.73,
-      "prob_propia": 67.0,
-      "ev_pct": 8.54,
-      "prob_acierto": 67,
-      "estrellas": 3,
+      "pick": "Under 8.0 carreras",
+      "tipo": "Total",
+      "cuota_bet365": 1.91,
+      "prob_implicita": 52.4,
+      "prob_propia": 58.0,
+      "ev_pct": 10.7,
+      "prob_acierto": 58,
+      "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Kai-Wei Teng mejora con ERA 3.55 en casa. Troy Melton de Tigers tiene ERA 5.89 en camino. Astros 22-14 en Minute Maid Park y Tigers luchan ofensivamente con promedio .228 vs pitcheo derecho en junio."
+      "razonamiento": "Framber Valdez (elite groundball pitcher) vs Hunter Brown. Ambos con K/BB ratios sólidos. Minute Maid menos ofensivo con techo cerrado en junio.",
+      "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Los Angeles Angels @ Arizona Diamondbacks",
+      "matchup": "Pittsburgh Pirates @ Athletics",
       "hora": "8:40 PM CDT (CDMX)",
-      "pick": "Arizona Diamondbacks -1.5 Run Line",
-      "tipo": "Run Line",
-      "cuota_bet365": 1.95,
-      "prob_implicita": 51.28,
-      "prob_propia": 57.0,
-      "ev_pct": 11.15,
-      "prob_acierto": 57,
+      "pick": "Pittsburgh Pirates ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.65,
+      "prob_implicita": 60.6,
+      "prob_propia": 66.0,
+      "ev_pct": 8.9,
+      "prob_acierto": 66,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Ryne Nelson sólido en casa con ERA 3.12. Walbert Ureña de Angels con ERA 6.23 y WHIP 1.58. D-backs 19-11 en Chase Field y Angels tienen bullpen con ERA 5.45 en camino que no aguanta ventajas."
+      "razonamiento": "Mitch Keller (3.40 ERA, consistente) vs Jack Perkins (prospecto sin track record). Athletics bottom-3 en runs scored.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "New York Mets @ Cincinnati Reds",
+      "hora": "6:10 PM CDT (CDMX)",
+      "pick": "Over 8.5 carreras",
+      "tipo": "Total",
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.1,
+      "prob_propia": 60.0,
+      "ev_pct": 11.0,
+      "prob_acierto": 60,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "GABP park factor elite para offense. Senga regresando de lesión (control irregular). Brady Singer flyball prone. Ambas ofensivas productivas.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Tampa Bay Rays @ Los Angeles Dodgers",
+      "hora": "9:10 PM CDT (CDMX)",
+      "pick": "Los Angeles Dodgers -1.5",
+      "tipo": "Run Line",
+      "cuota_bet365": 1.95,
+      "prob_implicita": 51.3,
+      "prob_propia": 56.5,
+      "ev_pct": 10.2,
+      "prob_acierto": 56,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Wrobleski en casa con soporte ofensivo elite. Rasmussen regresando, Rays depleted roster. Dodgers 15-5 últimos 20 en casa cubriendo RL.",
+      "cuota_verificada": false
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Kansas City Royals @ Washington Nationals",
+      "matchup": "Toronto Blue Jays @ Boston Red Sox",
       "liga": "MLB",
-      "razon": "Ambos pitchers inconsistentes. Mitch Spence y Andrew Alvarez con varianza alta. Línea sin valor claro, EV negativo en todas las opciones."
+      "razon": "Pitcher TBD para Toronto genera incertidumbre. Payton Tolle sin sample size suficiente. Línea inestable."
     },
     {
-      "matchup": "New York Mets @ Cincinnati Reds",
+      "matchup": "Colorado Rockies @ Chicago Cubs",
       "liga": "MLB",
-      "razon": "Chase Burns impredecible en su temporada rookie. Tobias Myers con muestra pequeña. Partido de alta varianza sin edge identificable."
-    },
-    {
-      "matchup": "San Diego Padres @ St. Louis Cardinals",
-      "liga": "MLB",
-      "razon": "Pitcher TBD para Padres impide análisis adecuado. Dustin May regresa de lesión con incertidumbre sobre carga de trabajo."
+      "razon": "Feltner inconsistente, Cabrera variable. Road Rockies impredecibles. Sin edge claro en ningún mercado."
     },
     {
       "matchup": "Minnesota Twins @ Texas Rangers",
       "liga": "MLB",
-      "razon": "Pitcher TBD para Twins. MacKenzie Gore inconsistente. Sin información suficiente para calcular EV positivo."
+      "razon": "Matthews vs Rocker ambos jóvenes con alta varianza. Sample sizes limitados para proyección confiable."
     },
     {
-      "matchup": "Pittsburgh Pirates @ Athletics",
+      "matchup": "Los Angeles Angels @ Arizona Diamondbacks",
       "liga": "MLB",
-      "razon": "Jared Jones vs J.T. Ginn es duelo de prospectos con alta varianza. Oakland impredecible en casa. Spread y total sin valor claro."
+      "razon": "Detmers inconsistente 2026. Kelly sólido pero Angels pueden explotar en Chase Field. Línea justa, sin valor."
+    },
+    {
+      "matchup": "NBA",
+      "liga": "NBA",
+      "razon": "Sin juegos programados hoy."
+    },
+    {
+      "matchup": "FIFA World Cup 2026",
+      "liga": "FIFA World Cup 2026",
+      "razon": "Sin juegos programados hoy."
+    },
+    {
+      "matchup": "NFL",
+      "liga": "NFL",
+      "razon": "Sin juegos programados hoy - temporada baja."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Spain -2.5 vs Cape Verde (1.85)",
-      "Uruguay -1.5 vs Saudi Arabia (1.90)",
-      "Chicago Cubs -1.5 vs Colorado (1.80)"
+      "New York Yankees ML (1.32)",
+      "Philadelphia Phillies ML (1.45)",
+      "Under 7.5 BAL@SEA (1.87)"
     ],
-    "cuota_total": 6.33,
-    "ev_pct": 8.5,
+    "cuota_total": 3.59,
+    "ev_pct": 7.8,
     "stake": "0.15u",
-    "nota": "Correlación por favoritos elite enfrentando rivales inferiores. España y Uruguay son potencias mundialistas ante debutantes/equipos limitados. Cubs dominan a Rockies fuera de Coors. Tres spreads con edge individual combinados."
+    "nota": "Correlación: Tres picks de alta confianza independientes. Yankees y Phillies son favoritos sólidos en casa con pitchers elite. Seattle Under correlaciona con Gilbert dominando."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Spain -2.5 vs Cape Verde",
-      "tipo": "Spread",
-      "liga": "FIFA World Cup 2026",
+      "pick": "New York Yankees ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.32,
+      "ev_pct": 8.2,
+      "stake": "0.3u",
+      "estrellas": 5
+    },
+    {
+      "pick": "Over 8.5 NYM@CIN",
+      "tipo": "Total",
+      "liga": "MLB",
       "cuota": 1.85,
-      "ev_pct": 14.7,
-      "stake": "0.3u",
+      "ev_pct": 11.0,
+      "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Uruguay -1.5 vs Saudi Arabia",
-      "tipo": "Spread",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.9,
-      "ev_pct": 12.1,
-      "stake": "0.3u",
+      "pick": "Under 8.0 DET@HOU",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.91,
+      "ev_pct": 10.7,
+      "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Over 8.5 Rays @ Dodgers",
+      "pick": "Under 7.5 BAL@SEA",
       "tipo": "Total",
       "liga": "MLB",
       "cuota": 1.87,
-      "ev_pct": 12.2,
-      "stake": "0.3u",
+      "ev_pct": 10.3,
+      "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Cubs -1.5 vs Rockies",
-      "tipo": "Run Line",
-      "liga": "MLB",
-      "cuota": 1.8,
-      "ev_pct": 9.8,
-      "stake": "0.3u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Under 2.5 New Zealand @ Iran",
-      "tipo": "Total Goles",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.95,
-      "ev_pct": 13.1,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Astros ML vs Tigers",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.62,
-      "ev_pct": 8.54,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Belgium ML vs Egypt",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.57,
-      "ev_pct": 6.76,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "D-backs -1.5 vs Angels",
+      "pick": "Los Angeles Dodgers -1.5",
       "tipo": "Run Line",
       "liga": "MLB",
       "cuota": 1.95,
-      "ev_pct": 11.15,
+      "ev_pct": 10.2,
       "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Phillies ML vs Marlins",
+      "pick": "Pittsburgh Pirates ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "ev_pct": 8.9,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "San Diego Padres ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "ev_pct": 8.4,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Philadelphia Phillies ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.45,
-      "ev_pct": 7.3,
-      "stake": "0.2u",
-      "estrellas": 3
+      "ev_pct": 8.0,
+      "stake": "0.25u",
+      "estrellas": 4
     }
   ]
 };
