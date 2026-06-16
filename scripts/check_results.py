@@ -28,15 +28,36 @@ dt_now = datetime.now(CT)
 yesterday = (dt_now - timedelta(days=1)).strftime("%Y-%m-%d")
 
 # ── Matching de equipos ───────────────────────────────────────────────────────
+# Palabras de ciudad que NO identifican un equipo por sí solas
+CITY_WORDS = {
+    "LOS","ANGELES","NEW","YORK","SAN","SAN FRANCISCO","DIEGO","JOSE",
+    "KANSAS","CITY","RED","WHITE","BLUE","FC","CF","DE","THE","UNITED",
+    "TAMPA","BAY","GOLDEN","STATE","NEW","ORLEANS","CITY"
+}
+
+def _significant_words(name: str) -> list:
+    """Palabras significativas del nombre (quita artículos y palabras de ciudad comunes)."""
+    return [w for w in re.split(r'\W+', name.upper()) if len(w) > 2 and w not in CITY_WORDS]
+
 def _team_match(a: str, b: str) -> bool:
     a, b = a.upper().strip(), b.upper().strip()
-    if a == b or a in b or b in a:
+    if a == b:
+        return True
+    # Subcadena exacta (ej: "SPAIN" en "SPAIN NATIONAL")
+    if a in b or b in a:
         return True
     wa = [w for w in re.split(r'\W+', a) if len(w) > 2]
     wb = [w for w in re.split(r'\W+', b) if len(w) > 2]
+    # El ÚLTIMO token (apodo del equipo) debe coincidir
+    # Ej: "Dodgers" != "Angels" aunque compartan "Los Angeles"
     if wa and wb and wa[-1] == wb[-1]:
         return True
-    return len(set(wa) & set(wb)) >= 2
+    # Palabras significativas (sin ciudad): al menos 1 debe coincidir
+    sa = set(_significant_words(a))
+    sb = set(_significant_words(b))
+    if sa and sb and len(sa & sb) >= 1:
+        return True
+    return False
 
 # ── Fetch scores de Odds API ──────────────────────────────────────────────────
 def fetch_scores(sport_key: str) -> list:
@@ -109,6 +130,7 @@ def evaluate_pick(pick: dict, game: dict) -> str:
     tipo     = (pick.get("tipo") or "").lower()
     pick_txt = (pick.get("pick") or "").upper()
     matchup  = pick.get("matchup", "")
+    liga     = (pick.get("liga") or "").lower()
 
     if " @ " in matchup:
         away_raw, home_raw = matchup.split(" @ ", 1)
@@ -128,6 +150,7 @@ def evaluate_pick(pick: dict, game: dict) -> str:
 
     # ── Moneyline / 1X2 ──────────────────────────────────────────────────────
     if "moneyline" in tipo or "1x2" in tipo or tipo == "ml":
+        is_soccer = any(k in liga.lower() for k in ("soccer","futbol","fútbol","copa","world cup","fifa","football"))
         if "DRAW" in pick_txt or "EMPATE" in pick_txt:
             return "win" if away_score == home_score else "loss"
         if any(w in pick_txt for w in [w.upper() for w in re.split(r'\W+', away_raw) if len(w) > 2]):
@@ -135,7 +158,8 @@ def evaluate_pick(pick: dict, game: dict) -> str:
             if away_score > home_score:
                 return "win"
             elif away_score == home_score:
-                return "push"
+                # En soccer el empate es LOSS para un pick de equipo ganador
+                return "loss" if is_soccer else "push"
             else:
                 return "loss"
         else:
@@ -143,7 +167,7 @@ def evaluate_pick(pick: dict, game: dict) -> str:
             if home_score > away_score:
                 return "win"
             elif home_score == away_score:
-                return "push"
+                return "loss" if is_soccer else "push"
             else:
                 return "loss"
 
