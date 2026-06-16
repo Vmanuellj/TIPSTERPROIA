@@ -279,6 +279,18 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .bs-v{font-family:var(--hf);font-size:22px;font-weight:900;}
 .bs-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:3px;font-weight:600;}
 
+/* ─── DAY NAVIGATOR ─────────────────────────────── */
+.day-nav{display:flex;align-items:center;justify-content:center;gap:0;padding:7px 0 0;}
+.day-nav-btn{background:none;border:none;cursor:pointer;color:var(--tx3);padding:5px 10px;border-radius:8px;transition:color .15s,background .15s;display:flex;align-items:center;justify-content:center;}
+.day-nav-btn:hover:not(:disabled){color:var(--pu);background:var(--pus);}
+.day-nav-btn:disabled{opacity:.2;cursor:default;}
+.day-nav-btn svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+.day-nav-center{display:flex;align-items:center;gap:6px;padding:5px 16px;border-radius:99px;background:var(--sf2);border:1px solid var(--bd);cursor:pointer;transition:border-color .15s;min-width:170px;justify-content:center;}
+.day-nav-center:hover{border-color:var(--bd2);}
+.day-nav-label{font-family:var(--hf);font-size:13px;font-weight:800;letter-spacing:.3px;color:var(--tx);text-transform:uppercase;}
+.day-nav-today{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);padding:2px 7px;border-radius:99px;}
+.day-nav-chevron{width:12px;height:12px;stroke:var(--tx3);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+
 /* ─── LOADING ────────────────────────────────────── */
 #loadScreen{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 20px;gap:14px;position:relative;z-index:1;}
 .spin{width:34px;height:34px;border-radius:50%;border:2px solid rgba(0,229,180,.12);border-top-color:var(--cy);animation:sp .7s linear infinite;}
@@ -336,6 +348,18 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
           <div class="hdr-d2">PRÓXIMO REPORT <span id="cdwn">—</span></div>
         </div>
       </div>
+    </div>
+    <div class="day-nav">
+      <button class="day-nav-btn" id="btnPrevDay" onclick="shiftDay(-1)" title="Día anterior">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="day-nav-center" onclick="goToday()">
+        <span class="day-nav-label" id="dayNavLabel">—</span>
+        <svg class="day-nav-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <button class="day-nav-btn" id="btnNextDay" onclick="shiftDay(1)" title="Día siguiente">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
     <nav class="nav-tabs" id="navTabs">
       <button class="tab-btn active" data-tab="inicio" onclick="switchTab('inicio')">
@@ -998,18 +1022,78 @@ function render(data){
   app.style.display='block';
 }
 
+// ─── DAY NAVIGATION ──────────────────────────────────────────────────────────
+var DAY_OFFSET=0; // 0=hoy, -1=ayer, -2=antes de ayer...
+
+function dateFromOffset(offset){
+  var d=new Date();
+  d.setDate(d.getDate()+offset);
+  return d;
+}
+function dateStrFromOffset(offset){
+  var d=dateFromOffset(offset);
+  return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+}
+function updateDayNav(){
+  var d=dateFromOffset(DAY_OFFSET);
+  var dias=['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  var meses=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  var label=dias[d.getDay()]+' '+d.getDate()+' '+meses[d.getMonth()];
+  var lbl=document.getElementById('dayNavLabel');
+  if(lbl)lbl.textContent=label;
+  // botón siguiente desactivado si ya estamos en hoy
+  var btnNext=document.getElementById('btnNextDay');
+  if(btnNext)btnNext.disabled=(DAY_OFFSET>=0);
+  // botón previo desactivado si llevamos 30 días atrás
+  var btnPrev=document.getElementById('btnPrevDay');
+  if(btnPrev)btnPrev.disabled=(DAY_OFFSET<=-30);
+}
+function shiftDay(delta){
+  var newOffset=DAY_OFFSET+delta;
+  if(newOffset>0||newOffset<-30)return;
+  DAY_OFFSET=newOffset;
+  loadDay();
+}
+function goToday(){
+  if(DAY_OFFSET===0)return;
+  DAY_OFFSET=0;
+  loadDay();
+}
+function showLoading(msg){
+  var ls=document.getElementById('loadScreen');
+  var app=document.getElementById('app');
+  if(ls){ls.style.display='flex';ls.innerHTML='<div class="spin"></div><div class="load-txt">'+(msg||'CARGANDO PICKS...')+'</div>';}
+  if(app)app.style.display='none';
+}
+function loadDay(){
+  updateDayNav();
+  showLoading('CARGANDO PICKS...');
+  switchTab('inicio');
+  var ds=dateStrFromOffset(DAY_OFFSET);
+  if(DAY_OFFSET===0){
+    tryFetch('/latest.json','/picks-'+ds+'.json');
+  } else {
+    tryFetch('/picks-'+ds+'.json',null);
+  }
+}
+
 // ─── FETCH ────────────────────────────────────────────────────────────────────
 function tryFetch(url,fb){
   var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
-  var lt=document.getElementById('loadTxt');
   fetch(url,{signal:ctrl.signal})
     .then(function(r){clearTimeout(tmo);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
     .then(function(d){render(d);})
     .catch(function(err){
-      if(fb){if(lt)lt.textContent='INTENTANDO PICKS DEL DÍA...';tryFetch(fb,null);}
-      else{document.getElementById('loadScreen').innerHTML='<div style="text-align:center;padding:40px;max-width:300px"><div style="font-size:28px;margin-bottom:12px">⚠️</div><div style="font-family:var(--hf);font-size:17px;font-weight:800;margin-bottom:8px">ERROR AL CARGAR</div><div style="font-size:12px;color:var(--tx3);margin-bottom:16px">'+err.message+'</div><button onclick="location.reload()" style="font-family:var(--hf);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid var(--pub);background:var(--pud);color:var(--pu);cursor:pointer">REINTENTAR</button></div>';}
+      if(fb){tryFetch(fb,null);}
+      else{
+        var ls=document.getElementById('loadScreen');
+        var ds=dateStrFromOffset(DAY_OFFSET);
+        if(ls)ls.innerHTML='<div style="text-align:center;padding:40px;max-width:300px"><div style="font-size:36px;margin-bottom:12px">📅</div><div style="font-family:var(--hf);font-size:17px;font-weight:800;margin-bottom:8px;color:var(--tx)">SIN PICKS</div><div style="font-size:12px;color:var(--tx3);margin-bottom:16px">No hay picks registrados para el <b style="color:var(--tx2)">'+ds+'</b></div><button onclick="shiftDay(0)" style="font-family:var(--hf);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid var(--pub);background:var(--pud);color:var(--pu);cursor:pointer;margin-right:8px">REINTENTAR</button><button onclick="goToday()" style="font-family:var(--hf);font-size:12px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid var(--bd);background:var(--sf);color:var(--tx2);cursor:pointer">IR A HOY</button></div>';
+      }
     });
 }
+
+updateDayNav();
 tryFetch('/latest.json','/picks-'+todayStr()+'.json');
 </script>
 </body>
