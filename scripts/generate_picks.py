@@ -446,7 +446,7 @@ def generate_picks(context: str) -> dict:
         f"Esquema JSON:\n{json.dumps(schema, indent=2, ensure_ascii=False)}"
     )
     msg = client.messages.create(
-        model="claude-opus-4-5",
+        model="claude-sonnet-4-6",
         max_tokens=6000,
         system=PROMPT_SYSTEM,
         messages=[{"role": "user", "content": user_msg}],
@@ -509,13 +509,18 @@ if __name__ == "__main__":
         n2 = len(picks_data.get("picks", []))
         print(f"   {n2} picks con EV positivo real tras verificación")
 
-        print("\n💾 Guardando archivos...")
-        save_all(picks_data)
-        print("\n🎉 Listo — GitHub Actions hará el push automático.")
+        n2 = len(picks_data.get("picks", []))
+        if n2 == 0:
+            print("\n⚠️  0 picks con EV positivo — NO se sobreescriben archivos existentes.")
+        else:
+            print("\n💾 Guardando archivos...")
+            save_all(picks_data)
+            print("\n🎉 Listo — GitHub Actions hará el push automático.")
 
     except Exception as e:
         import traceback
         print(f"\n❌ Error: {e}")
+        traceback.print_exc()
         traceback.print_exc()
         fallback = {
             "fecha":         today,
