@@ -27,7 +27,12 @@ jobs:
       - name: Install dependencies
         run: pip install anthropic requests
 
-      - name: Generate picks
+      - name: Check results from yesterday
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: python scripts/check_results.py
+
+      - name: Generate picks for today
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
@@ -38,8 +43,11 @@ jobs:
           git config user.email "leunam2900@gmail.com"
           git config user.name "Tipster Bot [Auto]"
           FECHA=$(python3 -c "from datetime import datetime,timezone,timedelta; print(datetime.now(timezone(timedelta(hours=-5))).strftime('%Y-%m-%d'))")
-          # Borrar picks viejos (mantener solo el de hoy)
-          find . -maxdepth 1 -name "picks-*.json" ! -name "picks-${FECHA}.json" -delete 2>/dev/null || true
+          FECHA_AYER=$(python3 -c "from datetime import datetime,timezone,timedelta; print((datetime.now(timezone(timedelta(hours=-5)))-timedelta(days=1)).strftime('%Y-%m-%d'))")
+          # Mantener picks de los últimos 30 días (para historial)
+          find . -maxdepth 1 -name "picks-*.json" -mtime +30 -delete 2>/dev/null || true
+          find . -maxdepth 1 -name "results-*.json" -mtime +30 -delete 2>/dev/null || true
           git add picks-${FECHA}.json latest.json picks-data.js
-          git diff --cached --quiet || git commit -m "picks diarios ${FECHA} [auto]"
+          git add results-${FECHA_AYER}.json 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "picks ${FECHA} + resultados ${FECHA_AYER} [auto]"
           git push

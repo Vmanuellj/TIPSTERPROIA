@@ -157,6 +157,21 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .badge-cuota{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--pu);border:1px solid var(--pub);padding:4px 11px;border-radius:99px;background:var(--pud);}
 .badge-verified{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--gr);background:var(--grd);border:1px solid var(--grb);padding:3px 8px;border-radius:99px;}
 .badge-estimated{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:.8px;color:var(--am);background:var(--amd);border:1px solid var(--amb);padding:3px 8px;border-radius:99px;}
+/* ─── RESULTADO BADGES ───────────────────────────── */
+.res-win{display:inline-flex;align-items:center;gap:5px;font-family:var(--hf);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#059669,#10b981);border:1px solid #10b981;padding:4px 12px;border-radius:99px;box-shadow:0 0 14px rgba(16,185,129,.35);}
+.res-loss{display:inline-flex;align-items:center;gap:5px;font-family:var(--hf);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;background:linear-gradient(135deg,#dc2626,#f87171);border:1px solid #f87171;padding:4px 12px;border-radius:99px;box-shadow:0 0 14px rgba(248,113,113,.3);}
+.res-push{display:inline-flex;align-items:center;gap:5px;font-family:var(--hf);font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--tx2);background:var(--sf2);border:1px solid var(--bd2);padding:4px 12px;border-radius:99px;}
+.res-pending{display:inline-flex;align-items:center;gap:5px;font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--tx3);background:var(--sf);border:1px solid var(--bd);padding:4px 12px;border-radius:99px;}
+.res-score{font-size:9px;font-weight:600;opacity:.75;}
+.day-results-bar{background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rd);padding:12px 18px;margin-bottom:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.drb-stat{display:flex;flex-direction:column;align-items:center;min-width:44px;}
+.drb-v{font-family:var(--hf);font-size:22px;font-weight:900;line-height:1;}
+.drb-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:2px;}
+.drb-div{width:1px;height:32px;background:var(--bd);}
+.drb-roi{font-family:var(--hf);font-size:13px;font-weight:800;margin-left:auto;}
+.drb-roi.pos{color:var(--gr);}
+.drb-roi.neg{color:var(--re);}
+.drb-roi.neu{color:var(--tx3);}
 .gc-analysis{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-left:3px solid var(--cyb);border-radius:0 var(--rds) var(--rds) 0;padding:11px 14px;margin-bottom:16px;font-size:12px;line-height:1.65;color:var(--tx2);}
 .prob-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
 .prob-lbl{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);}
@@ -762,6 +777,8 @@ function buildCard(p){
     :'<div class="pc-teams">'+la+'<div class="pc-name">'+t.away+'</div></div>';
   var el=document.createElement('div');
   el.className='pick-card '+sc;
+  el.dataset.matchup=(p.matchup||'').toLowerCase();
+  el.dataset.pick=(p.pick||'').toLowerCase();
   el.onclick=function(){var d=this.querySelector('.pc-detail');if(d)d.classList.toggle('open');};
   el.innerHTML=
     '<div class="pc-stripe pc-'+sc+'"></div>'+
@@ -1022,6 +1039,73 @@ function render(data){
   app.style.display='block';
 }
 
+// ─── RESULTS ─────────────────────────────────────────────────────────────────
+function resBadge(r){
+  if(r.resultado==='win')
+    return '<span class="res-win">✓ WIN'+(r.score?'<span class="res-score">'+r.score+'</span>':'')+'</span>';
+  if(r.resultado==='loss')
+    return '<span class="res-loss">✗ LOSS'+(r.score?'<span class="res-score">'+r.score+'</span>':'')+'</span>';
+  if(r.resultado==='push')
+    return '<span class="res-push">— PUSH'+(r.score?'<span class="res-score">'+r.score+'</span>':'')+'</span>';
+  return '<span class="res-pending">⏳ PENDIENTE</span>';
+}
+
+function applyResults(resData){
+  if(!resData||!resData.picks)return;
+  var cards=document.querySelectorAll('.pick-card[data-matchup],.gold-card[data-matchup]');
+  resData.picks.forEach(function(r){
+    var mu=(r.matchup||'').toLowerCase();
+    var pk=(r.pick||'').toLowerCase();
+    cards.forEach(function(card){
+      if(card.dataset.matchup===mu||card.dataset.pick===pk){
+        // Eliminar badge previo si existe
+        var old=card.querySelector('.res-badge-wrap');
+        if(old)old.remove();
+        var wrap=document.createElement('div');
+        wrap.className='res-badge-wrap';
+        wrap.style.cssText='padding:6px 15px 0;';
+        wrap.innerHTML=resBadge(r);
+        var inner=card.querySelector('.pc-inner,.gc-inner');
+        if(inner)inner.insertBefore(wrap,inner.firstChild);
+        // Borde verde/rojo en la card
+        if(r.resultado==='win'){card.style.borderColor='rgba(16,185,129,.5)';card.style.boxShadow='0 0 20px rgba(16,185,129,.18)';}
+        else if(r.resultado==='loss'){card.style.borderColor='rgba(248,113,113,.45)';card.style.boxShadow='0 0 20px rgba(248,113,113,.15)';}
+      }
+    });
+  });
+
+  // Barra de resumen del día
+  var sm=resData.resumen;
+  if(!sm)return;
+  var existing=document.getElementById('dayResultsBar');
+  if(existing)existing.remove();
+  var roi=sm.roi_pct||0;
+  var roiClass=roi>0?'pos':roi<0?'neg':'neu';
+  var roiStr=(roi>0?'+':'')+roi.toFixed(1)+'% ROI';
+  var bar=document.createElement('div');
+  bar.id='dayResultsBar';
+  bar.className='day-results-bar';
+  bar.innerHTML=
+    '<div class="drb-stat"><div class="drb-v" style="color:var(--gr)">'+sm.wins+'</div><div class="drb-l">Wins</div></div>'+
+    '<div class="drb-stat"><div class="drb-v" style="color:var(--re)">'+sm.losses+'</div><div class="drb-l">Losses</div></div>'+
+    '<div class="drb-div"></div>'+
+    '<div class="drb-stat"><div class="drb-v" style="color:var(--tx2)">'+sm.pushes+'</div><div class="drb-l">Push</div></div>'+
+    '<div class="drb-stat"><div class="drb-v" style="color:var(--tx3)">'+sm.pending+'</div><div class="drb-l">Pend.</div></div>'+
+    '<div class="drb-div"></div>'+
+    '<div class="drb-stat"><div class="drb-v" style="color:var(--tx2)">'+sm.total+'</div><div class="drb-l">Total</div></div>'+
+    '<div class="drb-roi '+roiClass+'">'+roiStr+'</div>';
+  // Insertar antes del primer .sh o al inicio de sec-inicio
+  var ini=document.getElementById('sec-inicio');
+  if(ini)ini.insertBefore(bar,ini.firstChild);
+}
+
+function loadResults(dateStr){
+  fetch('/results-'+dateStr+'.json')
+    .then(function(r){if(!r.ok)throw new Error('no results');return r.json();})
+    .then(function(d){applyResults(d);})
+    .catch(function(){/* sin resultados aún — silencioso */});
+}
+
 // ─── DAY NAVIGATION ──────────────────────────────────────────────────────────
 var DAY_OFFSET=0; // 0=hoy, -1=ayer, -2=antes de ayer...
 
@@ -1082,7 +1166,7 @@ function tryFetch(url,fb){
   var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
   fetch(url,{signal:ctrl.signal})
     .then(function(r){clearTimeout(tmo);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(function(d){render(d);})
+    .then(function(d){render(d);loadResults(dateStrFromOffset(DAY_OFFSET));})
     .catch(function(err){
       if(fb){tryFetch(fb,null);}
       else{
