@@ -95,7 +95,7 @@ def _markets_for(sport_key: str) -> str:
             return mkts
     return "h2h,totals,spreads"
 
-PREFERRED_BOOKS = ["bet365", "pinnacle", "draftkings", "fanduel", "williamhill", "unibet"]
+PREFERRED_BOOKS = ["onexbet", "pinnacle", "betway", "williamhill", "draftkings", "unibet", "bet365"]
 
 def _best_bookmaker(bookmakers: list) -> dict | None:
     """Retorna el bookmaker preferido de la lista, en orden de preferencia."""
@@ -444,7 +444,7 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
 
 # ── 5. Claude API ─────────────────────────────────────────────────────────────
 PROMPT_SYSTEM = f"""Eres un tipster profesional y analista cuantitativo de apuestas deportivas.
-Casa de referencia única: Bet365 (cuotas decimales europeas).
+Casa de referencia principal: 1xBet (cuotas decimales europeas). Si no hay 1xBet, usa la mejor casa disponible.
 Hoy es {today} — horario CDMX ({TZ_LABEL}, UTC{CDMX_OFFSET:+d}).
 
 REGLAS ABSOLUTAS:

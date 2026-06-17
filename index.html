@@ -150,7 +150,8 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .gc-tname.home{color:var(--tx);}
 .gc-vs{font-family:var(--hf);font-size:13px;font-weight:700;color:var(--tx4);flex-shrink:0;padding:0 4px;}
 .gc-badges{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
-.badge-pick{font-family:var(--hf);font-size:15px;font-weight:900;letter-spacing:.5px;text-transform:uppercase;background:linear-gradient(135deg,#7c3aed,#a78bfa);border:1px solid var(--pub);color:#fff;padding:6px 18px;border-radius:var(--rds);box-shadow:0 0 18px rgba(139,92,246,.3);}
+.badge-pick{font-family:var(--hf);font-size:14px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;background:linear-gradient(135deg,#6d28d9,#7c3aed,#a78bfa);border:none;color:#fff;padding:8px 22px;border-radius:99px;box-shadow:0 0 24px rgba(139,92,246,.55),0 2px 10px rgba(0,0,0,.4);cursor:default;position:relative;overflow:hidden;}
+.badge-pick::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.15),transparent 60%);border-radius:99px;}
 .badge-ev{font-family:var(--hf);font-size:14px;font-weight:900;background:var(--grd);border:1px solid var(--grb);color:var(--gr);padding:6px 16px;border-radius:var(--rds);box-shadow:0 0 14px rgba(16,185,129,.18);}
 .badge-ev.high{background:rgba(16,185,129,.2);border-color:var(--gr);box-shadow:0 0 22px rgba(16,185,129,.3);}
 .badge-tipo{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--bld);border:1px solid var(--blb);color:var(--bl);padding:4px 11px;border-radius:99px;}
@@ -172,7 +173,13 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .drb-roi.pos{color:var(--gr);}
 .drb-roi.neg{color:var(--re);}
 .drb-roi.neu{color:var(--tx3);}
-.gc-analysis{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-left:3px solid var(--cyb);border-radius:0 var(--rds) var(--rds) 0;padding:11px 14px;margin-bottom:16px;font-size:12px;line-height:1.65;color:var(--tx2);}
+.gc-analysis{background:rgba(255,255,255,.025);border:1px solid var(--bd);border-left:3px solid var(--cyb);border-radius:0 var(--rds) var(--rds) 0;padding:11px 14px;margin-bottom:16px;font-size:12px;line-height:1.65;color:var(--tx2);max-height:80px;overflow:hidden;position:relative;transition:max-height .4s cubic-bezier(.22,1,.36,1),padding .3s;}
+.gc-analysis.expanded{max-height:500px;}
+.gc-analysis-fade{position:absolute;bottom:0;left:0;right:0;height:32px;background:linear-gradient(transparent,rgba(18,12,40,.85));display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px;cursor:pointer;transition:opacity .3s;}
+.gc-analysis.expanded .gc-analysis-fade{display:none;}
+.gc-toggle{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);padding:3px 12px;border-radius:99px;cursor:pointer;margin-top:6px;display:inline-block;}
+@keyframes gc-pulse{0%,100%{box-shadow:var(--shadow-glow-pu),var(--shadow-card);}50%{box-shadow:0 0 40px rgba(139,92,246,.32),var(--shadow-card);}}
+.gold-card{animation:gc-pulse 4s ease-in-out infinite;}
 .prob-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
 .prob-lbl{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);}
 .prob-pct{font-family:var(--hf);font-size:24px;font-weight:900;color:var(--pu);}
@@ -748,10 +755,13 @@ function buildGold(p){
         '<div class="badge-pick">'+p.pick.toUpperCase()+'</div>'+
         '<div class="badge-ev'+(p.ev_pct>=10?' high':'')+'">EV +'+p.ev_pct+'%</div>'+
         '<div class="badge-tipo">'+(p.tipo||'Pick')+'</div>'+
-        '<div class="badge-cuota">'+p.cuota_bet365+' Bet365</div>'+
+        '<div class="badge-cuota">Cuota <span style="font-size:15px;letter-spacing:0">'+p.cuota_bet365+'</span></div>'+
         (p.cuota_verificada===true?'<div class="badge-verified">✓ REAL</div>':p.cuota_verificada===false?'<div class="badge-estimated">~ ESTIMADA</div>':'')+
       '</div>'+
-      '<div class="gc-analysis">'+(p.razonamiento||'')+'</div>'+
+      '<div class="gc-analysis" id="gc-analysis-box" onclick="this.classList.toggle(\'expanded\')">'+
+        (p.razonamiento||'')+
+        '<div class="gc-analysis-fade">▼ Ver más</div>'+
+      '</div>'+
       '<div class="prob-row"><span class="prob-lbl">PROBABILIDAD PROPIA</span><span class="prob-pct">'+p.prob_propia+'%</span></div>'+
       '<div class="prob-bar"><div class="prob-fill" data-w="'+Math.min(p.prob_propia,100)+'"></div></div>'+
       '<div class="gc-foot">'+
@@ -795,7 +805,7 @@ function buildCard(p){
     '</div>'+
     '<div class="pc-detail">'+
       '<div class="pd-grid">'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--pu)">'+p.cuota_bet365+'</div><div class="pd-l">Bet365</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--pu)">'+p.cuota_bet365+'</div><div class="pd-l">Cuota</div></div>'+
         '<div class="pd-cell"><div class="pd-v" style="color:var(--tx2)">'+p.prob_implicita+'%</div><div class="pd-l">Prob Casa</div></div>'+
         '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+p.prob_propia+'%</div><div class="pd-l">Prob Propia</div></div>'+
       '</div>'+
@@ -818,7 +828,7 @@ function buildParlay(pl){
     '<div class="parlay-head">'+
       '<div>'+
         '<div class="parlay-title">PARLAY SUGERIDO</div>'+
-        '<div class="parlay-sub">'+pl.patas.length+' LEGS · BET365 · CORRELACIÓN POSITIVA</div>'+
+        '<div class="parlay-sub">'+pl.patas.length+' LEGS · 1XBET · CORRELACIÓN POSITIVA</div>'+
       '</div>'+
       '<div>'+
         '<div class="parlay-big">'+pl.cuota_total+'<span style="font-size:16px;color:var(--tx3)">x</span></div>'+
