@@ -230,7 +230,7 @@ def main():
         print(f"  No existe {picks_file} — nada que verificar.")
         return
 
-    with open(picks_file, encoding="utf-8") as f:
+    with open(picks_file, encoding="utf-8-sig") as f:
         data = json.load(f)
 
     picks = data.get("picks", [])
