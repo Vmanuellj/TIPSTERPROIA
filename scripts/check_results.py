@@ -60,22 +60,36 @@ def _team_match(a: str, b: str) -> bool:
     return False
 
 # ── Fetch scores de Odds API ──────────────────────────────────────────────────
-def fetch_scores(sport_key: str) -> list:
+def _game_date_cdmx(utc_str: str) -> str:
+    """Convierte commence_time UTC a fecha CDMX (YYYY-MM-DD)."""
+    try:
+        s = utc_str[:19].replace("T", " ").replace("Z", "")
+        utc_dt = datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+        return utc_dt.astimezone(CT).strftime("%Y-%m-%d")
+    except Exception:
+        return ""
+
+def fetch_scores(sport_key: str, target_date: str) -> list:
+    """Devuelve solo partidos completados cuya fecha CDMX coincide con target_date."""
     if not ODDS_KEY:
         return []
     try:
         r = requests.get(
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/scores/",
-            params={"apiKey": ODDS_KEY, "daysFrom": 2},
+            params={"apiKey": ODDS_KEY, "daysFrom": 3},
             timeout=15,
         )
         if not r.ok:
             print(f"  ⚠ scores API {sport_key}: {r.status_code}")
             return []
         games = r.json()
-        # Solo juegos completados
-        done = [g for g in games if g.get("completed")]
-        print(f"  Scores {sport_key}: {len(done)} completados de {len(games)}")
+        # Solo completados Y cuya fecha CDMX es exactamente la que buscamos
+        done = [
+            g for g in games
+            if g.get("completed")
+            and _game_date_cdmx(g.get("commence_time", "")) == target_date
+        ]
+        print(f"  Scores {sport_key} [{target_date}]: {len(done)} completados con fecha exacta de {len(games)} total")
         return done
     except Exception as e:
         print(f"  ⚠ scores {sport_key}: {e}")
@@ -239,11 +253,13 @@ def main():
         return
 
     # Cargar scores por deporte (cache para no repetir llamadas)
+    # Usamos la fecha del archivo de picks como fecha objetivo
+    picks_date = data.get("fecha", yesterday)
     scores_cache: dict[str, list] = {}
     def get_scores(liga):
         sk = get_sport_key(liga)
         if sk not in scores_cache:
-            scores_cache[sk] = fetch_scores(sk)
+            scores_cache[sk] = fetch_scores(sk, picks_date)
         return scores_cache[sk]
 
     results = []
