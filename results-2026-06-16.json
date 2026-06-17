@@ -1,0 +1,93 @@
+{
+  "fecha": "2026-06-16",
+  "resumen": {
+    "total": 8,
+    "wins": 4,
+    "losses": 4,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": -13.41
+  },
+  "picks": [
+    {
+      "matchup": "Chicago White Sox @ New York Yankees",
+      "pick": "New York Yankees ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.32,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "New York Yankees 12 - Chicago White Sox 2"
+    },
+    {
+      "matchup": "Miami Marlins @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 7 - Miami Marlins 0"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Seattle Mariners",
+      "pick": "Under 7.5 carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Seattle Mariners 3 - Baltimore Orioles 1"
+    },
+    {
+      "matchup": "San Diego Padres @ St. Louis Cardinals",
+      "pick": "San Diego Padres ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "St. Louis Cardinals 3 - San Diego Padres 0"
+    },
+    {
+      "matchup": "Detroit Tigers @ Houston Astros",
+      "pick": "Under 8.0 carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.91,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Houston Astros 3 - Detroit Tigers 9"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Athletics",
+      "pick": "Pittsburgh Pirates ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Athletics 11 - Pittsburgh Pirates 2"
+    },
+    {
+      "matchup": "New York Mets @ Cincinnati Reds",
+      "pick": "Over 8.5 carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Cincinnati Reds 12 - New York Mets 0"
+    },
+    {
+      "matchup": "Tampa Bay Rays @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers -1.5",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Los Angeles Dodgers 4 - Tampa Bay Rays 3"
+    }
+  ]
+}
