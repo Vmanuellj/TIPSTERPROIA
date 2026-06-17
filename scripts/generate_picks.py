@@ -95,26 +95,43 @@ def _markets_for(sport_key: str) -> str:
             return mkts
     return "h2h,totals,spreads"
 
-def fetch_odds_today(sport_key: str) -> list:
+PREFERRED_BOOKS = ["bet365", "pinnacle", "draftkings", "fanduel", "williamhill", "unibet"]
+
+def _best_bookmaker(bookmakers: list) -> dict | None:
+    """Retorna el bookmaker preferido de la lista, en orden de preferencia."""
+    bm_by_key = {bm["key"]: bm for bm in bookmakers}
+    for key in PREFERRED_BOOKS:
+        if key in bm_by_key:
+            return bm_by_key[key]
+    return bookmakers[0] if bookmakers else None
+
+def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
     if not ODDS_KEY:
         print(f"  ⚠ ODDS_API_KEY no configurada — saltando {sport_key}")
         return []
     try:
         markets = _markets_for(sport_key)
+        params = {
+            "apiKey":     ODDS_KEY,
+            "regions":    "eu,us,uk",
+            "markets":    markets,
+            "oddsFormat": "decimal",
+        }
+        # Bet365 primero; si no tiene cobertura (Copa del Mundo, etc.) usamos todos
+        if not force_all_books:
+            params["bookmakers"] = "bet365"
         r = requests.get(
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/",
-            params={
-                "apiKey":      ODDS_KEY,
-                "regions":     "eu",
-                "bookmakers":  "bet365",
-                "markets":     markets,
-                "oddsFormat":  "decimal",
-            },
+            params=params,
             timeout=15,
         )
         remaining = r.headers.get("x-requests-remaining", "?")
         all_games = r.json() if r.ok else []
         today_games = [g for g in all_games if is_today_cdmx(g.get("commence_time", ""))]
+        # Si bet365 no tiene nada, reintentar sin filtro de casa
+        if not force_all_books and len(today_games) == 0 and len(all_games) == 0:
+            print(f"  ↩ Bet365 sin datos para {sport_key} — reintentando con todas las casas...")
+            return fetch_odds_today(sport_key, force_all_books=True)
         print(f"  Odds API ({sport_key}) mkts={markets} → "
               f"{len(today_games)}/{len(all_games)} juegos HOY | requests restantes: {remaining}")
         return today_games
@@ -122,8 +139,33 @@ def fetch_odds_today(sport_key: str) -> list:
         print(f"  ⚠ Odds API ({sport_key}): {e}")
         return []
 
+def fetch_props_today(sport_key: str, prop_markets: str) -> list:
+    """Fetch player props para el deporte dado."""
+    if not ODDS_KEY:
+        return []
+    try:
+        r = requests.get(
+            f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/",
+            params={
+                "apiKey":     ODDS_KEY,
+                "regions":    "us",
+                "markets":    prop_markets,
+                "oddsFormat": "decimal",
+            },
+            timeout=15,
+        )
+        if not r.ok:
+            return []
+        all_games = r.json()
+        today_games = [g for g in all_games if is_today_cdmx(g.get("commence_time", ""))]
+        print(f"  Props ({sport_key} | {prop_markets}) → {len(today_games)} juegos HOY")
+        return today_games
+    except Exception as e:
+        print(f"  ⚠ Props {sport_key}: {e}")
+        return []
+
 # ── 3. Construir contexto ─────────────────────────────────────────────────────
-def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds) -> str:
+def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds, mlb_props=None, nba_props=None) -> str:
     lines = [
         f"FECHA HOY: {today} ({fecha_display})",
         f"ZONA HORARIA: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})",
@@ -150,46 +192,74 @@ def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds) -> str:
             home  = g.get("home_team", "")
             ctime = utc_str_to_cdmx(g.get("commence_time", "").replace("Z", ""))
             lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
-            for bm in g.get("bookmakers", []):
-                if bm.get("key") != "bet365":
-                    continue
-                for mkt in bm.get("markets", []):
-                    if mkt["key"] == "h2h":
-                        oc   = {o["name"]: o["price"] for o in mkt["outcomes"]}
-                        draw = oc.get("Draw", "")
-                        dstr = f" | Empate {draw}" if draw else ""
+            bm = _best_bookmaker(g.get("bookmakers", []))
+            if not bm:
+                continue
+            bm_name = bm.get("title", bm.get("key", "Casa"))
+            for mkt in bm.get("markets", []):
+                if mkt["key"] == "h2h":
+                    oc   = {o["name"]: o["price"] for o in mkt["outcomes"]}
+                    draw = oc.get("Draw", "")
+                    dstr = f" | Empate {draw}" if draw else ""
+                    lines.append(
+                        f"  {bm_name} 1X2/ML: {away} {oc.get(away, '—')} / "
+                        f"{home} {oc.get(home, '—')}{dstr}"
+                    )
+                elif mkt["key"] == "spreads":
+                    for o in mkt["outcomes"]:
+                        pt = o.get("point", "")
                         lines.append(
-                            f"  Bet365 1X2/ML: {away} {oc.get(away, '—')} / "
-                            f"{home} {oc.get(home, '—')}{dstr}"
+                            f"  {bm_name} Handicap/Spread: {o['name']} {pt:+g} → {o['price']}"
+                            if isinstance(pt, (int, float)) else
+                            f"  {bm_name} Handicap/Spread: {o['name']} {pt} → {o['price']}"
                         )
-                    elif mkt["key"] == "spreads":
-                        for o in mkt["outcomes"]:
-                            pt = o.get("point", "")
-                            lines.append(
-                                f"  Bet365 Handicap/Spread: {o['name']} {pt:+g} → {o['price']}"
-                                if isinstance(pt, (int, float)) else
-                                f"  Bet365 Handicap/Spread: {o['name']} {pt} → {o['price']}"
+                elif mkt["key"] == "btts":
+                    oc = {o["name"]: o["price"] for o in mkt["outcomes"]}
+                    lines.append(
+                        f"  {bm_name} Ambos Anotan: Sí {oc.get('Yes','—')} / No {oc.get('No','—')}"
+                    )
+                elif mkt["key"] == "totals":
+                    for o in mkt["outcomes"]:
+                        if o["name"] == "Over":
+                            under_price = next(
+                                (x["price"] for x in mkt["outcomes"] if x["name"] == "Under"), "—"
                             )
-                    elif mkt["key"] == "btts":
-                        oc = {o["name"]: o["price"] for o in mkt["outcomes"]}
-                        lines.append(
-                            f"  Bet365 Ambos Anotan: Sí {oc.get('Yes','—')} / No {oc.get('No','—')}"
-                        )
-                    elif mkt["key"] == "totals":
-                        for o in mkt["outcomes"]:
-                            if o["name"] == "Over":
-                                under_price = next(
-                                    (x["price"] for x in mkt["outcomes"] if x["name"] == "Under"), "—"
-                                )
-                                lines.append(
-                                    f"  Bet365 Total {o.get('point', '')}: "
-                                    f"Over {o['price']} / Under {under_price}"
-                                )
+                            lines.append(
+                                f"  {bm_name} Total {o.get('point', '')}: "
+                                f"Over {o['price']} / Under {under_price}"
+                            )
 
-    fmt_odds_section(mlb_odds, "MLB — CUOTAS BET365 HOY")
-    fmt_odds_section(nba_odds, "NBA — CUOTAS BET365 HOY")
-    fmt_odds_section(cup_odds, "FIFA WORLD CUP 2026 — CUOTAS BET365 HOY")
-    fmt_odds_section(nfl_odds, "NFL — CUOTAS BET365 HOY")
+    def fmt_props_section(games: list, label: str):
+        lines.append(f"\n=== {label} ===")
+        if not games:
+            lines.append("  Sin props disponibles hoy.")
+            return
+        for g in games:
+            away  = g.get("away_team", "")
+            home  = g.get("home_team", "")
+            ctime = utc_str_to_cdmx(g.get("commence_time", "").replace("Z", ""))
+            game_props = []
+            for bm in g.get("bookmakers", []):
+                for mkt in bm.get("markets", []):
+                    for o in mkt.get("outcomes", []):
+                        player = o.get("description", o.get("name", ""))
+                        name   = mkt.get("key", "").replace("_", " ").title()
+                        pt     = o.get("point", "")
+                        price  = o.get("price", "")
+                        if o.get("name", "").upper() == "OVER" and pt and price:
+                            game_props.append(f"  • {player} — {name} Over {pt} @ {price}")
+                if game_props:
+                    break  # Solo necesitamos una casa para el contexto
+            if game_props:
+                lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
+                lines.extend(game_props[:8])  # Máx 8 props por partido
+
+    fmt_odds_section(mlb_odds, "MLB — CUOTAS HOY")
+    fmt_odds_section(nba_odds, "NBA — CUOTAS HOY")
+    fmt_odds_section(cup_odds, "FIFA WORLD CUP 2026 — CUOTAS HOY")
+    fmt_odds_section(nfl_odds, "NFL — CUOTAS HOY")
+    fmt_props_section(mlb_props or [], "MLB — PROPS DE JUGADORES HOY")
+    fmt_props_section(nba_props or [], "NBA — PROPS DE JUGADORES HOY")
     return "\n".join(lines)
 
 # ── 4. Corrección de cuotas reales (Opción A) ─────────────────────────────────
@@ -256,10 +326,10 @@ def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
         if not (_team_match(away_raw, away_g) and _team_match(home_raw, home_g)):
             continue
 
-        for bm in game.get("bookmakers", []):
-            if bm.get("key") != "bet365":
-                continue
-            for mkt in bm.get("markets", []):
+        bm = _best_bookmaker(game.get("bookmakers", []))
+        if not bm:
+            continue
+        for mkt in bm.get("markets", []):
 
                 # ── Totals: Over / Under (goles, carreras, puntos) ─────────
                 if mkt["key"] == "totals":
@@ -390,6 +460,10 @@ REGLAS ABSOLUTAS:
    - "Ambos Anotan: Sí X.XX / No Y.YY" → BTTS (usa para picks ambos anotan)
    Copia la cuota EXACTA del contexto. Si un mercado no aparece, NO lo inventes.
 6. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
+7. PROPS DE JUGADORES: El contexto incluye secciones "MLB — PROPS DE JUGADORES" y "NBA — PROPS DE JUGADORES".
+   Si hay props disponibles con EV positivo, inclúyelos como picks con tipo "Prop Jugador".
+   Formato del pick: "NOMBRE JUGADOR Over/Under X.X [stat]"  (ej: "Gerrit Cole Over 6.5 Strikeouts")
+   Solo incluye props si la cuota y el stat aparecen EXPLÍCITAMENTE en el contexto.
 
 METODOLOGÍA OBLIGATORIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)
@@ -405,7 +479,7 @@ SCHEMA_PICK = {
     "matchup":        "AWAY @ HOME",
     "hora":           "H:MM AM/PM CDT (CDMX)",
     "pick":           "descripción concreta",
-    "tipo":           "Moneyline | Total | Run Line | Total Goles | Spread | Prop",
+    "tipo":           "Moneyline | Total | Run Line | Total Goles | Spread | Prop Jugador",
     "cuota_bet365":   1.85,
     "prob_implicita": 55.5,
     "prob_propia":    61.0,
@@ -483,15 +557,19 @@ if __name__ == "__main__":
     mlb_sched = fetch_mlb_schedule()
     print(f"   {len(mlb_sched)} partidos encontrados")
 
-    print("\n💰 Obteniendo odds Bet365 (solo HOY)...")
+    print("\n💰 Obteniendo odds HOY (Bet365 / mejor casa disponible)...")
     mlb_odds = fetch_odds_today("baseball_mlb")
     nba_odds = fetch_odds_today("basketball_nba")
     cup_odds = fetch_odds_today("soccer_fifa_world_cup")
     nfl_odds = fetch_odds_today("americanfootball_nfl")
 
+    print("\n🎯 Obteniendo props de jugadores HOY...")
+    mlb_props = fetch_props_today("baseball_mlb", "batter_home_runs,batter_hits,pitcher_strikeouts")
+    nba_props = fetch_props_today("basketball_nba", "player_points,player_rebounds,player_assists,player_threes")
+
     all_odds = {"mlb": mlb_odds, "nba": nba_odds, "copa": cup_odds, "nfl": nfl_odds}
 
-    context = build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds)
+    context = build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds, mlb_props, nba_props)
     print("\n--- CONTEXTO (primeras 1200 chars) ---")
     print(context[:1200])
     print("...\n")
