@@ -82,8 +82,8 @@ def fetch_mlb_schedule():
 #   Fútbol/Soccer: h2h (1X2) + totals (O/U goles) + spreads (Asian Handicap) + btts (ambos anotan)
 #   Baseball/Basket: h2h + totals + spreads (run line / punto y medio)
 SPORT_MARKETS = {
-    "soccer_fifa_world_cup": "h2h,totals,spreads,btts",
-    "soccer_":               "h2h,totals,spreads,btts",   # prefijo para cualquier soccer
+    "soccer_fifa_world_cup": "h2h,totals",   # btts/spreads no siempre disponibles en el Mundial
+    "soccer_":               "h2h,totals,spreads,btts",
     "baseball_mlb":          "h2h,totals,spreads",
     "basketball_nba":        "h2h,totals,spreads",
     "americanfootball_nfl":  "h2h,totals,spreads",
@@ -113,7 +113,7 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
         markets = _markets_for(sport_key)
         params = {
             "apiKey":     ODDS_KEY,
-            "regions":    "eu,us,uk",
+            "regions":    "eu",
             "markets":    markets,
             "oddsFormat": "decimal",
         }
