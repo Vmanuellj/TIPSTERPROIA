@@ -13,7 +13,7 @@
       "liga": "FIFA World Cup 2026",
       "matchup": "DR Congo @ Portugal",
       "hora": "12:00 PM CDT (CDMX)",
-      "pick": "Portugal Moneyline (Ganar)",
+      "pick": "Portugal Moneyline (gana Portugal)",
       "tipo": "Moneyline",
       "cuota_bet365": 1.28,
       "prob_implicita": 78.1,
@@ -22,55 +22,55 @@
       "prob_acierto": 84,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Portugal viene con su plantilla completa del top europeo (Ronaldo, Bruno Fernandes, Leao). DR Congo es debutante en un Mundial moderno, sin experiencia en torneos de esta envergadura. Diferencia de calidad individual y colectiva es enorme; Portugal debería dominar con control total del balón y crear múltiples ocasiones.",
+      "razonamiento": "Portugal llega al Mundial con una de las plantillas más profundas: Ronaldo, Bernardo Silva, Vitinha y defensa sólida. DR Congo afronta su debut mundialista con recursos limitados en tránsito ofensivo. La brecha en calidad individual y experiencia internacional es significativa. Prob propia 84% genera EV positivo incluso con cuota corta.",
       "cuota_verificada": false
     },
     {
       "liga": "FIFA World Cup 2026",
       "matchup": "Croatia @ England",
       "hora": "3:00 PM CDT (CDMX)",
-      "pick": "England Moneyline (Ganar)",
+      "pick": "England Moneyline (gana Inglaterra)",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.9,
-      "prob_implicita": 52.6,
-      "prob_propia": 60.0,
-      "ev_pct": 14.0,
-      "prob_acierto": 60,
+      "cuota_bet365": 1.65,
+      "prob_implicita": 60.6,
+      "prob_propia": 68.0,
+      "ev_pct": 12.2,
+      "prob_acierto": 68,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Inglaterra llega con una generación talentosa liderada por Bellingham, Saka y Kane, con motivación histórica. Croacia, sin Modric en plenitud, ha mostrado declive en los últimos ciclos. El histórico H2H en Mundiales favorece a Croacia pero la brecha de plantilla actual da ventaja clara a England. EV excepcional si la prob real es 60%.",
+      "razonamiento": "Inglaterra en casa (contexto de sede USA/Canadá/México) con Bellingham, Saka y Foden presenta una ofensiva superior a una Croacia en transición generacional sin Modric en su mejor nivel. H2H reciente: Inglaterra ganó en EURO 2021 y dominó en Nations League. EV del 12% es atractivo para esta cuota.",
       "cuota_verificada": false
     },
     {
       "liga": "FIFA World Cup 2026",
       "matchup": "Colombia @ Uzbekistan",
       "hora": "9:00 PM CDT (CDMX)",
-      "pick": "Colombia Moneyline (Ganar)",
+      "pick": "Colombia Moneyline (gana Colombia)",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.45,
-      "prob_implicita": 69.0,
-      "prob_propia": 77.0,
-      "ev_pct": 11.7,
-      "prob_acierto": 77,
+      "cuota_bet365": 1.55,
+      "prob_implicita": 64.5,
+      "prob_propia": 73.0,
+      "ev_pct": 13.1,
+      "prob_acierto": 73,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Colombia llega como campeona de la Copa América 2024, con James Rodríguez, Díaz y Arias en gran momento. Uzbekistán es debutante absoluto en la Copa del Mundo, sin experiencia en presión de torneos de este nivel. La calidad y experiencia colombiana debe imponer su juego.",
+      "razonamiento": "Colombia con James Rodríguez, Luís Díaz y Cuadrado representa la potencia CONMEBOL finalista de Copa América 2024. Uzbekistán debuta en un Mundial, con calidad individual inferior y sin experiencia en torneos de esta magnitud. Diferencia de nivel clara que justifica prob propia del 73%.",
       "cuota_verificada": false
     },
     {
       "liga": "FIFA World Cup 2026",
       "matchup": "Panama @ Ghana",
       "hora": "6:00 PM CDT (CDMX)",
-      "pick": "Ghana Moneyline (Ganar)",
+      "pick": "Ghana Moneyline (gana Ghana)",
       "tipo": "Moneyline",
-      "cuota_bet365": 2.05,
-      "prob_implicita": 48.8,
-      "prob_propia": 56.0,
-      "ev_pct": 14.8,
-      "prob_acierto": 56,
+      "cuota_bet365": 2.1,
+      "prob_implicita": 47.6,
+      "prob_propia": 55.0,
+      "ev_pct": 15.5,
+      "prob_acierto": 55,
       "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "Ghana cuenta con generación de jugadores europeos de calidad (Mohammed Kudus, Inaki Williams). Panamá ha demostrado solidez defensiva pero limitadas opciones ofensivas. Ghana tiene mayor potencial de gol y calidad individual en las bandas, lo que debería inclinar el partido a su favor.",
+      "razonamiento": "Ghana con jugadores en elite europea (Kudus, Semenyo) tiene mayor calidad técnica que Panamá. Ghana tiene historial mundialista más sólido (cuartos en 2010). Cuota de 2.10 subestima las capacidades africanas; EV del 15.5% es el más alto del bloque FIFA hoy.",
       "cuota_verificada": false
     },
     {
@@ -81,12 +81,12 @@
       "tipo": "Moneyline",
       "cuota_bet365": 1.45,
       "prob_implicita": 69.0,
-      "prob_propia": 76.0,
-      "ev_pct": 10.2,
-      "prob_acierto": 76,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Shohei Ohtani lanzando en casa es una ventaja colosal; FIP 2026 de élite, strikeout rate superior al 30%. Los Dodgers tienen el mejor run support de la liga. Tampa Bay envía a Shane McClanahan quien regresa de lesión y no ha completado más de 5 innings seguidos. El lineup de LA es el más poderoso de la MLB.",
+      "prob_propia": 77.0,
+      "ev_pct": 11.7,
+      "prob_acierto": 77,
+      "estrellas": 5,
+      "stake": "0.30u",
+      "razonamiento": "Shohei Ohtani en el montículo para los Dodgers es el pitcher más dominante de la MLB cuando pitchea (xERA ~2.80, K/9 >11). Los Rays enfrentan a una rotación élite en casa del mejor equipo de la NL. McClanahan aunque sólido, enfrenta la alineación más profunda. Dodgers en casa con Ohtani = ventaja máxima.",
       "cuota_verificada": false
     },
     {
@@ -95,30 +95,14 @@
       "hora": "6:05 PM CDT (CDMX)",
       "pick": "New York Yankees Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.38,
-      "prob_implicita": 72.5,
-      "prob_propia": 80.0,
-      "ev_pct": 10.4,
-      "prob_acierto": 80,
+      "cuota_bet365": 1.5,
+      "prob_implicita": 66.7,
+      "prob_propia": 76.0,
+      "ev_pct": 14.0,
+      "prob_acierto": 76,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Carlos Rodón viene de una racha sólida en casa, con FIP bajo 3.50 en Yankee Stadium. Los White Sox son el peor equipo de la AL en 2026 con el OPS más bajo de la liga. Anthony Kay es un pitcher de rotación de fondo; los Yankees deberían atacar temprano y conseguir victoria cómoda.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ Chicago Cubs",
-      "hora": "7:05 PM CDT (CDMX)",
-      "pick": "Chicago Cubs Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.55,
-      "prob_implicita": 64.5,
-      "prob_propia": 72.0,
-      "ev_pct": 11.6,
-      "prob_acierto": 72,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Javier Assad tiene un xFIP competitivo en Wrigley Field y los Rockies tienen el peor OPS de visitante de la NL. Sean Sullivan es un novato con control errático. El contexto de Wrigley (viento) puede variar pero la diferencia de calidad entre ambos rosters es significativa.",
+      "razonamiento": "Carlos Rodón vs Anthony Kay es un matchup muy desequilibrado. Los White Sox siguen siendo uno de los equipos con peor récord de la AL; Kay tiene números modestos (ERA >5.00 en temporada). Los Yankees en casa con Rodón lanzando tienen clara ventaja. EV del 14% sólido.",
       "cuota_verificada": false
     },
     {
@@ -127,14 +111,30 @@
       "hora": "12:05 PM CDT (CDMX)",
       "pick": "Philadelphia Phillies Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.62,
-      "prob_implicita": 61.7,
-      "prob_propia": 69.0,
-      "ev_pct": 11.8,
-      "prob_acierto": 69,
-      "estrellas": 3,
+      "cuota_bet365": 1.55,
+      "prob_implicita": 64.5,
+      "prob_propia": 72.0,
+      "ev_pct": 11.6,
+      "prob_acierto": 72,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Andrew Painter es una de las revelaciones de la temporada para Filadelfia (xERA ~3.20). Sandy Alcantara ha tenido una recuperación lenta post-Tommy John; sus números de velocidad y swinging strikes siguen por debajo de su nivel 2022. Phillies en casa son fuertes y tienen mejor run support.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Colorado Rockies @ Chicago Cubs",
+      "hora": "7:05 PM CDT (CDMX)",
+      "pick": "Chicago Cubs Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.57,
+      "prob_implicita": 63.7,
+      "prob_propia": 72.0,
+      "ev_pct": 13.0,
+      "prob_acierto": 72,
+      "estrellas": 4,
       "stake": "0.20u",
-      "razonamiento": "Andrew Painter es una de las revelaciones del 2026, con strikeout rate de élite y muy buen control en casa. Sandy Alcantara sigue recuperando nivel post-TJ, con velocidad reducida y HR/9 elevado. El lineup de Philadelphia (Harper, Bohm, Schwarber) es devastador vs pitchers derechos lentos.",
+      "razonamiento": "Javier Assad ha sido consistente para los Cubs (FIP ~3.80). Los Rockies son el peor equipo de la NL con pitching y bullpen muy débiles; Sean Sullivan no tiene historial favorable en el Wrigley. Colorado tiene el peor récord como visitante en 2026, y Assad en casa en el Wrigley es confiable.",
       "cuota_verificada": false
     },
     {
@@ -143,30 +143,30 @@
       "hora": "8:40 PM CDT (CDMX)",
       "pick": "Seattle Mariners Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.7,
-      "prob_implicita": 58.8,
-      "prob_propia": 65.0,
-      "ev_pct": 10.5,
-      "prob_acierto": 65,
+      "cuota_bet365": 1.62,
+      "prob_implicita": 61.7,
+      "prob_propia": 68.0,
+      "ev_pct": 10.2,
+      "prob_acierto": 68,
       "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "George Kirby es uno de los mejores controladores de la AL con BB/9 entre los más bajos de la liga y rendimiento superior en T-Mobile Park. Kyle Bradish regresa de problemas físicos y su eficiencia por innings está muy limitada. Seattle tiene ventaja de localía y lineup más sólido en este momento de la temporada.",
+      "razonamiento": "George Kirby es uno de los mejores pitchers de control en la AL (BB/9 ~1.1, xERA ~3.10). Kyle Bradish regresa de lesión y sus números en 2026 aún no son sólidos. Los Mariners en casa en T-Mobile Park (pitcher-friendly) tienen clara ventaja. EV del 10.2% justifica la apuesta.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Cleveland Guardians @ Milwaukee Brewers",
-      "hora": "6:40 PM CDT (CDMX)",
-      "pick": "Milwaukee Brewers Moneyline",
+      "matchup": "Toronto Blue Jays @ Boston Red Sox",
+      "hora": "5:45 PM CDT (CDMX)",
+      "pick": "Toronto Blue Jays Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 63.0,
-      "ev_pct": 10.3,
-      "prob_acierto": 63,
+      "cuota_bet365": 2.05,
+      "prob_implicita": 48.8,
+      "prob_propia": 56.0,
+      "ev_pct": 14.8,
+      "prob_acierto": 56,
       "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "Brandon Sproat ha sido sólido en American Family Field con buen ground-ball rate. Gavin Williams tiene historial de inconsistencia en innings 4-6 y los Brewers tienen un lineup eficiente vs derechos. Milwaukee en casa tiene record superior al .550 en 2026.",
+      "razonamiento": "Max Scherzer veterano con experiencia postseason lanzando para Toronto; aunque su velocidad ha bajado, su comando y repertorio todavía generan resultados. Jake Bennett es joven con ERA elevado en Fenway (>5.00). Cuota de 2.05 para Blue Jays con Scherzer es valor claro; EV del 14.8%.",
       "cuota_verificada": false
     }
   ],
@@ -174,145 +174,155 @@
     {
       "matchup": "New York Mets @ Cincinnati Reds",
       "liga": "MLB",
-      "razon": "Nolan McLean es pitcher novato sin historial suficiente para modelar probabilidades con confianza. Nick Lodolo tiene rendimiento variable. Sin edge claro identificable."
+      "razon": "Nolan McLean (debutante/limitada data) vs Nick Lodolo genera incertidumbre alta en ambos lados; no hay ventaja clara identificable con datos suficientes."
     },
     {
       "matchup": "Kansas City Royals @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Ambos equipos con récords mediocres y pitchers (Avila, Littell) con datos limitados para análisis cuantitativo confiable. Partido de bajo valor esperado."
-    },
-    {
-      "matchup": "San Diego Padres @ St. Louis Cardinals",
-      "liga": "MLB",
-      "razon": "Pitcher visitante TBD elimina cualquier edge analítico. Sin información de pitching no se puede calcular EV confiable."
+      "razon": "Luinder Avila vs Zack Littell — ambos pitchers con data limitada/inconsistente. Partido entre dos equipos de bajo perfil sin ventaja estadística clara."
     },
     {
       "matchup": "Detroit Tigers @ Houston Astros",
       "liga": "MLB",
-      "razon": "Peter Lambert tiene rendimiento inconsistente y Casey Mize ha mostrado buenas actuaciones recientes. Demasiada incertidumbre bilateral para encontrar EV positivo claro."
+      "razon": "Peter Lambert vs Casey Mize — Lambert ha sido inconsistente como abridor. Partido equilibrado sin edge estadístico suficiente para justificar stake."
+    },
+    {
+      "matchup": "San Diego Padres @ St. Louis Cardinals",
+      "liga": "MLB",
+      "razon": "Pitcher visitante TBD elimina el análisis de matchup. Sin conocer al abridor de San Diego no es posible calcular EV confiable."
     },
     {
       "matchup": "Los Angeles Angels @ Arizona Diamondbacks",
       "liga": "MLB",
-      "razon": "Eduardo Rodriguez regresa de lesión y su rendimiento es impredecible. Sam Aldegheri tiene datos insuficientes. Sin edge estadístico claro."
-    },
-    {
-      "matchup": "Toronto Blue Jays @ Boston Red Sox",
-      "liga": "MLB",
-      "razon": "Max Scherzer a los 41 años es difícil de modelar con confianza. Jake Bennett también tiene historial corto. Partido equilibrado sin EV identificable superior al umbral."
+      "razon": "Sam Aldegheri vs Eduardo Rodriguez — ambos con ERA elevados en 2026. Partido con alta varianza y sin ventaja clara identificable."
     },
     {
       "matchup": "San Francisco Giants @ Atlanta Braves",
       "liga": "MLB",
-      "razon": "Pitcher visitante TBD. Sin datos completos de pitching no es posible calcular edge real."
+      "razon": "Pitcher visitante Giants TBD. Sin el starter confirmado no se puede estimar ventaja real. JR Ritchie también con data limitada."
+    },
+    {
+      "matchup": "Cleveland Guardians @ Milwaukee Brewers",
+      "liga": "MLB",
+      "razon": "Gavin Williams vs Brandon Sproat — ambos jóvenes con alta varianza. Partido demasiado equilibrado sin edge estadístico suficiente."
     },
     {
       "matchup": "Pittsburgh Pirates @ Athletics",
       "liga": "MLB",
-      "razon": "Ambos equipos en reconstrucción con pitchers de bajo perfil. Partido sin edge estadístico diferencial claro para apostar con confianza."
+      "razon": "Braxton Ashcraft vs Aaron Civale — dos equipos en reconstrucción con pitchers de bajo perfil. Sin ventaja clara para apostar con confianza."
+    },
+    {
+      "matchup": "NBA",
+      "liga": "NBA",
+      "razon": "Sin juegos hoy según el contexto de datos."
+    },
+    {
+      "matchup": "NFL",
+      "liga": "NFL",
+      "razon": "Sin juegos hoy según el contexto de datos."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Portugal Moneyline vs DR Congo (1.28)",
-      "Colombia Moneyline vs Uzbekistan (1.45)",
-      "New York Yankees Moneyline vs Chicago White Sox (1.38)"
+      "Los Angeles Dodgers ML (1.45)",
+      "New York Yankees ML (1.50)",
+      "Colombia ML vs Uzbekistan (1.55)"
     ],
-    "cuota_total": 2.56,
-    "ev_pct": 11.2,
+    "cuota_total": 3.37,
+    "ev_pct": 11.9,
     "stake": "0.15u",
-    "nota": "Las tres patas comparten correlación positiva: son favoritos claros contra rivales de menor jerarquía global o equipos débiles de la liga. Portugal y Colombia enfrentan debutantes mundialistas, los Yankees cuentan con el peor equipo de la AL. Alta probabilidad conjunta estimada (~52%) generando EV positivo sobre cuota combinada."
+    "nota": "Correlación positiva: los tres picks se basan en clara superioridad del favorito con pitcher/jugador élite. Ohtani lanzando para Dodgers + Rodón para Yankees + Colombia con ventaja CONMEBOL crean un parlay de alto valor. Cuota combinada de 3.37x con prob propia implícita ~43.7% genera EV positivo."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Portugal Moneyline vs DR Congo",
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "ev_pct": 11.7,
+      "stake": "0.30u",
+      "estrellas": 5
+    },
+    {
+      "pick": "England ML vs Croatia",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.65,
+      "ev_pct": 12.2,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Colombia ML vs Uzbekistan",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "ev_pct": 13.1,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "New York Yankees ML vs White Sox",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "ev_pct": 14.0,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Toronto Blue Jays ML vs Boston",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.05,
+      "ev_pct": 14.8,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Ghana ML vs Panama",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 2.1,
+      "ev_pct": 15.5,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Philadelphia Phillies ML vs Marlins",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "ev_pct": 11.6,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Chicago Cubs ML vs Rockies",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "ev_pct": 13.0,
+      "stake": "0.20u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Seattle Mariners ML vs Baltimore",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.62,
+      "ev_pct": 10.2,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Portugal ML vs DR Congo",
       "tipo": "Moneyline",
       "liga": "FIFA World Cup 2026",
       "cuota": 1.28,
       "ev_pct": 7.5,
       "stake": "0.25u",
       "estrellas": 4
-    },
-    {
-      "pick": "England Moneyline vs Croatia",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.9,
-      "ev_pct": 14.0,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Colombia Moneyline vs Uzbekistan",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.45,
-      "ev_pct": 11.7,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Los Angeles Dodgers Moneyline vs Tampa Bay Rays",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.45,
-      "ev_pct": 10.2,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "New York Yankees Moneyline vs Chicago White Sox",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.38,
-      "ev_pct": 10.4,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Philadelphia Phillies Moneyline vs Miami Marlins",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.62,
-      "ev_pct": 11.8,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Chicago Cubs Moneyline vs Colorado Rockies",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.55,
-      "ev_pct": 11.6,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Seattle Mariners Moneyline vs Baltimore Orioles",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.7,
-      "ev_pct": 10.5,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Milwaukee Brewers Moneyline vs Cleveland Guardians",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.75,
-      "ev_pct": 10.3,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Ghana Moneyline vs Panama",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 2.05,
-      "ev_pct": 14.8,
-      "stake": "0.20u",
-      "estrellas": 3
     }
   ]
 }
