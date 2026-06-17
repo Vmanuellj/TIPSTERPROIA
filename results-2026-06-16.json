@@ -2,11 +2,11 @@
   "fecha": "2026-06-16",
   "resumen": {
     "total": 8,
-    "wins": 4,
-    "losses": 4,
+    "wins": 5,
+    "losses": 3,
     "pushes": 0,
     "pending": 0,
-    "roi_pct": -13.41
+    "roi_pct": 4.28
   },
   "picks": [
     {
@@ -27,7 +27,7 @@
       "cuota": 1.45,
       "stake": "0.25u",
       "resultado": "win",
-      "score": "Philadelphia Phillies 7 - Miami Marlins 0"
+      "score": "Philadelphia Phillies 8 - Miami Marlins 2"
     },
     {
       "matchup": "Baltimore Orioles @ Seattle Mariners",
@@ -47,7 +47,7 @@
       "cuota": 1.72,
       "stake": "0.25u",
       "resultado": "loss",
-      "score": "St. Louis Cardinals 3 - San Diego Padres 0"
+      "score": "St. Louis Cardinals 3 - San Diego Padres 2"
     },
     {
       "matchup": "Detroit Tigers @ Houston Astros",
@@ -56,8 +56,8 @@
       "liga": "MLB",
       "cuota": 1.91,
       "stake": "0.25u",
-      "resultado": "loss",
-      "score": "Houston Astros 3 - Detroit Tigers 9"
+      "resultado": "win",
+      "score": "Houston Astros 4 - Detroit Tigers 2"
     },
     {
       "matchup": "Pittsburgh Pirates @ Athletics",
@@ -66,8 +66,8 @@
       "liga": "MLB",
       "cuota": 1.65,
       "stake": "0.2u",
-      "resultado": "loss",
-      "score": "Athletics 11 - Pittsburgh Pirates 2"
+      "resultado": "win",
+      "score": "Athletics 5 - Pittsburgh Pirates 6"
     },
     {
       "matchup": "New York Mets @ Cincinnati Reds",
@@ -76,8 +76,8 @@
       "liga": "MLB",
       "cuota": 1.85,
       "stake": "0.25u",
-      "resultado": "win",
-      "score": "Cincinnati Reds 12 - New York Mets 0"
+      "resultado": "loss",
+      "score": "Cincinnati Reds 5 - New York Mets 3"
     },
     {
       "matchup": "Tampa Bay Rays @ Los Angeles Dodgers",
@@ -87,7 +87,7 @@
       "cuota": 1.95,
       "stake": "0.2u",
       "resultado": "loss",
-      "score": "Los Angeles Dodgers 4 - Tampa Bay Rays 3"
+      "score": "Los Angeles Dodgers 1 - Tampa Bay Rays 0"
     }
   ]
 }
