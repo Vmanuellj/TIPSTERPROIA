@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-17",
+  "resumen": {
+    "total": 10,
+    "wins": 7,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": 17.19
+  },
+  "picks": [
+    {
+      "matchup": "DR Congo @ Portugal",
+      "pick": "Portugal Moneyline (gana Portugal)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.28,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Portugal 1 - DR Congo 1"
+    },
+    {
+      "matchup": "Croatia @ England",
+      "pick": "England Moneyline (gana Inglaterra)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "England 4 - Croatia 2"
+    },
+    {
+      "matchup": "Colombia @ Uzbekistan",
+      "pick": "Colombia Moneyline (gana Colombia)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Uzbekistan 1 - Colombia 3"
+    },
+    {
+      "matchup": "Panama @ Ghana",
+      "pick": "Ghana Moneyline (gana Ghana)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 2.1,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Ghana 1 - Panama 0"
+    },
+    {
+      "matchup": "Tampa Bay Rays @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.30u",
+      "resultado": "win",
+      "score": "Los Angeles Dodgers 5 - Tampa Bay Rays 4"
+    },
+    {
+      "matchup": "Chicago White Sox @ New York Yankees",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "New York Yankees 10 - Chicago White Sox 5"
+    },
+    {
+      "matchup": "Miami Marlins @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Philadelphia Phillies 4 - Miami Marlins 12"
+    },
+    {
+      "matchup": "Colorado Rockies @ Chicago Cubs",
+      "pick": "Chicago Cubs Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Chicago Cubs 8 - Colorado Rockies 6"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.62,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Seattle Mariners 3 - Baltimore Orioles 5"
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Boston Red Sox",
+      "pick": "Toronto Blue Jays Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.05,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Boston Red Sox 0 - Toronto Blue Jays 3"
+    }
+  ]
+}
