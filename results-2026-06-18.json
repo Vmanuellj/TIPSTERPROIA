@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-18",
+  "resumen": {
+    "total": 10,
+    "wins": 6,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 16.81
+  },
+  "picks": [
+    {
+      "matchup": "New York Mets @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Philadelphia Phillies 4 - New York Mets 6"
+    },
+    {
+      "matchup": "Chicago White Sox @ New York Yankees",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "New York Yankees 1 - Chicago White Sox 5"
+    },
+    {
+      "matchup": "Minnesota Twins @ Texas Rangers",
+      "pick": "Minnesota Twins Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Texas Rangers 3 - Minnesota Twins 9"
+    },
+    {
+      "matchup": "San Francisco Giants @ Atlanta Braves",
+      "pick": "Atlanta Braves Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.62,
+      "stake": "0.25u",
+      "resultado": "pending",
+      "score": null
+    },
+    {
+      "matchup": "Baltimore Orioles @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Seattle Mariners 3 - Baltimore Orioles 0"
+    },
+    {
+      "matchup": "Bosnia & Herzegovina @ Switzerland",
+      "pick": "Switzerland Moneyline (1X2 – Local gana)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.75,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Switzerland 4 - Bosnia & Herzegovina 1"
+    },
+    {
+      "matchup": "South Korea @ Mexico",
+      "pick": "Mexico Moneyline (1X2 – Local/favorito gana)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.8,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Mexico 1 - South Korea 0"
+    },
+    {
+      "matchup": "Qatar @ Canada",
+      "pick": "Canada Moneyline (1X2 – Local/favorito gana)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Canada 6 - Qatar 0"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Kansas City Royals",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Kansas City Royals 14 - St. Louis Cardinals 6"
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Boston Red Sox",
+      "pick": "Boston Red Sox Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Boston Red Sox 3 - Toronto Blue Jays 4"
+    }
+  ]
+}
