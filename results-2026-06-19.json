@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-19",
+  "resumen": {
+    "total": 10,
+    "wins": 9,
+    "losses": 1,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": 39.02
+  },
+  "picks": [
+    {
+      "matchup": "Chicago White Sox @ Detroit Tigers",
+      "pick": "Detroit Tigers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.4,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Detroit Tigers 4 - Chicago White Sox 3"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Los Angeles Dodgers 6 - Baltimore Orioles 5"
+    },
+    {
+      "matchup": "San Diego Padres @ Texas Rangers",
+      "pick": "Texas Rangers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Texas Rangers 9 - San Diego Padres 7"
+    },
+    {
+      "matchup": "Boston Red Sox @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Seattle Mariners 2 - Boston Red Sox 6"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Kansas City Royals",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Kansas City Royals 6 - St. Louis Cardinals 5"
+    },
+    {
+      "matchup": "Haiti @ Brazil",
+      "pick": "Brazil Moneyline (Gana Brasil)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.18,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Brazil 3 - Haiti 0"
+    },
+    {
+      "matchup": "Morocco @ Scotland",
+      "pick": "Morocco Moneyline (Gana Marruecos)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.75,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Scotland 0 - Morocco 1"
+    },
+    {
+      "matchup": "Australia @ USA",
+      "pick": "USA Moneyline (Gana EE.UU.)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.8,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "USA 2 - Australia 0"
+    },
+    {
+      "matchup": "Cincinnati Reds @ New York Yankees",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "New York Yankees 5 - Cincinnati Reds 0"
+    },
+    {
+      "matchup": "Minnesota Twins @ Arizona Diamondbacks",
+      "pick": "Arizona Diamondbacks Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.15u",
+      "resultado": "win",
+      "score": "Arizona Diamondbacks 9 - Minnesota Twins 5"
+    }
+  ]
+}
