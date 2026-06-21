@@ -1,0 +1,103 @@
+{
+  "fecha": "2026-06-20",
+  "resumen": {
+    "total": 9,
+    "wins": 4,
+    "losses": 5,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": -26.04
+  },
+  "picks": [
+    {
+      "matchup": "Milwaukee Brewers @ Atlanta Braves",
+      "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Atlanta Braves 4 - Milwaukee Brewers 3"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Colorado Rockies",
+      "pick": "Pittsburgh Pirates ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Colorado Rockies 2 - Pittsburgh Pirates 1"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Los Angeles Dodgers 2 - Baltimore Orioles 3"
+    },
+    {
+      "matchup": "New York Mets @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 15 - New York Mets 3"
+    },
+    {
+      "matchup": "Cincinnati Reds @ New York Yankees",
+      "pick": "New York Yankees ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "New York Yankees 2 - Cincinnati Reds 10"
+    },
+    {
+      "matchup": "Minnesota Twins @ Arizona Diamondbacks",
+      "pick": "Arizona Diamondbacks ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Arizona Diamondbacks 8 - Minnesota Twins 16"
+    },
+    {
+      "matchup": "Sweden @ Netherlands",
+      "pick": "Netherlands ML (Gana Países Bajos)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Netherlands 5 - Sweden 1"
+    },
+    {
+      "matchup": "Ivory Coast @ Germany",
+      "pick": "Germany ML (Gana Alemania)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Germany 2 - Ivory Coast 1"
+    },
+    {
+      "matchup": "Boston Red Sox @ Seattle Mariners",
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Seattle Mariners 1 - Boston Red Sox 5"
+    }
+  ]
+}
