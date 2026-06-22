@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-21",
+  "resumen": {
+    "total": 10,
+    "wins": 5,
+    "losses": 4,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": -5.84
+  },
+  "picks": [
+    {
+      "matchup": "New York Mets @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 6 - New York Mets 2"
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Chicago Cubs",
+      "pick": "Chicago Cubs ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.3u",
+      "resultado": "pending",
+      "score": null
+    },
+    {
+      "matchup": "Boston Red Sox @ Seattle Mariners",
+      "pick": "Seattle Mariners ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Seattle Mariners 3 - Boston Red Sox 1"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Los Angeles Dodgers 1 - Baltimore Orioles 12"
+    },
+    {
+      "matchup": "San Francisco Giants @ Miami Marlins",
+      "pick": "San Francisco Giants ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Miami Marlins 2 - San Francisco Giants 1"
+    },
+    {
+      "matchup": "Washington Nationals @ Tampa Bay Rays",
+      "pick": "Tampa Bay Rays ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Tampa Bay Rays 4 - Washington Nationals 3"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Colorado Rockies",
+      "pick": "Over 10.5 Carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Colorado Rockies 6 - Pittsburgh Pirates 8"
+    },
+    {
+      "matchup": "Saudi Arabia @ Spain",
+      "pick": "España ML (Gana España)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.3,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Spain 4 - Saudi Arabia 0"
+    },
+    {
+      "matchup": "Cape Verde @ Uruguay",
+      "pick": "Uruguay ML (Gana Uruguay)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Uruguay 2 - Cape Verde 2"
+    },
+    {
+      "matchup": "Egypt @ New Zealand",
+      "pick": "Empate o Egipto (1X)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.62,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "New Zealand 1 - Egypt 3"
+    }
+  ]
+}
