@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-22",
+  "resumen": {
+    "total": 10,
+    "wins": 5,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 2,
+    "roi_pct": -2.56
+  },
+  "picks": [
+    {
+      "matchup": "Austria @ Argentina",
+      "pick": "Argentina Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.28,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Argentina 2 - Austria 0"
+    },
+    {
+      "matchup": "Iraq @ France",
+      "pick": "France Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.22,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "France 3 - Iraq 0"
+    },
+    {
+      "matchup": "Senegal @ Norway",
+      "pick": "Norway Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 2.3,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Norway 3 - Senegal 2"
+    },
+    {
+      "matchup": "Algeria @ Jordan",
+      "pick": "Algeria Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.65,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Jordan 1 - Algeria 2"
+    },
+    {
+      "matchup": "New York Yankees @ Detroit Tigers",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Detroit Tigers 5 - New York Yankees 3"
+    },
+    {
+      "matchup": "Chicago Cubs @ New York Mets",
+      "pick": "Under Total Carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.2u",
+      "resultado": "pending",
+      "score": null
+    },
+    {
+      "matchup": "Cleveland Guardians @ Chicago White Sox",
+      "pick": "Cleveland Guardians Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Chicago White Sox 6 - Cleveland Guardians 5"
+    },
+    {
+      "matchup": "Atlanta Braves @ San Diego Padres",
+      "pick": "San Diego Padres Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "San Diego Padres 1 - Atlanta Braves 0"
+    },
+    {
+      "matchup": "Boston Red Sox @ Colorado Rockies",
+      "pick": "Over Total Carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.3u",
+      "resultado": "pending",
+      "score": "Colorado Rockies 3 - Boston Red Sox 2"
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ St. Louis Cardinals",
+      "pick": "Arizona Diamondbacks Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "St. Louis Cardinals 3 - Arizona Diamondbacks 2"
+    }
+  ]
+}
