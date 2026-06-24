@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-23",
+  "resumen": {
+    "total": 10,
+    "wins": 7,
+    "losses": 2,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 22.04
+  },
+  "picks": [
+    {
+      "matchup": "Uzbekistan @ Portugal",
+      "pick": "Portugal Moneyline (victoria Portugal)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.22,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Portugal 5 - Uzbekistan 0"
+    },
+    {
+      "matchup": "Ghana @ England",
+      "pick": "England Moneyline (victoria Inglaterra)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.4,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "England 0 - Ghana 0"
+    },
+    {
+      "matchup": "Croatia @ Panama",
+      "pick": "Croatia Moneyline (victoria Croacia)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Panama 0 - Croatia 1"
+    },
+    {
+      "matchup": "DR Congo @ Colombia",
+      "pick": "Colombia Moneyline (victoria Colombia)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Colombia 1 - DR Congo 0"
+    },
+    {
+      "matchup": "Seattle Mariners @ Pittsburgh Pirates",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Pittsburgh Pirates 2 - Seattle Mariners 3"
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Washington Nationals",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Washington Nationals 9 - Philadelphia Phillies 14"
+    },
+    {
+      "matchup": "Cleveland Guardians @ Chicago White Sox",
+      "pick": "Cleveland Guardians Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Chicago White Sox 2 - Cleveland Guardians 1"
+    },
+    {
+      "matchup": "Boston Red Sox @ Colorado Rockies",
+      "pick": "Over Total Carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.25u",
+      "resultado": "pending",
+      "score": "Colorado Rockies 2 - Boston Red Sox 5"
+    },
+    {
+      "matchup": "Los Angeles Dodgers @ Minnesota Twins",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Minnesota Twins 3 - Los Angeles Dodgers 12"
+    },
+    {
+      "matchup": "New York Yankees @ Detroit Tigers",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Detroit Tigers 3 - New York Yankees 4"
+    }
+  ]
+}
