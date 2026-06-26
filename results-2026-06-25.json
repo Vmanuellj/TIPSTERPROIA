@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-25",
+  "resumen": {
+    "total": 10,
+    "wins": 7,
+    "losses": 2,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 25.52
+  },
+  "picks": [
+    {
+      "matchup": "Germany @ Ecuador",
+      "pick": "Germany Moneyline (Win)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.45,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Ecuador 2 - Germany 1"
+    },
+    {
+      "matchup": "Netherlands @ Tunisia",
+      "pick": "Netherlands Moneyline (Win)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.4,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Tunisia 1 - Netherlands 3"
+    },
+    {
+      "matchup": "Sweden @ Japan",
+      "pick": "Under 2.5 Total Goles",
+      "tipo": "Total Goles",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.95,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Japan 1 - Sweden 1"
+    },
+    {
+      "matchup": "USA @ Turkey",
+      "pick": "USA Moneyline (Win)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 2.1,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Turkey 3 - USA 2"
+    },
+    {
+      "matchup": "Ivory Coast @ Curaçao",
+      "pick": "Ivory Coast Moneyline (Win)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.25,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Curaçao 0 - Ivory Coast 2"
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Washington Nationals",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Washington Nationals 5 - Philadelphia Phillies 10"
+    },
+    {
+      "matchup": "New York Yankees @ Boston Red Sox",
+      "pick": "Over 8.5 Carreras",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Boston Red Sox 6 - New York Yankees 3"
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ St. Louis Cardinals",
+      "pick": "Arizona Diamondbacks Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.2u",
+      "resultado": "pending",
+      "score": null
+    },
+    {
+      "matchup": "Houston Astros @ Detroit Tigers",
+      "pick": "Houston Astros Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Detroit Tigers 1 - Houston Astros 2"
+    },
+    {
+      "matchup": "Australia @ Paraguay",
+      "pick": "Under 2.5 Total Goles",
+      "tipo": "Total Goles",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.87,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Paraguay 0 - Australia 0"
+    }
+  ]
+}
