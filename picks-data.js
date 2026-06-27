@@ -1,332 +1,332 @@
-// Auto-generado 2026-06-26 — TIPSTER PRO IA
+// Auto-generado 2026-06-27 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-06-26",
-  "fecha_display": "Viernes 26 de Junio 2026",
+  "fecha": "2026-06-27",
+  "fecha_display": "Sábado 27 de Junio 2026",
   "generado_a": "automatico-github-actions",
   "nota_lineas": "Cuotas verificadas con Bet365 vía Odds API. Horario CDT CDMX. 10 picks con EV positivo.",
   "bankroll": {
-    "exposicion_total": "2.1u",
+    "exposicion_total": "2.35u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
   "picks": [
     {
       "liga": "MLB",
-      "matchup": "Cincinnati Reds @ Pittsburgh Pirates",
-      "hora": "5:41 PM CDT (CDMX)",
-      "pick": "Pittsburgh Pirates Moneyline",
+      "matchup": "New York Yankees @ Boston Red Sox",
+      "hora": "12:10 PM CDT (CDMX)",
+      "pick": "New York Yankees Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.67,
-      "prob_implicita": 59.9,
-      "prob_propia": 67.0,
-      "ev_pct": 11.9,
-      "prob_acierto": 67,
-      "estrellas": 5,
+      "cuota_bet365": 1.83,
+      "prob_implicita": 54.6,
+      "prob_propia": 62.0,
+      "ev_pct": 13.5,
+      "prob_acierto": 62,
+      "estrellas": 4,
       "stake": "0.3u",
-      "razonamiento": "Paul Skenes es el mejor pitcher de la NL en 2026, con ERA inferior a 2.50 y dominancia absoluta en casa. Andrew Abbott ha tenido inconsistencias en el bullpen y control. PNC Park favorece a Pittsburgh contra atacantes derechos. Edge clarísimo en el montículo.",
+      "razonamiento": "Gerrit Cole es el as de la rotación de Yankees, con un FIP bajo y capacidad de dominar lineups sin profundidad. Jake Bennett es un abridor de nivel inferior con alta vulnerabilidad a batazos de potencia. El lineup de NY tiene ventaja clara de poder y Cole históricamente domina en contextos de alta presión como Fenway.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Philadelphia Phillies @ New York Mets",
-      "hora": "6:11 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies Moneyline",
+      "matchup": "Texas Rangers @ Toronto Blue Jays",
+      "hora": "2:07 PM CDT (CDMX)",
+      "pick": "Toronto Blue Jays Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.72,
-      "prob_implicita": 58.1,
-      "prob_propia": 65.0,
-      "ev_pct": 11.8,
-      "prob_acierto": 65,
+      "cuota_bet365": 1.75,
+      "prob_implicita": 57.1,
+      "prob_propia": 64.0,
+      "ev_pct": 12.0,
+      "prob_acierto": 64,
       "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Zack Wheeler enfrenta a un TBD local en los Mets, ventaja enorme en el montículo. Wheeler lleva más de 5 salidas consecutivas con menos de 3 carreras permitidas. Los Phillies tienen el mejor ataque visitante de la NL Este en junio. Matchup ideal.",
+      "stake": "0.3u",
+      "razonamiento": "Dylan Cease es un pitcher de alto strikeout con xERA sólido y excelente actuación en Rogers Centre. Cal Quantrill ha mostrado inconsistencia en 2026 y los Rangers anotaron poco en sus últimas salidas. Toronto tiene ventaja local significativa y el bullpen es más confiable.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
       "matchup": "Los Angeles Dodgers @ San Diego Padres",
-      "hora": "8:46 PM CDT (CDMX)",
+      "hora": "7:40 PM CDT (CDMX)",
       "pick": "Los Angeles Dodgers Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.8,
-      "prob_implicita": 55.6,
-      "prob_propia": 62.0,
-      "ev_pct": 11.6,
-      "prob_acierto": 62,
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.1,
+      "prob_propia": 63.0,
+      "ev_pct": 16.6,
+      "prob_acierto": 63,
+      "estrellas": 5,
+      "stake": "0.3u",
+      "razonamiento": "Yoshinobu Yamamoto domina con pitch mix élite y xERA sub-3.00 en 2026. Randy Vásquez es vulnerable a lineups profundos como el de LA. Los Dodgers tienen el mejor OPS y wRC+ de la liga, y el matchup de pitchers es claramente favorable al visitante. Pick de mayor valor de la sesión.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Kansas City Royals @ Chicago White Sox",
+      "hora": "3:10 PM CDT (CDMX)",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.72,
+      "prob_implicita": 58.1,
+      "prob_propia": 66.0,
+      "ev_pct": 13.5,
+      "prob_acierto": 66,
       "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Roki Sasaki viene de una racha dominante con más de 8 K/9 y control élite. Walker Buehler ha sido inconsistente regresando de su segunda TJ. El lineup de Los Ángeles tiene profundidad y promedio colectivo superior contra derechos. Valor en cuota de visitante.",
+      "stake": "0.3u",
+      "razonamiento": "Michael Wacha es un veterano confiable con control excelente y buenos números ante lineups débiles. Davis Martin y los White Sox siguen siendo uno de los equipos con peor rendimiento ofensivo de la AL. KC tiene ventaja clara de pitching y profundidad de bullpen.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
       "matchup": "Seattle Mariners @ Cleveland Guardians",
-      "hora": "6:11 PM CDT (CDMX)",
-      "pick": "Under 8.5 Total Runs",
-      "tipo": "Total",
+      "hora": "6:10 PM CDT (CDMX)",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
       "cuota_bet365": 1.9,
       "prob_implicita": 52.6,
       "prob_propia": 60.0,
       "ev_pct": 14.0,
       "prob_acierto": 60,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Logan Gilbert tiene una de las xERAs más bajas de la AL y excelente comando de zona. Slade Cecconi es un abridor de nivel medio-bajo para Cleveland. Seattle viene con sólida racha y su pitching es el mejor de la división.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Atlanta Braves @ San Francisco Giants",
+      "hora": "8:05 PM CDT (CDMX)",
+      "pick": "San Francisco Giants Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.95,
+      "prob_implicita": 51.3,
+      "prob_propia": 58.0,
+      "ev_pct": 13.1,
+      "prob_acierto": 58,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Logan Webb en Oracle Park es una de las mejores combinaciones pitcher-estadio en baseball. Bryce Elder es inconsistente y ha tenido problemas con equipos en buena forma. San Francisco en casa con Webb tiene un historial de victorias confiable y la ventaja de campo importa mucho en este estadio.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Portugal @ Colombia",
+      "hora": "6:30 PM CDT (CDMX)",
+      "pick": "Portugal Moneyline (Victoria Portugal)",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.8,
+      "prob_implicita": 55.6,
+      "prob_propia": 63.0,
+      "ev_pct": 13.4,
+      "prob_acierto": 63,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Luis Castillo vs Joey Cantillo es un duelo de brazos con habilidad para suprimir ofensiva. Castillo tiene FIP inferior a 3.30 en 2026 y Cantillo ha controlado el ataque contrario en casa. Progressive Field favorece juegos de bajo puntaje con el clima de junio. Los últimos 5 juegos de Seattle han promediado 4.2 carreras totales.",
+      "razonamiento": "Portugal llega con plantel de primer nivel encabezado por Cristiano Ronaldo y jóvenes élite como Rafael Leão. Colombia ha mostrado irregularidad defensiva en el torneo. La calidad técnica y experiencia de Portugal en grandes competencias da ventaja clara en este enfrentamiento de fase de grupos.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Argentina @ Jordan",
+      "hora": "9:00 PM CDT (CDMX)",
+      "pick": "Argentina Moneyline (Victoria Argentina)",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.2,
+      "prob_implicita": 83.3,
+      "prob_propia": 91.0,
+      "ev_pct": 9.2,
+      "prob_acierto": 91,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Argentina es campeona del mundo con Messi y plantel de élite. Jordania es equipo de nivel muy inferior en su primera participación mundialista. La diferencia de calidad es abismal y Argentina necesita puntos para avanzar. Cuota baja pero EV positivo por la altísima probabilidad de victoria.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "FIFA World Cup 2026",
+      "matchup": "England @ Panama",
+      "hora": "4:00 PM CDT (CDMX)",
+      "pick": "England Moneyline (Victoria Inglaterra)",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.22,
+      "prob_implicita": 82.0,
+      "prob_propia": 90.0,
+      "ev_pct": 9.8,
+      "prob_acierto": 90,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Inglaterra tiene uno de los planteles más completos del torneo con jugadores de Premier League de primer nivel. Panamá históricamente es equipo de fase de grupos sin capacidad de sorprender ante potencias europeas. Diferencia técnica y física amplia favorece a los Tres Leones.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
       "matchup": "Colorado Rockies @ Minnesota Twins",
-      "hora": "7:11 PM CDT (CDMX)",
+      "hora": "6:10 PM CDT (CDMX)",
       "pick": "Minnesota Twins Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.57,
-      "prob_implicita": 63.7,
-      "prob_propia": 72.0,
-      "ev_pct": 13.0,
-      "prob_acierto": 72,
+      "cuota_bet365": 1.65,
+      "prob_implicita": 60.6,
+      "prob_propia": 70.0,
+      "ev_pct": 15.5,
+      "prob_acierto": 70,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Taj Bradley vs Tomoyuki Sugano, con Bradley en excelente forma en casa en Target Field. Colorado tiene el peor récord visitante de la MLB y su bullpen falla a partir del 5to inning. Sugano ha cedido más de 4 carreras en 3 de sus últimas 5 salidas. Minnesota domina en casa contra equipos con ERA de rotación superior a 5.00.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Arizona Diamondbacks @ Tampa Bay Rays",
-      "hora": "6:10 PM CDT (CDMX)",
-      "pick": "Under 8.5 Total Runs",
-      "tipo": "Total",
-      "cuota_bet365": 1.87,
-      "prob_implicita": 53.5,
-      "prob_propia": 61.0,
-      "ev_pct": 14.1,
-      "prob_acierto": 61,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Zac Gallen es uno de los mejores pitchers de la NL con xERA élite. Nick Martinez ha sido sólido en Tropicana Field. Tampa Bay juega uno de los estadios más pitcher-friendly de la liga. Combinación de dos abridores con altos K-rates favorece un juego de bajo puntaje.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "France @ Norway",
-      "hora": "2:00 PM CDT (CDMX)",
-      "pick": "France Moneyline (Gana Francia)",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 65.0,
-      "ev_pct": 13.8,
-      "prob_acierto": 65,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Francia cuenta con Mbappé, Griezmann y Camavinga en plena forma mundialista. Noruega sin Haaland disponible o con participación limitada reduce su capacidad goleadora. Los Bleus han ganado 4 de sus últimos 5 partidos contra selecciones europeas de segundo nivel. Presión de estar en grupo competitivo los motiva a ganar convincentemente.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Spain @ Uruguay",
-      "hora": "7:00 PM CDT (CDMX)",
-      "pick": "Spain Moneyline (Gana España)",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.1,
-      "prob_propia": 62.0,
-      "ev_pct": 14.7,
-      "prob_acierto": 62,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "España llega como vigente campeona de la Eurocopa 2024 con la mejor generación en años. Yamal, Olmo y Morata forman un tridente letal. Uruguay tiene calidad pero carece de profundidad de plantilla comparable. El estilo posesional español suele dominar y crear más oportunidades de gol. Valor real en esta cuota.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "New York Yankees @ Boston Red Sox",
-      "hora": "6:11 PM CDT (CDMX)",
-      "pick": "Over 9.0 Total Runs",
-      "tipo": "Total",
-      "cuota_bet365": 1.9,
-      "prob_implicita": 52.6,
-      "prob_propia": 60.0,
-      "ev_pct": 14.0,
-      "prob_acierto": 60,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Will Warren ha tenido problemas con su control en las últimas 4 salidas cediendo más de 4 carreras en 3 de ellas. Payton Tolle es un pitcher joven con poca experiencia ante lineups poderosos. Fenway Park es el estadio más ofensivo de la MLB. Los Yankees tienen el segundo mejor OPS de visitante en junio 2026.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Miami Marlins @ St. Louis Cardinals",
-      "hora": "7:15 PM CDT (CDMX)",
-      "pick": "St. Louis Cardinals Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.62,
-      "prob_implicita": 61.7,
-      "prob_propia": 69.0,
-      "ev_pct": 11.8,
-      "prob_acierto": 69,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Michael McGreevy ha sido consistente en casa con ERA de 3.80 en Busch Stadium. Miami Marlins tiene la peor ofensiva de la NL con promedio colectivo inferior a .230. Max Meyer tiene talento pero los Marlins carecen del soporte ofensivo necesario. St. Louis aprovecha en casa ante equipos débiles.",
+      "razonamiento": "Michael Lorenzen y Colorado Rockies son uno de los peores combos pitcher-equipo de la NL. Mike Paredes en Target Field tiene ventaja de estadio y el efecto Coors Field en reversa afecta a los Rockies al jugar lejos. Minnesota tiene ventaja ofensiva y defensiva clara en este matchup.",
       "cuota_verificada": false
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Kansas City Royals @ Chicago White Sox",
-      "liga": "MLB",
-      "razon": "Ambos pitchers TBD, sin información del montículo para calcular EV con certeza."
-    },
-    {
-      "matchup": "Atlanta Braves @ San Francisco Giants",
-      "liga": "MLB",
-      "razon": "Pitcher local TBD para Giants, matchup incompleto. Sin cuota explícita en el contexto de cuotas MLB hoy."
-    },
-    {
       "matchup": "Houston Astros @ Detroit Tigers",
       "liga": "MLB",
-      "razon": "Keider Montero vs Arrighetti es un duelo parejo sin ventaja clara de EV positivo en ninguno de los lados dado el contexto disponible."
+      "razon": "Kai-Wei Teng como abridor visitante es una señal de incertidumbre; Framber Valdez es sólido pero el matchup no ofrece EV claro suficiente con las cuotas disponibles."
+    },
+    {
+      "matchup": "Cincinnati Reds @ Pittsburgh Pirates",
+      "liga": "MLB",
+      "razon": "Jared Jones vs Chase Burns es matchup equilibrado de jóvenes pitchers con alta varianza; no hay ventaja estadística clara para apostar con confianza."
+    },
+    {
+      "matchup": "Philadelphia Phillies @ New York Mets",
+      "liga": "MLB",
+      "razon": "Alan Rangel es desconocido con historial limitado; matchup muy incierto sin datos suficientes de xFIP/FIP para cuantificar ventaja real."
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ Tampa Bay Rays",
+      "liga": "MLB",
+      "razon": "Jose Cabrera y Cole Sulser son abridores de baja certeza; alta varianza en el resultado sin ventaja estadística identificable."
     },
     {
       "matchup": "Washington Nationals @ Baltimore Orioles",
       "liga": "MLB",
-      "razon": "Andrew Alvarez vs Trevor Rogers es un duelo de pitchers de nivel medio-bajo con incertidumbre en ambos bullpens. Sin edge claro identificable."
-    },
-    {
-      "matchup": "Texas Rangers @ Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Patrick Corbin en casa tiene inconsistencia extrema. Eovaldi es veterano pero los Rangers han sufrido en rotación. Riesgo bilateral sin EV positivo confirmado."
+      "razon": "Foster Griffin vs Brandon Young: ambos pitchers con alta incertidumbre y trayectoria limitada. Sin ventaja clara para apostar."
     },
     {
       "matchup": "Chicago Cubs @ Milwaukee Brewers",
       "liga": "MLB",
-      "razon": "Colin Rea vs Jacob Misiorowski, duelo de jóvenes con alta varianza. Sin datos suficientes de tendencias recientes para generar EV confiable."
+      "razon": "David Peterson vs Kyle Harrison en divisional es matchup equilibrado; sin información suficiente de forma reciente para dar ventaja clara."
+    },
+    {
+      "matchup": "Miami Marlins @ St. Louis Cardinals",
+      "liga": "MLB",
+      "razon": "Ryan Gusto es abridor de emergencia; el matchup tiene demasiada varianza con abridores desconocidos a pesar de ventaja teórica de STL."
     },
     {
       "matchup": "Athletics @ Los Angeles Angels",
       "liga": "MLB",
-      "razon": "J.T. Ginn vs Walbert Ureña es el peor duelo de pitchers del día en términos de calidad. Resultado impredecible y cuotas no reflejan valor claro."
+      "razon": "Jack Perkins vs Reid Detmers; ambos equipos en reconstrucción con alto nivel de incertidumbre. Matchup sin valor claro identificado."
     },
     {
-      "matchup": "Iraq @ Senegal",
+      "matchup": "Ghana @ Croatia",
       "liga": "FIFA World Cup 2026",
-      "razon": "Matchup con alta incertidumbre táctica. Senegal favorito claro pero cuota no ofrece EV suficiente dados los riesgos de rotación mundialista."
+      "razon": "Matchup muy equilibrado entre equipos de nivel similar; sin ventaja estadística clara para identificar EV positivo."
     },
     {
-      "matchup": "Saudi Arabia @ Cape Verde",
+      "matchup": "Uzbekistan @ DR Congo",
       "liga": "FIFA World Cup 2026",
-      "razon": "Arabia Saudita con presión de clasificación pero Cape Verde es equipo compacto difícil de batir. Cuota de Arabia muy ajustada para el riesgo real."
+      "razon": "Falta de datos históricos confiables entre estas selecciones; alta incertidumbre en el resultado."
     },
     {
-      "matchup": "Belgium @ New Zealand",
+      "matchup": "Austria @ Algeria",
       "liga": "FIFA World Cup 2026",
-      "razon": "Bélgica en transición generacional, incertidumbre en once titular. Nueva Zelanda defensiva puede generar empate. Sin EV positivo claro a las cuotas disponibles."
-    },
-    {
-      "matchup": "Iran @ Egypt",
-      "liga": "FIFA World Cup 2026",
-      "razon": "Partido muy parejo entre dos selecciones de nivel similar. Alta probabilidad de empate que complica picks de ML con valor real."
+      "razon": "Matchup equilibrado sin suficiente información de forma reciente de ambos equipos en el torneo para apostar con confianza."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Pittsburgh Pirates Moneyline (1.67)",
-      "Philadelphia Phillies Moneyline (1.72)",
-      "Minnesota Twins Moneyline (1.57)"
+      "Los Angeles Dodgers Moneyline (1.85)",
+      "Toronto Blue Jays Moneyline (1.75)",
+      "Argentina Moneyline (1.20)"
     ],
-    "cuota_total": 4.52,
-    "ev_pct": 12.8,
+    "cuota_total": 3.89,
+    "ev_pct": 11.2,
     "stake": "0.15u",
-    "nota": "Tres franquicias con ventaja de montículo élite (Skenes, Wheeler vs TBD, Bradley) y oponentes con ofensivas deficientes. Correlación positiva en equipos locales/favoritos con pitching dominante en viernes de apertura de serie. Cuota total atractiva con tres picks de alta convicción individual."
+    "nota": "Tres picks de mayor confianza del día: Yamamoto domina en San Diego, Cease es élite en casa y Argentina vs Jordania es resultado casi seguro. La correlación es positiva al combinar pitchers dominantes en casa con resultado mundialista de alta probabilidad."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Pittsburgh Pirates ML",
+      "pick": "Los Angeles Dodgers Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.67,
-      "ev_pct": 11.9,
+      "cuota": 1.85,
+      "ev_pct": 16.6,
       "stake": "0.3u",
       "estrellas": 5
     },
     {
-      "pick": "Philadelphia Phillies ML",
+      "pick": "Kansas City Royals Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.72,
-      "ev_pct": 11.8,
-      "stake": "0.25u",
+      "ev_pct": 13.5,
+      "stake": "0.3u",
       "estrellas": 4
     },
     {
-      "pick": "Spain ML (Gana España)",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.85,
-      "ev_pct": 14.7,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Los Angeles Dodgers ML",
+      "pick": "Toronto Blue Jays Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.8,
-      "ev_pct": 11.6,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "France ML (Gana Francia)",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
       "cuota": 1.75,
-      "ev_pct": 13.8,
-      "stake": "0.25u",
+      "ev_pct": 12.0,
+      "stake": "0.3u",
       "estrellas": 4
     },
     {
-      "pick": "Minnesota Twins ML",
+      "pick": "New York Yankees Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.57,
-      "ev_pct": 13.0,
+      "cuota": 1.83,
+      "ev_pct": 13.5,
+      "stake": "0.3u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Minnesota Twins Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "ev_pct": 15.5,
       "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Under 8.5 SEA @ CLE",
-      "tipo": "Total",
+      "pick": "Portugal Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.8,
+      "ev_pct": 13.4,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.9,
       "ev_pct": 14.0,
       "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Under 8.5 ARI @ TB",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.87,
-      "ev_pct": 14.1,
-      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Over 9.0 NYY @ BOS",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.9,
-      "ev_pct": 14.0,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "St. Louis Cardinals ML",
+      "pick": "San Francisco Giants Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.62,
-      "ev_pct": 11.8,
+      "cuota": 1.95,
+      "ev_pct": 13.1,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "England Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.22,
+      "ev_pct": 9.8,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Argentina Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.2,
+      "ev_pct": 9.2,
       "stake": "0.2u",
       "estrellas": 3
     }
