@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-27",
+  "resumen": {
+    "total": 10,
+    "wins": 4,
+    "losses": 6,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": -41.29
+  },
+  "picks": [
+    {
+      "matchup": "New York Yankees @ Boston Red Sox",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.83,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Boston Red Sox 4 - New York Yankees 1"
+    },
+    {
+      "matchup": "Texas Rangers @ Toronto Blue Jays",
+      "pick": "Toronto Blue Jays Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Toronto Blue Jays 4 - Texas Rangers 7"
+    },
+    {
+      "matchup": "Los Angeles Dodgers @ San Diego Padres",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "San Diego Padres 3 - Los Angeles Dodgers 15"
+    },
+    {
+      "matchup": "Kansas City Royals @ Chicago White Sox",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "Chicago White Sox 2 - Kansas City Royals 1"
+    },
+    {
+      "matchup": "Seattle Mariners @ Cleveland Guardians",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Cleveland Guardians 4 - Seattle Mariners 3"
+    },
+    {
+      "matchup": "Atlanta Braves @ San Francisco Giants",
+      "pick": "San Francisco Giants Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "San Francisco Giants 5 - Atlanta Braves 0"
+    },
+    {
+      "matchup": "Portugal @ Colombia",
+      "pick": "Portugal Moneyline (Victoria Portugal)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.8,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Colombia 0 - Portugal 0"
+    },
+    {
+      "matchup": "Argentina @ Jordan",
+      "pick": "Argentina Moneyline (Victoria Argentina)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.2,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Jordan 1 - Argentina 3"
+    },
+    {
+      "matchup": "England @ Panama",
+      "pick": "England Moneyline (Victoria Inglaterra)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.22,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Panama 0 - England 2"
+    },
+    {
+      "matchup": "Colorado Rockies @ Minnesota Twins",
+      "pick": "Minnesota Twins Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Minnesota Twins 5 - Colorado Rockies 8"
+    }
+  ]
+}
