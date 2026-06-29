@@ -1,0 +1,103 @@
+{
+  "fecha": "2026-06-28",
+  "resumen": {
+    "total": 9,
+    "wins": 5,
+    "losses": 4,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": -1.48
+  },
+  "picks": [
+    {
+      "matchup": "Philadelphia Phillies @ New York Mets",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "New York Mets 4 - Philadelphia Phillies 5"
+    },
+    {
+      "matchup": "Atlanta Braves @ San Francisco Giants",
+      "pick": "Atlanta Braves Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.3u",
+      "resultado": "loss",
+      "score": "San Francisco Giants 3 - Atlanta Braves 2"
+    },
+    {
+      "matchup": "New York Yankees @ Boston Red Sox",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Boston Red Sox 5 - New York Yankees 4"
+    },
+    {
+      "matchup": "Los Angeles Dodgers @ San Diego Padres",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "San Diego Padres 2 - Los Angeles Dodgers 4"
+    },
+    {
+      "matchup": "Houston Astros @ Detroit Tigers",
+      "pick": "Houston Astros Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Detroit Tigers 5 - Houston Astros 7"
+    },
+    {
+      "matchup": "Chicago Cubs @ Milwaukee Brewers",
+      "pick": "Milwaukee Brewers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.78,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Milwaukee Brewers 3 - Chicago Cubs 4"
+    },
+    {
+      "matchup": "Cincinnati Reds @ Pittsburgh Pirates",
+      "pick": "Cincinnati Reds Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.95,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Pittsburgh Pirates 9 - Cincinnati Reds 4"
+    },
+    {
+      "matchup": "Canada @ South Africa",
+      "pick": "Canada Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.75,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "South Africa 0 - Canada 1"
+    },
+    {
+      "matchup": "Kansas City Royals @ Chicago White Sox",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Chicago White Sox 4 - Kansas City Royals 5"
+    }
+  ]
+}
