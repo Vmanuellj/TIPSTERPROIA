@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-29",
+  "resumen": {
+    "total": 10,
+    "wins": 4,
+    "losses": 5,
+    "pushes": 1,
+    "pending": 0,
+    "roi_pct": -26.68
+  },
+  "picks": [
+    {
+      "matchup": "Japan @ Brazil",
+      "pick": "Brazil Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.4,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Brazil 2 - Japan 1"
+    },
+    {
+      "matchup": "Paraguay @ Germany",
+      "pick": "Germany Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.45,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Germany 1 - Paraguay 1"
+    },
+    {
+      "matchup": "Morocco @ Netherlands",
+      "pick": "Netherlands Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.72,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Netherlands 1 - Morocco 1"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Philadelphia Phillies 7 - Pittsburgh Pirates 11"
+    },
+    {
+      "matchup": "Los Angeles Angels @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Seattle Mariners 6 - Los Angeles Angels 2"
+    },
+    {
+      "matchup": "Washington Nationals @ Boston Red Sox",
+      "pick": "Boston Red Sox Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Boston Red Sox 6 - Washington Nationals 3"
+    },
+    {
+      "matchup": "Cincinnati Reds @ Milwaukee Brewers",
+      "pick": "Under 8.5 Runs",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Milwaukee Brewers 5 - Cincinnati Reds 3"
+    },
+    {
+      "matchup": "San Francisco Giants @ Arizona Diamondbacks",
+      "pick": "Under 9.0 Runs",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.20u",
+      "resultado": "push",
+      "score": "Arizona Diamondbacks 5 - San Francisco Giants 4"
+    },
+    {
+      "matchup": "Detroit Tigers @ New York Yankees",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "New York Yankees 3 - Detroit Tigers 7"
+    },
+    {
+      "matchup": "Minnesota Twins @ Houston Astros",
+      "pick": "Houston Astros Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.62,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Houston Astros 4 - Minnesota Twins 5"
+    }
+  ]
+}
