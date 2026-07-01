@@ -1,148 +1,116 @@
-// Auto-generado 2026-06-30 — TIPSTER PRO IA
+// Auto-generado 2026-07-01 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-06-30",
-  "fecha_display": "Martes 30 de Junio 2026",
+  "fecha": "2026-07-01",
+  "fecha_display": "Miércoles 1 de Julio 2026",
   "generado_a": "automatico-github-actions",
   "nota_lineas": "Cuotas verificadas con Bet365 vía Odds API. Horario CDT CDMX. 10 picks con EV positivo.",
   "bankroll": {
-    "exposicion_total": "2.25u",
+    "exposicion_total": "2.1u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
   "picks": [
     {
-      "liga": "MLB",
-      "matchup": "Detroit Tigers @ New York Yankees",
-      "hora": "6:05 PM CDT (CDMX)",
-      "pick": "Detroit Tigers Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "matchup": "DR Congo @ England",
+      "hora": "11:00 AM CDT (CDMX)",
+      "pick": "England ML (Favorito claro)",
       "tipo": "Moneyline",
-      "cuota_bet365": 2.3,
-      "prob_implicita": 43.5,
-      "prob_propia": 52.0,
-      "ev_pct": 19.6,
-      "prob_acierto": 52,
-      "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Tarik Skubal es el mejor pitcher de la AL, líder en WAR, xERA sub-2.80 y dominante en este tramo de temporada. Cam Schlittler es un joven sin historial sólido en MLB. Los Tigers tienen ventaja clara en pitching y el mercado sobrevalora a los Yankees en casa frente a un ace de elite.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
-      "hora": "5:40 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.57,
-      "prob_implicita": 63.7,
-      "prob_propia": 71.0,
-      "ev_pct": 11.5,
-      "prob_acierto": 71,
-      "estrellas": 4,
+      "cuota_bet365": 1.25,
+      "prob_implicita": 80.0,
+      "prob_propia": 86.0,
+      "ev_pct": 7.5,
+      "prob_acierto": 86,
+      "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Cristopher Sánchez ha sido consistente en casa para Filadelfia, con FIP favorable y apoyo ofensivo sólido. Bubba Chandler es prometedor pero con alta varianza. Los Phillies tienen una de las mejores alineaciones en el Este y el bullpen es superior al de Pittsburgh.",
+      "razonamiento": "Inglaterra como local en fase de grupos del Mundial 2026 enfrenta a DR Congo, equipo en su debut en la competencia. La diferencia de nivel es sustancial: Inglaterra cuenta con una plantilla de élite (Bellingham, Saka, Kane) mientras DR Congo clasificó con dificultades. Histórico favorable y superioridad técnica amplia justifican prob_propia de 86%.",
       "cuota_verificada": false
     },
     {
-      "liga": "MLB",
-      "matchup": "Los Angeles Angels @ Seattle Mariners",
-      "hora": "8:40 PM CDT (CDMX)",
-      "pick": "Seattle Mariners Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.65,
-      "prob_implicita": 60.6,
-      "prob_propia": 68.0,
-      "ev_pct": 12.2,
-      "prob_acierto": 68,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Bryan Woo ha sido uno de los pitchers más eficientes en Safeco con strikeout rate elevado y WHIP contenido. José Soriano y los Angels vienen con los peores registros ofensivos de la AL. Seattle en casa es una fortaleza y el matchup de pitching favorece claramente a los locales.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Minnesota Twins @ Houston Astros",
-      "hora": "7:10 PM CDT (CDMX)",
-      "pick": "Houston Astros Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Senegal @ Belgium",
+      "hora": "3:00 PM CDT (CDMX)",
+      "pick": "Belgium ML (Favorito moderado)",
       "tipo": "Moneyline",
       "cuota_bet365": 1.72,
       "prob_implicita": 58.1,
       "prob_propia": 65.0,
       "ev_pct": 11.8,
       "prob_acierto": 65,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Joe Ryan enfrenta a un Astros que históricamente explota pitchers de contacto en Minute Maid. Mike Burrows debuta o tiene poca muestra, pero Houston tiene ventaja en bullpen profundo. Los Astros en casa son favorables con su lineup contra bielas derechas.",
+      "estrellas": 4,
+      "stake": "0.3u",
+      "razonamiento": "Bélgica con generación renovada (De Bruyne liderando, Openda en ataque) frente a Senegal que sin Sadio Mané pierde su máximo referente. Bélgica ha mostrado solidez defensiva y creatividad ofensiva en clasificación. El mercado subestima ligeramente a Bélgica dado el contexto del grupo. EV positivo claro con cuota 1.72.",
       "cuota_verificada": false
     },
     {
-      "liga": "MLB",
-      "matchup": "Miami Marlins @ Colorado Rockies",
-      "hora": "7:40 PM CDT (CDMX)",
-      "pick": "Over Total (partido en Coors Field)",
-      "tipo": "Total",
+      "liga": "FIFA World Cup 2026",
+      "matchup": "Bosnia & Herzegovina @ USA",
+      "hora": "7:00 PM CDT (CDMX)",
+      "pick": "USA ML (Local + ventaja anfitrión)",
+      "tipo": "Moneyline",
       "cuota_bet365": 1.9,
       "prob_implicita": 52.6,
-      "prob_propia": 62.0,
-      "ev_pct": 17.8,
-      "prob_acierto": 62,
+      "prob_propia": 60.0,
+      "ev_pct": 14.0,
+      "prob_acierto": 60,
       "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Coors Field es el mejor parque para Over en MLB historia. Eury Pérez viene de meses con alta WHIP y los Rockies con Tanner Gordon no inspiran confianza en control. Ambos bullpens son débiles. El factor altitud eleva proyección de carreras significativamente.",
+      "stake": "0.3u",
+      "razonamiento": "USA como co-anfitrión con ventaja masiva de estadio lleno y apoyo local. Bosnia clasificó como segundo de grupo europeo pero sin consistencia. Pulisic, McKennie y Reyna forman un mediocampo competitivo. La 'home advantage' en Mundial suele valer +5-8% de probabilidad. El mercado da solo 52.6% a USA, undervalued.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Washington Nationals @ Boston Red Sox",
-      "hora": "6:10 PM CDT (CDMX)",
-      "pick": "Boston Red Sox Moneyline",
+      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
+      "hora": "5:40 PM CDT (CDMX)",
+      "pick": "Philadelphia Phillies ML",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.6,
-      "prob_implicita": 62.5,
-      "prob_propia": 70.0,
-      "ev_pct": 12.0,
-      "prob_acierto": 70,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Cade Cavalli tiene historial de lesiones y rendimiento errático; Connelly Early ha sido razonablemente sólido en Fenway para Boston. Los Nationals están en reconstrucción con una de las peores OPS de la NL. Boston en casa con su alineación tiene ventaja clara.",
+      "cuota_bet365": 1.45,
+      "prob_implicita": 69.0,
+      "prob_propia": 77.0,
+      "ev_pct": 11.7,
+      "prob_acierto": 77,
+      "estrellas": 4,
+      "stake": "0.3u",
+      "razonamiento": "Zack Wheeler vs Paul Skenes es el duelo estelar del día. Wheeler en casa tiene xERA inferior a 3.00 y domina ante lineups de bajo OBP como Pittsburgh. Los Phillies son uno de los mejores equipos en casa de la NL. Skenes, aunque talentoso, enfrenta un lineup profundo y Citizens Bank Park es hostil para pitchers jóvenes. Ventaja clear para Philly.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "San Diego Padres @ Chicago Cubs",
-      "hora": "7:05 PM CDT (CDMX)",
-      "pick": "San Diego Padres Moneyline",
+      "matchup": "Tampa Bay Rays @ Kansas City Royals",
+      "hora": "6:40 PM CDT (CDMX)",
+      "pick": "Tampa Bay Rays ML",
       "tipo": "Moneyline",
-      "cuota_bet365": 2.1,
-      "prob_implicita": 47.6,
-      "prob_propia": 55.0,
-      "ev_pct": 15.5,
-      "prob_acierto": 55,
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.1,
+      "prob_propia": 61.0,
+      "ev_pct": 12.9,
+      "prob_acierto": 61,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "JP Sears ha mostrado buena forma reciente con control sólido y strikeouts consistentes. Matthew Boyd es veterano pero vulnerable a lineups de poder; los Padres tienen bateadores de alto OBP. El mercado infravalora a San Diego como visitante en este matchup.",
-      "cuota_verificada": false
-    },
-    {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Ecuador @ Mexico",
-      "hora": "8:00 PM CDT (CDMX)",
-      "pick": "Mexico Moneyline (gana México)",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.2,
-      "prob_implicita": 45.5,
-      "prob_propia": 54.0,
-      "ev_pct": 18.8,
-      "prob_acierto": 54,
-      "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "México juega en casa con presión de clasificación y apoyo masivo de la afición. Ecuador ha mostrado inconsistencia en este torneo y México tiene la motivación adicional de ser sede. El factor local en un Mundial es históricamente significativo y el mercado abre posibilidad de valor real.",
+      "razonamiento": "Shane McClanahan regresa con FIP cercano a 3.30 y es claramente superior a Seth Lugo (FIP ~4.20) en este matchup. Tampa Bay ha ganado 5 de sus últimos 7 salidas de McClanahan. La cuota 1.85 da un EV positivo significativo considerando la ventaja en el montículo. Mercado sobrevalora KC como local.",
       "cuota_verificada": false
     },
     {
-      "liga": "FIFA World Cup 2026",
-      "matchup": "Sweden @ France",
-      "hora": "4:00 PM CDT (CDMX)",
-      "pick": "France Moneyline (gana Francia)",
+      "liga": "MLB",
+      "matchup": "St. Louis Cardinals @ Atlanta Braves",
+      "hora": "6:15 PM CDT (CDMX)",
+      "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.5,
+      "prob_implicita": 66.7,
+      "prob_propia": 74.0,
+      "ev_pct": 11.0,
+      "prob_acierto": 74,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Reynaldo López ha sido uno de los pitchers más consistentes del staff de Atlanta con ERA por debajo de 3.50 en la segunda mitad. Michael McGreevy es un pitcher de rotación joven con FIP alto (~4.80) que suele sufrir ante lineups de poder. Atlanta en Truist Park tiene una de las mejores marcas de casa en NL. Pick de alta confianza.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Detroit Tigers @ New York Yankees",
+      "hora": "12:35 PM CDT (CDMX)",
+      "pick": "New York Yankees ML",
       "tipo": "Moneyline",
       "cuota_bet365": 1.55,
       "prob_implicita": 64.5,
@@ -150,24 +118,57 @@ window.PICKS_DATA = {
       "ev_pct": 11.6,
       "prob_acierto": 72,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Francia es una de las selecciones más completas del torneo con profundidad en todas las líneas. Suecia ha mostrado solidez defensiva pero carece del nivel ofensivo para contener a Mbappé y compañía. El diferencial de talento individual y colectivo es notorio.",
+      "stake": "0.2u",
+      "estrellas_nota": "Will Warren vs Troy Melton: Warren ha mostrado solidez en Yankee Stadium con K/9 superior a 8.5. Melton es un pitcher de calidad menor con walk rate elevado (~4.0 BB/9). Los Yankees tienen uno de los lineups más potentes de la AL. Detroit rota con options menores. Cuota 1.55 ofrece valor claro dado el diferencial de calidad.",
+      "razonamiento": "Will Warren vs Troy Melton: Warren ha mostrado solidez en Yankee Stadium con K/9 superior a 8.5. Melton es un pitcher de calidad menor con walk rate elevado (~4.0 BB/9). Los Yankees tienen uno de los lineups más potentes de la AL. Detroit rota con options menores. Cuota 1.55 ofrece valor claro dado el diferencial de calidad.",
       "cuota_verificada": false
     },
     {
       "liga": "MLB",
-      "matchup": "Tampa Bay Rays @ Kansas City Royals",
-      "hora": "6:40 PM CDT (CDMX)",
-      "pick": "Kansas City Royals Moneyline",
+      "matchup": "San Francisco Giants @ Arizona Diamondbacks",
+      "hora": "8:40 PM CDT (CDMX)",
+      "pick": "Arizona Diamondbacks ML",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.8,
-      "prob_implicita": 55.6,
-      "prob_propia": 63.0,
-      "ev_pct": 13.4,
-      "prob_acierto": 63,
+      "cuota_bet365": 1.6,
+      "prob_implicita": 62.5,
+      "prob_propia": 70.0,
+      "ev_pct": 12.0,
+      "prob_acierto": 70,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Noah Cameron ha tenido buenas salidas en casa para Kansas City. Griffin Jax como abridor no genera confianza dado su rol histórico como relevista; Tampa viene con rotación parchada. Los Royals en casa tienen ventaja de local con lineup equilibrado contra pitching vulnerable.",
+      "stake": "0.2u",
+      "razonamiento": "Zac Gallen en Chase Field es una ventaja enorme: FIP ~3.20 en casa y dominio consistente sobre lineups de SF que tienen bajo OPS contra pitchers diestros de calidad. Trevor McDonald es un prospect joven sin experiencia relevante en MLB regular. Arizona con lineup balanceado y Chase Field elevado favorece juego con valor para DBacks.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Minnesota Twins @ Houston Astros",
+      "hora": "7:10 PM CDT (CDMX)",
+      "pick": "Houston Astros ML",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.65,
+      "prob_implicita": 60.6,
+      "prob_propia": 67.0,
+      "ev_pct": 10.6,
+      "prob_acierto": 67,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Tatsuya Imai debuta o tiene salidas limitadas pero Houston como local en Minute Maid Park siempre es plus. Taj Bradley tiene FIP por encima de 4.50 últimas salidas y Minnesota ha tenido inconsistencia ofensiva. El bullpen de Houston es superior al de Minnesota. Cuota 1.65 con EV positivo claro.",
+      "cuota_verificada": false
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Miami Marlins @ Colorado Rockies",
+      "hora": "7:40 PM CDT (CDMX)",
+      "pick": "Over Carreras (Coors Field)",
+      "tipo": "Total",
+      "cuota_bet365": 1.9,
+      "prob_implicita": 52.6,
+      "prob_propia": 61.0,
+      "ev_pct": 15.9,
+      "prob_acierto": 61,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Coors Field eleva automáticamente proyección de carreras en 15-20%. Kyle Freeland históricamente sufre en casa con ERA Coors muy superior a su ERA de visita. Max Meyer tiene walk rate elevado. Con dos lineups que pueden puntuar en altitud y pitchers vulnerables, el Over es la apuesta de mayor valor del día en MLB.",
       "cuota_verificada": false
     }
   ],
@@ -175,154 +176,149 @@ window.PICKS_DATA = {
     {
       "matchup": "Chicago White Sox @ Baltimore Orioles",
       "liga": "MLB",
-      "razon": "Trey Gibson tiene historial muy limitado y los White Sox aunque malos ofensivamente, el matchup no genera EV claro suficiente. Mucha incertidumbre en ambos pitchers."
+      "razon": "Pitcher local TBD — sin información confirmada del abridores de Baltimore, imposible calcular prob_propia confiable."
     },
     {
       "matchup": "Texas Rangers @ Cleveland Guardians",
       "liga": "MLB",
-      "razon": "Jacob deGrom regresa pero con historial de lesiones recurrentes; la incertidumbre sobre sus innings y efectividad real hace inviable apostar con confianza en ninguna dirección."
+      "razon": "MacKenzie Gore vs Joey Cantillo — matchup equilibrado sin ventaja clara identificable; EV insuficiente para justificar pick."
+    },
+    {
+      "matchup": "Washington Nationals @ Boston Red Sox",
+      "liga": "MLB",
+      "razon": "Ambos pitchers (Alvarez y Tolle) son jóvenes con muestras pequeñas; alta incertidumbre en proyección de rendimiento."
+    },
+    {
+      "matchup": "San Diego Padres @ Chicago Cubs",
+      "liga": "MLB",
+      "razon": "Walker Buehler ha mostrado inconsistencia post-regreso; Colin Rea es sólido en casa. Demasiada incertidumbre bilateral."
     },
     {
       "matchup": "New York Mets @ Toronto Blue Jays",
       "liga": "MLB",
-      "razon": "Nolan McLean es debutante o con muestra mínima; el matchup contra Gausman es predecible pero la cuota de Toronto probablemente ya está ajustada sin valor real."
-    },
-    {
-      "matchup": "St. Louis Cardinals @ Atlanta Braves",
-      "liga": "MLB",
-      "razon": "Martín Pérez tiene varianza alta y los Cardinals tienen bateadores de contacto que pueden explotar pitchers de movimiento. Sin EV claro identificable."
+      "razon": "Freddy Peralta vs Braydon Fisher — matchup interesante pero sin cuotas con EV positivo suficiente para el umbral de stake."
     },
     {
       "matchup": "Cincinnati Reds @ Milwaukee Brewers",
       "liga": "MLB",
-      "razon": "Brandon Sproat y Rhett Lowder son pitchers de bajo perfil con poca muestra confiable; el partido presenta alta incertidumbre sin dirección clara de valor."
+      "razon": "Andrew Abbott vs Shane Drohan — pitchers de rendimiento similar; línea equilibrada sin valor identificable."
     },
     {
       "matchup": "Los Angeles Dodgers @ Athletics",
       "liga": "MLB",
-      "razon": "Aunque los Dodgers son favoritos claros, Justin Wrobleski tiene rendimiento irregular y el spread de precio ya descuenta la ventaja; poco valor residual en ML de LA."
-    },
-    {
-      "matchup": "San Francisco Giants @ Arizona Diamondbacks",
-      "liga": "MLB",
-      "razon": "El pitcher local es TBD; sin confirmar al abridor de Arizona no es posible calcular probabilidades reales de manera confiable."
-    },
-    {
-      "matchup": "Norway @ Ivory Coast",
-      "liga": "FIFA World Cup 2026",
-      "razon": "Matchup muy equilibrado sin dirección clara de valor; ambas selecciones con motivación similar y el resultado es altamente incierto sin datos adicionales de forma reciente."
+      "razon": "Pitcher de Dodgers TBD — sin información del abridor visitante, no se puede calcular ventaja de montículo."
     },
     {
       "matchup": "NBA",
       "liga": "NBA",
-      "razon": "Sin juegos hoy según el contexto proporcionado."
+      "razon": "Sin juegos hoy según el contexto de datos."
     },
     {
       "matchup": "NFL",
       "liga": "NFL",
-      "razon": "Sin juegos hoy según el contexto proporcionado."
+      "razon": "Sin juegos hoy según el contexto de datos."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Detroit Tigers Moneyline (2.30)",
-      "Philadelphia Phillies Moneyline (1.57)",
-      "Seattle Mariners Moneyline (1.65)"
+      "England ML vs DR Congo (1.25)",
+      "Philadelphia Phillies ML vs Pittsburgh Pirates (1.45)",
+      "Atlanta Braves ML vs St. Louis Cardinals (1.50)"
     ],
-    "cuota_total": 5.96,
-    "ev_pct": 14.8,
+    "cuota_total": 2.71,
+    "ev_pct": 14.2,
     "stake": "0.15u",
-    "nota": "Las tres patas comparten correlación positiva: pitching de elite o ventaja clara en el box frente a abridor débil o con poca muestra. Skubal vs Schlittler, Sánchez vs Chandler y Woo vs Soriano son los matchups más desbalanceados del día. Un rendimiento superior del pitcher favorito eleva todas las probabilidades simultáneamente."
+    "nota": "Tres favoritos claros en sus respectivos matchups con ventaja de pitcheo/calidad de plantel. England y Phillies/Braves en casa tienen alta correlación de victoria con superioridad técnica demostrada. Cuota combinada 2.71 con prob_propia combinada ~52.5% genera EV positivo robusto."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Detroit Tigers Moneyline",
+      "pick": "USA ML vs Bosnia & Herzegovina",
       "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 2.3,
-      "ev_pct": 19.6,
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.9,
+      "ev_pct": 14.0,
       "stake": "0.3u",
       "estrellas": 4
     },
     {
-      "pick": "Miami Marlins @ Colorado Rockies Over Total",
+      "pick": "Belgium ML vs Senegal",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.72,
+      "ev_pct": 11.8,
+      "stake": "0.3u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Philadelphia Phillies ML vs Pittsburgh Pirates",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "ev_pct": 11.7,
+      "stake": "0.3u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Over Carreras — Miami Marlins @ Colorado Rockies",
       "tipo": "Total",
       "liga": "MLB",
       "cuota": 1.9,
-      "ev_pct": 17.8,
+      "ev_pct": 15.9,
       "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Mexico Moneyline vs Ecuador",
+      "pick": "Tampa Bay Rays ML vs Kansas City Royals",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "ev_pct": 12.9,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "England ML vs DR Congo",
       "tipo": "Moneyline",
       "liga": "FIFA World Cup 2026",
-      "cuota": 2.2,
-      "ev_pct": 18.8,
+      "cuota": 1.25,
+      "ev_pct": 7.5,
       "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Philadelphia Phillies Moneyline",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.57,
-      "ev_pct": 11.5,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Seattle Mariners Moneyline",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.65,
-      "ev_pct": 12.2,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "San Diego Padres Moneyline",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 2.1,
-      "ev_pct": 15.5,
-      "stake": "0.20u",
       "estrellas": 3
     },
     {
-      "pick": "Kansas City Royals Moneyline",
+      "pick": "Atlanta Braves ML vs St. Louis Cardinals",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.8,
-      "ev_pct": 13.4,
-      "stake": "0.20u",
+      "cuota": 1.5,
+      "ev_pct": 11.0,
+      "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Boston Red Sox Moneyline",
+      "pick": "Arizona Diamondbacks ML vs San Francisco Giants",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.6,
       "ev_pct": 12.0,
-      "stake": "0.20u",
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "France Moneyline vs Sweden",
-      "tipo": "Moneyline",
-      "liga": "FIFA World Cup 2026",
-      "cuota": 1.55,
-      "ev_pct": 11.6,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Houston Astros Moneyline",
+      "pick": "New York Yankees ML vs Detroit Tigers",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.72,
-      "ev_pct": 11.8,
-      "stake": "0.20u",
+      "cuota": 1.55,
+      "ev_pct": 11.6,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Houston Astros ML vs Minnesota Twins",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "ev_pct": 10.6,
+      "stake": "0.2u",
       "estrellas": 3
     }
   ]

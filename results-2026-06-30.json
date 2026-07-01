@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-06-30",
+  "resumen": {
+    "total": 10,
+    "wins": 6,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 31.66
+  },
+  "picks": [
+    {
+      "matchup": "Detroit Tigers @ New York Yankees",
+      "pick": "Detroit Tigers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.3,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "New York Yankees 3 - Detroit Tigers 9"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.57,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 8 - Pittsburgh Pirates 0"
+    },
+    {
+      "matchup": "Los Angeles Angels @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Seattle Mariners 8 - Los Angeles Angels 3"
+    },
+    {
+      "matchup": "Minnesota Twins @ Houston Astros",
+      "pick": "Houston Astros Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Houston Astros 6 - Minnesota Twins 4"
+    },
+    {
+      "matchup": "Miami Marlins @ Colorado Rockies",
+      "pick": "Over Total (partido en Coors Field)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.25u",
+      "resultado": "pending",
+      "score": "Colorado Rockies 3 - Miami Marlins 14"
+    },
+    {
+      "matchup": "Washington Nationals @ Boston Red Sox",
+      "pick": "Boston Red Sox Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Boston Red Sox 1 - Washington Nationals 8"
+    },
+    {
+      "matchup": "San Diego Padres @ Chicago Cubs",
+      "pick": "San Diego Padres Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.1,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Chicago Cubs 9 - San Diego Padres 7"
+    },
+    {
+      "matchup": "Ecuador @ Mexico",
+      "pick": "Mexico Moneyline (gana México)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 2.2,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Mexico 2 - Ecuador 0"
+    },
+    {
+      "matchup": "Sweden @ France",
+      "pick": "France Moneyline (gana Francia)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.55,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "France 3 - Sweden 0"
+    },
+    {
+      "matchup": "Tampa Bay Rays @ Kansas City Royals",
+      "pick": "Kansas City Royals Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Kansas City Royals 4 - Tampa Bay Rays 10"
+    }
+  ]
+}
