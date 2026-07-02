@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-07-01",
+  "resumen": {
+    "total": 10,
+    "wins": 6,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 18.71
+  },
+  "picks": [
+    {
+      "matchup": "DR Congo @ England",
+      "pick": "England ML (Favorito claro)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.25,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "England 2 - DR Congo 1"
+    },
+    {
+      "matchup": "Senegal @ Belgium",
+      "pick": "Belgium ML (Favorito moderado)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.72,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Belgium 3 - Senegal 2"
+    },
+    {
+      "matchup": "Bosnia & Herzegovina @ USA",
+      "pick": "USA ML (Local + ventaja anfitrión)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.9,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "USA 2 - Bosnia & Herzegovina 0"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 10 - Pittsburgh Pirates 6"
+    },
+    {
+      "matchup": "Tampa Bay Rays @ Kansas City Royals",
+      "pick": "Tampa Bay Rays ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.85,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Kansas City Royals 0 - Tampa Bay Rays 4"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Atlanta Braves",
+      "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Atlanta Braves 5 - St. Louis Cardinals 1"
+    },
+    {
+      "matchup": "Detroit Tigers @ New York Yankees",
+      "pick": "New York Yankees ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "New York Yankees 2 - Detroit Tigers 6"
+    },
+    {
+      "matchup": "San Francisco Giants @ Arizona Diamondbacks",
+      "pick": "Arizona Diamondbacks ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Arizona Diamondbacks 4 - San Francisco Giants 6"
+    },
+    {
+      "matchup": "Minnesota Twins @ Houston Astros",
+      "pick": "Houston Astros ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Houston Astros 3 - Minnesota Twins 8"
+    },
+    {
+      "matchup": "Miami Marlins @ Colorado Rockies",
+      "pick": "Over Carreras (Coors Field)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.25u",
+      "resultado": "pending",
+      "score": "Colorado Rockies 6 - Miami Marlins 3"
+    }
+  ]
+}
