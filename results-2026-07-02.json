@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-07-02",
+  "resumen": {
+    "total": 10,
+    "wins": 6,
+    "losses": 3,
+    "pushes": 0,
+    "pending": 1,
+    "roi_pct": 15.11
+  },
+  "picks": [
+    {
+      "matchup": "Austria @ Spain",
+      "pick": "España Moneyline (Gana España)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.4,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Spain 3 - Austria 0"
+    },
+    {
+      "matchup": "Croatia @ Portugal",
+      "pick": "Portugal Moneyline (Gana Portugal)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.75,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Portugal 2 - Croatia 1"
+    },
+    {
+      "matchup": "Algeria @ Switzerland",
+      "pick": "Suiza Moneyline (Gana Suiza)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.85,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Switzerland 2 - Algeria 0"
+    },
+    {
+      "matchup": "San Diego Padres @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.3u",
+      "resultado": "win",
+      "score": "Los Angeles Dodgers 12 - San Diego Padres 7"
+    },
+    {
+      "matchup": "Detroit Tigers @ Texas Rangers",
+      "pick": "Detroit Tigers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.1,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Texas Rangers 10 - Detroit Tigers 4"
+    },
+    {
+      "matchup": "Chicago White Sox @ Cleveland Guardians",
+      "pick": "Cleveland Guardians Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Cleveland Guardians 6 - Chicago White Sox 5"
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ Philadelphia Phillies",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Philadelphia Phillies 1 - Pittsburgh Pirates 6"
+    },
+    {
+      "matchup": "Cincinnati Reds @ Milwaukee Brewers",
+      "pick": "Under Total Carreras (partido cerrado)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.2u",
+      "resultado": "pending",
+      "score": "Milwaukee Brewers 2 - Cincinnati Reds 7"
+    },
+    {
+      "matchup": "Los Angeles Angels @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Seattle Mariners 1 - Los Angeles Angels 0"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Atlanta Braves",
+      "pick": "Atlanta Braves Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.2u",
+      "resultado": "loss",
+      "score": "Atlanta Braves 5 - St. Louis Cardinals 11"
+    }
+  ]
+}
