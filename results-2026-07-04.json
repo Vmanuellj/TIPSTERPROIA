@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-07-04",
+  "resumen": {
+    "total": 10,
+    "wins": 8,
+    "losses": 2,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": 35.3
+  },
+  "picks": [
+    {
+      "matchup": "Morocco @ Canada",
+      "pick": "Morocco Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.85,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Canada 0 - Morocco 3"
+    },
+    {
+      "matchup": "France @ Paraguay",
+      "pick": "France Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.45,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Paraguay 0 - France 1"
+    },
+    {
+      "matchup": "San Diego Padres @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.25u",
+      "resultado": "win",
+      "score": "Los Angeles Dodgers 3 - San Diego Padres 0"
+    },
+    {
+      "matchup": "New York Mets @ Atlanta Braves",
+      "pick": "Atlanta Braves Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.75,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Atlanta Braves 14 - New York Mets 3"
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Seattle Mariners",
+      "pick": "Seattle Mariners Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Seattle Mariners 11 - Toronto Blue Jays 0"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Chicago Cubs",
+      "pick": "Chicago Cubs Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.68,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Chicago Cubs 0 - St. Louis Cardinals 3"
+    },
+    {
+      "matchup": "Milwaukee Brewers @ Arizona Diamondbacks",
+      "pick": "Arizona Diamondbacks Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Arizona Diamondbacks 4 - Milwaukee Brewers 3"
+    },
+    {
+      "matchup": "Chicago White Sox @ Cleveland Guardians",
+      "pick": "Cleveland Guardians Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.5,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Cleveland Guardians 1 - Chicago White Sox 3"
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Kansas City Royals",
+      "pick": "Philadelphia Phillies Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Kansas City Royals 1 - Philadelphia Phillies 6"
+    },
+    {
+      "matchup": "Tampa Bay Rays @ Houston Astros",
+      "pick": "Houston Astros Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.20u",
+      "resultado": "win",
+      "score": "Houston Astros 10 - Tampa Bay Rays 8"
+    }
+  ]
+}
