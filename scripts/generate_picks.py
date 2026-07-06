@@ -82,11 +82,17 @@ def fetch_mlb_schedule():
 #   Fútbol/Soccer: h2h (1X2) + totals (O/U goles) + spreads (Asian Handicap) + btts (ambos anotan)
 #   Baseball/Basket: h2h + totals + spreads (run line / punto y medio)
 SPORT_MARKETS = {
-    "soccer_fifa_world_cup": "h2h,totals",   # btts/spreads no siempre disponibles en el Mundial
     "soccer_":               "h2h,totals,spreads,btts",
     "baseball_mlb":          "h2h,totals,spreads",
     "basketball_nba":        "h2h,totals,spreads",
     "americanfootball_nfl":  "h2h,totals,spreads",
+}
+
+# Ligas de fútbol "reales" (no Mundial) que alimentan el tab FÚTBOL.
+# Fácil de extender: agregar más sport_keys de The Odds API aquí.
+FUTBOL_LEAGUES = {
+    "soccer_epl":            "Premier League",
+    "soccer_mexico_ligamx":  "Liga MX",
 }
 
 def _markets_for(sport_key: str) -> str:
@@ -117,7 +123,7 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
             "markets":    markets,
             "oddsFormat": "decimal",
         }
-        # Bet365 primero; si no tiene cobertura (Copa del Mundo, etc.) usamos todos
+        # Bet365 primero; si no tiene cobertura (ligas menos populares, etc.) usamos todos
         if not force_all_books:
             params["bookmakers"] = "bet365"
         r = requests.get(
@@ -139,7 +145,7 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
         print(f"  ⚠ Odds API ({sport_key}): {e}")
         return []
 
-def fetch_props_today(sport_key: str, prop_markets: str) -> list:
+def fetch_props_today(sport_key: str, prop_markets: str, region: str = "us") -> list:
     """Fetch player props para el deporte dado."""
     if not ODDS_KEY:
         return []
@@ -148,7 +154,7 @@ def fetch_props_today(sport_key: str, prop_markets: str) -> list:
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/",
             params={
                 "apiKey":     ODDS_KEY,
-                "regions":    "us",
+                "regions":    region,
                 "markets":    prop_markets,
                 "oddsFormat": "decimal",
             },
@@ -165,7 +171,8 @@ def fetch_props_today(sport_key: str, prop_markets: str) -> list:
         return []
 
 # ── 3. Construir contexto ─────────────────────────────────────────────────────
-def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds, mlb_props=None, nba_props=None) -> str:
+def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
+                   mlb_props=None, nba_props=None, nfl_props=None, futbol_props=None) -> str:
     lines = [
         f"FECHA HOY: {today} ({fecha_display})",
         f"ZONA HORARIA: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})",
@@ -256,10 +263,14 @@ def build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds, mlb_props=N
 
     fmt_odds_section(mlb_odds, "MLB — CUOTAS HOY")
     fmt_odds_section(nba_odds, "NBA — CUOTAS HOY")
-    fmt_odds_section(cup_odds, "FIFA WORLD CUP 2026 — CUOTAS HOY")
     fmt_odds_section(nfl_odds, "NFL — CUOTAS HOY")
+    for key, label in FUTBOL_LEAGUES.items():
+        fmt_odds_section((futbol_odds or {}).get(key, []), f"{label.upper()} — CUOTAS HOY")
     fmt_props_section(mlb_props or [], "MLB — PROPS DE JUGADORES HOY")
     fmt_props_section(nba_props or [], "NBA — PROPS DE JUGADORES HOY")
+    fmt_props_section(nfl_props or [], "NFL — PROPS DE JUGADORES HOY")
+    for key, label in FUTBOL_LEAGUES.items():
+        fmt_props_section((futbol_props or {}).get(key, []), f"{label.upper()} — PROPS DE JUGADORES HOY")
     return "\n".join(lines)
 
 # ── 4. Corrección de cuotas reales (Opción A) ─────────────────────────────────
@@ -388,26 +399,32 @@ def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
 
 def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
     """
-    Post-procesa los picks: sobreescribe cuota_bet365 con el precio real de Bet365,
+    Post-procesa los picks: sobreescribe cuota_bet365 con el precio real de la casa,
     recalcula prob_implicita y ev_pct. Si el EV cae a negativo, mueve el pick a no_apostar.
+    De paso, marca p["sport_key"] con el sport_key exacto de Odds API que usó
+    (para que check_results.py sepa qué endpoint de scores consultar sin adivinar).
     """
+    # liga_key (substring a buscar en el campo "liga" del pick, en minúsculas)
+    # → (sport_key de Odds API, lista de odds de ese deporte/liga)
     liga_map = {
-        "mlb":  all_odds.get("mlb", []),
-        "nba":  all_odds.get("nba", []),
-        "copa": all_odds.get("copa", []),
-        "nfl":  all_odds.get("nfl", []),
+        "mlb": ("baseball_mlb", all_odds.get("baseball_mlb", [])),
+        "nba": ("basketball_nba", all_odds.get("basketball_nba", [])),
+        "nfl": ("americanfootball_nfl", all_odds.get("americanfootball_nfl", [])),
     }
+    for key, label in FUTBOL_LEAGUES.items():
+        liga_map[label.lower()] = (key, all_odds.get(key, []))
 
     good_picks = []
     moved_to_na = []
 
     for p in picks_data.get("picks", []):
         liga_key = (p.get("liga") or "").lower()
-        if   "mlb"  in liga_key: odds_list = liga_map["mlb"]
-        elif "nba"  in liga_key: odds_list = liga_map["nba"]
-        elif any(k in liga_key for k in ("copa","world cup","fifa")): odds_list = liga_map["copa"]
-        elif "nfl"  in liga_key: odds_list = liga_map["nfl"]
-        else: odds_list = []
+        odds_list = []
+        for needle, (sport_key, odds) in liga_map.items():
+            if needle in liga_key:
+                p["sport_key"] = sport_key
+                odds_list = odds
+                break
 
         real_cuota = _find_real_cuota(p, odds_list)
 
@@ -449,21 +466,25 @@ Hoy es {today} — horario CDMX ({TZ_LABEL}, UTC{CDMX_OFFSET:+d}).
 
 REGLAS ABSOLUTAS:
 1. SOLO genera picks de partidos que aparezcan explícitamente en el contexto de datos.
-2. Para el Mundial FIFA 2026: si la sección "FIFA WORLD CUP 2026" dice "Sin juegos hoy",
-   NO pongas ningún partido del Mundial en picks ni en resumen_ejecutivo.
-3. Todos los horarios deben mostrarse en hora CDMX (CDT/CST).
-4. NO inventes partidos, equipos, ni cuotas que no estén en el contexto.
-5. CUOTAS REALES: el contexto incluye cuotas REALES de Bet365 para estos mercados:
+2. Todos los horarios deben mostrarse en hora CDMX (CDT/CST).
+3. NO inventes partidos, equipos, ni cuotas que no estén en el contexto.
+4. CUOTAS REALES: el contexto incluye cuotas REALES para estos mercados:
    - "1X2/ML" → moneyline (usa para picks Moneyline)
    - "Handicap/Spread: EQUIPO +X.X → Y.YY" → Asian Handicap (usa para picks AH)
    - "Total X.X: Over Y.YY / Under Z.ZZ" → totales goles/carreras (usa para picks O/U)
    - "Ambos Anotan: Sí X.XX / No Y.YY" → BTTS (usa para picks ambos anotan)
    Copia la cuota EXACTA del contexto. Si un mercado no aparece, NO lo inventes.
-6. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
-7. PROPS DE JUGADORES: El contexto incluye secciones "MLB — PROPS DE JUGADORES" y "NBA — PROPS DE JUGADORES".
-   Si hay props disponibles con EV positivo, inclúyelos como picks con tipo "Prop Jugador".
-   Formato del pick: "NOMBRE JUGADOR Over/Under X.X [stat]"  (ej: "Gerrit Cole Over 6.5 Strikeouts")
-   Solo incluye props si la cuota y el stat aparecen EXPLÍCITAMENTE en el contexto.
+5. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
+6. PROPS DE JUGADORES: el contexto incluye secciones "— PROPS DE JUGADORES HOY" para
+   MLB, NBA, NFL y cada liga de fútbol (Premier League, Liga MX). Si hay props
+   disponibles con EV positivo, inclúyelos como picks con tipo "Prop Jugador".
+   Formato del pick: "NOMBRE JUGADOR Over/Under X.X [stat]" (ej: "Gerrit Cole Over 6.5
+   Strikeouts", "Patrick Mahomes Over 275.5 Passing Yards", "Erling Haaland Anytime
+   Goalscorer"). Solo incluye props si la cuota y el stat aparecen EXPLÍCITAMENTE en
+   el contexto. Busca props en TODOS los deportes con datos disponibles, no solo MLB/NBA.
+7. LIGAS DE FÚTBOL: además de MLB/NBA/NFL, el contexto puede incluir Premier League y
+   Liga MX. Trátalas igual que cualquier otra liga — mismas reglas de cuotas reales y EV.
+   En fútbol el empate cuenta como resultado propio para picks de moneyline (1X2).
 
 METODOLOGÍA OBLIGATORIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)
@@ -471,11 +492,19 @@ METODOLOGÍA OBLIGATORIA (por cada pick):
 3. EV% = (prob_propia/100 × cuota_decimal - 1) × 100  →  solo incluir si EV > 0
 4. Stake: Kelly fraccional 1/4. Máx 0.3u por pick. Total sesión ≤ 3u
 5. Parlays: 2-3 patas con correlación positiva; cuota mínima 1.20 por pata
+6. ESTRELLAS (escala de confianza 1 a 5, no 1 a 3):
+   5 = confianza máxima, edge muy claro y bien soportado por los datos (usar poco)
+   4 = confianza alta
+   3 = confianza media
+   2 = confianza baja
+   1 = especulativo / valor marginal
+   Reserva el 5 para el pick más fuerte del día, si lo hay — no todos los días debe
+   haber un pick de 5 estrellas.
 
 Responde ÚNICAMENTE JSON válido, sin markdown, sin texto extra."""
 
 SCHEMA_PICK = {
-    "liga":           "MLB | NBA | FIFA World Cup 2026 | NFL",
+    "liga":           "MLB | NBA | NFL | Premier League | Liga MX",
     "matchup":        "AWAY @ HOME",
     "hora":           "H:MM AM/PM CDT (CDMX)",
     "pick":           "descripción concreta",
@@ -557,19 +586,27 @@ if __name__ == "__main__":
     mlb_sched = fetch_mlb_schedule()
     print(f"   {len(mlb_sched)} partidos encontrados")
 
-    print("\n💰 Obteniendo odds HOY (Bet365 / mejor casa disponible)...")
+    print("\n💰 Obteniendo odds HOY (mejor casa disponible por deporte)...")
     mlb_odds = fetch_odds_today("baseball_mlb")
     nba_odds = fetch_odds_today("basketball_nba")
-    cup_odds = fetch_odds_today("soccer_fifa_world_cup")
     nfl_odds = fetch_odds_today("americanfootball_nfl")
+    futbol_odds = {key: fetch_odds_today(key) for key in FUTBOL_LEAGUES}
 
     print("\n🎯 Obteniendo props de jugadores HOY...")
     mlb_props = fetch_props_today("baseball_mlb", "batter_home_runs,batter_hits,pitcher_strikeouts")
     nba_props = fetch_props_today("basketball_nba", "player_points,player_rebounds,player_assists,player_threes")
+    nfl_props = fetch_props_today("americanfootball_nfl", "player_pass_yds,player_rush_yds,player_receptions,player_anytime_td")
+    futbol_props = {key: fetch_props_today(key, "player_goal_scorer_anytime", region="eu") for key in FUTBOL_LEAGUES}
 
-    all_odds = {"mlb": mlb_odds, "nba": nba_odds, "copa": cup_odds, "nfl": nfl_odds}
+    all_odds = {
+        "baseball_mlb": mlb_odds,
+        "basketball_nba": nba_odds,
+        "americanfootball_nfl": nfl_odds,
+        **futbol_odds,
+    }
 
-    context = build_context(mlb_sched, mlb_odds, nba_odds, cup_odds, nfl_odds, mlb_props, nba_props)
+    context = build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds,
+                             mlb_props, nba_props, nfl_props, futbol_props)
     print("\n--- CONTEXTO (primeras 1200 chars) ---")
     print(context[:1200])
     print("...\n")

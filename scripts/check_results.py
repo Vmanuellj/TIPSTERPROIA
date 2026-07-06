@@ -95,16 +95,26 @@ def fetch_scores(sport_key: str, target_date: str) -> list:
         print(f"  ⚠ scores {sport_key}: {e}")
         return []
 
-def get_sport_key(liga: str) -> str:
-    liga = liga.upper()
+def get_sport_key(pick: dict) -> str:
+    """
+    Prefiere el sport_key exacto que generate_picks.py ya guardó en el pick
+    (fix_cuotas_reales lo stampea al verificar cuotas). Si no está (picks
+    históricos viejos), usa una heurística sobre el campo "liga".
+    """
+    sk = pick.get("sport_key")
+    if sk:
+        return sk
+    liga = (pick.get("liga") or "").upper()
     if "MLB" in liga:
         return "baseball_mlb"
     if "NBA" in liga:
         return "basketball_nba"
     if "NFL" in liga:
         return "americanfootball_nfl"
-    if "WORLD CUP" in liga or "COPA" in liga or "FIFA" in liga:
-        return "soccer_fifa_world_cup"
+    if "PREMIER" in liga:
+        return "soccer_epl"
+    if "LIGA MX" in liga:
+        return "soccer_mexico_ligamx"
     if "FUTBOL" in liga or "FÚTBOL" in liga or "SOCCER" in liga:
         return "soccer_epl"
     return "baseball_mlb"
@@ -164,7 +174,7 @@ def evaluate_pick(pick: dict, game: dict) -> str:
 
     # ── Moneyline / 1X2 ──────────────────────────────────────────────────────
     if "moneyline" in tipo or "1x2" in tipo or tipo == "ml":
-        is_soccer = any(k in liga.lower() for k in ("soccer","futbol","fútbol","copa","world cup","fifa","football"))
+        is_soccer = any(k in liga.lower() for k in ("soccer","futbol","fútbol","premier","liga mx","football"))
         if "DRAW" in pick_txt or "EMPATE" in pick_txt:
             return "win" if away_score == home_score else "loss"
         if any(w in pick_txt for w in [w.upper() for w in re.split(r'\W+', away_raw) if len(w) > 2]):
@@ -256,8 +266,8 @@ def main():
     # Usamos la fecha del archivo de picks como fecha objetivo
     picks_date = data.get("fecha", yesterday)
     scores_cache: dict[str, list] = {}
-    def get_scores(liga):
-        sk = get_sport_key(liga)
+    def get_scores(pick):
+        sk = get_sport_key(pick)
         if sk not in scores_cache:
             scores_cache[sk] = fetch_scores(sk, picks_date)
         return scores_cache[sk]
@@ -267,7 +277,7 @@ def main():
 
     for pick in picks:
         liga   = pick.get("liga", "")
-        scores = get_scores(liga)
+        scores = get_scores(pick)
         game   = find_game(pick, scores)
 
         if game is None:
