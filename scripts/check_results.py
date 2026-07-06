@@ -294,14 +294,22 @@ def main():
         else:                     pending += 1
 
         results.append({
-            "matchup":   pick.get("matchup"),
-            "pick":      pick.get("pick"),
-            "tipo":      pick.get("tipo"),
-            "liga":      liga,
-            "cuota":     pick.get("cuota_bet365"),
-            "stake":     pick.get("stake"),
-            "resultado": resultado,
-            "score":     score_str,
+            "matchup":       pick.get("matchup"),
+            "pick":          pick.get("pick"),
+            "tipo":          pick.get("tipo"),
+            "liga":          liga,
+            "cuota":         pick.get("cuota_bet365"),
+            "stake":         pick.get("stake"),
+            "resultado":     resultado,
+            "score":         score_str,
+            # Campos para el bucle de auto-aprendizaje / calibración
+            "sport_key":     pick.get("sport_key"),
+            "prob_propia":   pick.get("prob_propia"),
+            "prob_justa":    pick.get("prob_justa"),
+            "prob_ia_cruda": pick.get("prob_ia_cruda"),
+            "prob_casino":   pick.get("prob_implicita"),
+            "ev_pct":        pick.get("ev_pct"),
+            "estrellas":     pick.get("estrellas"),
         })
         print(f"  [{resultado.upper():7}] {pick.get('matchup')} — {pick.get('pick')}"
               + (f" ({score_str})" if score_str else ""))

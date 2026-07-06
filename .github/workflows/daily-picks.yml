@@ -49,5 +49,6 @@ jobs:
           find . -maxdepth 1 -name "results-*.json" -mtime +30 -delete 2>/dev/null || true
           git add picks-${FECHA}.json latest.json picks-data.js
           git add results-${FECHA_AYER}.json 2>/dev/null || true
+          git add learning-summary.json 2>/dev/null || true
           git diff --cached --quiet || git commit -m "picks ${FECHA} + resultados ${FECHA_AYER} [auto]"
           git push

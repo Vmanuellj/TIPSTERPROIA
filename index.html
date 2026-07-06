@@ -121,6 +121,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .st-nba{color:var(--am);background:var(--amd);border-color:var(--amb);}
 .st-futbol{color:var(--gr);background:var(--grd);border-color:var(--grb);}
 .st-nfl{color:var(--nfl);background:var(--nfld);border-color:var(--nflb);}
+.st-tennis{color:#a3e635;background:rgba(163,230,53,.12);border-color:rgba(163,230,53,.3);}
 .hr-method{margin-left:auto;font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);}
 @media(max-width:500px){.hr-stats{grid-template-columns:repeat(2,1fr);}.hrs:nth-child(2){border-right:none;}.hrs:nth-child(3){border-top:1px solid var(--bd)}}
 
@@ -368,6 +369,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
   <symbol id="ico-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></symbol>
   <symbol id="ico-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
   <symbol id="ico-football" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="9" ry="6" transform="rotate(-30 12 12)"/><line x1="12" y1="7" x2="12" y2="17"/><line x1="9" y1="10" x2="15" y2="10"/><line x1="8.5" y1="13" x2="15.5" y2="13"/></symbol>
+  <symbol id="ico-tennis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M18.09 5.5C15.5 8 15.5 16 18.09 18.5"/><path d="M5.91 5.5C8.5 8 8.5 16 5.91 18.5"/></symbol>
 </svg>
 
 <div class="topbar">
@@ -421,6 +423,9 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
       <button class="tab-btn" data-tab="nfl" onclick="switchTab('nfl')">
         <svg><use href="#ico-football"/></svg>NFL<span class="tab-ct zero" id="ct-nfl">0</span>
       </button>
+      <button class="tab-btn" data-tab="tennis" onclick="switchTab('tennis')">
+        <svg><use href="#ico-tennis"/></svg>TENNIS<span class="tab-ct zero" id="ct-tennis">0</span>
+      </button>
       <button class="tab-btn" data-tab="resumen" onclick="switchTab('resumen')">
         <svg><use href="#ico-chart"/></svg>RESUMEN
       </button>
@@ -436,6 +441,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
   <div id="sec-nba"    class="section"></div>
   <div id="sec-futbol" class="section"></div>
   <div id="sec-nfl"    class="section"></div>
+  <div id="sec-tennis" class="section"></div>
   <div id="sec-resumen"class="section"></div>
 </div>
 
@@ -472,6 +478,7 @@ function getSport(liga){
   var l=(liga||'').toLowerCase();
   if(l.includes('mlb'))return'mlb';
   if(l.includes('nba'))return'nba';
+  if(l.includes('tennis')||l.includes('tenis')||l.includes('atp')||l.includes('wta'))return'tennis';
   if(l.includes('liga')||l.includes('premier')||l.includes('mls')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer'))return'futbol';
   if(l.includes('nfl')||l.includes('american football')||l.includes('football'))return'nfl';
   return'otros';
@@ -752,7 +759,8 @@ function buildSport(allPicks,allNA,sport,label,icoId){
     var l=(p.liga||'').toLowerCase();
     return(sport==='mlb'&&l.includes('mlb'))||(sport==='nba'&&l.includes('nba'))||
            (sport==='futbol'&&(l.includes('liga')||l.includes('premier')||l.includes('futbol')||l.includes('fútbol')))||
-           (sport==='nfl'&&(l.includes('nfl')||l.includes('football')));
+           (sport==='nfl'&&(l.includes('nfl')||l.includes('football')))||
+           (sport==='tennis'&&(l.includes('tennis')||l.includes('tenis')||l.includes('atp')||l.includes('wta')));
   });
   var wrap=document.createElement('div');
   var hdr='<div class="sh"><div class="sh-ico" style="background:var(--cyd);color:var(--cy)">'+useIco(icoId)+'</div><div class="sh-title">'+label+'</div><div class="sh-line"></div><div class="sh-ct">'+picks.length+' PICKS</div></div>';
@@ -856,10 +864,10 @@ function render(data){
   document.getElementById('hdrDate').textContent=fmtDate(new Date());
 
   // Tab counts
-  var SC={mlb:0,nba:0,futbol:0,nfl:0};
+  var SC={mlb:0,nba:0,futbol:0,nfl:0,tennis:0};
   picks.forEach(function(p){var s=getSport(p.liga);if(SC[s]!==undefined)SC[s]++;});
   var total=picks.length;
-  ['mlb','nba','futbol','nfl'].forEach(function(s){
+  ['mlb','nba','futbol','nfl','tennis'].forEach(function(s){
     var el=document.getElementById('ct-'+s);
     if(el){el.textContent=SC[s];el.className='tab-ct'+(SC[s]===0?' zero':'');}
   });
@@ -875,8 +883,8 @@ function render(data){
     var ev5Picks=picks.filter(function(p){return(p.ev_pct||0)>5;}).length;
     var avgEV=picks.length?picks.reduce(function(a,p){return a+(p.ev_pct||0);},0)/picks.length:0;
     var sportTags=Object.entries(SC).filter(function(e){return e[1]>0;}).map(function(e){
-      var labels={mlb:'⚾ MLB',nba:'🏀 NBA',futbol:'⚽ FÚTBOL',nfl:'🏈 NFL'};
-      var cls={mlb:'st-mlb',nba:'st-nba',futbol:'st-futbol',nfl:'st-nfl'};
+      var labels={mlb:'⚾ MLB',nba:'🏀 NBA',futbol:'⚽ FÚTBOL',nfl:'🏈 NFL',tennis:'🎾 TENNIS'};
+      var cls={mlb:'st-mlb',nba:'st-nba',futbol:'st-futbol',nfl:'st-nfl',tennis:'st-tennis'};
       return'<span class="sport-tag '+(cls[e[0]]||'st-mlb')+'">'+(labels[e[0]]||e[0].toUpperCase())+' '+e[1]+'</span>';
     }).join('');
     var heroHTML=
@@ -925,7 +933,7 @@ function render(data){
   }
 
   // SPORT SECTIONS
-  var defs=[{id:'mlb',label:'MLB BÉISBOL',ico:'ico-baseball'},{id:'nba',label:'NBA',ico:'ico-basketball'},{id:'futbol',label:'FÚTBOL',ico:'ico-soccer'},{id:'nfl',label:'NFL FÚTBOL AMERICANO',ico:'ico-football'}];
+  var defs=[{id:'mlb',label:'MLB BÉISBOL',ico:'ico-baseball'},{id:'nba',label:'NBA',ico:'ico-basketball'},{id:'futbol',label:'FÚTBOL',ico:'ico-soccer'},{id:'nfl',label:'NFL FÚTBOL AMERICANO',ico:'ico-football'},{id:'tennis',label:'TENNIS',ico:'ico-tennis'}];
   defs.forEach(function(d){
     var sec=document.getElementById('sec-'+d.id);if(!sec)return;
     var res=buildSport(picks,na,d.id,d.label,d.ico);
@@ -944,6 +952,7 @@ function render(data){
         '<div class="na-razon">'+(n.razon||'')+'</div></div></div>';
     }).join('');
     res.innerHTML=
+      '<div id="learnPanel"></div>'+
       '<div class="sh"><div class="sh-ico" style="background:var(--bld);color:var(--bl)">'+useIco('ico-chart')+'</div><div class="sh-title">RESUMEN EJECUTIVO</div><div class="sh-line"></div></div>'+
       buildTable(picks)+
       '<div class="sh" style="margin-top:20px"><div class="sh-ico" style="background:var(--red);color:var(--re)">'+useIco('ico-ban')+'</div><div class="sh-title">NO APOSTAR</div><div class="sh-line"></div></div>'+
@@ -1034,6 +1043,50 @@ function loadResults(dateStr){
     .catch(function(){/* sin resultados aún — silencioso */});
 }
 
+// ─── AUTO-APRENDIZAJE: panel de rendimiento/calibración de la IA ──────────────
+function roiColor(v){return v>0?'var(--gr)':v<0?'var(--re)':'var(--tx3)';}
+function loadLearning(){
+  var panel=document.getElementById('learnPanel');if(!panel)return;
+  fetch('/learning-summary.json')
+    .then(function(r){if(!r.ok)throw new Error('no learning');return r.json();})
+    .then(function(d){
+      if(!d||d.estado==='cold_start'||!d.global){
+        panel.innerHTML='<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE</div><div class="sh-line"></div></div>'+
+          '<div class="na-razon" style="padding:2px 2px 6px">Recopilando historial… el panel de rendimiento aparece con más picks resueltos.</div>';
+        return;
+      }
+      var g=d.global;
+      var sportRows=Object.keys(d.por_deporte||{}).map(function(k){
+        var a=d.por_deporte[k];
+        return'<tr><td style="font-family:var(--hf);font-weight:800;text-transform:uppercase">'+k+'</td>'+
+          '<td>'+a.wins+'-'+a.losses+'</td>'+
+          '<td style="font-weight:700">'+a.win_pct+'%</td>'+
+          '<td style="font-weight:800;color:'+roiColor(a.roi)+'">'+(a.roi>0?'+':'')+a.roi+'%</td></tr>';
+      }).join('');
+      var calibNote='';
+      if(d.calibracion&&d.calibracion.length){
+        var tot=d.calibracion.reduce(function(s,c){return s+c.n;},0);
+        var wAvg=d.calibracion.reduce(function(s,c){return s+c.sesgo*c.n;},0)/(tot||1);
+        if(Math.abs(wAvg)>=3){
+          calibNote='<div class="na-razon" style="padding:8px 0 0">'+
+            (wAvg>0?'⚠️ La IA <b>sobreestima ~'+wAvg.toFixed(1)+' pts</b> — el sistema ya la corrige anclándola al mercado.'
+                   :'La IA <b>subestima ~'+Math.abs(wAvg).toFixed(1)+' pts</b>.')+'</div>';
+        }
+      }
+      panel.innerHTML=
+        '<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE · RENDIMIENTO</div><div class="sh-line"></div><div class="sh-ct">'+g.n+' PICKS</div></div>'+
+        '<div class="b-stats" style="margin-bottom:14px">'+
+          '<div class="bs"><div class="bs-v" style="color:var(--gr)">'+g.win_pct+'%</div><div class="bs-l">Acierto</div></div>'+
+          '<div class="bs"><div class="bs-v" style="color:'+roiColor(g.roi)+'">'+(g.roi>0?'+':'')+g.roi+'%</div><div class="bs-l">ROI /u</div></div>'+
+          '<div class="bs"><div class="bs-v" style="color:var(--cy)">'+g.wins+'</div><div class="bs-l">Wins</div></div>'+
+          '<div class="bs"><div class="bs-v" style="color:var(--re)">'+g.losses+'</div><div class="bs-l">Losses</div></div>'+
+        '</div>'+
+        '<div class="tg" style="margin-bottom:6px"><table><thead><tr><th>Deporte</th><th>W-L</th><th>Acierto</th><th>ROI</th></tr></thead><tbody>'+sportRows+'</tbody></table></div>'+
+        calibNote;
+    })
+    .catch(function(){/* sin summary aún — silencioso */});
+}
+
 // ─── DAY NAVIGATION ──────────────────────────────────────────────────────────
 var DAY_OFFSET=0; // 0=hoy, -1=ayer, -2=antes de ayer...
 
@@ -1094,7 +1147,7 @@ function tryFetch(url,fb){
   var ctrl=new AbortController(),tmo=setTimeout(function(){ctrl.abort();},9000);
   fetch(url,{signal:ctrl.signal})
     .then(function(r){clearTimeout(tmo);if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
-    .then(function(d){render(d);loadResults(dateStrFromOffset(DAY_OFFSET));})
+    .then(function(d){render(d);loadResults(dateStrFromOffset(DAY_OFFSET));loadLearning();})
     .catch(function(err){
       if(fb){tryFetch(fb,null);}
       else{
