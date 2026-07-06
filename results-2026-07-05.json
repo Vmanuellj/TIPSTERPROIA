@@ -1,0 +1,113 @@
+{
+  "fecha": "2026-07-05",
+  "resumen": {
+    "total": 10,
+    "wins": 2,
+    "losses": 8,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": -75.25
+  },
+  "picks": [
+    {
+      "matchup": "Norway @ Brazil",
+      "pick": "Brazil Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 1.57,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Brazil 1 - Norway 2"
+    },
+    {
+      "matchup": "England @ Mexico",
+      "pick": "Mexico Moneyline",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 3.4,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Mexico 2 - England 3"
+    },
+    {
+      "matchup": "England @ Mexico",
+      "pick": "Empate (Draw)",
+      "tipo": "Moneyline",
+      "liga": "FIFA World Cup 2026",
+      "cuota": 3.2,
+      "stake": "0.15u",
+      "resultado": "loss",
+      "score": "Mexico 2 - England 3"
+    },
+    {
+      "matchup": "Chicago White Sox @ Cleveland Guardians",
+      "pick": "Cleveland Guardians Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.45,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Cleveland Guardians 6 - Chicago White Sox 7"
+    },
+    {
+      "matchup": "Minnesota Twins @ New York Yankees",
+      "pick": "New York Yankees Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.65,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "New York Yankees 1 - Minnesota Twins 6"
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Kansas City Royals",
+      "pick": "Philadelphia Phillies Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.72,
+      "stake": "0.25u",
+      "resultado": "loss",
+      "score": "Kansas City Royals 5 - Philadelphia Phillies 2"
+    },
+    {
+      "matchup": "San Diego Padres @ Los Angeles Dodgers",
+      "pick": "Los Angeles Dodgers Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.55,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Los Angeles Dodgers 2 - San Diego Padres 5"
+    },
+    {
+      "matchup": "Baltimore Orioles @ Cincinnati Reds",
+      "pick": "Baltimore Orioles Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.8,
+      "stake": "0.20u",
+      "resultado": "loss",
+      "score": "Cincinnati Reds 3 - Baltimore Orioles 2"
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Seattle Mariners",
+      "pick": "Seattle Mariners Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.6,
+      "stake": "0.15u",
+      "resultado": "win",
+      "score": "Seattle Mariners 4 - Toronto Blue Jays 0"
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Chicago Cubs",
+      "pick": "Chicago Cubs Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.7,
+      "stake": "0.15u",
+      "resultado": "win",
+      "score": "Chicago Cubs 6 - St. Louis Cardinals 4"
+    }
+  ]
+}
