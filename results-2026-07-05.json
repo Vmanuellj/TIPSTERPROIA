@@ -17,7 +17,14 @@
       "cuota": 1.57,
       "stake": "0.25u",
       "resultado": "pending",
-      "score": null
+      "score": null,
+      "sport_key": null,
+      "prob_propia": 70.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 63.7,
+      "ev_pct": 9.9,
+      "estrellas": 4
     },
     {
       "matchup": "England @ Mexico",
@@ -27,7 +34,14 @@
       "cuota": 3.4,
       "stake": "0.20u",
       "resultado": "pending",
-      "score": null
+      "score": null,
+      "sport_key": null,
+      "prob_propia": 36.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 29.4,
+      "ev_pct": 22.4,
+      "estrellas": 3
     },
     {
       "matchup": "England @ Mexico",
@@ -37,7 +51,14 @@
       "cuota": 3.2,
       "stake": "0.15u",
       "resultado": "pending",
-      "score": null
+      "score": null,
+      "sport_key": null,
+      "prob_propia": 34.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 31.3,
+      "ev_pct": 8.8,
+      "estrellas": 3
     },
     {
       "matchup": "Chicago White Sox @ Cleveland Guardians",
@@ -47,7 +68,14 @@
       "cuota": 1.45,
       "stake": "0.25u",
       "resultado": "loss",
-      "score": "Cleveland Guardians 6 - Chicago White Sox 7"
+      "score": "Cleveland Guardians 6 - Chicago White Sox 7",
+      "sport_key": null,
+      "prob_propia": 76.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 69.0,
+      "ev_pct": 10.2,
+      "estrellas": 4
     },
     {
       "matchup": "Minnesota Twins @ New York Yankees",
@@ -57,7 +85,14 @@
       "cuota": 1.65,
       "stake": "0.20u",
       "resultado": "loss",
-      "score": "New York Yankees 1 - Minnesota Twins 6"
+      "score": "New York Yankees 1 - Minnesota Twins 6",
+      "sport_key": null,
+      "prob_propia": 67.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 60.6,
+      "ev_pct": 10.6,
+      "estrellas": 3
     },
     {
       "matchup": "Philadelphia Phillies @ Kansas City Royals",
@@ -67,7 +102,14 @@
       "cuota": 1.72,
       "stake": "0.25u",
       "resultado": "loss",
-      "score": "Kansas City Royals 5 - Philadelphia Phillies 2"
+      "score": "Kansas City Royals 5 - Philadelphia Phillies 2",
+      "sport_key": null,
+      "prob_propia": 65.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 58.1,
+      "ev_pct": 11.8,
+      "estrellas": 4
     },
     {
       "matchup": "San Diego Padres @ Los Angeles Dodgers",
@@ -77,7 +119,14 @@
       "cuota": 1.55,
       "stake": "0.20u",
       "resultado": "loss",
-      "score": "Los Angeles Dodgers 2 - San Diego Padres 5"
+      "score": "Los Angeles Dodgers 2 - San Diego Padres 5",
+      "sport_key": null,
+      "prob_propia": 70.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 64.5,
+      "ev_pct": 8.5,
+      "estrellas": 3
     },
     {
       "matchup": "Baltimore Orioles @ Cincinnati Reds",
@@ -87,7 +136,14 @@
       "cuota": 1.8,
       "stake": "0.20u",
       "resultado": "loss",
-      "score": "Cincinnati Reds 3 - Baltimore Orioles 2"
+      "score": "Cincinnati Reds 3 - Baltimore Orioles 2",
+      "sport_key": null,
+      "prob_propia": 62.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 55.6,
+      "ev_pct": 11.6,
+      "estrellas": 3
     },
     {
       "matchup": "Toronto Blue Jays @ Seattle Mariners",
@@ -97,7 +153,14 @@
       "cuota": 1.6,
       "stake": "0.15u",
       "resultado": "win",
-      "score": "Seattle Mariners 4 - Toronto Blue Jays 0"
+      "score": "Seattle Mariners 4 - Toronto Blue Jays 0",
+      "sport_key": null,
+      "prob_propia": 68.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 62.5,
+      "ev_pct": 8.8,
+      "estrellas": 3
     },
     {
       "matchup": "St. Louis Cardinals @ Chicago Cubs",
@@ -107,7 +170,14 @@
       "cuota": 1.7,
       "stake": "0.15u",
       "resultado": "win",
-      "score": "Chicago Cubs 6 - St. Louis Cardinals 4"
+      "score": "Chicago Cubs 6 - St. Louis Cardinals 4",
+      "sport_key": null,
+      "prob_propia": 65.0,
+      "prob_justa": null,
+      "prob_ia_cruda": null,
+      "prob_casino": 58.8,
+      "ev_pct": 10.5,
+      "estrellas": 3
     }
   ]
 }
