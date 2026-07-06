@@ -127,7 +127,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── NEWS BAR ───────────────────────────────────── */
 .news-bar{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 14px;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .news-tag{font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--pu);background:var(--pud);border:1px solid var(--pub);padding:3px 9px;border-radius:99px;white-space:nowrap;flex-shrink:0;}
-.news-txt{font-size:11px;color:var(--tx2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.5;}
+.news-txt{font-size:11px;color:var(--tx2);line-height:1.5;}
 
 /* ─── MINI MENÚ DE DEPORTES ──────────────────────── */
 .sport-menu{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:22px;}
@@ -202,6 +202,14 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .star-on-gray{color:var(--tx2);}
 .star-off{color:rgba(255,255,255,.08);}
 .stake-pill{font-family:var(--hf);font-size:11px;font-weight:700;letter-spacing:.8px;background:var(--sf2);border:1px solid var(--bd2);color:var(--tx2);padding:5px 14px;border-radius:99px;}
+/* ─── CUOTA MÍNIMA CON VALOR (anclada al mercado sharp Pinnacle) ─── */
+.value-box{display:flex;flex-wrap:wrap;align-items:center;gap:14px;background:linear-gradient(135deg,rgba(0,229,180,.08),rgba(96,165,250,.05));border:1px solid var(--cyb);border-radius:var(--rds);padding:12px 16px;margin:14px 0;}
+.vb-item{display:flex;flex-direction:column;gap:2px;}
+.vb-l{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx3);}
+.vb-v{font-family:var(--hf);font-size:20px;font-weight:900;line-height:1;color:var(--tx);}
+.vb-v.vb-strong{font-size:26px;color:var(--cy);text-shadow:0 0 12px rgba(0,229,180,.4);}
+.vb-note{flex:1;min-width:160px;font-size:10.5px;color:var(--tx2);line-height:1.5;}
+.vb-note b{color:var(--cy);}
 .cuotas{display:flex;gap:10px;align-items:center;}
 .cq{font-family:var(--hf);font-size:11px;font-weight:700;color:var(--tx3);}
 .cq span{color:var(--tx2);}
@@ -230,6 +238,8 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .pc-mid{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;}
 .pc-pick{font-family:var(--hf);font-size:12px;font-weight:800;text-transform:uppercase;color:var(--pu);letter-spacing:.3px;background:var(--pud);border:1px solid var(--pub);padding:5px 12px;border-radius:99px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;}
 .pc-ev{font-family:var(--hf);font-size:14px;font-weight:900;color:var(--gr);}
+.pc-min{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--cy);background:var(--cyd);border:1px solid var(--cyb);border-radius:var(--rdxs);padding:4px 9px;margin-bottom:9px;display:inline-block;}
+.pc-min b{font-size:12px;}
 .pc-pbar{height:3px;background:var(--sf2);border-radius:99px;overflow:hidden;margin-bottom:9px;}
 .pc-pfill{height:100%;background:linear-gradient(90deg,#7c3aed,#a78bfa);border-radius:99px;transition:width 1s cubic-bezier(.22,1,.36,1);width:0;}
 .pc-reason{font-size:11px;color:var(--tx3);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
@@ -606,6 +616,17 @@ function pcStars(n){
   return'<div class="pc-stars">'+s+'</div>';
 }
 
+// ─── CUOTA MÍNIMA CON VALOR (anclada al mercado sharp) ────────────────────────
+function valueBox(p){
+  if(p.cuota_minima==null)return'';
+  var pj=p.prob_justa!=null?('<div class="vb-item"><div class="vb-l">Prob. Justa (Mercado)</div><div class="vb-v">'+p.prob_justa+'%</div></div>'):'';
+  return'<div class="value-box">'+
+    '<div class="vb-item"><div class="vb-l">Cuota mín. c/valor</div><div class="vb-v vb-strong">'+p.cuota_minima+'</div></div>'+
+    pj+
+    '<div class="vb-note">Tu casa (PlayDoIt/Winpot) debe pagar <b>≥ '+p.cuota_minima+'</b> para que el pick tenga valor real.</div>'+
+  '</div>';
+}
+
 // ─── GOLD PICK ────────────────────────────────────────────────────────────────
 function buildGold(p){
   var t=parseTeams(p.matchup);
@@ -632,6 +653,7 @@ function buildGold(p){
         '<div class="badge-cuota">Cuota <span style="font-size:15px;letter-spacing:0">'+p.cuota_bet365+'</span></div>'+
         (p.cuota_verificada===true?'<div class="badge-verified">✓ REAL</div>':p.cuota_verificada===false?'<div class="badge-estimated">~ ESTIMADA</div>':'')+
       '</div>'+
+      valueBox(p)+
       '<div class="gc-analysis" id="gc-analysis-box" onclick="this.classList.toggle(\'expanded\')">'+
         (p.razonamiento||'')+
         '<div class="gc-analysis-fade">▼ Ver más</div>'+
@@ -673,15 +695,16 @@ function buildCard(p){
         '<div class="pc-pick">'+p.pick.toUpperCase()+'</div>'+
         '<div class="pc-ev">+'+p.ev_pct+'%</div>'+
       '</div>'+
-      '<div class="pc-pbar"><div class="pc-pfill" data-w="'+Math.min(p.prob_propia||50,100)+'"></div></div>'+
+      (p.cuota_minima!=null?'<div class="pc-min">CUOTA MÍN. C/VALOR: <b>'+p.cuota_minima+'</b></div>':'')+
+      '<div class="pc-pbar"><div class="pc-pfill" data-w="'+Math.min(p.prob_justa||p.prob_propia||50,100)+'"></div></div>'+
       '<div class="pc-reason">'+(p.razonamiento||'')+'</div>'+
       '<div class="pc-foot">'+pcStars(p.estrellas||1)+'<span class="pc-tipo">'+(p.tipo||'Pick')+'</span><span class="pc-stake">'+p.stake+'</span></div>'+
     '</div>'+
     '<div class="pc-detail">'+
       '<div class="pd-grid">'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--pu)">'+p.cuota_bet365+'</div><div class="pd-l">Cuota</div></div>'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--tx2)">'+p.prob_implicita+'%</div><div class="pd-l">Prob Casa</div></div>'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+p.prob_propia+'%</div><div class="pd-l">Prob Propia</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--pu)">'+p.cuota_bet365+'</div><div class="pd-l">Cuota Ref</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--cy)">'+(p.cuota_minima!=null?p.cuota_minima:'—')+'</div><div class="pd-l">Mín c/valor</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+(p.prob_justa!=null?p.prob_justa:p.prob_propia)+'%</div><div class="pd-l">'+(p.prob_justa!=null?'Prob Justa':'Prob Propia')+'</div></div>'+
       '</div>'+
       '<div class="pd-txt">'+(p.razonamiento||'')+'</div>'+
     '</div>';
@@ -812,12 +835,13 @@ function buildTable(picks){
       '<td><div class="et-pick">'+p.pick.toUpperCase()+'</div><div class="et-match">'+p.matchup.toUpperCase()+'</div></td>'+
       '<td><span class="et-tipo">'+(p.tipo||'Pick')+'</span></td>'+
       '<td class="et-cuota" style="color:var(--pu)">'+p.cuota_bet365+'</td>'+
+      '<td class="et-cuota" style="color:var(--cy)">'+(p.cuota_minima!=null?p.cuota_minima:'—')+'</td>'+
       '<td class="et-ev" style="'+evC+'">+'+ev+'%</td>'+
       '<td>'+starsHTML(p.estrellas||1,starTier(p.estrellas||1),12)+'</td>'+
       '<td style="font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx2)">'+p.stake+'</td>'+
     '</tr>';
   }).join('');
-  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>BET365</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>REF</th><th>MÍN</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
 // ─── MAIN RENDER ──────────────────────────────────────────────────────────────

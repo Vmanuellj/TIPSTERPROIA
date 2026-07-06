@@ -103,6 +103,11 @@ def _markets_for(sport_key: str) -> str:
 
 PREFERRED_BOOKS = ["onexbet", "pinnacle", "betway", "williamhill", "draftkings", "unibet", "bet365"]
 
+# Casas que pedimos a Odds API en cada llamada (misma región eu = mismo costo en
+# créditos que pedir una sola). Pinnacle es el mercado "sharp" que usamos para la
+# probabilidad justa sin-vig; el resto son referencias de cuota para el usuario.
+REFERENCE_BOOKS = "pinnacle,bet365,onexbet,williamhill,betway,unibet"
+
 def _best_bookmaker(bookmakers: list) -> dict | None:
     """Retorna el bookmaker preferido de la lista, en orden de preferencia."""
     bm_by_key = {bm["key"]: bm for bm in bookmakers}
@@ -123,9 +128,9 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
             "markets":    markets,
             "oddsFormat": "decimal",
         }
-        # Bet365 primero; si no tiene cobertura (ligas menos populares, etc.) usamos todos
+        # Pinnacle (sharp) + casas de referencia; si no hay cobertura, usamos todas
         if not force_all_books:
-            params["bookmakers"] = "bet365"
+            params["bookmakers"] = REFERENCE_BOOKS
         r = requests.get(
             f"https://api.the-odds-api.com/v4/sports/{sport_key}/odds/",
             params=params,
@@ -134,9 +139,9 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
         remaining = r.headers.get("x-requests-remaining", "?")
         all_games = r.json() if r.ok else []
         today_games = [g for g in all_games if is_today_cdmx(g.get("commence_time", ""))]
-        # Si bet365 no tiene nada, reintentar sin filtro de casa
+        # Si las casas de referencia no traen nada, reintentar sin filtro de casa
         if not force_all_books and len(today_games) == 0 and len(all_games) == 0:
-            print(f"  ↩ Bet365 sin datos para {sport_key} — reintentando con todas las casas...")
+            print(f"  ↩ Casas de referencia sin datos para {sport_key} — reintentando con todas...")
             return fetch_odds_today(sport_key, force_all_books=True)
         print(f"  Odds API ({sport_key}) mkts={markets} → "
               f"{len(today_games)}/{len(all_games)} juegos HOY | requests restantes: {remaining}")
@@ -308,27 +313,30 @@ def _extract_handicap_value(pick_txt: str) -> float | None:
         return float(m.group(1))
     return None
 
-def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
-    """
-    Busca la cuota real de Bet365 para un pick dado.
-    Cubre: h2h (1X2/ML), totals (O/U), spreads (AH/Run Line), btts (Ambos Anotan).
-    Retorna el precio (float) o None si no se encontró.
-    """
-    matchup  = pick.get("matchup", "")
-    tipo     = (pick.get("tipo") or "").lower()
-    pick_txt = (pick.get("pick") or "").upper()
-
-    # Separar equipos — acepta " @ " y " VS "
+def _parse_matchup(matchup: str):
+    """'AWAY @ HOME' o 'AWAY vs HOME' → (away, home) o None."""
     if " @ " in matchup:
-        away_raw, home_raw = matchup.split(" @ ", 1)
+        a, h = matchup.split(" @ ", 1)
     elif " VS " in matchup.upper():
         parts = re.split(r'\s+vs\s+', matchup, flags=re.IGNORECASE)
-        away_raw, home_raw = parts[0], parts[1]
+        if len(parts) < 2:
+            return None
+        a, h = parts[0], parts[1]
     else:
         return None
-    away_raw = away_raw.strip()
-    home_raw = home_raw.strip()
+    return a.strip(), h.strip()
 
+def _best_available_cuota(pick: dict, odds_list: list) -> float | None:
+    """
+    Mejor cuota disponible (line-shopping) para el outcome del pick, tomando el
+    MÁXIMO precio entre TODAS las casas del partido. Es la referencia correcta para
+    detectar valor vs la línea sin-vig de Pinnacle. Cubre h2h/totals/spreads/btts.
+    """
+    parsed = _parse_matchup(pick.get("matchup", ""))
+    if not parsed:
+        return None
+    away_raw, home_raw = parsed
+    pick_txt = (pick.get("pick") or "").upper()
     hcap_val = _extract_handicap_value(pick_txt)
 
     for game in odds_list:
@@ -336,76 +344,109 @@ def _find_real_cuota(pick: dict, odds_list: list) -> float | None:
         home_g = game.get("home_team", "")
         if not (_team_match(away_raw, away_g) and _team_match(home_raw, home_g)):
             continue
-
-        bm = _best_bookmaker(game.get("bookmakers", []))
-        if not bm:
-            continue
-        for mkt in bm.get("markets", []):
-
-                # ── Totals: Over / Under (goles, carreras, puntos) ─────────
-                if mkt["key"] == "totals":
-                    if any(k in pick_txt for k in ("OVER", "MAS DE", "MÁS DE", "+")):
-                        for o in mkt["outcomes"]:
-                            if o["name"].upper() == "OVER":
-                                return o["price"]
-                    elif any(k in pick_txt for k in ("UNDER", "MENOS DE", "-")):
-                        for o in mkt["outcomes"]:
-                            if o["name"].upper() == "UNDER":
-                                return o["price"]
-
-                # ── Spreads: Asian Handicap / Run Line / Handicap ──────────
-                elif mkt["key"] == "spreads":
-                    is_away = _pick_is_away(pick_txt, away_raw)
-                    is_home = _pick_is_home(pick_txt, home_raw)
-                    for o in mkt["outcomes"]:
-                        oname = o["name"]
-                        opt_point = o.get("point")
-                        # Filtrar por valor de handicap si está disponible
-                        if hcap_val is not None and opt_point is not None:
-                            # El visitante tiene handicap positivo en spreads (la API lo invierte)
-                            # Buscar la línea más cercana al valor pedido
-                            if abs(float(opt_point) - abs(hcap_val)) > 0.26:
-                                continue
-                        if is_away and _team_match(oname, away_g):
-                            return o["price"]
-                        if is_home and _team_match(oname, home_g):
-                            return o["price"]
-
-                # ── BTTS: Ambos Anotan / Both Teams to Score ───────────────
-                elif mkt["key"] == "btts":
-                    if any(k in pick_txt for k in ("AMBOS ANOTAN", "BOTH TEAMS", "BTTS", "SI ANOTAN", "SÍ")):
-                        for o in mkt["outcomes"]:
-                            if o["name"].upper() in ("YES", "SÍ", "SI"):
-                                return o["price"]
-                    elif "NO ANOTAN" in pick_txt or "NO BTTS" in pick_txt:
-                        for o in mkt["outcomes"]:
-                            if o["name"].upper() == "NO":
-                                return o["price"]
-
-                # ── Moneyline / 1X2 ───────────────────────────────────────
-                elif mkt["key"] == "h2h":
-                    # Draw / Empate
-                    if any(k in pick_txt for k in ("DRAW", "EMPATE", "TIE")):
-                        for o in mkt["outcomes"]:
-                            if o["name"].upper() in ("DRAW", "EMPATE", "TIE"):
-                                return o["price"]
-                    for o in mkt["outcomes"]:
-                        oname = o["name"]
-                        if _team_match(oname, away_raw) and _pick_is_away(pick_txt, away_raw):
-                            return o["price"]
-                        if _team_match(oname, home_raw) and _pick_is_home(pick_txt, home_raw):
-                            return o["price"]
+        best = None
+        for bm in game.get("bookmakers", []):
+            for mkt in bm.get("markets", []):
+                price = _picked_price_in_market(mkt, pick_txt, away_raw, home_raw,
+                                                away_g, home_g, hcap_val)
+                if price and (best is None or price > best):
+                    best = price
+        return best
     return None
+
+# ── 4b. Probabilidad "justa" sin-vig desde el mercado sharp (Pinnacle) ─────────
+def _picked_price_in_market(mkt: dict, pick_txt: str, away_raw: str, home_raw: str,
+                            away_g: str, home_g: str, hcap_val) -> float | None:
+    """Precio del outcome que corresponde al pick, dentro de un mercado dado.
+    Reusa las mismas reglas de match de equipos/outcome del resto del módulo."""
+    key = mkt.get("key")
+    outs = mkt.get("outcomes", [])
+    if key == "totals":
+        if any(k in pick_txt for k in ("OVER", "MAS DE", "MÁS DE", "+")):
+            return next((o["price"] for o in outs if o["name"].upper() == "OVER"), None)
+        if any(k in pick_txt for k in ("UNDER", "MENOS DE", "-")):
+            return next((o["price"] for o in outs if o["name"].upper() == "UNDER"), None)
+    elif key == "spreads":
+        is_away = _pick_is_away(pick_txt, away_raw)
+        is_home = _pick_is_home(pick_txt, home_raw)
+        for o in outs:
+            pt = o.get("point")
+            if hcap_val is not None and pt is not None and abs(abs(float(pt)) - abs(hcap_val)) > 0.26:
+                continue
+            if is_away and _team_match(o["name"], away_g):
+                return o["price"]
+            if is_home and _team_match(o["name"], home_g):
+                return o["price"]
+    elif key == "btts":
+        if any(k in pick_txt for k in ("AMBOS ANOTAN", "BOTH TEAMS", "BTTS", "SI ANOTAN", "SÍ")):
+            return next((o["price"] for o in outs if o["name"].upper() in ("YES", "SÍ", "SI")), None)
+        if "NO ANOTAN" in pick_txt or "NO BTTS" in pick_txt:
+            return next((o["price"] for o in outs if o["name"].upper() == "NO"), None)
+    elif key == "h2h":
+        if any(k in pick_txt for k in ("DRAW", "EMPATE", "TIE")):
+            p = next((o["price"] for o in outs if o["name"].upper() in ("DRAW", "EMPATE", "TIE")), None)
+            if p:
+                return p
+        for o in outs:
+            if _team_match(o["name"], away_raw) and _pick_is_away(pick_txt, away_raw):
+                return o["price"]
+            if _team_match(o["name"], home_raw) and _pick_is_home(pick_txt, home_raw):
+                return o["price"]
+    return None
+
+def pinnacle_fair(pick: dict, odds_list: list):
+    """
+    Probabilidad justa (sin-vig) del outcome del pick según Pinnacle (mercado sharp).
+    Devuelve (fair_p, cuota_minima) con fair_p en 0..1 y cuota_minima = 1/fair_p,
+    o (None, None) si no hay línea de Pinnacle para ese partido/mercado.
+    """
+    parsed = _parse_matchup(pick.get("matchup", ""))
+    if not parsed:
+        return None, None
+    away_raw, home_raw = parsed
+    pick_txt = (pick.get("pick") or "").upper()
+    hcap_val = _extract_handicap_value(pick_txt)
+
+    for game in odds_list:
+        away_g = game.get("away_team", "")
+        home_g = game.get("home_team", "")
+        if not (_team_match(away_raw, away_g) and _team_match(home_raw, home_g)):
+            continue
+        pinn = next((bm for bm in game.get("bookmakers", []) if bm.get("key") == "pinnacle"), None)
+        if not pinn:
+            return None, None
+        for mkt in pinn.get("markets", []):
+            prices = [o.get("price") for o in mkt.get("outcomes", []) if o.get("price")]
+            if len(prices) < 2:
+                continue
+            picked = _picked_price_in_market(mkt, pick_txt, away_raw, home_raw, away_g, home_g, hcap_val)
+            if not picked:
+                continue
+            inv_sum = sum(1.0 / p for p in prices)   # incluye el vig
+            if inv_sum <= 0:
+                continue
+            fair_p = (1.0 / picked) / inv_sum          # prob sin-vig del outcome
+            if fair_p > 0:
+                return round(fair_p, 4), round(1.0 / fair_p, 2)
+        return None, None
+    return None, None
+
+# Margen mínimo de EV vs la línea sin-vig de Pinnacle para conservar un pick.
+# 0.03 = la cuota de referencia debe pagar ≥ 3% por encima del precio justo.
+SHARP_EDGE_MIN = 0.03
 
 def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
     """
-    Post-procesa los picks: sobreescribe cuota_bet365 con el precio real de la casa,
-    recalcula prob_implicita y ev_pct. Si el EV cae a negativo, mueve el pick a no_apostar.
-    De paso, marca p["sport_key"] con el sport_key exacto de Odds API que usó
-    (para que check_results.py sepa qué endpoint de scores consultar sin adivinar).
+    Post-procesa los picks:
+      1. Sobreescribe cuota_bet365 con la mejor cuota real de referencia (Odds API).
+      2. Calcula la probabilidad JUSTA sin-vig con Pinnacle (mercado sharp) y de ahí
+         la cuota_minima con valor. Ancla el EV a esa probabilidad justa.
+      3. Conserva el pick solo si la cuota de referencia supera la cuota mínima con
+         un margen ≥ SHARP_EDGE_MIN; si no, lo manda a no_apostar.
+      4. Si no hay línea de Pinnacle (no sharp), degrada al método anterior
+         (EV con la prob de la IA) y marca fair_source=None.
+    De paso marca p["sport_key"] para que check_results.py sepa qué scores pedir.
     """
-    # liga_key (substring a buscar en el campo "liga" del pick, en minúsculas)
-    # → (sport_key de Odds API, lista de odds de ese deporte/liga)
     liga_map = {
         "mlb": ("baseball_mlb", all_odds.get("baseball_mlb", [])),
         "nba": ("basketball_nba", all_odds.get("basketball_nba", [])),
@@ -416,6 +457,7 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
 
     good_picks = []
     moved_to_na = []
+    sharp_validated = 0
 
     for p in picks_data.get("picks", []):
         liga_key = (p.get("liga") or "").lower()
@@ -426,36 +468,65 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
                 odds_list = odds
                 break
 
-        real_cuota = _find_real_cuota(p, odds_list)
-
+        # 1. Cuota de referencia = mejor precio disponible en el mercado (line-shopping)
+        real_cuota = _best_available_cuota(p, odds_list)
         if real_cuota:
-            old = p.get("cuota_bet365", "?")
-            p["cuota_bet365"]    = real_cuota
+            p["cuota_bet365"]     = real_cuota
             p["cuota_verificada"] = True
-            p["prob_implicita"]  = round(100 / real_cuota, 1)
-            prob_propia = p.get("prob_propia", 50)
-            ev = round((prob_propia / 100 * real_cuota - 1) * 100, 1)
+            cuota_ref = real_cuota
+        else:
+            p["cuota_verificada"] = False
+            cuota_ref = p.get("cuota_bet365") or 0
+        p["prob_implicita"] = round(100 / cuota_ref, 1) if cuota_ref else 0
+
+        # 2. Probabilidad justa sin-vig desde Pinnacle
+        fair_p, cuota_minima = pinnacle_fair(p, odds_list)
+
+        if fair_p and cuota_ref:
+            p["fair_source"]  = "pinnacle"
+            p["prob_justa"]   = round(fair_p * 100, 1)
+            p["cuota_minima"] = cuota_minima
+            p["cuota_valor"]  = round(cuota_minima * (1 + SHARP_EDGE_MIN), 2)
+            ev = round((fair_p * cuota_ref - 1) * 100, 1)
             p["ev_pct"] = ev
-            flag = "✅" if ev > 0 else "⚠️ EV NEGATIVO"
-            print(f"  {flag} [{p['matchup']}] {p['pick']}  cuota {old}→{real_cuota}  EV {ev}%")
-            if ev <= 0:
+            passes = cuota_ref >= cuota_minima * (1 + SHARP_EDGE_MIN)
+            flag = "✅ SHARP" if passes else "⚠️ SIN VENTAJA"
+            print(f"  {flag} [{p['matchup']}] {p['pick']}  ref {cuota_ref} vs mín {cuota_minima}  EV {ev}%")
+            if passes:
+                sharp_validated += 1
+                good_picks.append(p)
+            else:
                 moved_to_na.append({
                     "matchup": p["matchup"],
                     "liga":    p.get("liga", ""),
-                    "razon":   f"EV negativo tras cuota real Bet365 ({real_cuota}). Claude estimó {old}."
+                    "razon":   (f"Sin ventaja real vs mercado sharp (Pinnacle): cuota mínima "
+                                f"{cuota_minima}, referencia {cuota_ref}. EV {ev}%.")
                 })
-            else:
-                good_picks.append(p)
         else:
-            p["cuota_verificada"] = False
-            print(f"  ⚠ Sin cuota API para: [{p['matchup']}] {p['pick']} — cuota estimada ({p.get('cuota_bet365')})")
-            good_picks.append(p)
+            # Sin Pinnacle: degradación elegante al método anterior (prob de la IA)
+            p["fair_source"]  = None
+            p["cuota_minima"] = None
+            p["cuota_valor"]  = None
+            p["prob_justa"]   = None
+            prob_propia = p.get("prob_propia", 50)
+            ev = round((prob_propia / 100 * cuota_ref - 1) * 100, 1) if cuota_ref else 0
+            p["ev_pct"] = ev
+            print(f"  ~ SIN SHARP [{p['matchup']}] {p['pick']}  cuota {cuota_ref}  EV(IA) {ev}%")
+            if ev > 0:
+                good_picks.append(p)
+            else:
+                moved_to_na.append({
+                    "matchup": p["matchup"],
+                    "liga":    p.get("liga", ""),
+                    "razon":   f"EV negativo con cuota de referencia ({cuota_ref})."
+                })
 
     picks_data["picks"] = good_picks
     picks_data["no_apostar"] = picks_data.get("no_apostar", []) + moved_to_na
     picks_data["nota_lineas"] = (
-        f"Cuotas verificadas con Bet365 vía Odds API. "
-        f"Horario {TZ_LABEL} CDMX. {len(good_picks)} picks con EV positivo."
+        f"EV validado contra la línea sin-vig de Pinnacle ({sharp_validated}/{len(good_picks)} picks "
+        f"con sharp). La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar "
+        f"para que haya valor real. Horario {TZ_LABEL} CDMX."
     )
     return picks_data
 
@@ -490,6 +561,11 @@ METODOLOGÍA OBLIGATORIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)
 2. prob_propia = tu estimación basada en forma, pitchers, lesiones, H2H, xERA, FIP
 3. EV% = (prob_propia/100 × cuota_decimal - 1) × 100  →  solo incluir si EV > 0
+   IMPORTANTE: después de que generes los picks, el sistema RE-VALIDA cada EV contra
+   la línea sin-vig de Pinnacle (el mercado sharp). Un pick que solo le gana a una casa
+   suave pero NO al mercado sharp será descartado automáticamente. Por eso: sé
+   conservador con prob_propia, no infles probabilidades, y prioriza picks donde de
+   verdad creas que el mercado está mal valorado (no solo una casa individual).
 4. Stake: Kelly fraccional 1/4. Máx 0.3u por pick. Total sesión ≤ 3u
 5. Parlays: 2-3 patas con correlación positiva; cuota mínima 1.20 por pata
 6. ESTRELLAS (escala de confianza 1 a 5, no 1 a 3):
