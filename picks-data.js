@@ -3,7 +3,7 @@ window.PICKS_DATA = {
   "fecha": "2026-07-06",
   "fecha_display": "Lunes 6 de Julio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "EV validado contra la línea sin-vig de Pinnacle (8/8 picks con sharp). La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar para que haya valor real. Horario CDT CDMX.",
+  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad propia calculada con estadística real de ESPN. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar para que haya valor. 2 picks con EV+. Horario CDT CDMX.",
   "bankroll": {
     "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
@@ -14,253 +14,122 @@ window.PICKS_DATA = {
       "liga": "MLB",
       "matchup": "Colorado Rockies @ Los Angeles Dodgers",
       "hora": "9:10 PM CDT (CDMX)",
-      "pick": "Los Angeles Dodgers ML",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.95,
-      "prob_implicita": 51.3,
-      "prob_propia": 76.0,
-      "ev_pct": 31.6,
-      "prob_acierto": 76,
-      "estrellas": 5,
-      "stake": "0.3u",
-      "razonamiento": "Los Dodgers reciben a Colorado en casa con Eric Lauer, quien tiene ventaja clara sobre Kyle Freeland de los Rockies, uno de los peores equipos de la liga en ofensiva y rotación. Los Rockies tienen el peor récord de MLB en 2026 y su rendimiento de visitante es particularmente devastador. La cuota de 1.48 implica 67.6% pero la probabilidad real de victoria Dodgers se acerca al 76%, generando un EV sólido del 12.5%.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 67.5,
-      "cuota_minima": 1.48,
-      "cuota_valor": 1.52
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ Los Angeles Dodgers",
-      "hora": "9:10 PM CDT (CDMX)",
-      "pick": "Los Angeles Dodgers -1.5 (Run Line)",
+      "pick": "Los Angeles Dodgers -1.5 Run Line",
       "tipo": "Run Line",
-      "cuota_bet365": 2.02,
-      "prob_implicita": 49.5,
-      "prob_propia": 58.0,
-      "ev_pct": 36.3,
-      "prob_acierto": 58,
+      "cuota_bet365": 1.83,
+      "prob_implicita": 54.6,
+      "prob_propia": 60.0,
+      "ev_pct": 9.8,
+      "prob_acierto": 60,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Con la diferencia abismal de calidad entre ambos clubes y Dodger Stadium como escenario, los Dodgers cubren -1.5 con alta frecuencia vs Colorado. Históricamente en 2026, los Dodgers han dominado a los Rockies por múltiples carreras. La cuota de 1.95 ofrece valor real con prob propia del 58%.",
+      "razonamiento": "Los Dodgers (59-32, mejor récord MLB) vs Rockies (37-54, peores visitantes 15-29). Kyle Freeland tiene ERA demoledor de 7.25 en 2 victorias de 9 intentos. Los Dodgers en casa 29-15 y son los campeones favoritos. Eric Lauer (4.84 ERA) no es elite pero basta ante Colorado. La diferencia de 22 juegos en récord y el ERA de 7.25 del abridor rival justifican el -1.5 a 1.91 con EV alto.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 67.5,
-      "cuota_minima": 1.48,
-      "cuota_valor": 1.52
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Philadelphia Phillies @ Kansas City Royals",
-      "hora": "1:10 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies ML",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.95,
-      "prob_implicita": 51.3,
-      "prob_propia": 72.0,
-      "ev_pct": 28.1,
-      "prob_acierto": 72,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Cristopher Sánchez es uno de los mejores lanzadores zurdos de la NL con FIP consistentemente bajo (~3.40) y buena salud en 2026. Noah Cameron es un lanzador de bajo impacto para Kansas City. Los Phillies tienen una de las mejores ofensivas de la liga y visitan un Kauffman Stadium sin ventaja significativa para los Royals. EV del 8.6% a cuota 1.51.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 65.7,
-      "cuota_minima": 1.52,
-      "cuota_valor": 1.57
-    },
-    {
-      "liga": "MLB",
-      "matchup": "New York Yankees @ Tampa Bay Rays",
-      "hora": "5:40 PM CDT (CDMX)",
-      "pick": "Tampa Bay Rays ML",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.98,
-      "prob_implicita": 33.6,
-      "prob_propia": 59.0,
-      "ev_pct": 49.8,
-      "prob_acierto": 59,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Griffin Jax es un relevista experimentado que Tampa usa como abridor opener, lo que se adapta bien a su sistema. Cam Schlittler es un rookie debutante o de poca trayectoria con los Yankees, lo que representa una ventaja para Tampa en casa. Los Rays en Tropicana Field son difíciles de batir para equipos de AL. La cuota de 1.88 ofrece valor real dado el historial de Tampa como local en 2026.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 50.3,
-      "cuota_minima": 1.99,
-      "cuota_valor": 2.05
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Houston Astros @ Washington Nationals",
-      "hora": "5:45 PM CDT (CDMX)",
-      "pick": "Washington Nationals ML",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.64,
-      "prob_implicita": 37.9,
-      "prob_propia": 57.0,
-      "ev_pct": 37.7,
-      "prob_acierto": 57,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Miles Mikolas (veterano con xFIP controlada ~4.00) lanza en casa para Washington. Mike Burrows es un lanzador visitante de menor confiabilidad para Houston. Los Astros muestran tendencias irregulares de visitante en 2026 y Washington con ventaja de local ofrece valor a 1.89. El mercado puede estar subestimando a los Nats en casa.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 52.2,
-      "cuota_minima": 1.92,
-      "cuota_valor": 1.98
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Milwaukee Brewers @ St. Louis Cardinals",
-      "hora": "6:45 PM CDT (CDMX)",
-      "pick": "Total Under 7.5",
-      "tipo": "Total",
-      "cuota_bet365": 2.12,
-      "prob_implicita": 47.2,
-      "prob_propia": 55.0,
-      "ev_pct": 6.0,
-      "prob_acierto": 55,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Shane Drohan (zurdo con buen strikeout rate) vs Dustin May (righty con ground ball profile) es un duelo que favorece pitcheo dominante en Busch Stadium, que es un parque de pitcher en condiciones normales. Ambos equipos tienen ofensivas mediocres en 2026, lo que hace el Under 7.5 a cuota 2.12 especialmente atractivo con EV del 16.6%.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 50.0,
-      "cuota_minima": 2.0,
-      "cuota_valor": 2.06
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Arizona Diamondbacks @ San Diego Padres",
-      "hora": "8:40 PM CDT (CDMX)",
-      "pick": "San Diego Padres ML",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.76,
-      "prob_implicita": 36.2,
-      "prob_propia": 59.0,
-      "ev_pct": 46.4,
-      "prob_acierto": 59,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Walker Buehler, pitcher experimentado de los Padres, tiene ventaja sobre Brandon Pfaadt de Arizona en Petco Park, un parque amigable para pitchers. Los Padres tienen buena ofensiva local y los Diamondbacks muestran inconsistencia de visitante. La cuota de 1.86 con probabilidad estimada del 59% da EV positivo del 9.7%.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 53.0,
-      "cuota_minima": 1.89,
-      "cuota_valor": 1.95
+      "cuota_minima": 1.67
     },
     {
       "liga": "MLB",
       "matchup": "Toronto Blue Jays @ San Francisco Giants",
       "hora": "8:45 PM CDT (CDMX)",
-      "pick": "Total Under 7.5",
+      "pick": "Under 7.5 Total Carreras",
       "tipo": "Total",
-      "cuota_bet365": 2.09,
-      "prob_implicita": 47.8,
-      "prob_propia": 54.0,
-      "ev_pct": 5.8,
-      "prob_acierto": 54,
+      "cuota_bet365": 1.94,
+      "prob_implicita": 51.5,
+      "prob_propia": 56.0,
+      "ev_pct": 8.6,
+      "prob_acierto": 56,
       "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Kevin Gausman (veterano con bajo ERA y excelente splitter) vs Landen Roupp (pitcher de control de SF) es un duelo que favorece lo bajo. Oracle Park es uno de los mejores parques para pitchers de la MLB, especialmente de noche. Línea de 7.5 con cuota 2.09 y prob propia del 54% da EV del 12.9%.",
+      "stake": "0.20u",
+      "razonamiento": "Kevin Gausman (4.19 ERA) y Landen Roupp (4.55 ERA) son abridores de calidad media-alta que no regalan carreras masivamente. Total de 7.5 es bajo, pero la cuota de 2.08 ofrece el mejor valor del día en totales. Ambos equipos mediocres ofensivamente (42-48 y 37-52) reducen la probabilidad de explosión ofensiva. La cuota implica solo 48.1% para el Under cuando debería ser ~56%.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "fair_source": "pinnacle",
-      "prob_justa": 50.6,
-      "cuota_minima": 1.97,
-      "cuota_valor": 2.03
+      "cuota_minima": 1.79
     }
   ],
   "no_apostar": [
     {
-      "matchup": "NBA — Sin juegos hoy",
-      "liga": "NBA",
-      "razon": "No hay partidos disponibles el 2026-07-06"
-    },
-    {
-      "matchup": "NFL — Sin juegos hoy",
-      "liga": "NFL",
-      "razon": "No hay partidos disponibles el 2026-07-06"
-    },
-    {
-      "matchup": "Premier League — Sin juegos hoy",
-      "liga": "Premier League",
-      "razon": "No hay partidos disponibles el 2026-07-06"
-    },
-    {
-      "matchup": "Liga MX — Sin juegos hoy",
-      "liga": "Liga MX",
-      "razon": "No hay partidos disponibles el 2026-07-06"
-    },
-    {
-      "matchup": "Toronto Blue Jays @ San Francisco Giants — ML",
+      "matchup": "Arizona Diamondbacks @ San Diego Padres",
       "liga": "MLB",
-      "razon": "Línea perfectamente equilibrada a 1.96/1.96, sin edge claro en ninguna dirección. Se prefiere apostar el Under que tiene mayor diferencial de valor."
+      "razon": "Ambos equipos con récord 44-45 y abridores con ERA moderada (Pfaadt 5.40, Buehler 4.61). Mercado muy ajustado sin edge claro. Las cuotas reflejan bien la paridad real. No hay ventaja identificable."
     },
     {
-      "matchup": "Colorado Rockies @ Los Angeles Dodgers — Total Over 9.5",
+      "matchup": "New York Yankees @ Tampa Bay Rays",
       "liga": "MLB",
-      "razon": "La fortaleza del pitcheo Dodgers con Lauer y el estado deprimido de la ofensiva de Colorado hacen el Over arriesgado a pesar de la cuota. El Under tendría más lógica pero el Over no tiene valor claro."
+      "razon": "Probabilidad propia (57.0%) muy por encima del mercado sharp (47.1%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "New York Yankees @ Tampa Bay Rays",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (68.0%) muy por encima del mercado sharp (47.1%) — descartado por sobre-confianza."
     },
     {
       "matchup": "New York Mets @ Atlanta Braves",
       "liga": "MLB",
-      "razon": "Sin ventaja real vs mercado sharp (Pinnacle): cuota mínima 2.02, referencia 1.96. EV -2.8%."
+      "razon": "Probabilidad propia (63.0%) muy por encima del mercado sharp (53.5%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "New York Mets @ Atlanta Braves",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (62.0%) muy por encima del mercado sharp (50.3%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "Milwaukee Brewers @ St. Louis Cardinals",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (60.0%) muy por encima del mercado sharp (52.2%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "Milwaukee Brewers @ St. Louis Cardinals",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (60.0%) muy por encima del mercado sharp (50.0%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "Colorado Rockies @ Los Angeles Dodgers",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (60.0%) muy por encima del mercado sharp (48.7%) — descartado por sobre-confianza."
+    },
+    {
+      "matchup": "Houston Astros @ Washington Nationals",
+      "liga": "MLB",
+      "razon": "Probabilidad propia (59.0%) muy por encima del mercado sharp (51.9%) — descartado por sobre-confianza."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Los Angeles Dodgers ML (1.48)",
-      "Philadelphia Phillies ML (1.51)",
-      "Milwaukee Brewers @ St. Louis Cardinals Under 7.5 (2.12)"
+      "Atlanta Braves ML (1.80)",
+      "Milwaukee Brewers ML (1.89)",
+      "Los Angeles Dodgers -1.5 Run Line (1.91)"
     ],
-    "cuota_total": 4.74,
-    "ev_pct": 10.8,
+    "cuota_total": 6.5,
+    "ev_pct": 14.2,
     "stake": "0.15u",
-    "nota": "Correlación positiva: ambos favoritos sólidos con pitcheo ventajoso + el Under en un duelo de pitchers de bajo perfil ofensivo. Las tres patas tienen EV individual positivo y no se cancelan entre sí. Potencial retorno de 0.71u con stake de 0.15u."
+    "nota": "Los tres equipos son favoritos claros con abridores superiores (López 3.31 ERA, Drohan 3.12 ERA) y el equipo con mejor récord MLB vs el peor visitante. Correlación positiva: los tres son equipos de élite jugando en condiciones favorables el mismo día. Si uno falla, el parlay absorbe pérdida mínima al ser solo 0.15u."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Los Angeles Dodgers ML",
+      "pick": "Atlanta Braves ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.48,
-      "ev_pct": 12.5,
-      "stake": "0.3u",
+      "cuota": 1.8,
+      "ev_pct": 13.4,
+      "stake": "0.30u",
       "estrellas": 5
     },
     {
       "pick": "Los Angeles Dodgers -1.5 Run Line",
       "tipo": "Run Line",
       "liga": "MLB",
-      "cuota": 1.95,
-      "ev_pct": 13.1,
+      "cuota": 1.91,
+      "ev_pct": 14.6,
       "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Philadelphia Phillies ML",
+      "pick": "Milwaukee Brewers ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.51,
-      "ev_pct": 8.6,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Milwaukee Brewers @ St. Louis Cardinals Under 7.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 2.12,
-      "ev_pct": 16.6,
+      "cuota": 1.89,
+      "ev_pct": 13.4,
       "stake": "0.25u",
       "estrellas": 4
     },
@@ -268,45 +137,63 @@ window.PICKS_DATA = {
       "pick": "Tampa Bay Rays ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.88,
-      "ev_pct": 10.9,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Toronto Blue Jays @ San Francisco Giants Under 7.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 2.09,
+      "cuota": 1.98,
       "ev_pct": 12.9,
-      "stake": "0.2u",
-      "estrellas": 3
+      "stake": "0.25u",
+      "estrellas": 4
     },
     {
-      "pick": "San Diego Padres ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.86,
-      "ev_pct": 9.7,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Washington Nationals ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.89,
-      "ev_pct": 7.7,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "New York Mets @ Atlanta Braves Under 9.5",
+      "pick": "Under 9.5 (NYM @ ATL)",
       "tipo": "Total",
       "liga": "MLB",
       "cuota": 1.79,
-      "ev_pct": 7.4,
-      "stake": "0.2u",
+      "ev_pct": 11.0,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Under 7.5 (TOR @ SF)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 2.08,
+      "ev_pct": 16.5,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Over 9.5 (HOU @ WSH)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.9,
+      "ev_pct": 12.1,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Over 9.5 (COL @ LAD)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "ev_pct": 12.2,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Under 8.5 (MIL @ STL)",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.83,
+      "ev_pct": 9.8,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Tampa Bay Rays +1.5 Run Line",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 1.61,
+      "ev_pct": 9.5,
+      "stake": "0.20u",
       "estrellas": 3
     }
   ]
