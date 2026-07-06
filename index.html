@@ -238,6 +238,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .pc-mid{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;}
 .pc-pick{font-family:var(--hf);font-size:12px;font-weight:800;text-transform:uppercase;color:var(--pu);letter-spacing:.3px;background:var(--pud);border:1px solid var(--pub);padding:5px 12px;border-radius:99px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;}
 .pc-ev{font-family:var(--hf);font-size:14px;font-weight:900;color:var(--gr);}
+.pc-cuota{font-family:var(--hf);font-size:12px;font-weight:800;color:var(--pu);background:var(--pud);border:1px solid var(--pub);padding:3px 9px;border-radius:var(--rdxs);}
 .pc-min{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:.4px;color:var(--cy);background:var(--cyd);border:1px solid var(--cyb);border-radius:var(--rdxs);padding:4px 9px;margin-bottom:9px;display:inline-block;}
 .pc-min b{font-size:12px;}
 .pc-pbar{height:3px;background:var(--sf2);border-radius:99px;overflow:hidden;margin-bottom:9px;}
@@ -616,14 +617,14 @@ function pcStars(n){
   return'<div class="pc-stars">'+s+'</div>';
 }
 
-// ─── CUOTA MÍNIMA CON VALOR (anclada al mercado sharp) ────────────────────────
+// ─── BANGERS: prob casino · prob propia · cuota mínima ────────────────────────
 function valueBox(p){
   if(p.cuota_minima==null)return'';
-  var pj=p.prob_justa!=null?('<div class="vb-item"><div class="vb-l">Prob. Justa (Mercado)</div><div class="vb-v">'+p.prob_justa+'%</div></div>'):'';
   return'<div class="value-box">'+
-    '<div class="vb-item"><div class="vb-l">Cuota mín. c/valor</div><div class="vb-v vb-strong">'+p.cuota_minima+'</div></div>'+
-    pj+
-    '<div class="vb-note">Tu casa (PlayDoIt/Winpot) debe pagar <b>≥ '+p.cuota_minima+'</b> para que el pick tenga valor real.</div>'+
+    '<div class="vb-item"><div class="vb-l">Prob. Casino</div><div class="vb-v">'+p.prob_implicita+'%</div></div>'+
+    '<div class="vb-item"><div class="vb-l">Prob. Propia</div><div class="vb-v" style="color:var(--gr)">'+p.prob_propia+'%</div></div>'+
+    '<div class="vb-item"><div class="vb-l">Cuota mínima</div><div class="vb-v vb-strong">'+p.cuota_minima+'</div></div>'+
+    '<div class="vb-note">Tu casa (PlayDoIt/Winpot) debe pagar <b>≥ '+p.cuota_minima+'</b> para que el pick tenga valor.</div>'+
   '</div>';
 }
 
@@ -693,18 +694,21 @@ function buildCard(p){
       teamsRow+
       '<div class="pc-mid">'+
         '<div class="pc-pick">'+p.pick.toUpperCase()+'</div>'+
-        '<div class="pc-ev">+'+p.ev_pct+'%</div>'+
+        '<div style="display:flex;align-items:center;gap:8px;flex-shrink:0">'+
+          '<span class="pc-cuota">'+p.cuota_bet365+'</span>'+
+          '<span class="pc-ev">+'+p.ev_pct+'%</span>'+
+        '</div>'+
       '</div>'+
       (p.cuota_minima!=null?'<div class="pc-min">CUOTA MÍN. C/VALOR: <b>'+p.cuota_minima+'</b></div>':'')+
-      '<div class="pc-pbar"><div class="pc-pfill" data-w="'+Math.min(p.prob_justa||p.prob_propia||50,100)+'"></div></div>'+
+      '<div class="pc-pbar"><div class="pc-pfill" data-w="'+Math.min(p.prob_propia||50,100)+'"></div></div>'+
       '<div class="pc-reason">'+(p.razonamiento||'')+'</div>'+
       '<div class="pc-foot">'+pcStars(p.estrellas||1)+'<span class="pc-tipo">'+(p.tipo||'Pick')+'</span><span class="pc-stake">'+p.stake+'</span></div>'+
     '</div>'+
     '<div class="pc-detail">'+
       '<div class="pd-grid">'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--pu)">'+p.cuota_bet365+'</div><div class="pd-l">Cuota Ref</div></div>'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--cy)">'+(p.cuota_minima!=null?p.cuota_minima:'—')+'</div><div class="pd-l">Mín c/valor</div></div>'+
-        '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+(p.prob_justa!=null?p.prob_justa:p.prob_propia)+'%</div><div class="pd-l">'+(p.prob_justa!=null?'Prob Justa':'Prob Propia')+'</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--tx2)">'+p.prob_implicita+'%</div><div class="pd-l">Prob Casino</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--gr)">'+p.prob_propia+'%</div><div class="pd-l">Prob Propia</div></div>'+
+        '<div class="pd-cell"><div class="pd-v" style="color:var(--cy)">'+(p.cuota_minima!=null?p.cuota_minima:'—')+'</div><div class="pd-l">Cuota Mín</div></div>'+
       '</div>'+
       '<div class="pd-txt">'+(p.razonamiento||'')+'</div>'+
     '</div>';
@@ -841,7 +845,7 @@ function buildTable(picks){
       '<td style="font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx2)">'+p.stake+'</td>'+
     '</tr>';
   }).join('');
-  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>REF</th><th>MÍN</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
+  return'<table class="exec-table"><thead><tr><th>PARTIDO / PICK</th><th>TIPO</th><th>CUOTA</th><th>MÍN</th><th>EV%</th><th>CONF.</th><th>STAKE</th></tr></thead><tbody>'+rows+'</tbody></table>';
 }
 
 // ─── MAIN RENDER ──────────────────────────────────────────────────────────────

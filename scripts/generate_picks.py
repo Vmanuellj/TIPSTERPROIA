@@ -175,9 +175,79 @@ def fetch_props_today(sport_key: str, prop_markets: str, region: str = "us") -> 
         print(f"  ⚠ Props {sport_key}: {e}")
         return []
 
+# ── 2b. Estadística real de ESPN (API pública, sin API key) ───────────────────
+ESPN_SLUGS = {
+    "baseball_mlb":         "baseball/mlb",
+    "basketball_nba":       "basketball/nba",
+    "americanfootball_nfl": "football/nfl",
+    "soccer_epl":           "soccer/eng.1",
+    "soccer_mexico_ligamx": "soccer/mex.1",
+}
+
+def _espn_competitor_blurb(c: dict) -> str:
+    """Resumen de un equipo: nombre (récord, local/visitante, forma) — abridor (récord, ERA)."""
+    name = c.get("team", {}).get("displayName", "")
+    recs = {r.get("type"): r.get("summary") for r in (c.get("records") or [])}
+    extras = []
+    if recs.get("total"):
+        extras.append(recs["total"])
+    ha = c.get("homeAway")
+    split = recs.get("home") if ha == "home" else recs.get("road")
+    if split:
+        extras.append(f"{'local' if ha == 'home' else 'visitante'} {split}")
+    if c.get("form"):
+        extras.append(f"forma {c['form']}")
+    s = f"{name} ({', '.join(extras)})" if extras else name
+    for pr in (c.get("probables") or []):
+        pn = pr.get("athlete", {}).get("displayName", "")
+        rec = pr.get("record") or ""
+        if pn:
+            s += f" — abridor {pn} {rec}".rstrip()
+    return s
+
+def fetch_espn_stats(sport_key: str) -> dict:
+    """
+    Devuelve {(away_name, home_name): blurb} con estadística real de ESPN para hoy.
+    Sin API key. Si el deporte está fuera de temporada o falla, regresa {}.
+    """
+    slug = ESPN_SLUGS.get(sport_key)
+    if not slug:
+        return {}
+    try:
+        url = f"https://site.api.espn.com/apis/site/v2/sports/{slug}/scoreboard"
+        data = requests.get(url, timeout=12).json()
+    except Exception as e:
+        print(f"  ⚠ ESPN {slug}: {e}")
+        return {}
+    out = {}
+    for ev in data.get("events", []):
+        comp = (ev.get("competitions") or [{}])[0]
+        comps = comp.get("competitors", [])
+        away = next((c for c in comps if c.get("homeAway") == "away"), None)
+        home = next((c for c in comps if c.get("homeAway") == "home"), None)
+        if not (away and home):
+            continue
+        key = (away.get("team", {}).get("displayName", ""),
+               home.get("team", {}).get("displayName", ""))
+        out[key] = f"{_espn_competitor_blurb(away)}  @  {_espn_competitor_blurb(home)}"
+    n = len(out)
+    if n:
+        print(f"  ESPN ({slug}) → stats de {n} partidos")
+    return out
+
+def _espn_blurb_for(away_g: str, home_g: str, espn_map: dict):
+    """Busca el blurb de ESPN que corresponde a un partido de odds (match por nombre)."""
+    for (ea, eh), blurb in (espn_map or {}).items():
+        if _team_match(away_g, ea) and _team_match(home_g, eh):
+            return blurb
+        if _team_match(away_g, eh) and _team_match(home_g, ea):
+            return blurb
+    return None
+
 # ── 3. Construir contexto ─────────────────────────────────────────────────────
 def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
-                   mlb_props=None, nba_props=None, nfl_props=None, futbol_props=None) -> str:
+                   mlb_props=None, nba_props=None, nfl_props=None, futbol_props=None,
+                   espn_stats=None) -> str:
     lines = [
         f"FECHA HOY: {today} ({fecha_display})",
         f"ZONA HORARIA: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})",
@@ -194,7 +264,9 @@ def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
     else:
         lines.append("  Sin partidos MLB hoy.")
 
-    def fmt_odds_section(games: list, label: str):
+    espn_stats = espn_stats or {}
+
+    def fmt_odds_section(games: list, label: str, espn_map: dict = None):
         lines.append(f"\n=== {label} ===")
         if not games:
             lines.append("  Sin juegos hoy.")
@@ -204,6 +276,9 @@ def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
             home  = g.get("home_team", "")
             ctime = utc_str_to_cdmx(g.get("commence_time", "").replace("Z", ""))
             lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
+            blurb = _espn_blurb_for(away, home, espn_map)
+            if blurb:
+                lines.append(f"  ESTADÍSTICAS REALES (ESPN): {blurb}")
             bm = _best_bookmaker(g.get("bookmakers", []))
             if not bm:
                 continue
@@ -266,11 +341,12 @@ def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
                 lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
                 lines.extend(game_props[:8])  # Máx 8 props por partido
 
-    fmt_odds_section(mlb_odds, "MLB — CUOTAS HOY")
-    fmt_odds_section(nba_odds, "NBA — CUOTAS HOY")
-    fmt_odds_section(nfl_odds, "NFL — CUOTAS HOY")
+    fmt_odds_section(mlb_odds, "MLB — CUOTAS HOY", espn_stats.get("baseball_mlb"))
+    fmt_odds_section(nba_odds, "NBA — CUOTAS HOY", espn_stats.get("basketball_nba"))
+    fmt_odds_section(nfl_odds, "NFL — CUOTAS HOY", espn_stats.get("americanfootball_nfl"))
     for key, label in FUTBOL_LEAGUES.items():
-        fmt_odds_section((futbol_odds or {}).get(key, []), f"{label.upper()} — CUOTAS HOY")
+        fmt_odds_section((futbol_odds or {}).get(key, []), f"{label.upper()} — CUOTAS HOY",
+                         espn_stats.get(key))
     fmt_props_section(mlb_props or [], "MLB — PROPS DE JUGADORES HOY")
     fmt_props_section(nba_props or [], "NBA — PROPS DE JUGADORES HOY")
     fmt_props_section(nfl_props or [], "NFL — PROPS DE JUGADORES HOY")
@@ -326,11 +402,20 @@ def _parse_matchup(matchup: str):
         return None
     return a.strip(), h.strip()
 
-def _best_available_cuota(pick: dict, odds_list: list) -> float | None:
+def _median(nums: list) -> float | None:
+    s = sorted(nums)
+    n = len(s)
+    if n == 0:
+        return None
+    mid = n // 2
+    return s[mid] if n % 2 else (s[mid - 1] + s[mid]) / 2
+
+def _consensus_cuota(pick: dict, odds_list: list) -> float | None:
     """
-    Mejor cuota disponible (line-shopping) para el outcome del pick, tomando el
-    MÁXIMO precio entre TODAS las casas del partido. Es la referencia correcta para
-    detectar valor vs la línea sin-vig de Pinnacle. Cubre h2h/totals/spreads/btts.
+    Cuota de CONSENSO (mediana) para el outcome del pick, recolectando su precio en
+    TODAS las casas del partido. La mediana es robusta a líneas atípicas/viejas — es
+    "la cuota más promedio en la que se puede encontrar" y evita el EV fake que daba
+    tomar el máximo. Cubre h2h/totals/spreads/btts.
     """
     parsed = _parse_matchup(pick.get("matchup", ""))
     if not parsed:
@@ -344,14 +429,15 @@ def _best_available_cuota(pick: dict, odds_list: list) -> float | None:
         home_g = game.get("home_team", "")
         if not (_team_match(away_raw, away_g) and _team_match(home_raw, home_g)):
             continue
-        best = None
+        prices = []
         for bm in game.get("bookmakers", []):
             for mkt in bm.get("markets", []):
                 price = _picked_price_in_market(mkt, pick_txt, away_raw, home_raw,
                                                 away_g, home_g, hcap_val)
-                if price and (best is None or price > best):
-                    best = price
-        return best
+                if price:
+                    prices.append(price)
+        med = _median(prices)
+        return round(med, 2) if med else None
     return None
 
 # ── 4b. Probabilidad "justa" sin-vig desde el mercado sharp (Pinnacle) ─────────
@@ -431,20 +517,20 @@ def pinnacle_fair(pick: dict, odds_list: list):
         return None, None
     return None, None
 
-# Margen mínimo de EV vs la línea sin-vig de Pinnacle para conservar un pick.
-# 0.03 = la cuota de referencia debe pagar ≥ 3% por encima del precio justo.
-SHARP_EDGE_MIN = 0.03
+# Guardrail: si la prob propia supera a la prob justa sin-vig de Pinnacle por más de
+# esto (en fracción), el modelo está sobre-confiado vs el mercado sharp → se descarta.
+SHARP_GUARDRAIL = 0.07
 
 def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
     """
-    Post-procesa los picks:
-      1. Sobreescribe cuota_bet365 con la mejor cuota real de referencia (Odds API).
-      2. Calcula la probabilidad JUSTA sin-vig con Pinnacle (mercado sharp) y de ahí
-         la cuota_minima con valor. Ancla el EV a esa probabilidad justa.
-      3. Conserva el pick solo si la cuota de referencia supera la cuota mínima con
-         un margen ≥ SHARP_EDGE_MIN; si no, lo manda a no_apostar.
-      4. Si no hay línea de Pinnacle (no sharp), degrada al método anterior
-         (EV con la prob de la IA) y marca fair_source=None.
+    Post-procesa los picks con el marco de la ficha (prob casino / prob propia / cuota mín):
+      1. cuota = mediana de consenso entre casas (robusta a outliers).
+      2. prob_casino (prob_implicita) = 100 / cuota.
+      3. prob_propia = estimación del modelo (anclada a datos reales de ESPN en el prompt).
+      4. cuota_minima = 100 / prob_propia (precio que tu casa debe superar).
+      5. EV = (prob_propia/100 × cuota − 1) × 100.
+      6. Pinnacle es guardrail OCULTO: si prob_propia supera a la prob justa sin-vig por
+         > SHARP_GUARDRAIL, el pick se descarta a no_apostar (sobre-confianza).
     De paso marca p["sport_key"] para que check_results.py sepa qué scores pedir.
     """
     liga_map = {
@@ -457,7 +543,6 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
 
     good_picks = []
     moved_to_na = []
-    sharp_validated = 0
 
     for p in picks_data.get("picks", []):
         liga_key = (p.get("liga") or "").lower()
@@ -468,65 +553,55 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
                 odds_list = odds
                 break
 
-        # 1. Cuota de referencia = mejor precio disponible en el mercado (line-shopping)
-        real_cuota = _best_available_cuota(p, odds_list)
-        if real_cuota:
-            p["cuota_bet365"]     = real_cuota
+        # 1. Cuota de consenso (mediana). Si no hay, usa la de Claude.
+        cuota = _consensus_cuota(p, odds_list)
+        if cuota:
+            p["cuota_bet365"]     = cuota
             p["cuota_verificada"] = True
-            cuota_ref = real_cuota
         else:
             p["cuota_verificada"] = False
-            cuota_ref = p.get("cuota_bet365") or 0
-        p["prob_implicita"] = round(100 / cuota_ref, 1) if cuota_ref else 0
+            cuota = p.get("cuota_bet365") or 0
+        if not cuota:
+            moved_to_na.append({"matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+                                "razon": "Sin cuota disponible."})
+            continue
 
-        # 2. Probabilidad justa sin-vig desde Pinnacle
-        fair_p, cuota_minima = pinnacle_fair(p, odds_list)
+        # 2-5. Marco de probabilidades de la ficha
+        prob_propia = p.get("prob_propia", 50) or 50
+        p["prob_implicita"] = round(100 / cuota, 1)              # prob casino
+        p["cuota_minima"]   = round(100 / prob_propia, 2)        # break-even a prob propia
+        ev = round((prob_propia / 100 * cuota - 1) * 100, 1)
+        p["ev_pct"] = ev
 
-        if fair_p and cuota_ref:
-            p["fair_source"]  = "pinnacle"
-            p["prob_justa"]   = round(fair_p * 100, 1)
-            p["cuota_minima"] = cuota_minima
-            p["cuota_valor"]  = round(cuota_minima * (1 + SHARP_EDGE_MIN), 2)
-            ev = round((fair_p * cuota_ref - 1) * 100, 1)
-            p["ev_pct"] = ev
-            passes = cuota_ref >= cuota_minima * (1 + SHARP_EDGE_MIN)
-            flag = "✅ SHARP" if passes else "⚠️ SIN VENTAJA"
-            print(f"  {flag} [{p['matchup']}] {p['pick']}  ref {cuota_ref} vs mín {cuota_minima}  EV {ev}%")
-            if passes:
-                sharp_validated += 1
-                good_picks.append(p)
-            else:
-                moved_to_na.append({
-                    "matchup": p["matchup"],
-                    "liga":    p.get("liga", ""),
-                    "razon":   (f"Sin ventaja real vs mercado sharp (Pinnacle): cuota mínima "
-                                f"{cuota_minima}, referencia {cuota_ref}. EV {ev}%.")
-                })
+        # 6. Guardrail sharp (oculto): descarta sobre-confianza vs Pinnacle
+        fair_p, _ = pinnacle_fair(p, odds_list)
+        if fair_p is not None and (prob_propia / 100 - fair_p) > SHARP_GUARDRAIL:
+            print(f"  ⚠️ SOBRE-CONFIANZA [{p['matchup']}] {p['pick']}  "
+                  f"propia {prob_propia}% vs sharp {round(fair_p*100,1)}%")
+            moved_to_na.append({
+                "matchup": p["matchup"], "liga": p.get("liga", ""),
+                "razon": (f"Probabilidad propia ({prob_propia}%) muy por encima del mercado "
+                          f"sharp ({round(fair_p*100,1)}%) — descartado por sobre-confianza."),
+            })
+            continue
+
+        if ev > 0:
+            print(f"  ✅ [{p['matchup']}] {p['pick']}  cuota {cuota}  EV {ev}%  "
+                  f"(casino {p['prob_implicita']}% vs propia {prob_propia}%)")
+            good_picks.append(p)
         else:
-            # Sin Pinnacle: degradación elegante al método anterior (prob de la IA)
-            p["fair_source"]  = None
-            p["cuota_minima"] = None
-            p["cuota_valor"]  = None
-            p["prob_justa"]   = None
-            prob_propia = p.get("prob_propia", 50)
-            ev = round((prob_propia / 100 * cuota_ref - 1) * 100, 1) if cuota_ref else 0
-            p["ev_pct"] = ev
-            print(f"  ~ SIN SHARP [{p['matchup']}] {p['pick']}  cuota {cuota_ref}  EV(IA) {ev}%")
-            if ev > 0:
-                good_picks.append(p)
-            else:
-                moved_to_na.append({
-                    "matchup": p["matchup"],
-                    "liga":    p.get("liga", ""),
-                    "razon":   f"EV negativo con cuota de referencia ({cuota_ref})."
-                })
+            print(f"  ⚠️ EV≤0 [{p['matchup']}] {p['pick']}  cuota {cuota}  EV {ev}%")
+            moved_to_na.append({
+                "matchup": p["matchup"], "liga": p.get("liga", ""),
+                "razon": f"EV negativo con cuota de consenso ({cuota}). Prob casino {p['prob_implicita']}% ≥ propia {prob_propia}%.",
+            })
 
     picks_data["picks"] = good_picks
     picks_data["no_apostar"] = picks_data.get("no_apostar", []) + moved_to_na
     picks_data["nota_lineas"] = (
-        f"EV validado contra la línea sin-vig de Pinnacle ({sharp_validated}/{len(good_picks)} picks "
-        f"con sharp). La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar "
-        f"para que haya valor real. Horario {TZ_LABEL} CDMX."
+        f"Cuota de consenso (mediana entre casas). Probabilidad propia calculada con "
+        f"estadística real de ESPN. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) "
+        f"debe superar para que haya valor. {len(good_picks)} picks con EV+. Horario {TZ_LABEL} CDMX."
     )
     return picks_data
 
@@ -559,13 +634,15 @@ REGLAS ABSOLUTAS:
 
 METODOLOGÍA OBLIGATORIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)
-2. prob_propia = tu estimación basada en forma, pitchers, lesiones, H2H, xERA, FIP
-3. EV% = (prob_propia/100 × cuota_decimal - 1) × 100  →  solo incluir si EV > 0
-   IMPORTANTE: después de que generes los picks, el sistema RE-VALIDA cada EV contra
-   la línea sin-vig de Pinnacle (el mercado sharp). Un pick que solo le gana a una casa
-   suave pero NO al mercado sharp será descartado automáticamente. Por eso: sé
-   conservador con prob_propia, no infles probabilidades, y prioriza picks donde de
-   verdad creas que el mercado está mal valorado (no solo una casa individual).
+2. prob_propia = tu estimación REAL basada en las ESTADÍSTICAS REALES (ESPN) del contexto:
+   récords, récord local/visitante, ERA de equipo y de pitchers probables, AVG, líderes,
+   forma reciente. NO adivines: apóyate en esos números. El razonamiento (razonamiento)
+   DEBE citar estadísticas concretas de las provistas (ej. "record 50-40, ERA del abridor
+   2.00, forma WWLWW"). Prohibido inventar cifras que no estén en el contexto.
+3. EV% = (prob_propia/100 × cuota_decimal - 1) × 100  →  solo incluir si EV > 0.
+   IMPORTANTE: sé CONSERVADOR con prob_propia. El sistema descarta automáticamente picks
+   donde tu prob_propia quede muy por encima del mercado sharp (sobre-confianza). No infles
+   probabilidades — una prob_propia realista y bien justificada vale más que una alta.
 4. Stake: Kelly fraccional 1/4. Máx 0.3u por pick. Total sesión ≤ 3u
 5. Parlays: 2-3 patas con correlación positiva; cuota mínima 1.20 por pata
 6. ESTRELLAS (escala de confianza 1 a 5, no 1 a 3):
@@ -674,6 +751,9 @@ if __name__ == "__main__":
     nfl_props = fetch_props_today("americanfootball_nfl", "player_pass_yds,player_rush_yds,player_receptions,player_anytime_td")
     futbol_props = {key: fetch_props_today(key, "player_goal_scorer_anytime", region="eu") for key in FUTBOL_LEAGUES}
 
+    print("\n📊 Obteniendo estadística real de ESPN (récords, ERA, forma)...")
+    espn_stats = {sk: fetch_espn_stats(sk) for sk in ESPN_SLUGS}
+
     all_odds = {
         "baseball_mlb": mlb_odds,
         "basketball_nba": nba_odds,
@@ -682,7 +762,7 @@ if __name__ == "__main__":
     }
 
     context = build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds,
-                             mlb_props, nba_props, nfl_props, futbol_props)
+                             mlb_props, nba_props, nfl_props, futbol_props, espn_stats)
     print("\n--- CONTEXTO (primeras 1200 chars) ---")
     print(context[:1200])
     print("...\n")
