@@ -3,10 +3,10 @@
   "resumen": {
     "total": 10,
     "wins": 2,
-    "losses": 8,
+    "losses": 5,
     "pushes": 0,
-    "pending": 0,
-    "roi_pct": -75.25
+    "pending": 3,
+    "roi_pct": -64.64
   },
   "picks": [
     {
@@ -16,8 +16,8 @@
       "liga": "FIFA World Cup 2026",
       "cuota": 1.57,
       "stake": "0.25u",
-      "resultado": "loss",
-      "score": "Brazil 1 - Norway 2"
+      "resultado": "pending",
+      "score": null
     },
     {
       "matchup": "England @ Mexico",
@@ -26,8 +26,8 @@
       "liga": "FIFA World Cup 2026",
       "cuota": 3.4,
       "stake": "0.20u",
-      "resultado": "loss",
-      "score": "Mexico 2 - England 3"
+      "resultado": "pending",
+      "score": null
     },
     {
       "matchup": "England @ Mexico",
@@ -36,8 +36,8 @@
       "liga": "FIFA World Cup 2026",
       "cuota": 3.2,
       "stake": "0.15u",
-      "resultado": "loss",
-      "score": "Mexico 2 - England 3"
+      "resultado": "pending",
+      "score": null
     },
     {
       "matchup": "Chicago White Sox @ Cleveland Guardians",
