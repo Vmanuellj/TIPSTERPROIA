@@ -2,75 +2,33 @@
   "fecha": "2026-07-08",
   "fecha_display": "Miércoles 8 de Julio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 9 picks con EV+. Horario CDT CDMX.",
+  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 7 picks con EV+. Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "2.1u",
+    "exposicion_total": "2.25u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
   "picks": [
     {
       "liga": "MLB",
-      "matchup": "Chicago Cubs @ Baltimore Orioles",
-      "hora": "5:36 PM CDT (CDMX)",
-      "pick": "Chicago Cubs Moneyline",
+      "matchup": "Toronto Blue Jays @ San Francisco Giants",
+      "hora": "2:46 PM CDT (CDMX)",
+      "pick": "Toronto Blue Jays Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 2.08,
-      "prob_implicita": 48.1,
-      "prob_propia": 51.3,
-      "ev_pct": 6.7,
-      "prob_acierto": 52,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cubs 51-40 visitante 24-21, récord claramente superior a Orioles 42-50. Abridor Boyd 4-1 ERA 4.31 vs Baz 4-9 ERA 4.21; ambos ERAs similares pero el registro de Boyd es notablemente mejor. El mercado paga Cubs a 2.12 siendo el equipo con mejor récord. Ajuste moderado a ~52% sin exagerar.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 52.0,
-      "prob_justa": 46.3,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.95
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Philadelphia Phillies @ Cincinnati Reds",
-      "hora": "6:11 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.2,
-      "prob_implicita": 45.5,
-      "prob_propia": 50.0,
-      "ev_pct": 10.0,
-      "prob_acierto": 50,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Wheeler 9-1 ERA 2.28 es uno de los mejores abridores de la temporada contra Abbott 5-5 ERA 3.92. Phillies 51-41 visitante 26-20 vs Reds 41-49 local 20-25. Mercado paga Phillies a 2.27 siendo visitante claramente superior; el favoritismo al local parece excesivo dado el diferencial de abridores. Pick más sólido del día.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 50.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 2.0
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ Los Angeles Dodgers",
-      "hora": "9:11 PM CDT (CDMX)",
-      "pick": "Los Angeles Dodgers -1.5 (Run Line)",
-      "tipo": "Run Line",
       "cuota_bet365": 1.87,
       "prob_implicita": 53.5,
-      "prob_propia": 62.6,
-      "ev_pct": 17.1,
-      "prob_acierto": 56,
+      "prob_propia": 57.0,
+      "ev_pct": 6.6,
+      "prob_acierto": 57,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Dodgers 60-33 local 30-16 vs Rockies 38-55 visitante 16-30: diferencial de récord enorme. Wrobleski 10-2 ERA 2.69 es élite; Lorenzen 3-9 ERA 6.65 es uno de los peores del día. Dodgers ML a 1.46 ofrece poco valor, pero el -1.5 a 1.93 captura el dominio esperado en este choque. Alta probabilidad de victoria cómoda.",
+      "razonamiento": "Dylan Cease (5-4, 2.79 ERA) es claramente superior a Logan Webb (5-6, 3.66 ERA). Toronto está por encima de .500 en general (43-49) y supera a SF (38-53). El mercado pone a TOR ligero favorito pero la cuota 1.88 ofrece valor dado el evidente diferencial en abridor. SF en casa 19-23, sin ventaja local clara.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 56.0,
-      "prob_justa": 67.6,
+      "prob_ia_cruda": 57.0,
+      "prob_justa": 52.7,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.6
+      "cuota_minima": 1.75
     },
     {
       "liga": "MLB",
@@ -78,211 +36,222 @@
       "hora": "6:46 PM CDT (CDMX)",
       "pick": "Milwaukee Brewers Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 60.0,
-      "ev_pct": 5.0,
-      "prob_acierto": 60,
+      "cuota_bet365": 1.73,
+      "prob_implicita": 57.8,
+      "prob_propia": 61.5,
+      "ev_pct": 6.4,
+      "prob_acierto": 62,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Milwaukee es el mejor equipo en este slate (58-33, .637) con visitante 29-15. Kyle Harrison (8-1, 2.82 ERA) es uno de los mejores abridores del día vs Michael McGreevy (3-7, 3.12). Los Brewers son un equipo élite enfrentando a un Cardinals mediocre (47-43). La cuota 1.73 implica 57.8% cuando la ventaja en calidad de equipo y abridor justifica ~62%.",
+      "sport_key": "baseball_mlb",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 62.0,
+      "prob_justa": 56.5,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.63
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Athletics @ Detroit Tigers",
+      "hora": "5:41 PM CDT (CDMX)",
+      "pick": "Detroit Tigers Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.71,
+      "prob_implicita": 58.5,
+      "prob_propia": 62.0,
+      "ev_pct": 6.0,
+      "prob_acierto": 62,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Brewers 58-33 mejor récord del contexto MLB, visitante 29-15 excelente. Cardinals 47-43 local 23-24 inferior. Ambos abridores similares (Gasser ERA 4.15 vs Dobbins ERA 4.03), por lo que el diferencial de talento del roster importa más. Cuota 1.76 aceptable para el equipo dominante de la temporada.",
+      "razonamiento": "Troy Melton (4-1, 2.05 ERA) es un diferencial enorme vs Jeffrey Springs (3-8, 5.79 ERA). Detroit en casa (24-21) contra Athletics visitante (22-22) con el peor abridor del día por ERA. Melton es el pitcher más dominante por métricas disponibles. El mercado ya favorece a Detroit pero la ventaja es mayor de lo que indica la cuota 1.71.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 60.0,
-      "prob_justa": 55.8,
+      "prob_ia_cruda": 62.0,
+      "prob_justa": 57.2,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.67
+      "cuota_minima": 1.61
     },
     {
       "liga": "MLB",
-      "matchup": "Houston Astros @ Washington Nationals",
-      "hora": "5:46 PM CDT (CDMX)",
-      "pick": "Washington Nationals Moneyline",
+      "matchup": "Chicago Cubs @ Baltimore Orioles",
+      "hora": "5:36 PM CDT (CDMX)",
+      "pick": "Chicago Cubs Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.77,
-      "prob_implicita": 56.5,
-      "prob_propia": 59.0,
-      "ev_pct": 4.4,
-      "prob_acierto": 59,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Astros 46-48 con abridor Imai ERA 6.06 muy preocupante; Nationals local con Alvarez ERA 3.64 considerablemente mejor. Nationals 47-46 en casa 19-28 débil como local, pero el diferencial de abridores inclina la balanza. Pick especulativo basado principalmente en el ERA del abridor visitante.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 59.0,
-      "prob_justa": 55.2,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.69
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Seattle Mariners @ Miami Marlins",
-      "hora": "5:41 PM CDT (CDMX)",
-      "pick": "Miami Marlins Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.1,
-      "prob_implicita": 47.6,
-      "prob_propia": 52.0,
-      "ev_pct": 9.2,
+      "cuota_bet365": 2.02,
+      "prob_implicita": 49.5,
+      "prob_propia": 51.1,
+      "ev_pct": 3.2,
       "prob_acierto": 52,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Max Meyer 9-1 ERA 2.58 es dominante; Marlins 50-42 local 29-17 excelente en casa. Mariners 47-45 visitante 20-25 mediocres fuera. Bryan Woo 7-6 ERA 4.23 vs Meyer — diferencial claro de abridores. Mercado paga Marlins a 2.16 como locales favorecidos, lo que ofrece valor real.",
+      "razonamiento": "Cubs (51-40) son el equipo significativamente mejor vs Orioles (42-50). Cubs visitante 24-21 vs Orioles local 24-24 — sin ventaja de local real. Aunque Colin Rea (4.74 ERA) no impresiona, Dean Kremer (3.18 ERA) no es dominante. El diferencial en récord de equipo (11 juegos) justifica que Cubs sean ligeros favoritos, pero el mercado los pone como underdogs a 2.12. Valor claro.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 52.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.92
-    },
-    {
-      "liga": "Tennis ATP",
-      "matchup": "Alexander Zverev @ Taylor Fritz",
-      "hora": "8:10 AM CDT (CDMX)",
-      "pick": "Taylor Fritz Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 58.0,
-      "ev_pct": 1.5,
-      "prob_acierto": 58,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Fritz como favorito del mercado a 1.83 en lo que parece ser Wimbledon (césped). Fritz ha mostrado consistencia en hierba y el mercado ya lo refleja. Zverev históricamente ha tenido problemas en césped respecto a su nivel en otras superficies. Pequeño ajuste de ~3 puntos sobre la probabilidad implícita.",
-      "sport_key": "tennis_atp_wimbledon",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 58.0,
-      "prob_justa": 54.2,
+      "prob_justa": 46.1,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.72
+      "cuota_minima": 1.96
     },
     {
       "liga": "MLB",
       "matchup": "Boston Red Sox @ Chicago White Sox",
       "hora": "6:41 PM CDT (CDMX)",
-      "pick": "Under 7.5 Total",
-      "tipo": "Total",
-      "cuota_bet365": 1.98,
-      "prob_implicita": 50.5,
-      "prob_propia": 53.0,
-      "ev_pct": 4.9,
-      "prob_acierto": 53,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Tolle ERA 3.14 y Schultz ERA 6.00 crean combinación mixta, pero la línea de 7.5 es baja. Red Sox 41-48 equipo débil ofensivamente. White Sox también limitados. Total de 7.5 con cuota equitativa 2.01; leve inclinación al under con abridores que en conjunto promedian ~4.5 ERA. Pick conservador.",
+      "pick": "Chicago White Sox Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 2.0,
+      "prob_implicita": 50.0,
+      "prob_propia": 53.9,
+      "ev_pct": 7.8,
+      "prob_acierto": 57,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "White Sox (47-43) superan a Red Sox (41-48) en récord, y en casa son dominantes (28-15, 65.1%). Davis Martin (9-3, 3.08 ERA) vs Jake Bennett (3-3, 3.10 ERA) — abridores similares por ERA pero Martin es 9-3. La ventaja de local pronunciada de Chicago y mejor récord general justifican ~57% frente a 53.5% implícito.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 53.0,
-      "prob_justa": 48.8,
+      "prob_ia_cruda": 57.0,
+      "prob_justa": 48.9,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.89
+      "cuota_minima": 1.86
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Colorado Rockies @ Los Angeles Dodgers",
+      "hora": "9:11 PM CDT (CDMX)",
+      "pick": "Los Angeles Dodgers -1.5 Run Line",
+      "tipo": "Run Line",
+      "cuota_bet365": 1.85,
+      "prob_implicita": 54.1,
+      "prob_propia": 63.3,
+      "ev_pct": 17.1,
+      "prob_acierto": 56,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Dodgers (60-33) son el mejor equipo de la MLB con local 30-16. Rockies (38-55) son el peor visitante (16-30). Aunque Sasaki tiene 5.40 ERA, el lineup de LA es tan superior que el -1.5 a 1.91 tiene valor. Rockies en Dodger Stadium es un mismatch histórico. El spread de 1.91 es atractivo dado el diferencial de 22 juegos en récord.",
+      "sport_key": "baseball_mlb",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 56.0,
+      "prob_justa": 68.3,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.58
     },
     {
       "liga": "MLB",
       "matchup": "Atlanta Braves @ Pittsburgh Pirates",
       "hora": "5:41 PM CDT (CDMX)",
-      "pick": "Pittsburgh Pirates Moneyline",
+      "pick": "Atlanta Braves Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.1,
-      "prob_propia": 57.0,
-      "ev_pct": 5.4,
-      "prob_acierto": 57,
+      "cuota_bet365": 2.0,
+      "prob_implicita": 50.0,
+      "prob_propia": 53.0,
+      "ev_pct": 6.0,
+      "prob_acierto": 53,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Paul Skenes 7-8 ERA 3.58 es abridor de calidad vs Waldrep 0-1 ERA 8.44 — diferencial de abridores muy marcado a favor de Pittsburgh. Pirates 47-45 local 24-22 decentes en casa. Braves 52-38 buen récord pero con Waldrep imposible de confiar. El mercado muestra a Pirates leve favorito, con valor real en 1.87.",
+      "razonamiento": "Braves (52-38, visitante 25-20) son un equipo de élite vs Pirates (47-45). Grant Holmes (3.83 ERA) supera a Jared Jones (1-1, 5.28 ERA) en el inicio de hoy. Atlanta con mejor récord y mejor abridor disponible, pero el mercado los pone casi 50-50 — valor en Braves a 2.03. Pequeño edge justificado por diferencial de pitching.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 57.0,
-      "prob_justa": 52.4,
+      "prob_ia_cruda": 53.0,
+      "prob_justa": 48.1,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.75
+      "cuota_minima": 1.89
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Toronto Blue Jays @ San Francisco Giants",
+      "matchup": "Seattle Mariners @ Miami Marlins",
       "liga": "MLB",
-      "razon": "Estadísticas del contexto muestran abridores (Spencer Miles vs Trevor McDonald) que no coinciden con los pitchers listados (Cease vs Webb); inconsistencia en datos. Sin ventaja clara identificable."
+      "razon": "Marlins 50-42 es sorprendente pero el mercado lo tiene bien priceado. Sin edge claro."
     },
     {
-      "matchup": "Athletics @ Detroit Tigers",
+      "matchup": "Houston Astros @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Ambos equipos 41-50, récords idénticos. Abridores similares (Ginn ERA 3.10 vs Skubal ERA 3.06). Línea justa, sin edge claro."
+      "razon": "Foster Griffin (9-2, 2.87 ERA) para Washington es sorprendente — mercado ya ajustado, sin ventaja clara."
     },
     {
       "matchup": "Kansas City Royals @ New York Mets",
       "liga": "MLB",
-      "razon": "Ambos equipos 38-54, situación pareja con abridores mediocres. Sin ventaja estadística identificable."
+      "razon": "Ambos equipos 38-54 — matchup de bajo valor, sin diferencial significativo. Evitar."
     },
     {
       "matchup": "Cleveland Guardians @ Minnesota Twins",
       "liga": "MLB",
-      "razon": "Cantillo ERA 3.66 vs Bradley ERA 3.67: abridores casi idénticos. Guardians 47-45 vs Twins 45-47, diferencial mínimo. Mercado correcto."
+      "razon": "Dos abridores con ERA 4.44 y 4.96 — partido impredecible sin edge claro en ninguna dirección."
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Cincinnati Reds",
+      "liga": "MLB",
+      "razon": "Chase Burns (10-1, 2.40 ERA) es el mejor abridor individual del día. Reds bien priceados como favoritos. Phillies sin abridor confirmado (TBD) — demasiada incertidumbre."
     },
     {
       "matchup": "Los Angeles Angels @ Texas Rangers",
       "liga": "MLB",
-      "razon": "Rangers favoritos con deGrom 7-5 ERA 3.49 vs Soriano 8-5 ERA 3.40 — ERAs similares a pesar del diferencial de récord. Angels 36-56 justifica el precio de Rangers pero hay riesgo de trampa. ML Rangers a 1.66 ofrece poco valor."
+      "razon": "Angels (36-56) son flojo visitante pero Walbert Ureña (5-7, 3.03 ERA) compite con Gore (4.31). Línea ajustada sin edge identificable."
     },
     {
       "matchup": "Arizona Diamondbacks @ San Diego Padres",
       "liga": "MLB",
-      "razon": "Gallen 3-9 ERA 6.34 vs Marquez 4-2 ERA 5.02 — ambos abridores con ERA elevado. Partido impredecible con bullpen dependencia alta. Sin edge claro."
-    },
-    {
-      "matchup": "New York Yankees @ Tampa Bay Rays",
-      "liga": "MLB",
-      "razon": "Rays 53-36 local 32-13 son dominantes en casa, pero Yankees ML a 2.10 sugiere mercado equilibrado. Warren ERA 4.15 vs Seymour ERA 4.11 similares. Sin edge suficiente dado el historial negativo en ML underdogs."
+      "razon": "Ambos equipos exactamente 45-46. Michael King (3.52 ERA) vs Cabrera (4.73 ERA) — mercado bien calibrado."
     },
     {
       "matchup": "Arthur Fery @ Flavio Cobolli",
       "liga": "Tennis ATP",
-      "razon": "Fery a 3.40 es demasiado especulativo sin datos de forma reciente. Cobolli favorito claro a 1.38 ofrece poco valor."
+      "razon": "Cuotas casi en par (1.98/1.85) — partido muy parejo sin información suficiente para identificar edge."
     },
     {
-      "matchup": "Elise Mertens @ Linda Noskova",
-      "liga": "Tennis WTA",
-      "razon": "Sin estadísticas de forma reciente disponibles en el contexto. Cuotas equilibradas sin ventaja identificable."
+      "matchup": "NBA",
+      "liga": "NBA",
+      "razon": "Sin juegos hoy."
     },
     {
-      "matchup": "Jasmine Paolini @ Marta Kostyuk",
-      "liga": "Tennis WTA",
-      "razon": "Paolini pagando 3.04 como underdog; sin datos suficientes de forma en contexto para justificar apuesta contraria al mercado."
+      "matchup": "NFL",
+      "liga": "NFL",
+      "razon": "Sin juegos hoy."
+    },
+    {
+      "matchup": "Premier League",
+      "liga": "Premier League",
+      "razon": "Sin juegos hoy."
+    },
+    {
+      "matchup": "Liga MX",
+      "liga": "Liga MX",
+      "razon": "Sin juegos hoy."
+    },
+    {
+      "matchup": "New York Yankees @ Tampa Bay Rays",
+      "liga": "MLB",
+      "razon": "Sin valor: EV -3.7%. Anclada al mercado, la prob real (52.6%) no supera lo que implica la cuota (54.6%)."
+    },
+    {
+      "matchup": "Alexander Zverev @ Taylor Fritz",
+      "liga": "Tennis ATP",
+      "razon": "Sin valor: EV -1.6%. Anclada al mercado, la prob real (65.6%) no supera lo que implica la cuota (66.7%)."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Philadelphia Phillies Moneyline (2.27)",
-      "Los Angeles Dodgers -1.5 Run Line (1.93)",
-      "Milwaukee Brewers Moneyline (1.76)"
+      "Milwaukee Brewers ML (1.73)",
+      "Detroit Tigers ML (1.71)",
+      "Chicago Cubs ML (2.12)"
     ],
-    "cuota_total": 7.71,
-    "ev_pct": 8.2,
+    "cuota_total": 6.27,
+    "ev_pct": 6.8,
     "stake": "0.1u",
-    "nota": "Tres equipos con clara ventaja de abridor o récord superior. Wheeler, Wrobleski y Brewers roster de élite se correlacionan como picks de valor independiente con combinación atractiva. Cuota combinada calculada: 2.27 × 1.93 × 1.76 ≈ 7.71."
+    "nota": "Tres equipos con mejor récord y/o mejor abridor siendo underdogs o ligeros favoritos con valor. Brewers élite, Tigers con Melton dominante, Cubs con ventaja de récord sobre Baltimore. Correlación positiva: todos tienen ventaja en pitching o récord general vs sus rivales."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Philadelphia Phillies Moneyline",
+      "pick": "Milwaukee Brewers ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 2.27,
-      "ev_pct": 13.5,
+      "cuota": 1.73,
+      "ev_pct": 7.3,
       "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Miami Marlins Moneyline",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 2.16,
-      "ev_pct": 12.3,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Chicago Cubs Moneyline",
+      "pick": "Chicago Cubs ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 2.12,
@@ -291,16 +260,25 @@
       "estrellas": 3
     },
     {
-      "pick": "Los Angeles Dodgers -1.5 Run Line",
-      "tipo": "Run Line",
+      "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.93,
-      "ev_pct": 8.1,
+      "cuota": 2.03,
+      "ev_pct": 7.6,
       "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Pittsburgh Pirates Moneyline",
+      "pick": "Toronto Blue Jays ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.88,
+      "ev_pct": 7.2,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Chicago White Sox ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.87,
@@ -309,40 +287,40 @@
       "estrellas": 3
     },
     {
-      "pick": "Boston Red Sox @ Chicago White Sox Under 7.5",
+      "pick": "Los Angeles Dodgers -1.5",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 1.91,
+      "ev_pct": 6.9,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Detroit Tigers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.71,
+      "ev_pct": 6.0,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Under 7.5 Yankees/Rays",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 2.01,
-      "ev_pct": 6.5,
-      "stake": "0.15u",
-      "estrellas": 2
-    },
-    {
-      "pick": "Taylor Fritz Moneyline",
-      "tipo": "Moneyline",
-      "liga": "Tennis ATP",
-      "cuota": 1.83,
-      "ev_pct": 6.1,
-      "stake": "0.15u",
-      "estrellas": 2
-    },
-    {
-      "pick": "Milwaukee Brewers Moneyline",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.76,
+      "cuota": 1.82,
       "ev_pct": 5.6,
       "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Washington Nationals Moneyline",
+      "pick": "Alexander Zverev ML",
       "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.78,
-      "ev_pct": 5.0,
-      "stake": "0.15u",
-      "estrellas": 2
+      "liga": "Tennis ATP",
+      "cuota": 1.58,
+      "ev_pct": 4.3,
+      "stake": "0.2u",
+      "estrellas": 3
     }
   ]
 }
