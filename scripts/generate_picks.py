@@ -559,6 +559,7 @@ def pinnacle_fair(pick: dict, odds_list: list):
 # ── Anclaje de la probabilidad al mercado ────────────────────────────────────
 MAX_ADJ         = 5.0   # pts máx que la IA puede desviarse del mercado SHARP (Pinnacle)
 MAX_ADJ_NOSHARP = 6.0   # pts máx que la IA puede desviarse del consenso (sin Pinnacle)
+MAX_EDGE        = 7.0   # pts máx que prob_propia puede superar/bajar la cuota que TOMAS
 MIN_EV          = 0.0   # EV mínimo (en %) para conservar un pick
 
 def _clamp(v, lo, hi):
@@ -642,6 +643,10 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
             prob_propia = _clamp(ia_est, prob_casino - MAX_ADJ_NOSHARP, prob_casino + MAX_ADJ_NOSHARP)
             p["prob_justa"]  = None
             p["fair_source"] = None
+        # Tope duro anti-EV-inflado: la ventaja sobre la cuota que REALMENTE tomas
+        # (el consenso) no puede exceder MAX_EDGE pts. Si Pinnacle y el consenso
+        # discrepan mucho (línea vieja/errónea de una casa), esto evita EV irreales.
+        prob_propia = _clamp(prob_propia, prob_casino - MAX_EDGE, prob_casino + MAX_EDGE)
         prob_propia = round(prob_propia, 1)
         p["prob_propia"]  = prob_propia
         p["cuota_minima"] = round(100 / prob_propia, 2)
