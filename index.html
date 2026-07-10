@@ -1086,7 +1086,7 @@ function loadLearning(){
     .then(function(r){if(!r.ok)throw new Error('no learning');return r.json();})
     .then(function(d){
       if(!d||d.estado==='cold_start'||!d.global){
-        panel.innerHTML='<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE</div><div class="sh-line"></div></div>'+
+        panel.innerHTML='<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">STATS</div><div class="sh-line"></div></div>'+
           '<div class="na-razon" style="padding:2px 2px 12px">Recopilando historial… el panel de rendimiento aparece con más picks resueltos.</div>';
         return;
       }
@@ -1115,7 +1115,7 @@ function loadLearning(){
         }
       }
       panel.innerHTML=
-        '<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE · RENDIMIENTO</div><div class="sh-line"></div><div class="sh-ct">'+g.n+' PICKS</div></div>'+
+        '<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">STATS</div><div class="sh-line"></div><div class="sh-ct">'+g.n+' PICKS</div></div>'+
         '<div class="lrn-hero">'+
           '<div class="lrn-roi '+rs+'"><div class="lrn-roi-v">'+(g.roi>0?'+':'')+g.roi+'%</div><div class="lrn-roi-l">ROI acumulado · actualiza a diario</div></div>'+
           '<div class="lrn-mini"><div class="lrn-mini-v" style="color:var(--gr)">'+g.win_pct+'%</div><div class="lrn-mini-l">Acierto</div></div>'+
