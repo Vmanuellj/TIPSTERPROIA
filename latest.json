@@ -13,239 +13,192 @@
       "liga": "MLB",
       "matchup": "Los Angeles Angels @ Texas Rangers",
       "hora": "7:06 PM CDT (CDMX)",
-      "pick": "Texas Rangers Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.65,
-      "prob_implicita": 60.6,
-      "prob_propia": 78.0,
-      "ev_pct": 28.7,
-      "prob_acierto": 78,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Rangers (46-46 local 21-21) vs Ángeles (37-56, visitante 16-31). Eovaldi (9-7, 4.02) supera a Detmers (3-6, 4.13), y el récord visitante de Ángeles es terrible. Sin embargo, la cuota de 1.27 ya descuenta casi todo el valor. EV levemente negativo pero pick defensible dado el diferencial de récords. Stake mínimo — pick conservador por el enorme gap en récords.",
+      "pick": "Total Under 14.0",
+      "tipo": "Total",
+      "cuota_bet365": 1.9,
+      "prob_implicita": 52.6,
+      "prob_propia": 56.2,
+      "ev_pct": 6.8,
+      "prob_acierto": 57,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Eovaldi (4.02 ERA) y Detmers (4.13 ERA) son abridores de calidad media-alta. Total de 14.0 es elevado para este matchup; ambos pitchers tienen suficiente para mantener el juego bajo ese umbral. La cuota Under 1.85 ofrece valor frente a la línea de 54.1% implícita.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 78.0,
-      "prob_justa": 74.9,
+      "prob_ia_cruda": 57.0,
+      "prob_justa": 51.2,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.28
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Los Angeles Angels @ Texas Rangers",
-      "hora": "7:06 PM CDT (CDMX)",
-      "pick": "Texas Rangers -1 (Handicap)",
-      "tipo": "Run Line",
-      "cuota_bet365": 1.74,
-      "prob_implicita": 57.5,
-      "prob_propia": 69.9,
-      "ev_pct": 21.6,
-      "prob_acierto": 59,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Rangers favoritos en casa, Ángeles con el peor récord visitante del contexto (16-31). Detmers (3-6, 4.13) vulnerable. Sin embargo, -1 requiere ganar con diferencia mínima de 1 carrera en béisbol, lo que reduce el edge real. EV ligeramente negativo tras ajuste de calibración. Pick especulativo, stake mínimo.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 59.0,
-      "prob_justa": 74.9,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.43
+      "cuota_minima": 1.78
     },
     {
       "liga": "MLB",
       "matchup": "Arizona Diamondbacks @ San Diego Padres",
       "hora": "8:41 PM CDT (CDMX)",
-      "pick": "Over 7.0 Carreras",
+      "pick": "Total Over 6.0",
       "tipo": "Total",
-      "cuota_bet365": 1.86,
-      "prob_implicita": 53.8,
-      "prob_propia": 56.7,
-      "ev_pct": 5.5,
-      "prob_acierto": 58,
+      "cuota_bet365": 1.91,
+      "prob_implicita": 52.4,
+      "prob_propia": 57.2,
+      "ev_pct": 9.3,
+      "prob_acierto": 59,
       "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Canning (6.71 ERA) y Kelly (5.71 ERA) son los dos peores abridores del día. Total de apenas 7.0 con estos dos lanzadores es una línea baja. Ambos equipos son .500 o cercanos, lo que indica ofensas competentes. La combinación de dos abridores con ERA superior a 5.50 en un juego de divisional hace muy probable sobrepasar 7 carreras. EV positivo del ~7.3%.",
+      "stake": "0.30u",
+      "razonamiento": "Griffin Canning tiene ERA de 6.71 en 2026, lo que sugiere alta vulnerabilidad a carreras. Merrill Kelly también carga 5.71 ERA. Total de apenas 6.0 es conservador cuando ambos abridores están entre los más bateables de la jornada. Probable que las ofensivas exploten temprano, especialmente contra Canning. Este es el pick de mayor confianza del día.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 58.0,
-      "prob_justa": 51.7,
+      "prob_ia_cruda": 58.5,
+      "prob_justa": 52.2,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.76
+      "cuota_minima": 1.75
     },
     {
       "liga": "MLB",
       "matchup": "Colorado Rockies @ San Francisco Giants",
       "hora": "8:46 PM CDT (CDMX)",
-      "pick": "Under 7.5 Carreras",
+      "pick": "Total Under 7.5",
       "tipo": "Total",
-      "cuota_bet365": 1.9,
-      "prob_implicita": 52.6,
+      "cuota_bet365": 1.92,
+      "prob_implicita": 52.1,
       "prob_propia": 54.7,
-      "ev_pct": 3.9,
+      "ev_pct": 5.0,
       "prob_acierto": 55,
       "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Whisenhunt (ERA 3.60) y Feltner (ERA 4.27) son abridores controlados. Ambos equipos con ofensas débiles (récords bajo .500). El mercado está casi equilibrado (Over 1.90 / Under 1.92), indicando incertidumbre del mercado. Los ERAs favorecen el Under con abridores decentes y ofensas que no están entre las élite. Edge pequeño pero real a cuota de 1.92.",
+      "stake": "0.25u",
+      "razonamiento": "Whisenhunt (3.60 ERA) es el pitcher más sólido de la jornada, y Feltner (4.27 ERA) es de calibre medio. El total de 7.5 con Over/Under equilibrado (1.90/1.92) sugiere mercado balanceado. El bajo ERA de Whisenhunt y el contexto de ambos equipos débiles ofensivamente apoya Under con ligera ventaja. Cuota 1.92 ofrece valor marginal real.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 55.0,
       "prob_justa": 49.7,
       "fair_source": "pinnacle",
       "cuota_minima": 1.83
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Los Angeles Angels @ Texas Rangers",
+      "hora": "7:06 PM CDT (CDMX)",
+      "pick": "Texas Rangers -1.0 Run Line (AH)",
+      "tipo": "Run Line",
+      "cuota_bet365": 1.75,
+      "prob_implicita": 57.1,
+      "prob_propia": 58.0,
+      "ev_pct": 1.5,
+      "prob_acierto": 58,
+      "estrellas": 1,
+      "stake": "0.0u",
+      "razonamiento": "Rangers -1.0 a 1.36 implica 73.5% probabilidad, demasiado alta para un partido de béisbol regular aunque sean favoritos. NO SE APUESTA — EV muy negativo.",
+      "sport_key": "baseball_mlb",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 58.0,
+      "prob_justa": 53.0,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.72
     }
   ],
   "no_apostar": [
     {
-      "matchup": "NBA — Sin juegos hoy",
-      "liga": "NBA",
-      "razon": "No hay juegos NBA hoy según el contexto."
-    },
-    {
-      "matchup": "NFL — Sin juegos hoy",
-      "liga": "NFL",
-      "razon": "No hay juegos NFL hoy según el contexto."
-    },
-    {
-      "matchup": "Premier League — Sin juegos hoy",
-      "liga": "Premier League",
-      "razon": "No hay juegos de Premier League hoy según el contexto."
-    },
-    {
-      "matchup": "Liga MX — Sin juegos hoy",
-      "liga": "Liga MX",
-      "razon": "No hay juegos de Liga MX hoy según el contexto."
-    },
-    {
-      "matchup": "Tennis — Sin juegos hoy",
-      "liga": "Tennis",
-      "razon": "No hay juegos de tenis hoy según el contexto."
-    },
-    {
-      "matchup": "Los Angeles Angels @ Texas Rangers — ML Ángeles",
-      "liga": "MLB",
-      "razon": "Ángeles ML a 3.79 con récord 37-56 visitante 16-31 no ofrece valor real. El diferencial de calidad es demasiado claro a favor de Rangers."
-    },
-    {
-      "matchup": "Colorado Rockies @ San Francisco Giants — Rockies ML/Handicap",
-      "liga": "MLB",
-      "razon": "Rockies ML a 2.86 con récord 38-56, peor que Giants, y abridor inferior. No hay edge suficiente para justificar apostar en Rockies."
-    },
-    {
       "matchup": "Milwaukee Brewers @ St. Louis Cardinals",
       "liga": "MLB",
-      "razon": "Sin valor: EV -36.3%. Anclada al mercado, la prob real (57.9%) no supera lo que implica la cuota (90.9%)."
+      "razon": "Solo hay línea de Total 12.5 (Over 5.28 / Under 1.15) disponible, sin estadísticas de pitchers ni récords en el contexto. La cuota Under 1.15 no ofrece valor y el Over 5.28 implica probabilidad implícita de solo 19%, demasiado especulativo sin datos suficientes."
     },
     {
-      "matchup": "Milwaukee Brewers @ St. Louis Cardinals",
+      "matchup": "San Francisco Giants Moneyline",
       "liga": "MLB",
-      "razon": "Sin valor: EV -13.4%. Anclada al mercado, la prob real (67.1%) no supera lo que implica la cuota (77.5%)."
+      "razon": "Cuota 1.43 implica 69.9% de probabilidad, excesiva para un equipo de 38-54 con ventaja de pitcher moderada sobre rivales de récord similar. EV negativo claro."
+    },
+    {
+      "matchup": "Texas Rangers -1.0 AH",
+      "liga": "MLB",
+      "razon": "Cuota 1.36 implica 73.5% de probabilidad para cubrir 1 carrera, irrealmente alta en béisbol para equipos de este nivel. Sin value."
+    },
+    {
+      "matchup": "NBA, NFL, Premier League, Liga MX, Tennis",
+      "liga": "Múltiple",
+      "razon": "Sin juegos disponibles hoy en ninguna de estas ligas según el contexto de datos."
     },
     {
       "matchup": "Los Angeles Angels @ Texas Rangers",
       "liga": "MLB",
-      "razon": "Sin valor: EV -3.7%. Anclada al mercado, la prob real (57.0%) no supera lo que implica la cuota (59.2%)."
+      "razon": "Sin valor: EV -7.2%. Anclada al mercado, la prob real (58.0%) no supera lo que implica la cuota (62.5%)."
     },
     {
       "matchup": "Arizona Diamondbacks @ San Diego Padres",
       "liga": "MLB",
-      "razon": "Sin valor: EV -31.8%. Anclada al mercado, la prob real (36.3%) no supera lo que implica la cuota (53.2%)."
+      "razon": "Sin valor: EV -14.2%. Anclada al mercado, la prob real (42.5%) no supera lo que implica la cuota (49.5%)."
     },
     {
       "matchup": "Colorado Rockies @ San Francisco Giants",
       "liga": "MLB",
-      "razon": "Sin valor: EV -5.6%. Anclada al mercado, la prob real (66.0%) no supera lo que implica la cuota (69.9%)."
+      "razon": "Sin valor: EV -8.2%. Anclada al mercado, la prob real (62.0%) no supera lo que implica la cuota (67.6%)."
+    },
+    {
+      "matchup": "Colorado Rockies @ San Francisco Giants",
+      "liga": "MLB",
+      "razon": "Sin valor: EV -13.1%. Anclada al mercado, la prob real (38.3%) no supera lo que implica la cuota (44.1%)."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Milwaukee Brewers Run Line -3.5 (1.78)",
-      "Arizona Diamondbacks @ San Diego Padres Over 7.0 (1.85)"
+      "Arizona Diamondbacks @ Padres: Over 6.0 (1.81)",
+      "Texas Rangers Moneyline (1.80)"
     ],
-    "cuota_total": 3.29,
-    "ev_pct": 9.8,
+    "cuota_total": 3.26,
+    "ev_pct": 9.5,
     "stake": "0.15u",
-    "nota": "Correlación positiva: Henderson (ERA 2.74) limita el juego de Cardinals mientras ambos malos abridores en SD/ARI (ERA 5.71 y 6.71) favorecen el Over. Combinación de pick de calidad de pitcher + Over con abridores débiles. Cuota combinada atractiva con dos picks sólidos independientes."
+    "nota": "Correlación positiva: ambos picks se apoyan en debilidad de pitchers rivales (Canning 6.71 ERA favorece Over; Detmers 3-6 favorece a Rangers). Si los pitchers débiles rinden mal, ambas patas se benefician."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Arizona Diamondbacks @ San Diego Padres Over 7.0",
+      "pick": "ARI @ SD: Total Over 6.0",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.85,
-      "ev_pct": 7.3,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Arizona Diamondbacks +1.5 Handicap",
-      "tipo": "Run Line",
-      "liga": "MLB",
-      "cuota": 1.85,
-      "ev_pct": 6.4,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Milwaukee Brewers Run Line -3.5",
-      "tipo": "Run Line",
-      "liga": "MLB",
-      "cuota": 1.78,
+      "cuota": 1.81,
       "ev_pct": 5.9,
-      "stake": "0.25u",
+      "stake": "0.30u",
       "estrellas": 4
-    },
-    {
-      "pick": "Colorado Rockies @ SF Giants Under 7.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.92,
-      "ev_pct": 5.6,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Milwaukee Brewers @ Cardinals Under 12.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.52,
-      "ev_pct": 3.3,
-      "stake": "0.2u",
-      "estrellas": 3
     },
     {
       "pick": "Texas Rangers Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.27,
-      "ev_pct": -0.9,
-      "stake": "0.15u",
-      "estrellas": 2
+      "cuota": 1.8,
+      "ev_pct": 4.4,
+      "stake": "0.25u",
+      "estrellas": 3
     },
     {
-      "pick": "Texas Rangers -1 Handicap",
-      "tipo": "Run Line",
-      "liga": "MLB",
-      "cuota": 1.65,
-      "ev_pct": -2.7,
-      "stake": "0.15u",
-      "estrellas": 2
-    },
-    {
-      "pick": "Los Angeles Angels @ Texas Rangers Over 13.0",
+      "pick": "LAA @ TEX: Total Under 14.0",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.71,
-      "ev_pct": -2.5,
-      "stake": "0.15u",
-      "estrellas": 2
+      "cuota": 1.85,
+      "ev_pct": 5.5,
+      "stake": "0.25u",
+      "estrellas": 3
     },
     {
-      "pick": "San Francisco Giants Moneyline",
-      "tipo": "Moneyline",
+      "pick": "Arizona Diamondbacks +1.5",
+      "tipo": "Run Line",
       "liga": "MLB",
-      "cuota": 1.43,
-      "ev_pct": -5.6,
-      "stake": "0.15u",
+      "cuota": 1.81,
+      "ev_pct": 5.1,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "COL @ SF: Total Under 7.5",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.92,
+      "ev_pct": 5.6,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Colorado Rockies +1.5",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 1.79,
+      "ev_pct": 3.8,
+      "stake": "0.20u",
       "estrellas": 2
     }
   ]
