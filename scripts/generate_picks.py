@@ -241,13 +241,23 @@ def fetch_espn_stats(sport_key: str) -> dict:
     if not slug:
         return {}
     try:
+        # CRÍTICO: fijar la fecha de HOY (YYYYMMDD). Sin este parámetro, ESPN
+        # devuelve el scoreboard "actual" que a las 12:30am puede ser el del día
+        # ANTERIOR (mismo partido de la serie, pitchers de ayer) → justificaciones
+        # con datos equivocados.
         url = f"https://site.api.espn.com/apis/site/v2/sports/{slug}/scoreboard"
-        data = requests.get(url, timeout=12).json()
+        data = requests.get(url, params={"dates": today.replace("-", "")}, timeout=12).json()
     except Exception as e:
         print(f"  ⚠ ESPN {slug}: {e}")
         return {}
     out = {}
+    skipped = 0
     for ev in data.get("events", []):
+        # Descartar juegos ya jugados (state 'post'): solo queremos el de HOY sin empezar
+        state = (ev.get("status", {}).get("type", {}) or {}).get("state", "")
+        if state == "post":
+            skipped += 1
+            continue
         comp = (ev.get("competitions") or [{}])[0]
         comps = comp.get("competitors", [])
         away = next((c for c in comps if c.get("homeAway") == "away"), None)
@@ -258,8 +268,9 @@ def fetch_espn_stats(sport_key: str) -> dict:
                home.get("team", {}).get("displayName", ""))
         out[key] = f"{_espn_competitor_blurb(away)}  @  {_espn_competitor_blurb(home)}"
     n = len(out)
-    if n:
-        print(f"  ESPN ({slug}) → stats de {n} partidos")
+    if n or skipped:
+        print(f"  ESPN ({slug}) {today} → {n} partidos de hoy" +
+              (f" ({skipped} ya jugados, descartados)" if skipped else ""))
     return out
 
 def _espn_blurb_for(away_g: str, home_g: str, espn_map: dict):
@@ -799,6 +810,13 @@ REGLAS ABSOLUTAS:
 1. SOLO genera picks de partidos que aparezcan explícitamente en el contexto de datos.
 2. Todos los horarios deben mostrarse en hora CDMX (CDT/CST).
 3. NO inventes partidos, equipos, ni cuotas que no estén en el contexto.
+3b. DATOS DE HOY ÚNICAMENTE: todos los pitchers, récords, forma y estadísticas del
+    contexto son de HOY ({today}). Úsalos TAL CUAL. Muchos equipos juegan series de
+    varios días seguidos contra el MISMO rival: NUNCA cites al pitcher, marcador o
+    dato de un enfrentamiento ANTERIOR de los mismos equipos. Si un pitcher no aparece
+    en el contexto de hoy, NO lo menciones. El pitcher probable correcto es el que
+    dice la sección "MLB — PARTIDOS HOY" (fuente oficial MLB) y el bloque
+    "ESTADÍSTICAS REALES (ESPN)" del mismo partido — no de tu memoria.
 4. CUOTAS REALES: el contexto incluye cuotas REALES para estos mercados:
    - "1X2/ML" → moneyline (usa para picks Moneyline)
    - "Handicap/Spread: EQUIPO +X.X → Y.YY" → Asian Handicap (usa para picks AH)
