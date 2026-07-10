@@ -95,6 +95,43 @@ def fetch_scores(sport_key: str, target_date: str) -> list:
         print(f"  ⚠ scores {sport_key}: {e}")
         return []
 
+def fetch_tennis_scores_espn() -> list:
+    """
+    Resultados de tenis desde ESPN (API pública, sin key). The Odds API no cubre
+    scores de tenis de forma confiable. Devuelve "juegos" en el MISMO formato que
+    Odds API (scores 1/0 = ganador/perdedor) para que evaluate_pick funcione igual.
+    """
+    out = []
+    for slug in ("tennis/atp", "tennis/wta"):
+        try:
+            d = requests.get(f"https://site.api.espn.com/apis/site/v2/sports/{slug}/scoreboard",
+                             timeout=15).json()
+        except Exception as e:
+            print(f"  ⚠ ESPN {slug}: {e}")
+            continue
+        for ev in d.get("events", []):
+            for gr in (ev.get("groupings") or [ev]):
+                for comp in gr.get("competitions", []):
+                    state = (comp.get("status", {}).get("type", {}) or {}).get("state")
+                    if state != "post":
+                        continue
+                    cs = comp.get("competitors", [])
+                    if len(cs) != 2:
+                        continue
+                    na = (cs[0].get("athlete", {}) or {}).get("displayName", "")
+                    nb = (cs[1].get("athlete", {}) or {}).get("displayName", "")
+                    if not na or not nb:
+                        continue
+                    out.append({
+                        "away_team": na, "home_team": nb, "completed": True,
+                        "commence_time": comp.get("date", ""),
+                        "scores": [
+                            {"name": na, "score": "1" if cs[0].get("winner") else "0"},
+                            {"name": nb, "score": "1" if cs[1].get("winner") else "0"},
+                        ],
+                    })
+    return out
+
 def get_sport_key(pick: dict) -> str:
     """
     Prefiere el sport_key exacto que generate_picks.py ya guardó en el pick
@@ -268,9 +305,17 @@ def main():
     scores_cache: dict[str, list] = {}
     def get_scores(pick):
         sk = get_sport_key(pick)
-        if sk not in scores_cache:
-            scores_cache[sk] = fetch_scores(sk, picks_date)
-        return scores_cache[sk]
+        # Tenis: resultados desde ESPN (Odds API no lo cubre). Cache compartido para
+        # todos los torneos de tenis; se filtra por la fecha de los picks.
+        ckey = "tennis_all" if sk.startswith("tennis") else sk
+        if ckey not in scores_cache:
+            if ckey == "tennis_all":
+                scores_cache[ckey] = [g for g in fetch_tennis_scores_espn()
+                                      if _game_date_cdmx(g.get("commence_time", "")) == picks_date]
+                print(f"  Scores tennis (ESPN) [{picks_date}]: {len(scores_cache[ckey])} partidos completados")
+            else:
+                scores_cache[ckey] = fetch_scores(sk, picks_date)
+        return scores_cache[ckey]
 
     results = []
     wins = losses = pushes = pending = 0
