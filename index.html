@@ -325,6 +325,33 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .bs{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rd);padding:14px;text-align:center;}
 .bs-v{font-family:var(--hf);font-size:22px;font-weight:900;}
 .bs-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:3px;font-weight:600;}
+/* ─── PANEL IA APRENDE / RENDIMIENTO ─── */
+.lrn-hero{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.lrn-roi{flex:2;min-width:150px;border-radius:var(--rd);padding:16px 18px;border:1px solid;display:flex;flex-direction:column;justify-content:center;}
+.lrn-roi.pos{background:linear-gradient(135deg,var(--grd),rgba(16,185,129,.02));border-color:var(--grb);}
+.lrn-roi.neg{background:linear-gradient(135deg,var(--red),rgba(248,113,113,.02));border-color:var(--reb);}
+.lrn-roi.neu{background:var(--sf2);border-color:var(--bd);}
+.lrn-roi-v{font-family:var(--hf);font-size:36px;font-weight:900;line-height:1;}
+.lrn-roi.pos .lrn-roi-v{color:var(--gr);}.lrn-roi.neg .lrn-roi-v{color:var(--re);}.lrn-roi.neu .lrn-roi-v{color:var(--tx2);}
+.lrn-roi-l{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--tx3);margin-top:7px;}
+.lrn-mini{flex:1;min-width:82px;background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rd);padding:14px 8px;text-align:center;display:flex;flex-direction:column;justify-content:center;}
+.lrn-mini-v{font-family:var(--hf);font-size:22px;font-weight:900;line-height:1;}
+.lrn-mini-l{font-size:9px;text-transform:uppercase;letter-spacing:1px;color:var(--tx3);margin-top:4px;font-weight:600;}
+.lrn-sports{display:flex;flex-direction:column;gap:7px;margin-bottom:6px;}
+.lrn-row{display:flex;align-items:center;gap:10px;background:var(--sf);border:1px solid var(--bd);border-radius:var(--rds);padding:9px 12px;transition:border-color .2s;}
+.lrn-row:hover{border-color:var(--bd2);}
+.lrn-ico{width:26px;height:26px;border-radius:var(--rdxs);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.lrn-name{font-family:var(--hf);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;min-width:52px;}
+.lrn-wl{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx2);min-width:46px;font-variant-numeric:tabular-nums;}
+.lrn-bar{flex:1;height:6px;background:var(--sf2);border-radius:99px;overflow:hidden;min-width:36px;}
+.lrn-fill{height:100%;border-radius:99px;transition:width 1s cubic-bezier(.22,1,.36,1);}
+.lrn-pill{font-family:var(--hf);font-size:12px;font-weight:800;padding:3px 10px;border-radius:99px;border:1px solid;flex-shrink:0;min-width:56px;text-align:center;font-variant-numeric:tabular-nums;}
+.lrn-pill.pos{color:var(--gr);background:var(--grd);border-color:var(--grb);}
+.lrn-pill.neg{color:var(--re);background:var(--red);border-color:var(--reb);}
+.lrn-pill.neu{color:var(--tx3);background:var(--sf2);border-color:var(--bd);}
+.lrn-cal{font-size:11px;color:var(--tx2);line-height:1.55;background:var(--amd);border:1px solid var(--amb);border-radius:var(--rds);padding:9px 12px;margin-top:8px;display:flex;gap:8px;align-items:flex-start;}
+.lrn-cal svg{flex-shrink:0;color:var(--am);margin-top:1px;}
+.lrn-cal b{color:var(--am);}
 
 /* ─── DAY NAVIGATOR ─────────────────────────────── */
 .day-nav{display:flex;align-items:center;justify-content:center;gap:0;padding:7px 0 0;}
@@ -1049,7 +1076,10 @@ function loadResults(dateStr){
 }
 
 // ─── AUTO-APRENDIZAJE: panel de rendimiento/calibración de la IA ──────────────
-function roiColor(v){return v>0?'var(--gr)':v<0?'var(--re)':'var(--tx3)';}
+var LRN_ICO={'MLB':['ico-baseball','cy'],'NBA':['ico-basketball','am'],'NFL':['ico-football','nfl'],
+  'Tennis':['ico-tennis','tn'],'Fútbol':['ico-soccer','gr'],'FIFA World Cup 2026':['ico-trophy','pu']};
+function lrnSign(v){return v>0.1?'pos':v<-0.1?'neg':'neu';}
+function barColor(p){return p>=55?'linear-gradient(90deg,#0ea5e9,#10b981)':p>=48?'linear-gradient(90deg,#7c3aed,#a78bfa)':'linear-gradient(90deg,#dc2626,#f87171)';}
 function loadLearning(){
   var panel=document.getElementById('learnPanel');if(!panel)return;
   fetch('/learning-summary.json')
@@ -1057,36 +1087,41 @@ function loadLearning(){
     .then(function(d){
       if(!d||d.estado==='cold_start'||!d.global){
         panel.innerHTML='<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE</div><div class="sh-line"></div></div>'+
-          '<div class="na-razon" style="padding:2px 2px 6px">Recopilando historial… el panel de rendimiento aparece con más picks resueltos.</div>';
+          '<div class="na-razon" style="padding:2px 2px 12px">Recopilando historial… el panel de rendimiento aparece con más picks resueltos.</div>';
         return;
       }
-      var g=d.global;
-      var sportRows=Object.keys(d.por_deporte||{}).map(function(k){
-        var a=d.por_deporte[k];
-        return'<tr><td style="font-family:var(--hf);font-weight:800;text-transform:uppercase">'+k+'</td>'+
-          '<td>'+a.wins+'-'+a.losses+'</td>'+
-          '<td style="font-weight:700">'+a.win_pct+'%</td>'+
-          '<td style="font-weight:800;color:'+roiColor(a.roi)+'">'+(a.roi>0?'+':'')+a.roi+'%</td></tr>';
-      }).join('');
+      var g=d.global,rs=lrnSign(g.roi);
+      var sportRows=Object.keys(d.por_deporte||{})
+        .sort(function(a,b){return(d.por_deporte[b].roi)-(d.por_deporte[a].roi);})
+        .map(function(k){
+          var a=d.por_deporte[k],ic=LRN_ICO[k]||['ico-chart','pu'],ps=lrnSign(a.roi);
+          return'<div class="lrn-row">'+
+            '<div class="lrn-ico" style="color:var(--'+ic[1]+');background:var(--'+ic[1]+'d)">'+useIco(ic[0],15)+'</div>'+
+            '<div class="lrn-name">'+k+'</div>'+
+            '<div class="lrn-wl">'+a.wins+'-'+a.losses+'</div>'+
+            '<div class="lrn-bar"><div class="lrn-fill" style="width:'+Math.min(a.win_pct,100)+'%;background:'+barColor(a.win_pct)+'"></div></div>'+
+            '<div class="lrn-pill '+ps+'">'+(a.roi>0?'+':'')+a.roi+'%</div>'+
+          '</div>';
+        }).join('');
       var calibNote='';
       if(d.calibracion&&d.calibracion.length){
         var tot=d.calibracion.reduce(function(s,c){return s+c.n;},0);
         var wAvg=d.calibracion.reduce(function(s,c){return s+c.sesgo*c.n;},0)/(tot||1);
         if(Math.abs(wAvg)>=3){
-          calibNote='<div class="na-razon" style="padding:8px 0 0">'+
-            (wAvg>0?'⚠️ La IA <b>sobreestima ~'+wAvg.toFixed(1)+' pts</b> — el sistema ya la corrige anclándola al mercado.'
-                   :'La IA <b>subestima ~'+Math.abs(wAvg).toFixed(1)+' pts</b>.')+'</div>';
+          calibNote='<div class="lrn-cal">'+useIco('ico-alert',14)+'<div>'+
+            (wAvg>0?'La IA <b>sobreestima ~'+wAvg.toFixed(1)+' pts</b> — el sistema ya la corrige anclándola al mercado sharp.'
+                   :'La IA <b>subestima ~'+Math.abs(wAvg).toFixed(1)+' pts</b> — margen para ser un poco más agresiva.')+
+          '</div></div>';
         }
       }
       panel.innerHTML=
         '<div class="sh"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-chart')+'</div><div class="sh-title">IA APRENDE · RENDIMIENTO</div><div class="sh-line"></div><div class="sh-ct">'+g.n+' PICKS</div></div>'+
-        '<div class="b-stats" style="margin-bottom:14px">'+
-          '<div class="bs"><div class="bs-v" style="color:var(--gr)">'+g.win_pct+'%</div><div class="bs-l">Acierto</div></div>'+
-          '<div class="bs"><div class="bs-v" style="color:'+roiColor(g.roi)+'">'+(g.roi>0?'+':'')+g.roi+'%</div><div class="bs-l">ROI /u</div></div>'+
-          '<div class="bs"><div class="bs-v" style="color:var(--cy)">'+g.wins+'</div><div class="bs-l">Wins</div></div>'+
-          '<div class="bs"><div class="bs-v" style="color:var(--re)">'+g.losses+'</div><div class="bs-l">Losses</div></div>'+
+        '<div class="lrn-hero">'+
+          '<div class="lrn-roi '+rs+'"><div class="lrn-roi-v">'+(g.roi>0?'+':'')+g.roi+'%</div><div class="lrn-roi-l">ROI acumulado · actualiza a diario</div></div>'+
+          '<div class="lrn-mini"><div class="lrn-mini-v" style="color:var(--gr)">'+g.win_pct+'%</div><div class="lrn-mini-l">Acierto</div></div>'+
+          '<div class="lrn-mini"><div class="lrn-mini-v" style="color:var(--tx)">'+g.wins+'-'+g.losses+'</div><div class="lrn-mini-l">Récord</div></div>'+
         '</div>'+
-        '<div class="tg" style="margin-bottom:6px"><table><thead><tr><th>Deporte</th><th>W-L</th><th>Acierto</th><th>ROI</th></tr></thead><tbody>'+sportRows+'</tbody></table></div>'+
+        '<div class="lrn-sports">'+sportRows+'</div>'+
         calibNote;
     })
     .catch(function(){/* sin summary aún — silencioso */});
