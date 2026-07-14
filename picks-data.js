@@ -1,321 +1,115 @@
-// Auto-generado 2026-07-12 — TIPSTER PRO IA
+// Auto-generado 2026-07-14 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-07-12",
-  "fecha_display": "Domingo 12 de Julio 2026",
+  "fecha": "2026-07-14",
+  "fecha_display": "Martes 14 de Julio 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 8 picks con EV+. Horario CDT CDMX.",
+  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 2 picks con EV+. Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "2.1u",
+    "exposicion_total": "0.55u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4"
+    "nota": "Kelly 1/4. Día con volumen mínimo — solo All-Star Game MLB disponible."
   },
   "picks": [
     {
       "liga": "MLB",
-      "matchup": "Philadelphia Phillies @ Detroit Tigers",
-      "hora": "12:41 PM CDT (CDMX)",
-      "pick": "Philadelphia Phillies Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.98,
-      "prob_implicita": 50.5,
-      "prob_propia": 53.5,
-      "ev_pct": 5.9,
-      "prob_acierto": 54,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Zack Wheeler (9-1, ERA 2.28) es uno de los mejores abridores de la liga esta temporada, contra Tarik Skubal (5-4, ERA 3.06) que también es sólido pero inferior. Los Phillies tienen récord 53-43 (visitante 28-22), muy competitivos de visita. El mercado ofrece a Philadelphia en +EV real frente a un Detroit 44-51. Wheeler con ERA 2.28 justifica al menos 3-4 puntos extra de probabilidad sobre la implied del 50%.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 54.0,
-      "prob_justa": 48.5,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.87
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Seattle Mariners @ Tampa Bay Rays",
-      "hora": "12:41 PM CDT (CDMX)",
-      "pick": "Tampa Bay Rays Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.79,
-      "prob_implicita": 55.9,
-      "prob_propia": 59.0,
-      "ev_pct": 5.6,
-      "prob_acierto": 59,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Tampa Bay es el equipo más en forma del contexto: récord 56-37 y como locales impresionantes 35-14. Seattle visita con 20-29 de visitante y ERA del abridor Hancock de 3.23, mientras Seymour (6-1) es dominante en casa. El diferencial de récord local de Tampa (35-14) vs visitante de Seattle (20-29) es muy pronunciado y justifica superar la implied del 54.9%.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 59.0,
-      "prob_justa": 55.2,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.69
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Boston Red Sox @ New York Mets",
-      "hora": "12:41 PM CDT (CDMX)",
-      "pick": "Boston Red Sox Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.87,
-      "prob_implicita": 53.5,
-      "prob_propia": 56.0,
-      "ev_pct": 4.7,
-      "prob_acierto": 56,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Payton Tolle (5-6, ERA 3.14) tiene ventaja clara sobre Zach Thornton (0-1, ERA 4.35), quien apenas debuta en el contexto con cifras desfavorables. Boston 45-48 visita con 28-21 fuera de casa — sobresaliente registro visitante. Los Mets están 40-56, uno de los peores récords del día. Combinación de abridor superior + historial visitante sólido contra equipo débil.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 56.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.79
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Athletics @ Chicago White Sox",
-      "hora": "1:11 PM CDT (CDMX)",
-      "pick": "Athletics Moneyline",
+      "matchup": "American League All-Stars @ National League All-Stars",
+      "hora": "7:00 PM CDT (CDMX)",
+      "pick": "National League All-Stars Moneyline",
       "tipo": "Moneyline",
       "cuota_bet365": 2.02,
       "prob_implicita": 49.5,
-      "prob_propia": 53.0,
-      "ev_pct": 7.1,
-      "prob_acierto": 53,
-      "estrellas": 3,
+      "prob_propia": 51.0,
+      "ev_pct": 3.0,
+      "prob_acierto": 58,
+      "estrellas": 2,
       "stake": "0.2u",
-      "razonamiento": "J.T. Ginn (7-5, ERA 3.10) para Athletics tiene ventaja estadística clara sobre Noah Schultz (2-6, ERA 6.00) de los White Sox. ERA de 6.00 es sumamente elevada y el récord de Schultz (2-6) refleja mal desempeño. Aunque el White Sox tiene buen récord local (30-17), la disparidad de pitchers justifica valor en Athletics a cuota de 2.04.",
+      "razonamiento": "La NL abre como favorita (1.80) con el mercado implícito en 55.6%. Cristopher Sánchez es el abridor local de la NL, con ventaja de campo en el juego de estrellas. Históricamente la NL ha tenido ligera ventaja en el All-Star reciente. El margen de EV ~4.4% es modesto pero defendible dado que el spread de la cuota entre ambos lados es apenas 0.31, sugiriendo que el mercado tiene ligera preferencia por NL que podemos seguir. Aplicamos descuento de ~3 puntos por calibración (sobreestimación histórica de 9 pts) dejando prob_propia conservadora en 58%.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 53.0,
-      "prob_justa": 48.0,
+      "prob_ia_cruda": 58.0,
+      "prob_justa": 46.0,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.89
+      "cuota_minima": 1.96
     },
     {
       "liga": "MLB",
-      "matchup": "Houston Astros @ Texas Rangers",
-      "hora": "1:36 PM CDT (CDMX)",
-      "pick": "Under 8.5 Carreras",
+      "matchup": "American League All-Stars @ National League All-Stars",
+      "hora": "7:00 PM CDT (CDMX)",
+      "pick": "Total Under 8.0 Carreras",
       "tipo": "Total",
-      "cuota_bet365": 1.94,
-      "prob_implicita": 51.5,
-      "prob_propia": 55.0,
-      "ev_pct": 6.7,
-      "prob_acierto": 55,
+      "cuota_bet365": 1.95,
+      "prob_implicita": 51.3,
+      "prob_propia": 54.0,
+      "ev_pct": 5.3,
+      "prob_acierto": 54,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Cristian Javier tiene ERA de 10.22 (malo), pero MacKenzie Gore (ERA 4.72) también es moderado. Sin embargo, ambos bullpens tienden a gestionar a Houston ofensivamente limitado (47-50). La línea de 8.5 es alta para un partido donde el contexto de los bullpens puede ser conservador. Con Javier débil, el riesgo va al Over, pero el mercado ya lo ha preciado — el Under a 1.94 ofrece valor marginal dado que Gore puede contener a Houston.",
+      "razonamiento": "El Under 8.0 a 1.95 ofrece el mejor valor en este partido. Los abridores Dylan Cease (AL) y Cristopher Sánchez (NL) son pitchers de élite — en un All-Star Game los lanzadores rotan frecuentemente cada 1-2 innings, pero el formato suele generar juegos ajustados en las primeras entradas cuando participan los mejores brazos. La línea de 8.0 está en el extremo alto para un juego donde el pitcheo de inicio es sólido. Prob_propia 54% vs implícita 51.3% da EV de +5.3%. Stake conservador dado el carácter de exhibición del juego.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 55.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.82
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Milwaukee Brewers @ Pittsburgh Pirates",
-      "hora": "11:15 AM CDT (CDMX)",
-      "pick": "Milwaukee Brewers Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 2.06,
-      "prob_implicita": 48.5,
-      "prob_propia": 52.0,
-      "ev_pct": 7.1,
-      "prob_acierto": 52,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Milwaukee (59-36) es el mejor equipo en récord del día, con récord visitante 30-18 excelente. Paul Skenes (7-8, ERA 3.58) es bueno pero Robert Gasser (2-3, ERA 4.15) enfrenta a un equipo mucho más fuerte. El récord general de los Brewers (59-36) contrasta fuertemente con Pittsburgh (49-47). El mercado otorga Pittsburgh como favorito leve (1.86) lo cual parece un error dado la calidad y forma de Milwaukee.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 52.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.92
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ San Francisco Giants",
-      "hora": "3:06 PM CDT (CDMX)",
-      "pick": "Over 8.5 Carreras",
-      "tipo": "Total",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.1,
-      "prob_propia": 57.0,
-      "ev_pct": 5.4,
-      "prob_acierto": 57,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Michael Lorenzen (ERA 6.46) y Trevor McDonald (ERA 5.46) son dos de los abridores más vulnerables del día. Ambos con ERA por encima de 5.5 apuntan a entradas cortas y alto volumen de carreras. Colorado suele ser equipo de mucho run scoring histórico. Con dos abridores tan castigados, Over 8.5 tiene valor real a 1.89.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 57.0,
-      "prob_justa": 52.3,
+      "prob_ia_cruda": 54.0,
+      "prob_justa": 49.4,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.75
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Atlanta Braves @ St. Louis Cardinals",
-      "hora": "1:16 PM CDT (CDMX)",
-      "pick": "Over 8.5 Carreras",
-      "tipo": "Total",
-      "cuota_bet365": 2.0,
-      "prob_implicita": 50.0,
-      "prob_propia": 53.0,
-      "ev_pct": 6.0,
-      "prob_acierto": 53,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "JR Ritchie (1-2, ERA 4.60) y Dustin May (5-6, ERA 4.55) son abridores de calidad media-baja que deberían salir antes del sexto inning. Atlanta (54-40) tiene una ofensiva poderosa y los Cardinals (50-44) también tienen ataque sólido. Con ambos pitchers por encima de ERA 4.50, la línea de 8.5 a cuota 2.02 ofrece valor real.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 53.0,
-      "prob_justa": 48.4,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.89
+      "cuota_minima": 1.85
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Kansas City Royals @ Baltimore Orioles",
+      "matchup": "American League All-Stars @ National League All-Stars",
       "liga": "MLB",
-      "razon": "Ambos equipos tienen récords mediocres y abridores con ERA similares (Lugo 4.56 vs Baz 4.21). Sin ventaja clara identificable; líneas ajustadas sin edge."
+      "razon": "Run Line / Handicap American League +1.5 (1.54): cuota demasiado baja, EV negativo casi seguro. No hay valor."
     },
     {
-      "matchup": "New York Yankees @ Washington Nationals",
+      "matchup": "American League All-Stars @ National League All-Stars",
       "liga": "MLB",
-      "razon": "El mercado tiene casi moneyline parejo (1.93 vs 1.99) lo cual dificulta encontrar valor. Will Warren (4.15 ERA) vs Cavalli (3.88) sin diferencial claro. Washington tiene mal récord local (20-30) pero cuotas no ofrecen edge suficiente."
+      "razon": "Handicap National League -1.5 (2.59): All-Star Games raramente se deciden por más de 1 carrera de ventaja; demasiado especulativo."
     },
     {
-      "matchup": "Chicago Cubs @ Cincinnati Reds",
+      "matchup": "American League All-Stars @ National League All-Stars",
       "liga": "MLB",
-      "razon": "Boyd (4.31 ERA) vs Abbott (3.92 ERA) — Abbott tiene ventaja leve como local, pero Cubs son mejores en récord. Líneas correctamente priceadas, sin edge claro."
+      "razon": "Over 8.0 (1.90): EV negativo frente a abridores de élite en formato All-Star. El mercado ya refleja bien el Over."
     },
     {
-      "matchup": "Cleveland Guardians @ Miami Marlins",
-      "liga": "MLB",
-      "razon": "Partido muy parejo en cuotas (1.99 vs 1.93). Miami tiene buen récord local (31-19) pero Cantillo (3.66 ERA) es mejor que Phillips (3.28). Demasiado equilibrado para apostar con confianza."
-    },
-    {
-      "matchup": "Los Angeles Angels @ Minnesota Twins",
-      "liga": "MLB",
-      "razon": "Soriano (ERA 3.40) es bueno pero Angels tienen el peor récord visitante del día (17-33). Bradley (8-3, ERA 3.67) es sólido. El mercado ya favorece a Minnesota; el valor en Angels no compensa el pésimo récord visitante."
-    },
-    {
-      "matchup": "Arizona Diamondbacks @ Los Angeles Dodgers",
-      "liga": "MLB",
-      "razon": "Dodgers (61-35) son los mejores del contexto pero Sheehan (4.91 ERA) es vulnerable. Bratt (0-0, ERA 3.00) es incógnita. La cuota de LAD a 1.52 ofrece poco valor dado el riesgo del abridor. Sin edge claro."
-    },
-    {
-      "matchup": "Toronto Blue Jays @ San Diego Padres",
-      "liga": "MLB",
-      "razon": "Gausman (4.32 ERA) vs Márquez (5.02 ERA) — Gausman tiene ventaja pero Toronto tiene récord visitante mediocre (21-25). Mercado que da a Toronto favorito (1.85) con Padres siendo locales a 2.09 es interesante pero sin datos suficientemente convincentes."
-    },
-    {
-      "matchup": "Alexander Zverev @ Jannik Sinner",
-      "liga": "Tennis ATP",
-      "razon": "Solo el pick de Sinner ML se incluyó. Zverev a 4.64 es tentador pero hay historial de pérdidas en picks de underdog de tenis; el EV no es suficientemente robusto para apostar en Zverev."
-    },
-    {
-      "matchup": "Alexander Zverev @ Jannik Sinner",
-      "liga": "Tennis ATP",
-      "razon": "Sin valor: EV -0.8%. Anclada al mercado, la prob real (82.0%) no supera lo que implica la cuota (82.6%)."
+      "matchup": "NBA / NFL / Premier League / Liga MX / Tennis",
+      "liga": "Multiple",
+      "razon": "Sin juegos disponibles hoy en ninguna de estas ligas según el contexto provisto."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Tampa Bay Rays ML (1.82)",
-      "Philadelphia Phillies ML (2.00)",
-      "Over 8.5 Colorado @ San Francisco (1.89)"
+      "National League All-Stars ML (1.80)",
+      "Under 8.0 Carreras (1.95)"
     ],
-    "cuota_total": 6.88,
-    "ev_pct": 9.2,
+    "cuota_total": 3.51,
+    "ev_pct": 6.2,
     "stake": "0.15u",
-    "nota": "Correlación positiva: Tampa Bay en casa con récord 35-14 local + Wheeler dominante en Phillies + dos abridores con ERA altísimas en COL vs SF. Tres escenarios independientes con edge real combinados en parlay de alto valor."
+    "nota": "Correlación positiva moderada: si la NL gana de la mano de Sánchez dominando el juego, es probable que el marcador final sea ajustado y bajo. Ambas patas apuntan a un juego cerrado y de pitcheo. Cuota total 1.80 × 1.95 = 3.51. Con prob_propia combinada ~0.58 × 0.54 = 31.3%, EV estimado ~(0.313 × 3.51 - 1) × 100 = +9.8% antes del descuento de calibración; aplicando descuento conservador ~37% queda en ~+6.2%."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Philadelphia Phillies ML",
+      "pick": "National League All-Stars Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 2.0,
-      "ev_pct": 8.0,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Tampa Bay Rays ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.82,
-      "ev_pct": 7.4,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Athletics ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 2.04,
-      "ev_pct": 8.1,
+      "cuota": 1.8,
+      "ev_pct": 4.4,
       "stake": "0.2u",
-      "estrellas": 3
+      "estrellas": 2
     },
     {
-      "pick": "Milwaukee Brewers ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 2.07,
-      "ev_pct": 7.6,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Boston Red Sox ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.92,
-      "ev_pct": 7.5,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Over 8.5 COL @ SF",
+      "pick": "Under 8.0 Carreras",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.89,
-      "ev_pct": 7.7,
+      "cuota": 1.95,
+      "ev_pct": 5.3,
       "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Over 8.5 ATL @ STL",
-      "tipo": "Total",
+      "pick": "Parlay: NL ML + Under 8.0",
+      "tipo": "Parlay",
       "liga": "MLB",
-      "cuota": 2.02,
-      "ev_pct": 7.1,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Under 8.5 HOU @ TEX",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.94,
-      "ev_pct": 6.7,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Jannik Sinner ML",
-      "tipo": "Moneyline",
-      "liga": "Tennis ATP",
-      "cuota": 1.24,
-      "ev_pct": 1.7,
+      "cuota": 3.51,
+      "ev_pct": 6.2,
       "stake": "0.15u",
       "estrellas": 2
     }
