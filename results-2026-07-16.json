@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-07-16",
+  "resumen": {
+    "total": 2,
+    "wins": 2,
+    "losses": 0,
+    "pushes": 0,
+    "pending": 0,
+    "roi_pct": 103.14
+  },
+  "picks": [
+    {
+      "matchup": "New York Mets @ Philadelphia Phillies",
+      "pick": "New York Mets Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 2.1,
+      "stake": "0.2u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 1 - New York Mets 4",
+      "sport_key": "baseball_mlb",
+      "prob_propia": 50.0,
+      "prob_justa": 46.4,
+      "prob_ia_cruda": 50.0,
+      "prob_casino": 47.6,
+      "ev_pct": 5.0,
+      "estrellas": 3
+    },
+    {
+      "matchup": "New York Mets @ Philadelphia Phillies",
+      "pick": "Total Under 9.5",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.94,
+      "stake": "0.15u",
+      "resultado": "win",
+      "score": "Philadelphia Phillies 1 - New York Mets 4",
+      "sport_key": "baseball_mlb",
+      "prob_propia": 52.0,
+      "prob_justa": 49.9,
+      "prob_ia_cruda": 52.0,
+      "prob_casino": 51.5,
+      "ev_pct": 0.9,
+      "estrellas": 2
+    }
+  ]
+}
