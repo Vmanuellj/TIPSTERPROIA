@@ -1,14 +1,14 @@
 {
-  "generado": "2026-07-22",
-  "n_resueltos": 282,
+  "generado": "2026-07-23",
+  "n_resueltos": 290,
   "estado": "activo",
   "global": {
-    "n": 282,
-    "wins": 167,
-    "losses": 112,
+    "n": 290,
+    "wins": 173,
+    "losses": 114,
     "pushes": 3,
-    "win_pct": 59.9,
-    "roi": 2.8
+    "win_pct": 60.3,
+    "roi": 3.6
   },
   "por_deporte": {
     "FIFA World Cup 2026": {
@@ -20,22 +20,22 @@
       "roi": 25.2
     },
     "MLB": {
-      "n": 223,
-      "wins": 122,
-      "losses": 99,
+      "n": 231,
+      "wins": 128,
+      "losses": 101,
       "pushes": 2,
-      "win_pct": 55.2,
-      "roi": -3.5
+      "win_pct": 55.9,
+      "roi": -2.2
     }
   },
   "por_tipo": {
     "Moneyline": {
-      "n": 244,
-      "wins": 145,
-      "losses": 97,
+      "n": 250,
+      "wins": 149,
+      "losses": 99,
       "pushes": 2,
-      "win_pct": 59.9,
-      "roi": 2.1
+      "win_pct": 60.1,
+      "roi": 2.5
     },
     "Spread": {
       "n": 8,
@@ -46,12 +46,12 @@
       "roi": -81.0
     },
     "Total": {
-      "n": 30,
-      "wins": 21,
+      "n": 32,
+      "wins": 23,
       "losses": 8,
       "pushes": 1,
-      "win_pct": 72.4,
-      "roi": 34.4
+      "win_pct": 74.2,
+      "roi": 37.3
     }
   },
   "por_estrellas": {
@@ -60,12 +60,12 @@
       "win_pct": 50.0
     },
     "3": {
-      "n": 62,
-      "win_pct": 56.5
+      "n": 69,
+      "win_pct": 58.0
     },
     "4": {
-      "n": 28,
-      "win_pct": 50.0
+      "n": 29,
+      "win_pct": 51.7
     },
     "5": {
       "n": 1,
@@ -82,17 +82,17 @@
     },
     {
       "rango": "52-60",
-      "n": 47,
+      "n": 52,
       "prometido": 55.2,
-      "real": 57.4,
-      "sesgo": -2.2
+      "real": 59.6,
+      "sesgo": -4.4
     },
     {
       "rango": "60-68",
-      "n": 32,
-      "prometido": 63.1,
-      "real": 53.1,
-      "sesgo": 10.0
+      "n": 35,
+      "prometido": 62.9,
+      "real": 54.3,
+      "sesgo": 8.6
     },
     {
       "rango": "68+",
@@ -102,5 +102,5 @@
       "sesgo": 34.3
     }
   ],
-  "lecciones": "APRENDIZAJE DE PICKS PASADOS (úsalo para calibrar tu criterio):\n- Global: 167-112 (59.9% acierto), ROI +2.8%/u en 282 picks.\n- Mejor deporte: FIFA World Cup 2026 (77.6%, ROI +25.2%).\n- Peor deporte: MLB (55.2%, ROI -3.5%) — sé más selectivo ahí.\n- Tipo flojo: Spread (12.5%, ROI -81.0%) — evita salvo ventaja clara.\n- Calibración: prometiste 58.8% promedio pero ganó 53.7% — sobreestimas ~5.1 pts, baja tus probabilidades.\n- 5★ ganan 0.0% vs 3★ 56.5% — tus 5★ NO ganan más; modera la confianza."
+  "lecciones": "APRENDIZAJE DE PICKS PASADOS (úsalo para calibrar tu criterio):\n- Global: 173-114 (60.3% acierto), ROI +3.6%/u en 290 picks.\n- Mejor deporte: FIFA World Cup 2026 (77.6%, ROI +25.2%).\n- Peor deporte: MLB (55.9%, ROI -2.2%) — sé más selectivo ahí.\n- Tipo flojo: Spread (12.5%, ROI -81.0%) — evita salvo ventaja clara.\n- 5★ ganan 0.0% vs 3★ 58.0% — tus 5★ NO ganan más; modera la confianza."
 }
