@@ -279,6 +279,10 @@ ESPN_SLUGS = {
     "soccer_england_efl_champ":          "soccer/eng.2",
 }
 
+# {NOMBRE_EQUIPO_UPPER: url_logo} — se llena desde ESPN en fetch_espn_stats.
+# Sirve para pintar logos reales de fútbol en la web (misma fuente que las stats).
+ESPN_TEAM_LOGOS: dict = {}
+
 def _espn_competitor_blurb(c: dict) -> str:
     """Resumen de un equipo: nombre (récord, local/visitante, forma) — abridor (récord, ERA)."""
     name = c.get("team", {}).get("displayName", "")
@@ -332,6 +336,12 @@ def fetch_espn_stats(sport_key: str) -> dict:
         home = next((c for c in comps if c.get("homeAway") == "home"), None)
         if not (away and home):
             continue
+        # Guardar logo real de cada equipo (misma fuente ESPN) para la web.
+        for c in (away, home):
+            t = c.get("team", {})
+            nm, logo = t.get("displayName", ""), t.get("logo")
+            if nm and logo:
+                ESPN_TEAM_LOGOS[nm.upper().strip()] = logo
         key = (away.get("team", {}).get("displayName", ""),
                home.get("team", {}).get("displayName", ""))
         out[key] = f"{_espn_competitor_blurb(away)}  @  {_espn_competitor_blurb(home)}"
@@ -508,6 +518,18 @@ def _parse_matchup(matchup: str):
     else:
         return None
     return a.strip(), h.strip()
+
+def _logo_for(team_name: str):
+    """URL del logo (ESPN) para un nombre de equipo de odds; None si no hay match."""
+    if not team_name:
+        return None
+    key = team_name.upper().strip()
+    if key in ESPN_TEAM_LOGOS:
+        return ESPN_TEAM_LOGOS[key]
+    for espn_name, url in ESPN_TEAM_LOGOS.items():
+        if url and _team_match(team_name, espn_name):
+            return url
+    return None
 
 def _median(nums: list) -> float | None:
     s = sorted(nums)
@@ -1080,6 +1102,22 @@ if __name__ == "__main__":
         picks_data = fix_cuotas_reales(picks_data, all_odds)
         n2 = len(picks_data.get("picks", []))
         print(f"   {n2} picks con EV positivo real tras verificación")
+
+        # Logos reales de fútbol (ESPN): inyectar logo_away / logo_home por pick.
+        n_logos = 0
+        for p in picks_data.get("picks", []):
+            if not str(p.get("sport_key", "")).startswith("soccer"):
+                continue
+            mm = _parse_matchup(p.get("matchup", ""))
+            if not mm:
+                continue
+            la, lh = _logo_for(mm[0]), _logo_for(mm[1])
+            if la:
+                p["logo_away"] = la; n_logos += 1
+            if lh:
+                p["logo_home"] = lh; n_logos += 1
+        if n_logos:
+            print(f"   🖼  {n_logos} logos de fútbol (ESPN) añadidos")
 
         n2 = len(picks_data.get("picks", []))
         if n2 == 0:
