@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-08-23",
+  "resumen": {
+    "total": 2,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "pending": 2,
+    "roi_pct": 0.0
+  },
+  "picks": [
+    {
+      "matchup": "Nikola Bartunkova @ Antonia Ruzic",
+      "pick": "Nikola Bartunkova Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.15,
+      "stake": "0.15u",
+      "resultado": "pending",
+      "score": null,
+      "sport_key": "tennis_wta_monterrey_open",
+      "prob_propia": 88.5,
+      "prob_justa": 86.2,
+      "prob_ia_cruda": 88.5,
+      "prob_casino": 87.0,
+      "ev_pct": 1.8,
+      "estrellas": 2
+    },
+    {
+      "matchup": "Oleksandra Oliynykova @ Mayar Sherif",
+      "pick": "Oleksandra Oliynykova Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.44,
+      "stake": "0.2u",
+      "resultado": "pending",
+      "score": null,
+      "sport_key": "tennis_wta_monterrey_open",
+      "prob_propia": 75.0,
+      "prob_justa": 70.9,
+      "prob_ia_cruda": 75.0,
+      "prob_casino": 69.4,
+      "ev_pct": 8.0,
+      "estrellas": 3
+    }
+  ]
+}
