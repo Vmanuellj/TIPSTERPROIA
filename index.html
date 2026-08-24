@@ -508,9 +508,19 @@ function getSport(liga){
   if(l.includes('mlb'))return'mlb';
   if(l.includes('nba'))return'nba';
   if(l.includes('tennis')||l.includes('tenis')||l.includes('atp')||l.includes('wta'))return'tennis';
-  if(l.includes('liga')||l.includes('premier')||l.includes('mls')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer'))return'futbol';
+  if(l.includes('liga')||l.includes('premier')||l.includes('mls')||l.includes('futbol')||l.includes('fútbol')||l.includes('soccer')||l.includes('serie a')||l.includes('ligue')||l.includes('eredivisie')||l.includes('championship')||l.includes('brasileir')||l.includes('brazil')||l.includes('argentin')||l.includes('primera')||l.includes('uefa')||l.includes('champions')||l.includes('europa'))return'futbol';
   if(l.includes('nfl')||l.includes('american football')||l.includes('football'))return'nfl';
   return'otros';
+}
+// Deporte robusto: primero por sport_key del pick (fiable), luego por texto de liga.
+function sportOf(p){
+  var sk=((p&&p.sport_key)||'').toLowerCase();
+  if(sk.indexOf('soccer')===0)return'futbol';
+  if(sk.indexOf('baseball')===0)return'mlb';
+  if(sk.indexOf('basketball')===0)return'nba';
+  if(sk.indexOf('americanfootball')===0)return'nfl';
+  if(sk.indexOf('tennis')===0)return'tennis';
+  return getSport(p&&p.liga);
 }
 function parseTeams(matchup){
   var m=matchup||'';
@@ -592,10 +602,18 @@ window._logoErr=function(img,abbr,sport){
     'letter-spacing:1px">'+ini+'</span>';
 };
 
-function logoHTML(rawName,liga,sizePx){
+function logoHTML(rawName,liga,sizePx,logoUrl){
   var sz=sizePx||40;
   var name=(rawName||'').toUpperCase().trim().replace(/^@\s*/,'').trim();
   var sport=getSport(liga);
+
+  // Logo directo (ej. ESPN para fútbol): si el pick trae la URL, úsala.
+  if(logoUrl){
+    var safe=name.replace(/'/g,'').replace(/\\/g,'');
+    return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
+      '<img src="'+logoUrl+'" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" onerror="_logoErr(this,\''+safe+'\',\''+sport+'\')">'+
+    '</div>';
+  }
 
   // MLB → logo oficial, onerror llama función global sin HTML embebido
   if(sport==='mlb'){
@@ -665,8 +683,8 @@ function valueBox(p){
 // ─── GOLD PICK ────────────────────────────────────────────────────────────────
 function buildGold(p){
   var t=parseTeams(p.matchup);
-  var la=t.away?logoHTML(t.away,p.liga,52):'';
-  var lb=t.home?logoHTML(t.home,p.liga,52):'';
+  var la=t.away?logoHTML(t.away,p.liga,52,p.logo_away):'';
+  var lb=t.home?logoHTML(t.home,p.liga,52,p.logo_home):'';
   var ctx=(p.liga||'').toUpperCase()+' · '+(p.hora||'').replace(/\s*(CDT|EDT|CT|ET|PDT|PT)\s*/gi,'').trim();
   var vs=t.home
     ?'<div class="gc-matchup">'+
@@ -709,8 +727,8 @@ function buildGold(p){
 function buildCard(p){
   var sc='s'+(p.estrellas||1);
   var t=parseTeams(p.matchup);
-  var la=t.away?logoHTML(t.away,p.liga,30):'';
-  var lb=t.home?logoHTML(t.home,p.liga,30):'';
+  var la=t.away?logoHTML(t.away,p.liga,30,p.logo_away):'';
+  var lb=t.home?logoHTML(t.home,p.liga,30,p.logo_home):'';
   var ctx=(p.liga||'').toUpperCase()+' · '+(p.hora||'').replace(/\s*(CDT|EDT|CT|ET|PDT|PT)\s*/gi,'').trim();
   var teamsRow=t.home
     ?'<div class="pc-teams">'+la+'<span class="pc-vs">@</span>'+lb+
@@ -783,11 +801,11 @@ function buildParlay(pl){
 
 // ─── SPORT SECTION ────────────────────────────────────────────────────────────
 function buildSport(allPicks,allNA,sport,label,icoId){
-  var picks=allPicks.filter(function(p){return getSport(p.liga)===sport;});
+  var picks=allPicks.filter(function(p){return sportOf(p)===sport;});
   var na=allNA.filter(function(p){
     var l=(p.liga||'').toLowerCase();
     return(sport==='mlb'&&l.includes('mlb'))||(sport==='nba'&&l.includes('nba'))||
-           (sport==='futbol'&&(l.includes('liga')||l.includes('premier')||l.includes('futbol')||l.includes('fútbol')))||
+           (sport==='futbol'&&getSport(l)==='futbol')||
            (sport==='nfl'&&(l.includes('nfl')||l.includes('football')))||
            (sport==='tennis'&&(l.includes('tennis')||l.includes('tenis')||l.includes('atp')||l.includes('wta')));
   });
@@ -897,7 +915,7 @@ function render(data){
 
   // Tab counts
   var SC={mlb:0,nba:0,futbol:0,nfl:0,tennis:0};
-  picks.forEach(function(p){var s=getSport(p.liga);if(SC[s]!==undefined)SC[s]++;});
+  picks.forEach(function(p){var s=sportOf(p);if(SC[s]!==undefined)SC[s]++;});
   var total=picks.length;
   ['mlb','nba','futbol','nfl','tennis'].forEach(function(s){
     var el=document.getElementById('ct-'+s);
@@ -910,7 +928,7 @@ function render(data){
   if(ini){
     var best=picks.filter(function(p){return(p.estrellas||0)===5;}).sort(function(a,b){return(b.ev_pct||0)-(a.ev_pct||0);})[0];
     var rest=picks.filter(function(p){return p!==best;});
-    var ligaSet=[...new Set(picks.map(function(p){return getSport(p.liga).toUpperCase();}))];
+    var ligaSet=[...new Set(picks.map(function(p){return sportOf(p).toUpperCase();}))];
     var goldPicks=picks.filter(function(p){return(p.estrellas||0)===5;}).length;
     var ev5Picks=picks.filter(function(p){return(p.ev_pct||0)>5;}).length;
     var avgEV=picks.length?picks.reduce(function(a,p){return a+(p.ev_pct||0);},0)/picks.length:0;
