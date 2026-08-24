@@ -1034,7 +1034,7 @@ def generate_picks(context: str) -> dict:
         ],
     }
     user_msg = (
-        f"Genera entre 8 y 12 picks para HOY ({today}).\n"
+        f"Genera entre 8 y 10 picks para HOY ({today}).\n"
         f"PRIORIDAD: fútbol primero, luego tennis, NBA y NFL. De MLB incluye COMO MÁXIMO "
         f"3 picks (solo los de mayor ventaja/EV) — el usuario prefiere poco béisbol.\n"
         f"Usa EXCLUSIVAMENTE los partidos listados en el contexto.\n"
@@ -1044,7 +1044,7 @@ def generate_picks(context: str) -> dict:
     )
     msg = client.messages.create(
         model="claude-sonnet-4-6",
-        max_tokens=6000,
+        max_tokens=8000,
         system=PROMPT_SYSTEM,
         messages=[{"role": "user", "content": user_msg}],
     )
