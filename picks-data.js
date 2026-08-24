@@ -3,9 +3,9 @@ window.PICKS_DATA = {
   "fecha": "2026-08-24",
   "fecha_display": "Lunes 24 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 9 picks con EV+. Horario CDT CDMX.",
+  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 10 picks con EV+. Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "2.25u",
+    "exposicion_total": "2.1u",
     "max_por_juego": "0.3u",
     "nota": "Kelly 1/4"
   },
@@ -13,7 +13,7 @@ window.PICKS_DATA = {
     {
       "liga": "MLB",
       "matchup": "Tampa Bay Rays @ Detroit Tigers",
-      "hora": "5:41 PM CDT (CDMX)",
+      "hora": "5:40 PM CDT (CDMX)",
       "pick": "Tampa Bay Rays Moneyline",
       "tipo": "Moneyline",
       "cuota_bet365": 1.75,
@@ -23,11 +23,11 @@ window.PICKS_DATA = {
       "prob_acierto": 61,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Tampa Bay lidera 77-53 con uno de los mejores récords de la liga. Drew Rasmussen llega con marca 13-5 y ERA 3.01, dominante. Detroit es 61-69 y presenta a Framber Valdez con ERA 4.35. Los Rays tienen ventaja clara de pitching y calidad global. La cuota 1.75 implica ~57% pero los datos apuntan a ~61% de probabilidad real, generando EV positivo defendible.",
+      "razonamiento": "Tampa Bay lidera con récord 77-53 y visitante 34-30. Drew Rasmussen (13-5, 3.01 ERA) es uno de los mejores abridores del día frente a Framber Valdez (8-8, 4.35 ERA) de Detroit (61-69 local 32-31). La diferencia de calidad entre abridores y el rendimiento general de los Rays justifica ~4 puntos de ventaja sobre la prob implícita del mercado.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 61.0,
-      "prob_justa": 56.1,
+      "prob_justa": 56.0,
       "fair_source": "pinnacle",
       "cuota_minima": 1.64
     },
@@ -37,125 +37,125 @@ window.PICKS_DATA = {
       "hora": "8:45 PM CDT (CDMX)",
       "pick": "Cincinnati Reds Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.67,
-      "prob_implicita": 59.9,
-      "prob_propia": 64.1,
-      "ev_pct": 7.0,
+      "cuota_bet365": 1.66,
+      "prob_implicita": 60.2,
+      "prob_propia": 64.5,
+      "ev_pct": 7.1,
       "prob_acierto": 65,
       "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Chase Burns es el pick más fuerte del día en pitching: 14-2 y ERA 2.51, elite absoluto. San Francisco presenta a Carson Whisenhunt con ERA 7.03, uno de los peores del contexto de hoy. Giants con récord 52-78, entre los peores de la liga. Burns vs Whisenhunt es un mismatch pronunciado. La cuota 1.67 infravalora al visitante dado ese diferencial de ERA.",
+      "stake": "0.25u",
+      "razonamiento": "Chase Burns (14-2, 2.51 ERA) es el abridor más dominante del día con uno de los mejores récords en MLB. Enfrenta a Carson Whisenhunt (3-4, 7.03 ERA) de los Giants (52-78). La disparidad de ERA entre abridores es enorme y San Francisco tiene el segundo peor récord de los equipos en juego hoy. Edge claro y defendible.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 65.0,
-      "prob_justa": 59.1,
+      "prob_justa": 59.5,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.56
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Colorado Rockies @ Washington Nationals",
-      "hora": "5:46 PM CDT (CDMX)",
-      "pick": "Washington Nationals Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.57,
-      "prob_implicita": 63.7,
-      "prob_propia": 67.0,
-      "ev_pct": 5.2,
-      "prob_acierto": 67,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cade Cavalli domina con 11-5 y ERA 3.22 frente a Ryan Feltner de Colorado, que llega con ERA 5.97 y récord 5-7. Rockies son 50-80, el peor récord del contexto con solo 23-42 como visitante. Nacionales en casa 27-36, pero con clara ventaja de pitching. La combinación de abridor sólido vs abridor débil y récords justifica al favorito local.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 67.0,
-      "prob_justa": 63.6,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.49
+      "cuota_minima": 1.55
     },
     {
       "liga": "MLB",
       "matchup": "Philadelphia Phillies @ Seattle Mariners",
-      "hora": "8:41 PM CDT (CDMX)",
+      "hora": "8:40 PM CDT (CDMX)",
       "pick": "Philadelphia Phillies Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.89,
-      "prob_implicita": 52.9,
-      "prob_propia": 56.9,
-      "ev_pct": 7.5,
-      "prob_acierto": 57,
+      "cuota_bet365": 1.93,
+      "prob_implicita": 51.8,
+      "prob_propia": 55.5,
+      "ev_pct": 7.1,
+      "prob_acierto": 55,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Zack Wheeler con ERA 2.92 y récord 10-4 es un as de élite. Logan Gilbert de Seattle responde con ERA 3.35 y 10-7, decente pero inferior. Phillies son 73-58 con 35-28 como visitante. Seattle es 62-69. El mercado trata esto casi como un partido parejo (1.89 vs 2.03) pero Wheeler tiene ventaja real sobre Gilbert. Edge de ~4 puntos porcentuales sobre el mercado.",
+      "razonamiento": "Zack Wheeler (10-4, 2.92 ERA) es claramente superior a Logan Gilbert (10-7, 3.35 ERA). Phillies con récord 73-58 visitante 35-28 son un equipo de mayor calibre que Seattle (62-69). La cuota de 1.93 implica casi moneda al aire cuando Wheeler tiene ventaja sobre Gilbert. EV positivo moderado y defendible.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 57.0,
-      "prob_justa": 51.9,
+      "prob_ia_cruda": 55.5,
+      "prob_justa": 50.8,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.76
+      "cuota_minima": 1.8
     },
     {
       "liga": "MLB",
-      "matchup": "Cleveland Guardians @ Los Angeles Angels",
-      "hora": "8:39 PM CDT (CDMX)",
-      "pick": "Cleveland Guardians Moneyline",
+      "matchup": "Colorado Rockies @ Washington Nationals",
+      "hora": "5:45 PM CDT (CDMX)",
+      "pick": "Washington Nationals Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.65,
-      "prob_implicita": 60.6,
-      "prob_propia": 64.0,
-      "ev_pct": 5.6,
-      "prob_acierto": 64,
+      "cuota_bet365": 1.56,
+      "prob_implicita": 64.1,
+      "prob_propia": 68.0,
+      "ev_pct": 6.1,
+      "prob_acierto": 68,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Parker Messick con ERA impresionante 2.54 y récord 9-8 enfrenta a George Klassen con ERA 3.74 y solo 2-1 (poca muestra). Ángeles son 52-79, entre los peores registros del contexto; solo 29-36 en casa. Guardians con 34-32 como visitante. Ventaja de pitching clara y diferencial de calidad de plantilla respaldan la posición visitante.",
+      "razonamiento": "Cade Cavalli (11-5, 3.22 ERA) es ampliamente superior a Ryan Feltner (5-7, 5.97 ERA). Colorado es el peor equipo del día con récord 50-80 visitante 23-42. Washington en casa (27-36) tiene ventaja de abridor significativa. La cuota 1.56 es razonable para un diferencial de calidad tan claro.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 64.0,
-      "prob_justa": 60.1,
+      "prob_ia_cruda": 68.0,
+      "prob_justa": 63.6,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.56
+      "cuota_minima": 1.47
     },
     {
       "liga": "MLB",
       "matchup": "Minnesota Twins @ Athletics",
-      "hora": "8:41 PM CDT (CDMX)",
-      "pick": "Over 10.5 Carreras",
+      "hora": "8:40 PM CDT (CDMX)",
+      "pick": "Total Over 10.5",
       "tipo": "Total",
-      "cuota_bet365": 1.89,
-      "prob_implicita": 52.9,
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
       "prob_propia": 57.0,
-      "ev_pct": 7.7,
+      "ev_pct": 7.2,
       "prob_acierto": 57,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Jeffrey Springs llega con ERA 6.02 y récord 3-11 para Athletics; Zebby Matthews con ERA 5.12 y 7-8 para Minnesota. Ambos abridores son vulnerables con ERA superiores a 5.00. Athletics es 51-80, bullpen cuestionable. Total de 10.5 sugiere línea elevada, pero con dos abridores de ERA >5 hay probabilidad real de superar esa cifra. Cuota 1.90 ofrece valor en over.",
+      "razonamiento": "Zebby Matthews (7-8, 5.12 ERA) y Jeffrey Springs (3-11, 6.02 ERA) son los dos peores abridores del día por ERA. Ambos equipos tienen bullpens con alta carga. El línea de 10.5 es alto pero ambos pitchers tienen pronóstico de conceder carreras — una línea fijada en 10.5 con cuota 1.89 sobre Over sugiere que el mercado ya anticipa ofensiva, pero la calidad combinada de ERA justifica ligeramente el Over.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 57.0,
-      "prob_justa": 52.1,
+      "prob_justa": 52.4,
       "fair_source": "pinnacle",
       "cuota_minima": 1.75
     },
     {
-      "liga": "MLB",
-      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
-      "hora": "8:40 PM CDT (CDMX)",
-      "pick": "Over 9.5 Carreras",
-      "tipo": "Total",
-      "cuota_bet365": 2.04,
-      "prob_implicita": 49.0,
-      "prob_propia": 52.0,
-      "ev_pct": 6.1,
-      "prob_acierto": 52,
+      "liga": "Serie A - Italy",
+      "matchup": "Fiorentina @ AS Roma",
+      "hora": "1:45 PM CDT (CDMX)",
+      "pick": "AS Roma Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.71,
+      "prob_implicita": 58.5,
+      "prob_propia": 61.7,
+      "ev_pct": 5.5,
+      "prob_acierto": 62,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "AS Roma llega con forma WWWWW (5 victorias consecutivas) frente a Fiorentina con forma WDWDL. Roma jugando como visitante en Fiorentina, cuota 1.74 implica ~57.5% pero la forma reciente perfecta de Roma (5/5) justifica una estimación de ~62%. La cuota de Fiorentina como local (5.28) refleja que el mercado ya reconoce la superioridad de Roma.",
+      "sport_key": "soccer_italy_serie_a",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 62.0,
+      "prob_justa": 56.7,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.62
+    },
+    {
+      "liga": "La Liga - Spain",
+      "matchup": "Levante @ CA Osasuna",
+      "hora": "12:30 PM CDT (CDMX)",
+      "pick": "CA Osasuna Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
+      "prob_propia": 56.6,
+      "ev_pct": 6.4,
+      "prob_acierto": 57,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Kevin Gausman llega con ERA 4.58 y récord 6-11 —temporada irregular. Merrill Kelly tiene ERA 5.37 y récord 8-11, peor abridor local del contexto de hoy. Ambos son vulnerables a la ofensiva. Cubs son 75-56 con potencia ofensiva, Diamondbacks 69-62 en casa. Con dos ERA >4.5, la cuota 2.13 para over 9.5 representa valor real.",
-      "sport_key": "baseball_mlb",
+      "razonamiento": "Osasuna juega en casa con forma LLLLL pero como local en La Liga generalmente levanta. Levante es recién ascendido (0-0-1) con cuota como visitante de 4.57 que implica solo ~21.9% de victoria. La cuota de Osasuna en local a 1.91 parece infravalorada dado el contexto de liga; Levante tiene mayor riesgo siendo visitante en Primera.",
+      "sport_key": "soccer_spain_la_liga",
       "cuota_verificada": true,
-      "prob_ia_cruda": 52.0,
-      "prob_justa": 51.0,
+      "prob_ia_cruda": 57.0,
+      "prob_justa": 51.6,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.92
+      "cuota_minima": 1.77
     },
     {
       "liga": "Tennis WTA",
@@ -167,16 +167,37 @@ window.PICKS_DATA = {
       "prob_implicita": 54.1,
       "prob_propia": 56.3,
       "ev_pct": 4.2,
-      "prob_acierto": 58,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Osorio Serrano es favorita ligera del mercado (1.82 vs 1.97 para Li). En el circuito WTA, Osorio tiene historial más consistente en superficie dura. La cuota implica ~55% pero estimamos ~58% considerando la diferencia de forma y ranking implícitos en las cuotas del mercado. Edge pequeño pero defendible. Posición especulativa dado que no hay estadísticas adicionales disponibles.",
+      "prob_acierto": 59,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Osorio Serrano es favorita del mercado a 1.82 frente a Ann Li (1.97). El spread de cuotas es moderado y casi parejo, pero Osorio Serrano tiene mayor trayectoria en superficies rápidas de final de temporada. Con prob implícita de 54.9% y estimación propia de 59%, el EV es positivo y defendible como pick de valor moderado.",
       "sport_key": "tennis_wta_monterrey_open",
       "cuota_verificada": true,
-      "prob_ia_cruda": 58.0,
+      "prob_ia_cruda": 59.0,
       "prob_justa": 51.3,
       "fair_source": "pinnacle",
       "cuota_minima": 1.78
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Pittsburgh Pirates @ San Diego Padres",
+      "hora": "8:40 PM CDT (CDMX)",
+      "pick": "San Diego Padres Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.91,
+      "prob_implicita": 52.4,
+      "prob_propia": 55.0,
+      "ev_pct": 5.0,
+      "prob_acierto": 55,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Robbie Ray (11-7, 3.20 ERA) supera a Braxton Ashcraft (13-5, 3.68 ERA) aunque ambos tienen registros decentes. San Diego (71-60 local 40-26) tiene un récord de local significativamente mejor que Pittsburgh (63-69 visitante 29-37). La cuota de 1.96 casi moneda al aire sobrevalora a Pittsburgh; los Padres en casa con mejor récord y pitching ligeramente superior justifican el pick.",
+      "sport_key": "baseball_mlb",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 55.0,
+      "prob_justa": 50.0,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.82
     },
     {
       "liga": "Tennis WTA",
@@ -186,15 +207,15 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "cuota_bet365": 1.62,
       "prob_implicita": 61.7,
-      "prob_propia": 64.0,
-      "ev_pct": 3.7,
-      "prob_acierto": 64,
-      "estrellas": 2,
+      "prob_propia": 64.3,
+      "ev_pct": 4.2,
+      "prob_acierto": 65,
+      "estrellas": 3,
       "stake": "0.15u",
-      "razonamiento": "Vekic es favorita clara a 1.63 frente a Parry a 2.28. El diferencial de cuota refleja ventaja de nivel. En torneos hardcourt, Vekic históricamente supera su probabilidad implícita frente a jugadoras de menor ranking como Parry. EV marginal pero positivo anclado al mercado. Pick complementario para diversificar con tenis.",
+      "razonamiento": "Donna Vekic es favorita clara a 1.63 frente a Diane Parry (2.28). Vekic tiene mayor experiencia en torneos WTA de nivel medio-alto y Parry es una jugadora con potencial pero inconsistente. La probabilidad implícita de 61.3% parece ligeramente baja para Vekic dado el diferencial de nivel; estimación propia 65% genera EV positivo moderado.",
       "sport_key": "tennis_wta_monterrey_open",
       "cuota_verificada": true,
-      "prob_ia_cruda": 64.0,
+      "prob_ia_cruda": 65.0,
       "prob_justa": 59.3,
       "fair_source": "pinnacle",
       "cuota_minima": 1.56
@@ -204,52 +225,107 @@ window.PICKS_DATA = {
     {
       "matchup": "Boston Red Sox @ Miami Marlins",
       "liga": "MLB",
-      "razon": "Partido muy equilibrado —Ranger Suarez 3.41 ERA vs Sandy Alcantara 3.46 ERA, ambos sólidos. Marlins 41-25 en casa es excelente pero Boston 71-59 también es fuerte. Sin edge claro; el mercado 1.78/2.17 parece bien calibrado."
+      "razon": "Ambos abridores tienen ERA similar (Suarez 3.41 vs Alcantara 3.46). El mercado está bien calibrado; sin edge claro."
     },
     {
       "matchup": "Texas Rangers @ Chicago White Sox",
       "liga": "MLB",
-      "razon": "El pitcher local está como TBD en el contexto oficial aunque las cuotas muestran a Jose Urquidy. Sin certeza del abridor local confirmado y Kumar Rocker con ERA 4.46 da poca confianza. Rangers con récord visitante pobre 29-37. Demasiada incertidumbre."
+      "razon": "El pitcher local está TBD según la sección oficial de pitchers, aunque el bloque de cuotas cita a Urquidy. Incertidumbre en el abridor local, evitar."
     },
     {
-      "matchup": "Pittsburgh Pirates @ San Diego Padres",
+      "matchup": "Cleveland Guardians @ Los Angeles Angels",
       "liga": "MLB",
-      "razon": "Cuotas exactamente iguales 1.96/1.96 —mercado totalmente eficiente y parejo. Braxton Ashcraft 3.68 ERA vs Robbie Ray 3.20 ERA es diferencial mínimo. Sin ventaja explotable."
+      "razon": "Messick tiene excelente ERA (2.54) pero Klassen (3.74) no es tan débil. Cuota de Guardians ya barata (1.65); poco valor residual."
+    },
+    {
+      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
+      "liga": "MLB",
+      "razon": "Ambos abridores tienen ERA elevada (Gausman 4.58, Kelly 5.37). Partido de alto riesgo, mercado parejamente valorado sin edge claro."
+    },
+    {
+      "matchup": "Chelsea @ Fulham",
+      "liga": "EPL",
+      "razon": "Ambos equipos con récord 0-0-0 (inicio de temporada), forma histórica poco concluyente. Sin datos suficientes para estimar ventaja real."
+    },
+    {
+      "matchup": "Lazio @ Bologna",
+      "liga": "Serie A - Italy",
+      "razon": "Ambos con récord 0-0-0. Bologna tiene forma DWWDL y es favorito, pero la cuota 2.34 con Lazio en 3.48 no ofrece edge claro sin estadísticas de temporada."
+    },
+    {
+      "matchup": "Central Córdoba @ CA Tigre BA",
+      "liga": "Primera División - Argentina",
+      "razon": "Tigre muy favorito (1.63) con línea AH -1.5 a 3.02. Central Córdoba con forma LWWLL. No hay edge claro en ningún mercado."
+    },
+    {
+      "matchup": "Argentinos Juniors @ Lanus",
+      "liga": "Primera División - Argentina",
+      "razon": "Sin estadísticas ESPN disponibles. Mercado parejísimo (~1X2 casi equilibrado). Evitar sin datos concretos."
+    },
+    {
+      "matchup": "Rosario Central @ Talleres",
+      "liga": "Primera División - Argentina",
+      "razon": "Rosario (3-1-1 forma LWDWW) vs Talleres (1-0-4 forma LLWLL). Mercado casi equilibrado en los tres resultados. El valor potencial es marginal para el riesgo."
+    },
+    {
+      "matchup": "Atletico Paranaense @ Botafogo",
+      "liga": "Brazil Série A",
+      "razon": "Sin estadísticas ESPN. Mercado con Botafogo favorito (2.41) pero sin datos de forma o récord para estimar ventaja real. Evitar."
+    },
+    {
+      "matchup": "Casa Pia @ Gil Vicente",
+      "liga": "Primeira Liga - Portugal",
+      "razon": "Gil Vicente favorito claro (1.73) pero Casa Pia con forma LLWDD en casa. Las cuotas Pinnacle tienen bajo vig pero sin estadísticas suficientes para edge claro."
+    },
+    {
+      "matchup": "Deportivo La Coruña @ Málaga",
+      "liga": "La Liga - Spain",
+      "razon": "Málaga favorito (2.45) pero mercado parejísimo. Deportivo con forma DLWWW puede sorprender. Sin datos estadísticos profundos para justificar pick."
     },
     {
       "matchup": "Petra Marcinko @ Alycia Parks",
       "liga": "Tennis WTA",
-      "razon": "Sin información de contexto adicional. Marcinko ligera favorita pero edge insuficiente para justificar pick."
+      "razon": "Mercado casi equilibrado (1.77 vs 2.04). Sin contexto de forma ni superficies. Cuota no ofrece valor suficiente."
     },
     {
       "matchup": "Dayana Yastremska @ Janice Tjen",
       "liga": "Tennis WTA",
-      "razon": "Tjen es favorita clara a 1.59 pero Yastremska a 2.35 genera dudas. El diferencial implica una asimetría de ranking inusual. Sin datos adicionales, no hay edge claro."
+      "razon": "Tjen favorita (1.55) frente a Yastremska (2.46). La inversión de favoritos es sospechosa sin contexto adicional. Riesgo de información incompleta."
     },
     {
       "matchup": "Renata Zarazua @ Clara Tauson",
       "liga": "Tennis WTA",
-      "razon": "Tauson es favorita dominante a 1.32 (implica ~76%). Cuota demasiado baja para apostar con margen de valor. Zarazua a 3.38 es especulativo sin datos de forma."
+      "razon": "Tauson muy favorita (1.32). Cuota demasiado baja para generar EV positivo con el riesgo asumido."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Cincinnati Reds Moneyline (1.67)",
-      "Tampa Bay Rays Moneyline (1.75)"
+      "Tampa Bay Rays ML (1.75)",
+      "Cincinnati Reds ML (1.66)",
+      "AS Roma ML (1.74)"
     ],
-    "cuota_total": 2.92,
-    "ev_pct": 14.8,
+    "cuota_total": 5.04,
+    "ev_pct": 8.2,
     "stake": "0.15u",
-    "nota": "Correlación positiva: ambos picks están basados en abridores de élite con ERA bajo (Burns 2.51, Rasmussen 3.01) enfrentando abridores débiles (Whisenhunt 7.03, Valdez 4.35) y rivales con récords deficientes. Dos de los matchups con mayor diferencial de pitching del día. Si ambos abridores dominan, los favoritos ganan con alta probabilidad."
+    "nota": "Tres picks de calidad de abridor superior en MLB más la forma perfecta de Roma. Rasmussen, Burns y Wheeler/Roma son los edges más claros del día. Correlación positiva: equipos con abridores dominantes y récords superiores en partidos donde el mercado subestima ligeramente la ventaja."
   },
   "resumen_ejecutivo": [
     {
       "pick": "Cincinnati Reds ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.67,
-      "ev_pct": 8.6,
-      "stake": "0.3u",
+      "cuota": 1.66,
+      "ev_pct": 7.9,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "AS Roma ML",
+      "tipo": "Moneyline",
+      "liga": "Serie A - Italy",
+      "cuota": 1.74,
+      "ev_pct": 7.9,
+      "stake": "0.25u",
       "estrellas": 4
     },
     {
@@ -257,25 +333,16 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.75,
-      "ev_pct": 6.8,
+      "ev_pct": 6.75,
       "stake": "0.25u",
       "estrellas": 4
     },
     {
-      "pick": "Minnesota Twins @ Athletics Over 10.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.9,
-      "ev_pct": 8.3,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Chicago Cubs @ ARI Over 9.5",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 2.13,
-      "ev_pct": 10.8,
+      "pick": "CA Osasuna ML",
+      "tipo": "Moneyline",
+      "liga": "La Liga - Spain",
+      "cuota": 1.91,
+      "ev_pct": 8.9,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -283,8 +350,17 @@ window.PICKS_DATA = {
       "pick": "Philadelphia Phillies ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.89,
-      "ev_pct": 7.7,
+      "cuota": 1.93,
+      "ev_pct": 7.1,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "San Diego Padres ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.96,
+      "ev_pct": 7.8,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -292,17 +368,8 @@ window.PICKS_DATA = {
       "pick": "Washington Nationals ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.57,
-      "ev_pct": 5.2,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Cleveland Guardians ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.65,
-      "ev_pct": 5.6,
+      "cuota": 1.56,
+      "ev_pct": 6.1,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -311,18 +378,27 @@ window.PICKS_DATA = {
       "tipo": "Moneyline",
       "liga": "Tennis WTA",
       "cuota": 1.82,
-      "ev_pct": 5.6,
-      "stake": "0.15u",
-      "estrellas": 2
+      "ev_pct": 7.4,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Minnesota Twins @ Athletics Over 10.5",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.89,
+      "ev_pct": 7.7,
+      "stake": "0.2u",
+      "estrellas": 3
     },
     {
       "pick": "Donna Vekic ML",
       "tipo": "Moneyline",
       "liga": "Tennis WTA",
       "cuota": 1.63,
-      "ev_pct": 4.3,
+      "ev_pct": 6.0,
       "stake": "0.15u",
-      "estrellas": 2
+      "estrellas": 3
     }
   ]
 };
