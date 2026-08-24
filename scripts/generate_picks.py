@@ -179,6 +179,41 @@ def fetch_odds_today(sport_key: str, force_all_books: bool = False) -> list:
         print(f"  ⚠ Odds API ({sport_key}): {e}")
         return []
 
+def fetch_alt_totals(sport_key: str, event_id: str) -> dict | None:
+    """Líneas alternas de totales (Over/Under 0.5..5.5) de UN partido, vía el endpoint
+    por-evento de The Odds API. Permite ofrecer Over/Under 1.5 y 3.5 además del 2.5.
+    Cuesta ~1 crédito por partido."""
+    if not (ODDS_KEY and event_id):
+        return None
+    try:
+        r = requests.get(
+            f"https://api.the-odds-api.com/v4/sports/{sport_key}/events/{event_id}/odds/",
+            params={"apiKey": ODDS_KEY, "regions": "eu",
+                    "markets": "alternate_totals", "oddsFormat": "decimal"},
+            timeout=15,
+        )
+        return r.json() if r.ok else None
+    except Exception as e:
+        print(f"  ⚠ alt totals ({sport_key}): {e}")
+        return None
+
+def _merge_alt_totals(game: dict, alt_event: dict) -> None:
+    """Fusiona los mercados alternate_totals del evento dentro de los bookmakers del game
+    (para que consenso/Pinnacle y el contexto vean las líneas 1.5/2.5/3.5)."""
+    if not alt_event:
+        return
+    existing = {bm.get("key"): bm for bm in game.get("bookmakers", [])}
+    for abm in alt_event.get("bookmakers", []):
+        alt_mkts = [m for m in abm.get("markets", []) if m.get("key") == "alternate_totals"]
+        if not alt_mkts:
+            continue
+        tgt = existing.get(abm.get("key"))
+        if tgt:
+            tgt.setdefault("markets", []).extend(alt_mkts)
+        else:
+            game.setdefault("bookmakers", []).append(
+                {"key": abm.get("key"), "title": abm.get("title", ""), "markets": alt_mkts})
+
 def fetch_active_sports(prefix: str) -> list:
     """Keys de deportes ACTIVOS en Odds API que empiezan con `prefix` (ej. 'tennis_').
     Los torneos de tennis cambian con el calendario, así que se consultan en vivo."""
@@ -361,6 +396,42 @@ def _espn_blurb_for(away_g: str, home_g: str, espn_map: dict):
     return None
 
 # ── 3. Construir contexto ─────────────────────────────────────────────────────
+def _totals_lines(game: dict) -> list:
+    """Líneas de total (Over/Under) de consenso —mediana entre casas— para el contexto.
+    Muestra el/los punto(s) del mercado principal + las alternas de fútbol 1.5/2.5/3.5."""
+    main_pts, alt_pts = set(), set()
+    for bm in game.get("bookmakers", []):
+        for mkt in bm.get("markets", []):
+            k = mkt.get("key")
+            if k not in ("totals", "alternate_totals"):
+                continue
+            for o in mkt.get("outcomes", []):
+                if o.get("point") is None:
+                    continue
+                pv = round(float(o["point"]), 1)
+                (main_pts if k == "totals" else alt_pts).add(pv)
+    points = sorted(main_pts | {p for p in alt_pts if p in (1.5, 2.5, 3.5)})
+    out = []
+    for p in points:
+        ov, un = [], []
+        for bm in game.get("bookmakers", []):
+            for mkt in bm.get("markets", []):
+                if mkt.get("key") not in ("totals", "alternate_totals"):
+                    continue
+                for o in mkt.get("outcomes", []):
+                    pt = o.get("point")
+                    if pt is None or abs(float(pt) - p) >= 0.25 or not o.get("price"):
+                        continue
+                    if o.get("name") == "Over":
+                        ov.append(o["price"])
+                    elif o.get("name") == "Under":
+                        un.append(o["price"])
+        mo, mu = _median(ov), _median(un)
+        if mo or mu:
+            out.append(f"  Total {p:g}: Over {round(mo,2) if mo else '—'} / "
+                       f"Under {round(mu,2) if mu else '—'}")
+    return out
+
 def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
                    mlb_props=None, nba_props=None, nfl_props=None, futbol_props=None,
                    espn_stats=None, tennis_odds=None) -> str:
@@ -421,16 +492,9 @@ def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
                     lines.append(
                         f"  {bm_name} Ambos Anotan: Sí {oc.get('Yes','—')} / No {oc.get('No','—')}"
                     )
-                elif mkt["key"] == "totals":
-                    for o in mkt["outcomes"]:
-                        if o["name"] == "Over":
-                            under_price = next(
-                                (x["price"] for x in mkt["outcomes"] if x["name"] == "Under"), "—"
-                            )
-                            lines.append(
-                                f"  {bm_name} Total {o.get('point', '')}: "
-                                f"Over {o['price']} / Under {under_price}"
-                            )
+            # Totales de consenso (mediana entre casas): 1.5/2.5/3.5 en fútbol, línea principal en otros.
+            for tl in _totals_lines(g):
+                lines.append(tl)
 
     def fmt_props_section(games: list, label: str):
         lines.append(f"\n=== {label} ===")
@@ -505,6 +569,14 @@ def _extract_handicap_value(pick_txt: str) -> float | None:
     if m:
         return float(m.group(1))
     return None
+
+def _extract_total_point(pick_txt: str) -> float | None:
+    """Cantidad de un pick de totales (ej: 2.5 de 'OVER 2.5 GOLES', 10.5 de 'OVER 10.5 CARRERAS')."""
+    m = re.search(r'(?:OVER|UNDER|M[ÁA]S\s+DE|MENOS\s+DE|TOTAL)\s+(\d+(?:\.\d+)?)', pick_txt, re.IGNORECASE)
+    if m:
+        return float(m.group(1))
+    m = re.search(r'(\d+\.\d+)', pick_txt)   # fallback: primer número x.x
+    return float(m.group(1)) if m else None
 
 def _parse_matchup(matchup: str):
     """'AWAY @ HOME' o 'AWAY vs HOME' → (away, home) o None."""
@@ -610,11 +682,17 @@ def _picked_price_in_market(mkt: dict, pick_txt: str, away_raw: str, home_raw: s
     Reusa las mismas reglas de match de equipos/outcome del resto del módulo."""
     key = mkt.get("key")
     outs = mkt.get("outcomes", [])
-    if key == "totals":
-        if any(k in pick_txt for k in ("OVER", "MAS DE", "MÁS DE", "+")):
-            return next((o["price"] for o in outs if o["name"].upper() == "OVER"), None)
-        if any(k in pick_txt for k in ("UNDER", "MENOS DE", "-")):
-            return next((o["price"] for o in outs if o["name"].upper() == "UNDER"), None)
+    if key in ("totals", "alternate_totals"):
+        want = _extract_total_point(pick_txt)   # ej. 1.5 / 2.5 / 3.5
+        def _pt_ok(o):
+            pt = o.get("point")
+            if want is None:
+                return True
+            return pt is not None and abs(float(pt) - want) < 0.25
+        if any(k in pick_txt for k in ("OVER", "MAS DE", "MÁS DE")):
+            return next((o["price"] for o in outs if o["name"].upper() == "OVER" and _pt_ok(o)), None)
+        if any(k in pick_txt for k in ("UNDER", "MENOS DE")):
+            return next((o["price"] for o in outs if o["name"].upper() == "UNDER" and _pt_ok(o)), None)
     elif key == "spreads":
         is_away = _pick_is_away(pick_txt, away_raw)
         is_home = _pick_is_home(pick_txt, home_raw)
@@ -746,6 +824,16 @@ def fix_cuotas_reales(picks_data: dict, all_odds: dict) -> dict:
         else:
             p["cuota_verificada"] = False
             cuota = p.get("cuota_bet365") or 0
+        # Totales: exigir cuota REAL a la línea exacta (Over/Under X.X). Si no la hay,
+        # se descarta — evita mostrar un "Over 1.5" con la cuota de otra línea (2.5).
+        tipo_l = (p.get("tipo") or "").lower()
+        pick_u = (p.get("pick") or "").upper()
+        is_total = ("total" in tipo_l) or any(k in pick_u for k in
+                    ("OVER", "UNDER", "MÁS DE", "MAS DE", "MENOS DE"))
+        if is_total and not p.get("cuota_verificada"):
+            moved_to_na.append({"matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+                                "razon": "Sin cuota real para esa línea de total (Over/Under) en el mercado."})
+            continue
         if not cuota:
             moved_to_na.append({"matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
                                 "razon": "Sin cuota disponible."})
@@ -949,7 +1037,11 @@ REGLAS ABSOLUTAS:
 4. CUOTAS REALES: el contexto incluye cuotas REALES para estos mercados:
    - "1X2/ML" → moneyline (usa para picks Moneyline)
    - "Handicap/Spread: EQUIPO +X.X → Y.YY" → Asian Handicap (usa para picks AH)
-   - "Total X.X: Over Y.YY / Under Z.ZZ" → totales goles/carreras (usa para picks O/U)
+   - "Total X.X: Over Y.YY / Under Z.ZZ" → totales goles/carreras (usa para picks O/U).
+     En fútbol puede haber VARIAS líneas (Total 1.5, Total 2.5, Total 3.5). Elige la que
+     quieras PERO usa EXACTAMENTE esa cantidad y su cuota: si tu pick es "Over 1.5 Goles",
+     copia la cuota de la línea "Total 1.5" (no la de 2.5). NUNCA inventes una línea que no
+     esté listada; si solo aparece "Total 2.5", solo puedes apostar 2.5.
    - "Ambos Anotan: Sí X.XX / No Y.YY" → BTTS (usa para picks ambos anotan)
    Copia la cuota EXACTA del contexto. Si un mercado no aparece, NO lo inventes.
 5. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
@@ -1088,6 +1180,16 @@ if __name__ == "__main__":
     nba_odds = fetch_odds_today("basketball_nba")
     nfl_odds = fetch_odds_today("americanfootball_nfl")
     futbol_odds = {key: fetch_odds_today(key) for key in FUTBOL_LEAGUES}
+
+    # Líneas alternas de totales (Over/Under 1.5 y 3.5, además del 2.5) por partido.
+    print("  ➕ Líneas alternas de totales de fútbol (1.5/2.5/3.5)...")
+    n_alt = 0
+    for sk, games in futbol_odds.items():
+        for g in games:
+            alt = fetch_alt_totals(sk, g.get("id"))
+            if alt:
+                _merge_alt_totals(g, alt); n_alt += 1
+    print(f"     {n_alt} partidos con líneas alternas añadidas")
 
     print("\n🎾 Obteniendo tennis HOY (torneos activos)...")
     tennis_odds = fetch_tennis_today()
