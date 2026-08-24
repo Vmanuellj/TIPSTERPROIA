@@ -607,11 +607,15 @@ function logoHTML(rawName,liga,sizePx,logoUrl){
   var name=(rawName||'').toUpperCase().trim().replace(/^@\s*/,'').trim();
   var sport=getSport(liga);
 
-  // Logo directo (ej. ESPN para fútbol): si el pick trae la URL, úsala.
+  // Imagen directa del pick: logo de equipo (fútbol) o foto de jugador (tenis).
   if(logoUrl){
     var safe=name.replace(/'/g,'').replace(/\\/g,'');
+    var isPhoto=logoUrl.indexOf('/headshots/')>-1;   // headshot ESPN de tenista
+    var imgStyle=isPhoto
+      ?'width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%'
+      :'width:100%;height:100%;object-fit:contain';
     return'<div class="t-logo" style="width:'+sz+'px;height:'+sz+'px">'+
-      '<img src="'+logoUrl+'" alt="'+name+'" style="width:100%;height:100%;object-fit:contain" onerror="_logoErr(this,\''+safe+'\',\''+sport+'\')">'+
+      '<img src="'+logoUrl+'" alt="'+name+'" style="'+imgStyle+'" onerror="_logoErr(this,\''+safe+'\',\''+sport+'\')">'+
     '</div>';
   }
 
@@ -683,8 +687,8 @@ function valueBox(p){
 // ─── GOLD PICK ────────────────────────────────────────────────────────────────
 function buildGold(p){
   var t=parseTeams(p.matchup);
-  var la=t.away?logoHTML(t.away,p.liga,52,p.logo_away):'';
-  var lb=t.home?logoHTML(t.home,p.liga,52,p.logo_home):'';
+  var la=t.away?logoHTML(t.away,p.liga,52,p.logo_away||p.photo_away):'';
+  var lb=t.home?logoHTML(t.home,p.liga,52,p.logo_home||p.photo_home):'';
   var ctx=(p.liga||'').toUpperCase()+' · '+(p.hora||'').replace(/\s*(CDT|EDT|CT|ET|PDT|PT)\s*/gi,'').trim();
   var vs=t.home
     ?'<div class="gc-matchup">'+
@@ -727,8 +731,8 @@ function buildGold(p){
 function buildCard(p){
   var sc='s'+(p.estrellas||1);
   var t=parseTeams(p.matchup);
-  var la=t.away?logoHTML(t.away,p.liga,30,p.logo_away):'';
-  var lb=t.home?logoHTML(t.home,p.liga,30,p.logo_home):'';
+  var la=t.away?logoHTML(t.away,p.liga,30,p.logo_away||p.photo_away):'';
+  var lb=t.home?logoHTML(t.home,p.liga,30,p.logo_home||p.photo_home):'';
   var ctx=(p.liga||'').toUpperCase()+' · '+(p.hora||'').replace(/\s*(CDT|EDT|CT|ET|PDT|PT)\s*/gi,'').trim();
   var teamsRow=t.home
     ?'<div class="pc-teams">'+la+'<span class="pc-vs">@</span>'+lb+
