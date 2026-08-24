@@ -531,6 +531,40 @@ def _logo_for(team_name: str):
             return url
     return None
 
+_TENNIS_PHOTO_CACHE: dict = {}
+def _tennis_photo(player_name: str):
+    """URL de la foto (headshot ESPN) de un tenista; None si ESPN no tiene foto.
+    Usa el buscador público de ESPN; el campo image.default solo viene cuando el
+    headshot existe de verdad (los jugadores sin foto no lo traen)."""
+    if not player_name:
+        return None
+    key = player_name.upper().strip()
+    if key in _TENNIS_PHOTO_CACHE:
+        return _TENNIS_PHOTO_CACHE[key]
+    photo = None
+    try:
+        r = requests.get("https://site.api.espn.com/apis/search/v2",
+                         params={"query": player_name, "limit": 8}, timeout=10)
+        data = r.json() if r.ok else {}
+        for rt in data.get("results", []):
+            if rt.get("type") != "player":
+                continue
+            for c in rt.get("contents", []):
+                if str(c.get("sport", "")).lower() != "tennis":
+                    continue
+                if not _team_match(player_name, c.get("displayName", "")):
+                    continue
+                img = c.get("image")
+                photo = img.get("default") if isinstance(img, dict) else (img if isinstance(img, str) else None)
+                if photo:
+                    break
+            if photo:
+                break
+    except Exception as e:
+        print(f"  ⚠ foto tenis {player_name}: {e}")
+    _TENNIS_PHOTO_CACHE[key] = photo
+    return photo
+
 def _median(nums: list) -> float | None:
     s = sorted(nums)
     n = len(s)
@@ -1000,7 +1034,9 @@ def generate_picks(context: str) -> dict:
         ],
     }
     user_msg = (
-        f"Genera entre 8 y 10 picks para HOY ({today}).\n"
+        f"Genera entre 8 y 12 picks para HOY ({today}).\n"
+        f"PRIORIDAD: fútbol primero, luego tennis, NBA y NFL. De MLB incluye COMO MÁXIMO "
+        f"3 picks (solo los de mayor ventaja/EV) — el usuario prefiere poco béisbol.\n"
         f"Usa EXCLUSIVAMENTE los partidos listados en el contexto.\n"
         f"Copia las cuotas exactamente como aparecen en el contexto (son reales de Bet365).\n\n"
         f"DATOS REALES:\n{context}\n\n"
@@ -1103,21 +1139,45 @@ if __name__ == "__main__":
         n2 = len(picks_data.get("picks", []))
         print(f"   {n2} picks con EV positivo real tras verificación")
 
-        # Logos reales de fútbol (ESPN): inyectar logo_away / logo_home por pick.
-        n_logos = 0
+        # ── Priorizar fútbol/otros: máximo 3 picks de MLB (los de mayor EV) ──
+        MLB_MAX = 3
+        mlb_picks = [p for p in picks_data.get("picks", [])
+                     if str(p.get("sport_key", "")).startswith("baseball")]
+        if len(mlb_picks) > MLB_MAX:
+            keep_ids = {id(p) for p in sorted(mlb_picks, key=lambda x: x.get("ev_pct", 0),
+                                              reverse=True)[:MLB_MAX]}
+            dropped = [p for p in mlb_picks if id(p) not in keep_ids]
+            picks_data["picks"] = [p for p in picks_data["picks"]
+                                   if not str(p.get("sport_key", "")).startswith("baseball")
+                                   or id(p) in keep_ids]
+            for p in dropped:
+                picks_data.setdefault("no_apostar", []).append({
+                    "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+                    "razon": f"Priorizando fútbol/otros deportes: solo top-{MLB_MAX} MLB por EV "
+                             f"(quedó fuera, EV {p.get('ev_pct')}%)."})
+            print(f"  ⚾ MLB recortado a {MLB_MAX} (fuera {len(dropped)} de {len(mlb_picks)})")
+
+        # ── Imágenes ESPN: logos de equipos (fútbol) y fotos de jugadores (tenis) ──
+        n_img = 0
         for p in picks_data.get("picks", []):
-            if not str(p.get("sport_key", "")).startswith("soccer"):
-                continue
+            sk = str(p.get("sport_key", ""))
             mm = _parse_matchup(p.get("matchup", ""))
             if not mm:
                 continue
-            la, lh = _logo_for(mm[0]), _logo_for(mm[1])
-            if la:
-                p["logo_away"] = la; n_logos += 1
-            if lh:
-                p["logo_home"] = lh; n_logos += 1
-        if n_logos:
-            print(f"   🖼  {n_logos} logos de fútbol (ESPN) añadidos")
+            if sk.startswith("soccer"):
+                la, lh = _logo_for(mm[0]), _logo_for(mm[1])
+                if la:
+                    p["logo_away"] = la; n_img += 1
+                if lh:
+                    p["logo_home"] = lh; n_img += 1
+            elif sk.startswith("tennis"):
+                pa, ph = _tennis_photo(mm[0]), _tennis_photo(mm[1])
+                if pa:
+                    p["photo_away"] = pa; n_img += 1
+                if ph:
+                    p["photo_home"] = ph; n_img += 1
+        if n_img:
+            print(f"  🖼  {n_img} imágenes ESPN (logos fútbol / fotos tenis) añadidas")
 
         n2 = len(picks_data.get("picks", []))
         if n2 == 0:
