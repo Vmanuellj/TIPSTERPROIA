@@ -17,18 +17,18 @@
       "tipo": "Moneyline",
       "cuota_bet365": 1.75,
       "prob_implicita": 57.1,
-      "prob_propia": 60.4,
-      "ev_pct": 5.7,
+      "prob_propia": 60.5,
+      "ev_pct": 5.9,
       "prob_acierto": 61,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "AS Roma llega con forma WWWWW (5 victorias consecutivas), lo que representa el mejor registro de forma del contexto. Fiorentina muestra forma WDWDL, con derrota en el último partido. AS Roma como local a 1.77 parece ligero valor dado ese momentum brutal. El mercado implica ~56.5%, pero la racha de 5W seguidas justifica estimarlos ~61%. EV de ~8%.",
+      "razonamiento": "Roma llega con forma WWWWW (5 victorias consecutivas), el mejor registro de forma de todos los equipos en el contexto hoy. Fiorentina muestra forma WDWDL con 0-0-0 en el inicio de temporada. La cuota 1.77 implica 56.5% pero Roma en racha perfecta y como favorito claro merece ~61%. EV positivo de ~8% con pick soportado por datos de forma.",
       "sport_key": "soccer_italy_serie_a",
       "cuota_verificada": true,
       "prob_ia_cruda": 61.0,
-      "prob_justa": 55.4,
+      "prob_justa": 55.5,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.66,
+      "cuota_minima": 1.65,
       "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/109.png",
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/104.png"
     },
@@ -40,18 +40,18 @@
       "tipo": "Moneyline",
       "cuota_bet365": 1.88,
       "prob_implicita": 53.2,
-      "prob_propia": 55.6,
-      "ev_pct": 4.5,
-      "prob_acierto": 56,
+      "prob_propia": 55.4,
+      "ev_pct": 4.2,
+      "prob_acierto": 55,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Chelsea visita a Fulham. Aunque ambos equipos están al inicio de temporada (0-0-0), la diferencia de calidad de plantilla entre Chelsea y Fulham históricamente es significativa. Fulham muestra forma reciente WDLLW (2 derrotas en últimos 5), Chelsea LWLDL. La cuota de 1.95 para Chelsea visitante ofrece valor dado el gap de calidad entre estos equipos. La cuota de Fulham (4.16) confirma que el mercado favorece claramente a Chelsea.",
+      "razonamiento": "Chelsea es visitante pero tiene enorme diferencia de calidad de plantilla vs Fulham. La cuota 1.95 es generosa para Chelsea. Fulham muestra forma WDLLW (2 victorias en 5, mediocre). Chelsea a 1.95 con 55% de prob. propia da EV de ~8%. El mercado infravaloró a Chelsea dada la superioridad de squad.",
       "sport_key": "soccer_epl",
       "cuota_verificada": true,
-      "prob_ia_cruda": 56.0,
-      "prob_justa": 50.6,
+      "prob_ia_cruda": 55.5,
+      "prob_justa": 50.4,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.8,
+      "cuota_minima": 1.81,
       "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/363.png",
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/370.png"
     },
@@ -63,18 +63,18 @@
       "tipo": "Moneyline",
       "cuota_bet365": 1.88,
       "prob_implicita": 53.2,
-      "prob_propia": 55.7,
-      "ev_pct": 4.7,
+      "prob_propia": 55.9,
+      "ev_pct": 5.1,
       "prob_acierto": 57,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Osasuna juega de local y el mercado la favorece claramente (cuota 1.92 vs 4.57 de Levante). Osasuna como local con la ventaja de campo en La Liga y forma reciente LLLLL para Osasuna es preocupante, pero Levante solo ha jugado 1 partido (0-0-1). La asimetría de cuotas sugiere que el mercado ve a Osasuna como favorito sólido en casa. Con cuota 1.92, prob implícita 52.1%, estimamos 57% dado el advantage local y el nivel de ambos equipos en La Liga.",
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Osasuna juega en casa con ventaja local sólida. Levante forma LLWWW tiene 3 victorias seguidas pero en condición de visitante en La Liga es vulnerable (0-0-1 inicio). Osasuna a 1.92 como local vs un recién ascendido/visitante. Prob. implícita 52.1% vs estimación propia 57% = EV ~9.4%. La cuota del empate (3.63) refuerza que el mercado ve mayor dispersión del resultado.",
       "sport_key": "soccer_spain_la_liga",
       "cuota_verificada": true,
       "prob_ia_cruda": 57.0,
-      "prob_justa": 50.7,
+      "prob_justa": 50.9,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.8,
+      "cuota_minima": 1.79,
       "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/1538.png",
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png"
     },
@@ -91,10 +91,10 @@
       "prob_acierto": 38,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Rosario Central llega con forma LWDWW (3 victorias en últimas 3 jornadas, récord 3-1-1). Talleres muestra forma LLWLL con solo 1 victoria en 5 partidos (1-0-4). El mercado trata este juego como equilibrado (2.96 vs 2.77), pero la disparidad de forma es notable. Rosario Central está en momento positivo mientras Talleres ha perdido 4 de 5. A 2.96, el EV es atractivo para el equipo en mejor forma.",
+      "razonamiento": "Rosario Central llega con forma LWDWW (3 resultados positivos seguidos, récord 3-1-1). Talleres muestra forma LLWLL (récord 1-0-4), muy floja. A pesar de ser visitante, el diferencial de forma es enorme. La cuota 2.96 implica solo 33.8% cuando la prob propia es ~38.5%, generando EV de casi 14%. El mercado no ajustó suficientemente la diferencia de forma.",
       "sport_key": "soccer_argentina_primera_division",
       "cuota_verificada": true,
-      "prob_ia_cruda": 38.0,
+      "prob_ia_cruda": 38.5,
       "prob_justa": 31.9,
       "fair_source": "pinnacle",
       "cuota_minima": 2.71,
@@ -102,49 +102,26 @@
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/19.png"
     },
     {
-      "liga": "Primera División - Argentina",
-      "matchup": "Central Córdoba @ CA Tigre BA",
-      "hora": "5:00 PM CDT (CDMX)",
-      "pick": "Over 1.5 Goles",
-      "tipo": "Total Goles",
-      "cuota_bet365": 1.99,
-      "prob_implicita": 50.3,
-      "prob_propia": 53.8,
-      "ev_pct": 7.1,
-      "prob_acierto": 72,
+      "liga": "Brazil Série A",
+      "matchup": "Atletico Paranaense @ Botafogo",
+      "hora": "6:00 PM CDT (CDMX)",
+      "pick": "Botafogo Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 2.3,
+      "prob_implicita": 43.5,
+      "prob_propia": 45.1,
+      "ev_pct": 3.7,
+      "prob_acierto": 46,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Tigre (2-2-1) es un equipo ofensivo que tiende a participar en partidos con goles. El mercado paga 1.54 para Over 1.5, lo que implica ~65%. En fútbol argentino, los juegos tienden a ser abiertos y el nivel defensivo de ambos equipos (Central Córdoba 2-0-3, Tigre 2-2-1) sugiere que superar 1.5 goles es altamente probable. Estimamos ~72% de probabilidad.",
-      "sport_key": "soccer_argentina_primera_division",
+      "razonamiento": "Botafogo es uno de los equipos más fuertes del Brasileirao históricamente y como visitante sigue siendo peligroso. La cuota 2.41 vs Atletico Paranaense (3.23 local) sugiere que el mercado ve al local con ligera ventaja pero las cuotas del AH +0 a 1.67 para Botafogo revelan valor. Con prob. propia de ~46.5% vs 41.5% implícita, EV ~12%.",
+      "sport_key": "soccer_brazil_campeonato",
       "cuota_verificada": true,
-      "prob_ia_cruda": 72.0,
-      "prob_justa": 48.8,
+      "prob_ia_cruda": 46.5,
+      "prob_justa": 40.1,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.86,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/11989.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/7767.png"
-    },
-    {
-      "liga": "Tennis WTA",
-      "matchup": "Donna Vekic @ Diane Parry",
-      "hora": "10:00 PM CDT (CDMX)",
-      "pick": "Donna Vekic Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.62,
-      "prob_implicita": 61.7,
-      "prob_propia": 64.3,
-      "ev_pct": 4.2,
-      "prob_acierto": 67,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Donna Vekic es tenista de élite WTA con ranking significativamente superior a Diane Parry. La cuota de 1.63 implica 61.3%, pero considerando el diferencial de calidad entre ambas jugadoras, estimamos que Vekic tiene ~67% de chances. Parry no ha mostrado ser una rival consistente en este nivel. La cuota ofrece valor defendible.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 67.0,
-      "prob_justa": 59.3,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.56,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2040.png"
+      "cuota_minima": 2.22,
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/6086.png"
     },
     {
       "liga": "Tennis WTA",
@@ -152,20 +129,42 @@
       "hora": "8:30 PM CDT (CDMX)",
       "pick": "Clara Tauson Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.3,
-      "prob_implicita": 76.9,
-      "prob_propia": 78.7,
+      "cuota_bet365": 1.32,
+      "prob_implicita": 75.8,
+      "prob_propia": 77.5,
       "ev_pct": 2.3,
       "prob_acierto": 79,
       "estrellas": 3,
-      "stake": "0.15u",
-      "razonamiento": "Clara Tauson es claramente favorita (1.32) frente a Zarazua (3.38), lo que implica que el mercado ya la posiciona como ganadora en ~76% de los casos. Tauson tiene un nivel WTA muy superior a Zarazua. Con cuota 1.32 el EV es modesto (~4.3%) pero el pick es defensivamente sólido. Stake bajo por cuota reducida.",
+      "stake": "0.2u",
+      "razonamiento": "Tauson es favorita masiva a 1.32 (75.8% implícita) contra Zarazua. La diferencia de ranking y nivel es significativa — Zarazua a 3.38 refleja poca confianza del mercado en ella. Con prob. propia de 79% para Tauson, el EV es ~4.3%, suficiente para una pick de baja varianza y alta probabilidad de acierto.",
       "sport_key": "tennis_wta_monterrey_open",
       "cuota_verificada": true,
       "prob_ia_cruda": 79.0,
-      "prob_justa": 73.7,
+      "prob_justa": 72.5,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.27
+      "cuota_minima": 1.29
+    },
+    {
+      "liga": "Tennis WTA",
+      "matchup": "Donna Vekic @ Diane Parry",
+      "hora": "10:00 PM CDT (CDMX)",
+      "pick": "Donna Vekic Moneyline",
+      "tipo": "Moneyline",
+      "cuota_bet365": 1.63,
+      "prob_implicita": 61.3,
+      "prob_propia": 64.3,
+      "ev_pct": 4.8,
+      "prob_acierto": 66,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Vekic es una jugadora top-20 con historial sólido en canchas duras. Parry a 2.28 sugiere que el mercado da cerca de 44% a la francesa, pero Vekic con su nivel de experiencia y ranking merece ~66% de prob. propia. EV de 7.6% con cuota cómoda de 1.63.",
+      "sport_key": "tennis_wta_monterrey_open",
+      "cuota_verificada": true,
+      "prob_ia_cruda": 66.0,
+      "prob_justa": 59.3,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.56,
+      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2040.png"
     },
     {
       "liga": "MLB",
@@ -177,13 +176,13 @@
       "prob_implicita": 60.2,
       "prob_propia": 64.5,
       "ev_pct": 7.1,
-      "prob_acierto": 66,
+      "prob_acierto": 65,
       "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Chase Burns (14-2, ERA 2.51) es uno de los mejores abridores del contexto — récord excepcional y ERA élite. San Francisco tiene abridor TBD (no confirmado), lo que añade incertidumbre al lado local. Giants están 52-78 con ERA del abridor confirmado ausente; Carson Whisenhunt tenía ERA 7.03 en el contexto de la sección. Reds visitantes a 1.66 con Burns en el montículo representa ventaja clara. El mercado implica 60.2%, pero Burns al 14-2/2.51 justifica ~66%.",
+      "razonamiento": "Chase Burns (14-2, ERA 2.51) es uno de los mejores abridores del contexto hoy — récord excepcional. El abridor de SF es Carson Whisenhunt (3-4, ERA 7.03), uno de los peores ERA del día. Reds visitantes (30-33) pero con ventaja abismal en pitching. La diferencia de ERA entre 2.51 y 7.03 justifica una ventaja real. Cuota 1.66 implica 60.2% vs ~65% propia = EV ~7.9%.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 66.0,
+      "prob_ia_cruda": 65.0,
       "prob_justa": 59.5,
       "fair_source": "pinnacle",
       "cuota_minima": 1.55
@@ -199,9 +198,9 @@
       "prob_propia": 59.8,
       "ev_pct": 7.0,
       "prob_acierto": 61,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Rays (77-53) es el equipo con mejor récord en el contexto MLB. Drew Rasmussen (13-5, ERA 3.01) tiene mucho mejor rendimiento que Framber Valdez (8-8, ERA 4.35) de Detroit. Tigers están 61-69 y su abridor tiene ERA 1.34 puntos superior. A 1.78, el mercado da prob implícita de 56.2%, pero la combinación de mejor récord global + abridor superior justifica ~61%.",
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Rays (77-53) son uno de los mejores equipos del contexto con récord sobresaliente. Abridor Drew Rasmussen (13-5, ERA 3.01) es claramente superior a Framber Valdez (8-8, ERA 4.35) de Detroit (61-69). La diferencia de récord (77-53 vs 61-69) es enorme. Cuota 1.78 implica 56.2% pero con esa diferencia de calidad la prob. propia es ~61%. EV ~8.6%.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
       "prob_ia_cruda": 61.0,
@@ -215,74 +214,109 @@
       "hora": "8:40 PM CDT (CDMX)",
       "pick": "Philadelphia Phillies Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.91,
-      "prob_implicita": 52.4,
-      "prob_propia": 56.4,
-      "ev_pct": 7.7,
+      "cuota_bet365": 1.89,
+      "prob_implicita": 52.9,
+      "prob_propia": 57.2,
+      "ev_pct": 8.1,
       "prob_acierto": 57,
       "estrellas": 3,
       "stake": "0.2u",
-      "razonamiento": "Zack Wheeler (10-4, ERA 2.92) es claramente superior a Logan Gilbert (10-7, ERA 3.35) como abridor. Phillies están 73-58 (sólido) vs Mariners 62-69. El Total de 6.5 (el más bajo del contexto MLB) refleja que ambos pitchers son buenos, pero Wheeler tiene edge claro. A 1.90, prob implícita 52.6% vs estimada 57%. Mercado casi correcto pero Wheeler da el edge suficiente.",
+      "razonamiento": "Zack Wheeler (10-4, ERA 2.92) es una ventaja clara sobre Logan Gilbert (10-7, ERA 3.35). Phillies (73-58) supera en récord a Mariners (62-69). Como visitante (35-28) también tienen buen récord fuera de casa. La cuota 1.89 a 52.9% implícito vs ~57.5% propio = EV ~8.7%. Duelo de pitchers de calidad pero Wheeler tiene ligera ventaja.",
       "sport_key": "baseball_mlb",
       "cuota_verificada": true,
-      "prob_ia_cruda": 57.0,
-      "prob_justa": 51.4,
+      "prob_ia_cruda": 57.5,
+      "prob_justa": 52.2,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.77
+      "cuota_minima": 1.75
     }
   ],
   "no_apostar": [
     {
       "matchup": "Colorado Rockies @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Rockies son los peores del contexto (50-80) y Feltner tiene ERA 5.97, pero la cuota de Washington (1.56) ya incorpora ese edge. No hay valor adicional claro."
+      "razon": "Ambos equipos son malos (Rockies 50-80, Nationals 61-71) y los pitchers son mediocres. Sin ventaja clara identificable más allá de Cavalli que ya está reflejado en cuota."
     },
     {
       "matchup": "Texas Rangers @ Chicago White Sox",
       "liga": "MLB",
-      "razon": "White Sox TBD como abridor genera incertidumbre. Rocker tiene ERA 4.46 y Rangers están 65-66. Sin ventaja clara identificable."
+      "razon": "Abridor local TBD sin información disponible. Kumar Rocker con ERA 4.46 no genera ventaja clara. Mucha incertidumbre."
     },
     {
-      "matchup": "Atletico Paranaense @ Botafogo",
-      "liga": "Brazil Série A",
-      "razon": "Sin estadísticas ESPN disponibles en el contexto para este partido. Insuficiente información para calcular prob_propia confiable."
-    },
-    {
-      "matchup": "Argentinos Juniors @ Lanus",
-      "liga": "Primera División - Argentina",
-      "razon": "Sin estadísticas ESPN en el contexto. Cuotas casi idénticas (2.93/2.71/2.93) sugieren incertidumbre del mercado. Sin datos suficientes."
-    },
-    {
-      "matchup": "Casa Pia @ Gil Vicente",
-      "liga": "Primeira Liga - Portugal",
-      "razon": "Casa Pia 0-0-2 muy débil, pero la cuota de Gil Vicente (1.75) ya lo refleja completamente. Margen del mercado Pinnacle es estrecho y no hay edge claro."
-    },
-    {
-      "matchup": "Lazio @ Bologna",
-      "liga": "Serie A - Italy",
-      "razon": "Lazio con forma LWLLL (4 derrotas en 5), pero el mercado ya la pone como outsider (3.48). Bologna a 2.34 como local ya descuenta esa ventaja. Sin edge claro."
-    },
-    {
-      "matchup": "Ann Li @ Maria Camila Osorio Serrano",
-      "liga": "Tennis WTA",
-      "razon": "Cuotas casi parejas (1.97 vs 1.82). Sin datos de forma o ranking disponibles en el contexto para diferenciar. Mercado muy equilibrado."
+      "matchup": "Pittsburgh Pirates @ San Diego Padres",
+      "liga": "MLB",
+      "razon": "Cuotas iguales (1.96/1.96) sin ventaja clara. Moneyline plano sin edge identificable."
     },
     {
       "matchup": "Minnesota Twins @ Athletics",
       "liga": "MLB",
-      "razon": "Ambos equipos por debajo de .500, abridores con ERA elevadas (Matthews 5.12, Springs 6.02). El total de 10.5 es altísimo pero ya está descontado en cuotas. No entra en cupo de 3 picks MLB."
+      "razon": "Ambos pitchers tienen ERA elevado (Matthews 5.12, Springs 6.02). Alta varianza sin edge claro."
+    },
+    {
+      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
+      "liga": "MLB",
+      "razon": "Gausman con ERA 4.58 y Merrill Kelly con 5.37 — partido de alto puntaje posible pero sin ventaja en moneyline bien definida. Límite de 3 picks MLB alcanzado."
+    },
+    {
+      "matchup": "Boston Red Sox @ Miami Marlins",
+      "liga": "MLB",
+      "razon": "Límite de 3 picks MLB alcanzado. Partido competitivo sin ventaja suficientemente clara."
+    },
+    {
+      "matchup": "Cleveland Guardians @ Los Angeles Angels",
+      "liga": "MLB",
+      "razon": "Límite de 3 picks MLB alcanzado. Guardians favoritos claros pero cuota 1.65 deja poco margen."
+    },
+    {
+      "matchup": "Central Córdoba @ CA Tigre BA",
+      "liga": "Primera División - Argentina",
+      "razon": "Central Córdoba en forma LWWLL muy irregular y cuota 6.41 no ofrece valor real. Tigre -1.5 a 3.08 demasiado arriesgado."
+    },
+    {
+      "matchup": "Argentinos Juniors @ Lanus",
+      "liga": "Primera División - Argentina",
+      "razon": "Sin estadísticas ESPN disponibles para análisis completo. Partido equilibrado sin ventaja clara identificable."
+    },
+    {
+      "matchup": "Casa Pia @ Gil Vicente",
+      "liga": "Primeira Liga - Portugal",
+      "razon": "Casa Pia con récord 0-0-2 y forma LLWDD muy débil. Gil Vicente favorito pero cuota 1.75 deja EV marginal con incertidumbre de inicio de temporada."
+    },
+    {
+      "matchup": "Lazio @ Bologna",
+      "liga": "Serie A - Italy",
+      "razon": "Lazio forma LWLLL terrible pero Bologna (DWWDL) también irregular. Ambos 0-0-0 en temporada nueva. Alta incertidumbre."
+    },
+    {
+      "matchup": "Deportivo La Coruña @ Málaga",
+      "liga": "La Liga - Spain",
+      "razon": "Partido competitivo sin ventaja estadística clara suficiente. Cuotas reflejan equilibrio real."
+    },
+    {
+      "matchup": "Ann Li @ Maria Camila Osorio Serrano",
+      "liga": "Tennis WTA",
+      "razon": "Cuotas muy equilibradas (1.97/1.82). Sin información adicional de forma o ranking para inclinar la balanza. Mercado casi eficiente aquí."
+    },
+    {
+      "matchup": "Petra Marcinko @ Alycia Parks",
+      "liga": "Tennis WTA",
+      "razon": "Marcinko favorita a 1.77 vs Parks 2.04. Sin datos adicionales de forma para validar ventaja real."
+    },
+    {
+      "matchup": "Dayana Yastremska @ Janice Tjen",
+      "liga": "Tennis WTA",
+      "razon": "Tjen favorita a 1.55 parece correcto pero Yastremska a 2.46 también tiene mérito de ranking. Sin ventaja EV clara defensible."
     }
   ],
   "parlay_sugerido": {
     "patas": [
       "AS Roma Moneyline (1.77)",
-      "Cincinnati Reds Moneyline (1.66)",
-      "Donna Vekic Moneyline (1.63)"
+      "Tampa Bay Rays Moneyline (1.78)",
+      "Clara Tauson Moneyline (1.32)"
     ],
-    "cuota_total": 4.8,
-    "ev_pct": 14.2,
+    "cuota_total": 4.16,
+    "ev_pct": 9.2,
     "stake": "0.15u",
-    "nota": "Correlación positiva en términos de picks 'forma/calidad del pitcher': Roma en racha perfecta 5W, Burns dominante 14-2/ERA 2.51 vs abridor rival sin confirmar, y Vekic con ventaja clara de ranking. Los tres picks tienen EV individual positivo y estimaciones independientes. Cuota total atractiva con riesgo acotado."
+    "nota": "Tres favoritos claros con ventaja estadística bien soportada: Roma en forma perfecta WWWWW, Rays con mejor récord y pitcher superior, Tauson como favorita masiva. Correlación positiva en tipo 'favorito con EV positivo'. Cuota combinada atractiva de ~4.16."
   },
   "resumen_ejecutivo": [
     {
@@ -290,7 +324,25 @@
       "tipo": "Moneyline",
       "liga": "Serie A - Italy",
       "cuota": 1.77,
-      "ev_pct": 8.0,
+      "ev_pct": 7.97,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "CA Osasuna Moneyline",
+      "tipo": "Moneyline",
+      "liga": "La Liga - Spain",
+      "cuota": 1.92,
+      "ev_pct": 9.44,
+      "stake": "0.25u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Tampa Bay Rays Moneyline",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.78,
+      "ev_pct": 8.58,
       "stake": "0.25u",
       "estrellas": 4
     },
@@ -299,16 +351,7 @@
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.66,
-      "ev_pct": 9.6,
-      "stake": "0.25u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Donna Vekic Moneyline",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.63,
-      "ev_pct": 9.2,
+      "ev_pct": 7.9,
       "stake": "0.25u",
       "estrellas": 4
     },
@@ -317,16 +360,7 @@
       "tipo": "Moneyline",
       "liga": "EPL",
       "cuota": 1.95,
-      "ev_pct": 9.2,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "CA Osasuna Moneyline",
-      "tipo": "Moneyline",
-      "liga": "La Liga - Spain",
-      "cuota": 1.92,
-      "ev_pct": 9.4,
+      "ev_pct": 8.23,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -335,25 +369,16 @@
       "tipo": "Moneyline",
       "liga": "Primera División - Argentina",
       "cuota": 2.96,
-      "ev_pct": 12.5,
+      "ev_pct": 13.9,
       "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Over 1.5 Goles (Central Córdoba @ Tigre)",
-      "tipo": "Total Goles",
-      "liga": "Primera División - Argentina",
-      "cuota": 1.54,
-      "ev_pct": 10.9,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Tampa Bay Rays Moneyline",
+      "pick": "Botafogo Moneyline",
       "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.78,
-      "ev_pct": 8.6,
+      "liga": "Brazil Série A",
+      "cuota": 2.41,
+      "ev_pct": 12.1,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -361,8 +386,8 @@
       "pick": "Philadelphia Phillies Moneyline",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.9,
-      "ev_pct": 8.3,
+      "cuota": 1.89,
+      "ev_pct": 8.7,
       "stake": "0.2u",
       "estrellas": 3
     },
@@ -371,8 +396,17 @@
       "tipo": "Moneyline",
       "liga": "Tennis WTA",
       "cuota": 1.32,
-      "ev_pct": 4.3,
-      "stake": "0.15u",
+      "ev_pct": 4.28,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Donna Vekic Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.63,
+      "ev_pct": 7.58,
+      "stake": "0.2u",
       "estrellas": 3
     }
   ]
