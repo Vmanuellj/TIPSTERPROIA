@@ -1,0 +1,13 @@
+{
+  "name": "TIPSTER PRO IA",
+  "short_name": "TIPSTER PRO",
+  "description": "Picks diarios de apuestas deportivas con IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08061a",
+  "theme_color": "#060a14",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
