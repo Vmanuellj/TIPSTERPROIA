@@ -79,10 +79,13 @@ def fetch_mlb_schedule():
 
 # ── 2. Odds API (Bet365) ──────────────────────────────────────────────────────
 # Mercados por tipo de deporte:
-#   Fútbol/Soccer: h2h (1X2) + totals (O/U goles) + spreads (Asian Handicap) + btts (ambos anotan)
+#   Fútbol/Soccer: h2h (1X2) + totals (O/U goles) + spreads (Asian Handicap)
 #   Baseball/Basket: h2h + totals + spreads (run line / punto y medio)
+# NOTA: 'btts' (ambos anotan) NO se pide aquí. Es un "additional market" que The
+# Odds API solo sirve en el endpoint por-evento, no en /sports/{key}/odds; pedirlo
+# hacía que TODA la petición de fútbol fallara (0 partidos, sin cobrar créditos).
 SPORT_MARKETS = {
-    "soccer_":               "h2h,totals,spreads,btts",
+    "soccer_":               "h2h,totals,spreads",
     "baseball_mlb":          "h2h,totals,spreads",
     "basketball_nba":        "h2h,totals,spreads",
     "americanfootball_nfl":  "h2h,totals,spreads",
