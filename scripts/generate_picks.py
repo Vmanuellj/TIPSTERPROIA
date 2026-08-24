@@ -89,12 +89,37 @@ SPORT_MARKETS = {
     "tennis_":               "h2h",   # tennis: solo ganador del partido (2 vías, sin empate)
 }
 
-# Ligas de fútbol "reales" (no Mundial) que alimentan el tab FÚTBOL.
-# Fácil de extender: agregar más sport_keys de The Odds API aquí.
-FUTBOL_LEAGUES = {
-    "soccer_epl":            "Premier League",
-    "soccer_mexico_ligamx":  "Liga MX",
+# Ligas de fútbol que alimentan el tab FÚTBOL.
+# Antes era una lista fija de 2 ligas; ahora se descubren EN VIVO desde The Odds
+# API (igual que el tenis). Por defecto se limita a las ligas MAYORES para
+# controlar el gasto de créditos. Pon FUTBOL_ALL_LEAGUES=True para considerar
+# TODAS las ligas de fútbol activas del mundo (más cobertura, mucho más costo).
+FUTBOL_ALL_LEAGUES = False
+
+# Ligas mayores con mercados líquidos (las buenas para +EV). Se usan salvo que
+# FUTBOL_ALL_LEAGUES sea True. Fácil de extender: agrega más sport_keys aquí.
+FUTBOL_MAJOR_KEYS = {
+    "soccer_epl",                        # Premier League (Inglaterra)
+    "soccer_spain_la_liga",              # La Liga (España)
+    "soccer_italy_serie_a",              # Serie A (Italia)
+    "soccer_germany_bundesliga",         # Bundesliga (Alemania)
+    "soccer_france_ligue_one",           # Ligue 1 (Francia)
+    "soccer_uefa_champs_league",         # UEFA Champions League
+    "soccer_uefa_europa_league",         # UEFA Europa League
+    "soccer_usa_mls",                    # MLS (EE.UU./Canadá)
+    "soccer_mexico_ligamx",              # Liga MX (México)
+    "soccer_brazil_campeonato",          # Brasileirão Série A
+    "soccer_argentina_primera_division", # Primera División (Argentina)
+    "soccer_netherlands_eredivisie",     # Eredivisie (Países Bajos)
+    "soccer_portugal_primeira_liga",     # Primeira Liga (Portugal)
+    "soccer_england_efl_champ",          # Championship (Inglaterra 2ª)
 }
+
+# Fallback si la lista de deportes no responde (red/quota): al menos las de siempre.
+FUTBOL_FALLBACK = {"soccer_epl": "Premier League", "soccer_mexico_ligamx": "Liga MX"}
+
+# Se llena dinámicamente en main() con {sport_key: título} de las ligas activas.
+FUTBOL_LEAGUES = {}
 
 def _markets_for(sport_key: str) -> str:
     for prefix, mkts in SPORT_MARKETS.items():
@@ -169,6 +194,32 @@ def fetch_active_sports(prefix: str) -> list:
         print(f"  ⚠ sports API ({prefix}): {e}")
         return []
 
+def fetch_futbol_leagues() -> dict:
+    """{sport_key: título} de ligas de fútbol ACTIVAS en Odds API.
+    Si FUTBOL_ALL_LEAGUES es False, se limita a FUTBOL_MAJOR_KEYS (ligas mayores)
+    para controlar el gasto de créditos. Cada liga cuesta ~4 créditos/día."""
+    if not ODDS_KEY:
+        return {}
+    try:
+        r = requests.get("https://api.the-odds-api.com/v4/sports/",
+                         params={"apiKey": ODDS_KEY}, timeout=12)
+        if not r.ok:
+            return {}
+        out = {}
+        for s in r.json():
+            key = str(s.get("key", ""))
+            if not (s.get("active") and key.startswith("soccer_")):
+                continue
+            if not FUTBOL_ALL_LEAGUES and key not in FUTBOL_MAJOR_KEYS:
+                continue
+            out[key] = s.get("title") or key
+        scope = "TODAS" if FUTBOL_ALL_LEAGUES else "mayores"
+        print(f"  Ligas de fútbol activas ({scope}): {list(out)}")
+        return out
+    except Exception as e:
+        print(f"  ⚠ ligas fútbol: {e}")
+        return {}
+
 def fetch_tennis_today() -> list:
     """Junta los partidos de HOY de todos los torneos de tennis activos (ATP+WTA)."""
     games = []
@@ -207,8 +258,22 @@ ESPN_SLUGS = {
     "baseball_mlb":         "baseball/mlb",
     "basketball_nba":       "basketball/nba",
     "americanfootball_nfl": "football/nfl",
-    "soccer_epl":           "soccer/eng.1",
-    "soccer_mexico_ligamx": "soccer/mex.1",
+    # Fútbol: slug de ESPN por liga (récord, forma real). Best-effort: si una liga
+    # no tiene slug o no juega hoy, simplemente no añade estadística.
+    "soccer_epl":                        "soccer/eng.1",
+    "soccer_spain_la_liga":              "soccer/esp.1",
+    "soccer_italy_serie_a":              "soccer/ita.1",
+    "soccer_germany_bundesliga":         "soccer/ger.1",
+    "soccer_france_ligue_one":           "soccer/fra.1",
+    "soccer_uefa_champs_league":         "soccer/uefa.champions",
+    "soccer_uefa_europa_league":         "soccer/uefa.europa",
+    "soccer_usa_mls":                    "soccer/usa.1",
+    "soccer_mexico_ligamx":              "soccer/mex.1",
+    "soccer_brazil_campeonato":          "soccer/bra.1",
+    "soccer_argentina_primera_division": "soccer/arg.1",
+    "soccer_netherlands_eredivisie":     "soccer/ned.1",
+    "soccer_portugal_primeira_liga":     "soccer/por.1",
+    "soccer_england_efl_champ":          "soccer/eng.2",
 }
 
 def _espn_competitor_blurb(c: dict) -> str:
@@ -954,6 +1019,9 @@ if __name__ == "__main__":
     mlb_sched = fetch_mlb_schedule()
     print(f"   {len(mlb_sched)} partidos encontrados")
 
+    print("\n⚽ Descubriendo ligas de fútbol activas...")
+    FUTBOL_LEAGUES.update(fetch_futbol_leagues() or FUTBOL_FALLBACK)
+
     print("\n💰 Obteniendo odds HOY (mejor casa disponible por deporte)...")
     mlb_odds = fetch_odds_today("baseball_mlb")
     nba_odds = fetch_odds_today("basketball_nba")
@@ -967,7 +1035,9 @@ if __name__ == "__main__":
     mlb_props = fetch_props_today("baseball_mlb", "batter_home_runs,batter_hits,pitcher_strikeouts")
     nba_props = fetch_props_today("basketball_nba", "player_points,player_rebounds,player_assists,player_threes")
     nfl_props = fetch_props_today("americanfootball_nfl", "player_pass_yds,player_rush_yds,player_receptions,player_anytime_td")
-    futbol_props = {key: fetch_props_today(key, "player_goal_scorer_anytime", region="eu") for key in FUTBOL_LEAGUES}
+    # Props solo para ligas que SÍ tienen partido hoy (evita gastar créditos en vano).
+    futbol_props = {key: fetch_props_today(key, "player_goal_scorer_anytime", region="eu")
+                    for key in FUTBOL_LEAGUES if futbol_odds.get(key)}
 
     print("\n📊 Obteniendo estadística real de ESPN (récords, ERA, forma)...")
     espn_stats = {sk: fetch_espn_stats(sk) for sk in ESPN_SLUGS}
