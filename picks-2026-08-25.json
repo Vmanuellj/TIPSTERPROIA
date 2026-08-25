@@ -2,33 +2,33 @@
   "fecha": "2026-08-25",
   "fecha_display": "Martes 25 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 9 picks con EV+. Horario CDT CDMX.",
+  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 5 picks con EV+. Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "2.0u",
+    "exposicion_total": "1.4u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4"
+    "nota": "Kelly 1/4 — sesión limitada por escasez de mercados con cuotas reales"
   },
   "picks": [
     {
       "liga": "Tennis WTA",
-      "matchup": "Maya Joint @ Panna Udvardy",
-      "hora": "6:00 PM CDT (CDMX)",
-      "pick": "Maya Joint Moneyline",
+      "matchup": "Diane Parry @ Oleksandra Oliynykova",
+      "hora": "8:30 PM CDT (CDMX)",
+      "pick": "Diane Parry Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.25,
-      "prob_implicita": 80.0,
-      "prob_propia": 83.0,
-      "ev_pct": 3.7,
-      "prob_acierto": 83,
-      "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Joint ya derrotó a Kalinina en el partido anterior del día (cuota 2.0 implicaba ~50%), lo que sugiere que está en muy buena forma en este torneo. La cuota de 1.26 la convierte en fuerte favorita vs Udvardy (3.85), quien cotiza como clara outsider. El mercado ofrece ~79% pero Joint aparenta tener capacidad real superior al 83% considerando el abismo de precios y su rendimiento del día. El valor es moderado pero la confianza en el resultado es alta.",
+      "cuota_bet365": 1.36,
+      "prob_implicita": 73.5,
+      "prob_propia": 76.3,
+      "ev_pct": 3.8,
+      "prob_acierto": 76,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Parry es la favorita más consistente del día con cuota 1.36 frente a Oliynykova a 3.15. La probabilidad implícita es ~73.5% y estimo real ~76.5%, generando EV ~4%. El mercado sharp señala una diferencia de nivel clara entre ambas jugadoras. Pick conservador con stake limitado.",
       "sport_key": "tennis_wta_monterrey_open",
       "cuota_verificada": true,
-      "prob_ia_cruda": 83.0,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.2
+      "prob_ia_cruda": 76.5,
+      "prob_justa": 71.3,
+      "fair_source": "pinnacle",
+      "cuota_minima": 1.31
     },
     {
       "liga": "Tennis WTA",
@@ -36,311 +36,122 @@
       "hora": "4:00 PM CDT (CDMX)",
       "pick": "Anna Bondár Moneyline",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.8,
-      "prob_implicita": 55.6,
-      "prob_propia": 59.2,
-      "ev_pct": 6.6,
+      "cuota_bet365": 1.73,
+      "prob_implicita": 57.8,
+      "prob_propia": 61.0,
+      "ev_pct": 5.5,
       "prob_acierto": 61,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Bondár cotiza a 1.76 (56.8% implícito) frente a Bucsa a 2.05. En torneos WTA de esta categoría, la favorita ligera tiende a cubrir bien en superficies duras. La diferencia de cuotas es razonable y estima ventaja de ~4 puntos sobre el margen del libro, generando EV de ~7.4%. Pick sólido con confianza media.",
+      "stake": "0.2u",
+      "razonamiento": "Bondár cotiza a 1.72 vs Bucsa a 2.12. La cuota más alta de Bondár dentro de los partidos con favorita definida ofrece mejor valor relativo: prob implícita ~58% vs mi estimación de ~61%. EV ~4.9%. El spread de cuota sugiere un duelo parejo pero con ventaja para Bondár.",
       "sport_key": "tennis_wta_monterrey_open",
       "cuota_verificada": true,
       "prob_ia_cruda": 61.0,
-      "prob_justa": 54.2,
+      "prob_justa": 56.5,
       "fair_source": "pinnacle",
-      "cuota_minima": 1.69
-    },
-    {
-      "liga": "Tennis WTA",
-      "matchup": "Anastasia Potapova @ Nikola Bartunkova",
-      "hora": "10:00 PM CDT (CDMX)",
-      "pick": "Nikola Bartunkova Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.54,
-      "prob_implicita": 64.9,
-      "prob_propia": 67.5,
-      "ev_pct": 4.0,
-      "prob_acierto": 68,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Bartunkova cotiza como favorita clara a 1.57 frente a Potapova a 2.40. Potapova llega como outsider de mercado con cuota alta (37% implícito), lo que indica que los books ven a Bartunkova con ventaja real de ~64%. Estimamos su probabilidad real ligeramente superior al 67%, generando EV positivo de ~5.9%. La dirección del mercado apoya este pick.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 67.5,
-      "prob_justa": null,
-      "fair_source": null,
-      "cuota_minima": 1.48
-    },
-    {
-      "liga": "Tennis WTA",
-      "matchup": "Kimberly Birrell @ Darja Vidmanova",
-      "hora": "4:30 PM CDT (CDMX)",
-      "pick": "Darja Vidmanova Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.67,
-      "prob_implicita": 59.9,
-      "prob_propia": 62.7,
-      "ev_pct": 4.7,
-      "prob_acierto": 64,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Vidmanova es favorita de mercado a 1.67 (59.9% implícito) vs Birrell a 2.20. La brecha de cuotas indica ventaja real de los books hacia Vidmanova. Estimamos su probabilidad real cerca del 63-64%, justificando un EV de ~6%. Pick de confianza media con buen respaldo de mercado.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 63.5,
-      "prob_justa": 57.7,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.59
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Milwaukee Brewers @ New York Mets",
-      "hora": "6:10 PM CDT (CDMX)",
-      "pick": "Milwaukee Brewers Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.66,
-      "prob_implicita": 60.2,
-      "prob_propia": 64.5,
-      "ev_pct": 7.1,
-      "prob_acierto": 65,
-      "estrellas": 4,
-      "stake": "0.3u",
-      "razonamiento": "Brewers presentan el mejor récord del día con 81-50 (visitante 36-26) y su abridor Kyle Harrison tiene ERA de 2.84 con récord 10-3, siendo uno de los mejores del día. Los Mets (59-72) son de los peores en la liga con abridor Zac Thornton (3-4, 3.04 ERA). Milwaukee es potencia ofensiva y defensiva contra un rival en reconstrucción. Precio de 1.66 subestima ligeramente la ventaja real de los Brewers.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 64.5,
-      "prob_justa": 59.5,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.55
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
-      "hora": "6:15 PM CDT (CDMX)",
-      "pick": "Los Angeles Dodgers Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.7,
-      "prob_implicita": 58.8,
-      "prob_propia": 63.0,
-      "ev_pct": 7.1,
-      "prob_acierto": 63,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Dodgers (80-51, visitante 40-25) con Tyler Glasnow 3-0 y ERA de 2.72 — uno de los mejores arranques del día. Los Braves (76-55) son también fuertes en casa (42-23), pero Bryce Elder tiene ERA de 3.92 vs 2.72 de Glasnow. Los Dodgers como visitante tienen récord excepcional (40-25). El diferencial de ERA de los abridores (~1.20) justifica ~3-4 puntos de ventaja sobre el mercado.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 63.0,
-      "prob_justa": 58.4,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.59
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
-      "hora": "8:40 PM CDT (CDMX)",
-      "pick": "Under 8.0 Carreras",
-      "tipo": "Total",
-      "cuota_bet365": 1.99,
-      "prob_implicita": 50.3,
-      "prob_propia": 53.6,
-      "ev_pct": 6.7,
-      "prob_acierto": 55,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Dos abridores de calidad: Clay Holmes (ERA 2.49) y Brandon Pfaadt (ERA 3.39, récord 7-1). Holmes en particular tiene ERA élite de 2.49. Ambos equipos presentan rotaciones capaces de mantener scores bajos. La línea de Total 8.0 Under a 1.99 ofrece casi precio justo con ligera ventaja dado el perfil pitching. EV estimado ~9.5% — el mejor total del día por calidad de abridores.",
-      "sport_key": "baseball_mlb",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 55.0,
-      "prob_justa": 48.6,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.87
-    },
-    {
-      "liga": "Tennis WTA",
-      "matchup": "Maria Timofeeva @ Shuai Zhang",
-      "hora": "4:30 PM CDT (CDMX)",
-      "pick": "Shuai Zhang Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.8,
-      "prob_implicita": 55.6,
-      "prob_propia": 58.3,
-      "ev_pct": 4.9,
-      "prob_acierto": 59,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Zhang cotiza como favorita a 1.80 (55.6% implícito) vs Timofeeva a 2.00 (50%). La brecha es ajustada pero el mercado da preferencia a Zhang. Estimamos su probabilidad real cercana al 59%, generando EV de ~6%. Pick especulativo de confianza baja dado el margen estrecho, pero con valor identificable.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 59.0,
-      "prob_justa": 53.3,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.72,
-      "photo_home": "https://a.espncdn.com/i/headshots/tennis/players/full/707.png"
+      "cuota_minima": 1.64
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Tampa Bay Rays @ Detroit Tigers",
+      "matchup": "Todos los partidos MLB",
       "liga": "MLB",
-      "razon": "Rays favoritos (1.80) pero Ian Seymour tiene ERA elevada de 4.17 y Detroit tiene récord mediocre. El valor no es suficientemente claro para justificar pick."
+      "razon": "No hay cuotas reales disponibles en el contexto para ningún partido de MLB hoy. Regla absoluta: no se pueden generar picks sin cuotas reales."
     },
     {
-      "matchup": "Colorado Rockies @ Washington Nationals",
-      "liga": "MLB",
-      "razon": "Dos de los peores equipos de la liga. Rockies 50-81, Nationals 62-71. Pitcher visitante TBD — no cumple requisito de datos."
+      "matchup": "Todos los partidos NBA",
+      "liga": "NBA",
+      "razon": "Sin juegos hoy según el contexto."
     },
     {
-      "matchup": "Houston Astros @ New York Yankees",
-      "liga": "MLB",
-      "razon": "Pecko sin antecedentes (0-0, 4.91 ERA) vs Warren (8-6, 4.43). Ambos abridores mediocres — bajo EV y alta varianza."
+      "matchup": "Todos los partidos NFL",
+      "liga": "NFL",
+      "razon": "Sin juegos hoy según el contexto."
     },
     {
-      "matchup": "Kansas City Royals @ Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Max Scherzer con ERA terrible de 7.40 y récord 1-6 pone en duda la favorabilidad de Toronto. Royals tampoco convencen (22-44 de visitante). Sin edge claro."
+      "matchup": "Premier League / Liga MX / LaLiga / Serie A / Bundesliga / Ligue 1 / Eredivisie / Primeira Liga / MLS / Serie A Brasil / Argentina Primera",
+      "liga": "Fútbol (todas las ligas)",
+      "razon": "Sin juegos hoy en ninguna liga de fútbol según el contexto."
     },
     {
-      "matchup": "Baltimore Orioles @ St. Louis Cardinals",
-      "liga": "MLB",
-      "razon": "Abridor local TBD (Cardinals) y Bassitt con ERA 5.08 — ambos abridores cuestionables. Sin edge identificable."
-    },
-    {
-      "matchup": "Texas Rangers @ Chicago White Sox",
-      "liga": "MLB",
-      "razon": "Rangers flojos de visitante (30-37) y cuota de 1.89 implica ~53%. Sin ventaja estadística clara sobre línea ajustada."
-    },
-    {
-      "matchup": "Cleveland Guardians @ Los Angeles Angels",
-      "liga": "MLB",
-      "razon": "Ureña tiene ERA excelente de 2.80 lo que complica el pick de Cleveland a pesar de su mejor récord. Sin edge suficientemente claro."
-    },
-    {
-      "matchup": "Minnesota Twins @ Athletics",
-      "liga": "MLB",
-      "razon": "Athletics son el peor equipo (51-81) pero la cuota de los Twins ya lo refleja. Sin ventaja clara sobre el mercado eficiente."
-    },
-    {
-      "matchup": "Philadelphia Phillies @ Seattle Mariners",
-      "liga": "MLB",
-      "razon": "Nola con ERA de 5.12 y récord 5-9 hace difícil apostar a Philadelphia. Mariners a 1.88 sin gran convicción tampoco."
-    },
-    {
-      "matchup": "Cincinnati Reds @ San Francisco Giants",
-      "liga": "MLB",
-      "razon": "Ambos equipos débiles (Reds 62-70, Giants 53-78) con abridores mediocres. Sin ventaja identificable en ninguna dirección."
-    },
-    {
-      "matchup": "Boston Red Sox @ Miami Marlins",
-      "liga": "MLB",
-      "razon": "Abridor de Miami figura como Tyler Phillips en estadísticas pero como TBD en listado oficial. Inconsistencia de datos — evitar."
-    },
-    {
-      "matchup": "Maya Joint @ Anhelina Kalinina",
+      "matchup": "Maria Timofeeva @ Shuai Zhang",
       "liga": "Tennis WTA",
-      "razon": "Casa de referencia es Betway, no 1xBet. Cuota 2.0 vs 1.80 sin datos de forma suficientes para identificar edge claro."
+      "razon": "Cuota 2.0 vs 1.8 — mercado muy parejo con vig elevado. EV estimado negativo o marginal; no supera umbral mínimo."
     },
     {
       "matchup": "Yuliia Starodubtseva @ Janice Tjen",
       "liga": "Tennis WTA",
-      "razon": "Tjen como favorita (1.63) pero Starodubtseva a 2.28 sugiere partido incierto. Sin información de forma que justifique ir contra la favorita."
+      "razon": "Starodubtseva a 2.17 con Tjen favorita a 1.69 — estructura de cuotas sugiere mercado parejo con margen de casa que erosiona el EV esperado."
     },
     {
-      "matchup": "Pittsburgh Pirates @ San Diego Padres",
-      "liga": "MLB",
-      "razon": "Priorizando fútbol/otros deportes: solo top-3 MLB por EV (quedó fuera, EV 6.4%)."
+      "matchup": "Maya Joint @ Panna Udvardy",
+      "liga": "Tennis WTA",
+      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 2.7%)."
+    },
+    {
+      "matchup": "Kimberly Birrell @ Darja Vidmanova",
+      "liga": "Tennis WTA",
+      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 1.5%)."
+    },
+    {
+      "matchup": "Anastasia Potapova @ Nikola Bartunkova",
+      "liga": "Tennis WTA",
+      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 3.6%)."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Milwaukee Brewers ML (1.66)",
-      "Los Angeles Dodgers ML (1.68)",
-      "Under 8.0 Cubs @ Diamondbacks (1.99)"
+      "Maya Joint Moneyline (1.37)",
+      "Diane Parry Moneyline (1.36)"
     ],
-    "cuota_total": 5.53,
-    "ev_pct": 6.8,
+    "cuota_total": 1.86,
+    "ev_pct": 5.1,
     "stake": "0.15u",
-    "nota": "Correlación positiva: los tres picks se basan en ventaja de pitching/calidad de roster. Brewers y Dodgers son los dos mejores equipos del día por récord y abridores. El Under en Cubs-Arizona complementa al tener los dos mejores ERAs de abridores nocturnos (Holmes 2.49 y Pfaadt 3.39). Si los pitchers dominan, los tres picks convergen."
+    "nota": "Ambas son las favoritas más claras del día con mayor diferencial de cuota vs su rival. Correlación positiva: ambas son favoritas marcadas en partidos donde el mercado señala diferencia de nivel significativa. Cuota combinada ~1.86 con EV estimado ~5.1% si ambas tienen ~76% real."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Maya Joint ML",
+      "pick": "Maya Joint Moneyline",
       "tipo": "Moneyline",
       "liga": "Tennis WTA",
-      "cuota": 1.26,
-      "ev_pct": 4.6,
-      "stake": "0.3u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Milwaukee Brewers ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.66,
-      "ev_pct": 7.0,
-      "stake": "0.3u",
-      "estrellas": 4
-    },
-    {
-      "pick": "Anna Bondár ML",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.76,
-      "ev_pct": 7.4,
+      "cuota": 1.37,
+      "ev_pct": 4.12,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Los Angeles Dodgers ML",
+      "pick": "Diane Parry Moneyline",
       "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.68,
-      "ev_pct": 5.8,
+      "liga": "Tennis WTA",
+      "cuota": 1.36,
+      "ev_pct": 4.04,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Nikola Bartunkova ML",
+      "pick": "Anna Bondár Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.72,
+      "ev_pct": 4.92,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Darja Vidmanova Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.72,
+      "ev_pct": 4.92,
+      "stake": "0.15u",
+      "estrellas": 2
+    },
+    {
+      "pick": "Nikola Bartunkova Moneyline",
       "tipo": "Moneyline",
       "liga": "Tennis WTA",
       "cuota": 1.57,
-      "ev_pct": 5.9,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Darja Vidmanova ML",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.67,
-      "ev_pct": 6.0,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Under 8.0 Cubs @ Diamondbacks",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.99,
-      "ev_pct": 9.5,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Under 7.5 Pirates @ Padres",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.87,
-      "ev_pct": 7.5,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Shuai Zhang ML",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.8,
-      "ev_pct": 6.2,
+      "ev_pct": 3.62,
       "stake": "0.15u",
       "estrellas": 2
     }
