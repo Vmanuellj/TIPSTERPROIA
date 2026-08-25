@@ -1127,8 +1127,9 @@ def generate_picks(context: str) -> dict:
     }
     user_msg = (
         f"Genera entre 8 y 10 picks para HOY ({today}).\n"
-        f"PRIORIDAD: fútbol primero, luego tennis, NBA y NFL. De MLB incluye COMO MÁXIMO "
-        f"3 picks (solo los de mayor ventaja/EV) — el usuario prefiere poco béisbol.\n"
+        f"PRIORIDAD: fútbol primero, luego NBA/NFL, luego tenis. De MLB incluye COMO MÁXIMO "
+        f"3 picks y de TENIS COMO MÁXIMO 2 picks (solo los de mayor ventaja/EV) — el usuario "
+        f"prefiere poco béisbol y poco tenis.\n"
         f"Usa EXCLUSIVAMENTE los partidos listados en el contexto.\n"
         f"Copia las cuotas exactamente como aparecen en el contexto (son reales de Bet365).\n\n"
         f"DATOS REALES:\n{context}\n\n"
@@ -1259,6 +1260,24 @@ if __name__ == "__main__":
                              f"(quedó fuera, EV {p.get('ev_pct')}%)."})
             print(f"  ⚾ MLB recortado a {MLB_MAX} (fuera {len(dropped)} de {len(mlb_picks)})")
 
+        # ── Tenis: máximo 2 picks por día (los de mayor EV) ──
+        TENNIS_MAX = 2
+        ten_picks = [p for p in picks_data.get("picks", [])
+                     if str(p.get("sport_key", "")).startswith("tennis")]
+        if len(ten_picks) > TENNIS_MAX:
+            keep_ids = {id(p) for p in sorted(ten_picks, key=lambda x: x.get("ev_pct", 0),
+                                              reverse=True)[:TENNIS_MAX]}
+            dropped = [p for p in ten_picks if id(p) not in keep_ids]
+            picks_data["picks"] = [p for p in picks_data["picks"]
+                                   if not str(p.get("sport_key", "")).startswith("tennis")
+                                   or id(p) in keep_ids]
+            for p in dropped:
+                picks_data.setdefault("no_apostar", []).append({
+                    "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+                    "razon": f"Máximo {TENNIS_MAX} picks de tenis por día "
+                             f"(quedó fuera, EV {p.get('ev_pct')}%)."})
+            print(f"  🎾 Tenis recortado a {TENNIS_MAX} (fuera {len(dropped)} de {len(ten_picks)})")
+
         # ── Imágenes ESPN: logos de equipos (fútbol) y fotos de jugadores (tenis) ──
         n_img = 0
         for p in picks_data.get("picks", []):
@@ -1280,6 +1299,30 @@ if __name__ == "__main__":
                     p["photo_home"] = ph; n_img += 1
         if n_img:
             print(f"  🖼  {n_img} imágenes ESPN (logos fútbol / fotos tenis) añadidas")
+
+        # ── Fútbol: que TODO partido de hoy aparezca (como pick o como "No Apostar") ──
+        # Antes, si un partido no era pick, desaparecía. Ahora se lista en no_apostar,
+        # igual que MLB/NBA, para que nunca diga "sin partidos" habiéndolos.
+        def _ya_listado(ga: str, gh: str) -> bool:
+            for lst in (picks_data.get("picks", []), picks_data.get("no_apostar", [])):
+                for it in lst:
+                    mm = _parse_matchup(it.get("matchup", ""))
+                    if mm and _team_match(mm[0], ga) and _team_match(mm[1], gh):
+                        return True
+            return False
+        n_fut_na = 0
+        for sk, games in futbol_odds.items():
+            label = FUTBOL_LEAGUES.get(sk, sk)
+            for g in games:
+                ga, gh = g.get("away_team", ""), g.get("home_team", "")
+                if not (ga and gh) or _ya_listado(ga, gh):
+                    continue
+                picks_data.setdefault("no_apostar", []).append({
+                    "matchup": f"{ga} @ {gh}", "liga": label,
+                    "razon": "Sin ventaja (EV+) clara hoy; el mercado no ofrece valor suficiente."})
+                n_fut_na += 1
+        if n_fut_na:
+            print(f"  ⚽ {n_fut_na} partidos de fútbol sin pick añadidos a 'No Apostar'")
 
         n2 = len(picks_data.get("picks", []))
         if n2 == 0:

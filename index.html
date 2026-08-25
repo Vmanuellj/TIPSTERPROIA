@@ -814,7 +814,8 @@ function buildSport(allPicks,allNA,sport,label,icoId){
   var wrap=document.createElement('div');
   var hdr='<div class="sh"><div class="sh-ico" style="background:var(--cyd);color:var(--cy)">'+useIco(icoId)+'</div><div class="sh-title">'+label+'</div><div class="sh-line"></div><div class="sh-ct">'+picks.length+' PICKS</div></div>';
   var body='';
-  if(!picks.length){
+  if(!picks.length && !na.length){
+    // Solo mostramos el bloque "vacío" cuando NO hay ni picks ni partidos a listar.
     var emptyMsg=sport==='nfl'
       ?'<div class="empty">'+
           '<div class="empty-icon" style="color:var(--nfl)">'+useIco(icoId,24)+'</div>'+
@@ -824,13 +825,19 @@ function buildSport(allPicks,allNA,sport,label,icoId){
         '</div>'
       :'<div class="empty">'+
           '<div class="empty-icon" style="color:var(--tx3)">'+useIco(icoId,24)+'</div>'+
-          '<div class="empty-title">SIN PICKS HOY</div>'+
-          '<div class="empty-sub">No se identificó valor esperado positivo en '+label+'. Vuelve mañana a las 12:30 AM para el siguiente análisis.</div>'+
+          '<div class="empty-title">SIN PARTIDOS HOY</div>'+
+          '<div class="empty-sub">No hay partidos de '+label+' hoy. Vuelve mañana a las 12:30 AM para el siguiente análisis.</div>'+
           '<div class="empty-pill">PRÓXIMO ANÁLISIS 12:30 AM CDMX</div>'+
         '</div>';
     body=emptyMsg;
-  } else {
+  } else if(picks.length){
     body='<div class="picks-grid" id="pgrid-'+sport+'"></div>';
+  } else {
+    // Hay partidos pero ninguno con pick: un aviso breve antes de la lista "No Apostar".
+    body='<div class="empty" style="padding:18px 16px">'+
+           '<div class="empty-title" style="font-size:13px">SIN PICKS HOY EN '+label.toUpperCase()+'</div>'+
+           '<div class="empty-sub">No se identificó valor esperado positivo. Estos son los partidos de hoy:</div>'+
+         '</div>';
   }
   var naHtml='';
   if(na.length){
