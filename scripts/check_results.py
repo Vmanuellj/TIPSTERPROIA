@@ -152,7 +152,12 @@ def get_sport_key(pick: dict) -> str:
         return "soccer_epl"
     if "LIGA MX" in liga:
         return "soccer_mexico_ligamx"
-    if "FUTBOL" in liga or "FÚTBOL" in liga or "SOCCER" in liga:
+    if "TENNIS" in liga or "TENIS" in liga or "ATP" in liga or "WTA" in liga:
+        return "tennis_atp"
+    # Cualquier otra pista de fútbol → una clave soccer_ (basta para que is_soccer=True)
+    if any(k in liga for k in ("FUTBOL","FÚTBOL","SOCCER","SERIE A","LA LIGA","LIGUE",
+                               "BUNDESLIGA","EREDIVISIE","CHAMPIONSHIP","BRASILEIR","BRAZIL",
+                               "ARGENTIN","PRIMERA","PRIMEIRA","UEFA","CHAMPIONS","EUROPA","MLS")):
         return "soccer_epl"
     return "baseball_mlb"
 
@@ -211,7 +216,10 @@ def evaluate_pick(pick: dict, game: dict) -> str:
 
     # ── Moneyline / 1X2 ──────────────────────────────────────────────────────
     if "moneyline" in tipo or "1x2" in tipo or tipo == "ml":
-        is_soccer = any(k in liga.lower() for k in ("soccer","futbol","fútbol","premier","liga mx","football"))
+        # Robusto: el deporte se decide por sport_key (soccer_*), no por el texto de la
+        # liga. Antes 'Serie A', 'La Liga', 'Ligue 1', etc. no se detectaban como fútbol
+        # y un EMPATE quedaba como push en vez de loss para un pick de equipo ganador.
+        is_soccer = get_sport_key(pick).startswith("soccer")
         if "DRAW" in pick_txt or "EMPATE" in pick_txt:
             return "win" if away_score == home_score else "loss"
         if any(w in pick_txt for w in [w.upper() for w in re.split(r'\W+', away_raw) if len(w) > 2]):
