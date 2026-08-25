@@ -154,7 +154,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .t-flag{font-size:1em;line-height:1;}
 
 /* ─── GOLD PICK CARD ─────────────────────────────── */
-.gold-card{position:relative;border-radius:var(--rd);border:1px solid var(--pub);background:linear-gradient(140deg,rgba(139,92,246,.1) 0%,var(--bg2) 55%);box-shadow:var(--shadow-glow-pu),var(--shadow-card);overflow:hidden;margin-bottom:20px;transition:box-shadow .25s;}
+.gold-card{position:relative;border-radius:var(--rd);border:1px solid var(--pub);background:linear-gradient(140deg,rgba(139,92,246,.1) 0%,var(--bg2) 55%);box-shadow:var(--shadow-glow-pu),var(--shadow-card),inset 0 1px 0 rgba(167,139,250,.26);overflow:hidden;margin-bottom:20px;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);transition:box-shadow .25s;}
 .gold-card:hover{box-shadow:0 0 56px rgba(139,92,246,.28),var(--shadow-card);}
 .gold-topbar{height:3px;background:linear-gradient(90deg,#7c3aed,#a78bfa,#60a5fa);box-shadow:0 0 14px #8b5cf6;}
 .gold-badge{position:absolute;top:16px;right:16px;font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--pub);color:var(--pu);padding:4px 12px;border-radius:99px;background:var(--pud);}
@@ -225,7 +225,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 
 /* ─── PICK CARDS GRID ────────────────────────────── */
 .picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(275px,1fr));gap:12px;margin-bottom:20px;}
-.pick-card{border-radius:var(--rd);border:1px solid var(--bd);background:var(--sf);overflow:hidden;cursor:pointer;transition:transform .18s,border-color .22s,box-shadow .22s;}
+.pick-card{position:relative;border-radius:var(--rd);border:1px solid var(--bd2);background:var(--sf2);overflow:hidden;cursor:pointer;contain:paint;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:inset 0 1px 0 rgba(167,139,250,.26);transition:transform .18s,border-color .22s,box-shadow .22s;}
 .pick-card:hover{transform:translateY(-3px);}
 .pick-card.s5{border-color:var(--pub);box-shadow:var(--shadow-glow-pu),0 2px 12px rgba(0,0,0,.35);}
 .pick-card.s5:hover{box-shadow:0 0 44px rgba(139,92,246,.3),0 4px 24px rgba(0,0,0,.5);}
@@ -284,7 +284,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .parlay-note{font-size:11px;color:var(--tx3);line-height:1.65;margin-top:12px;padding-top:12px;border-top:1px solid var(--bd);}
 
 /* ─── BANKROLL CALC ──────────────────────────────── */
-.calc-card{background:var(--sf);border:1px solid var(--bd);border-radius:var(--rd);padding:18px 20px;margin-bottom:20px;}
+.calc-card{position:relative;background:var(--sf2);border:1px solid var(--bd2);border-radius:var(--rd);padding:18px 20px;margin-bottom:20px;overflow:hidden;contain:paint;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:inset 0 1px 0 rgba(167,139,250,.26);}
 .calc-title{font-family:var(--hf);font-size:15px;font-weight:800;letter-spacing:.2px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .calc-icon{width:26px;height:26px;border-radius:var(--rdxs);background:var(--amd);border:1px solid var(--amb);display:flex;align-items:center;justify-content:center;}
 .calc-icon svg{width:14px;height:14px;color:var(--am);}
@@ -385,6 +385,117 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
   .pl-stats{grid-template-columns:repeat(2,1fr);}
   .b-stats{grid-template-columns:repeat(2,1fr);}
   .pd-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ═══ LIQUID GLASS: reflejos especulares + luz de canto ═══════════════════ */
+.pick-card::before,.gold-card::before,.calc-card::before,.mr-card::before{
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:linear-gradient(140deg,rgba(167,139,250,.18) 0%,rgba(167,139,250,.03) 36%,transparent 62%);
+}
+.pick-card::after,.calc-card::after,.mr-card::after,.gold-card::after{
+  content:'';position:absolute;left:12%;right:12%;bottom:0;height:1px;pointer-events:none;z-index:0;
+  background:linear-gradient(90deg,transparent,var(--pub),transparent);
+}
+.pick-card>*,.calc-card>*,.mr-card>*{position:relative;z-index:1;}
+.gold-card>.gold-topbar,.gold-card>.gc-inner{position:relative;z-index:1;}
+.gold-card>.gold-badge{z-index:2;}
+
+/* ═══ SELECCIÓN: "Mi Ticket" ═════════════════════════════════════════════ */
+.pc-inner{position:relative;}
+.pc-ctx{padding-right:34px;}
+.sel-btn{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:var(--rdxs);border:1px solid var(--bd2);background:var(--sf3);color:var(--tx3);display:flex;align-items:center;justify-content:center;gap:0;cursor:pointer;z-index:3;line-height:1;transition:color .18s,border-color .18s,background .18s,box-shadow .18s;-webkit-tap-highlight-color:transparent;}
+.sel-btn .sel-glyph{font-family:var(--hf);font-size:18px;font-weight:800;}
+.sel-btn:hover{color:var(--tx);border-color:var(--bd3);}
+.sel-btn.on{color:var(--cy);border-color:var(--cyb);background:var(--cyd);box-shadow:0 0 14px var(--cyb);}
+.sel-btn:focus-visible{outline:2px solid var(--cy);outline-offset:2px;}
+.sel-btn-lg{position:static;width:auto;height:auto;padding:6px 13px;gap:6px;border-radius:99px;font-family:var(--hf);font-size:11px;font-weight:800;letter-spacing:.5px;}
+.sel-btn-lg .sel-glyph{font-size:15px;}
+.pick-card.selected{border-color:var(--cyb);box-shadow:0 0 22px var(--cyb),inset 0 1px 0 rgba(167,139,250,.26);}
+.gold-card.selected{border-color:var(--cyb);}
+
+/* ═══ BANKROLL: unidad, hint, exposición ═════════════════════════════════ */
+.calc-unit{display:flex;align-items:center;gap:6px;margin-left:auto;}
+.calc-input-sm{width:66px;font-size:16px;padding:6px 8px;}
+.calc-hint{font-size:11px;color:var(--tx3);line-height:1.5;margin:2px 0 14px;}
+.calc-hint b{color:var(--tx2);}
+.expo{margin:6px 0 14px;}
+.expo-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;gap:8px;}
+.expo-lbl{font-family:var(--hf);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);}
+.expo-val{font-family:var(--hf);font-size:13px;font-weight:800;color:var(--tx2);white-space:nowrap;}
+.expo-bar{position:relative;height:8px;background:var(--bg3);border:1px solid var(--bd);border-radius:99px;}
+.expo-fill{height:100%;width:0;border-radius:99px;transition:width .35s cubic-bezier(.22,1,.36,1),background .3s;}
+.expo-fill.ok{background:linear-gradient(90deg,#00b894,#00e5b4);}
+.expo-fill.near{background:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.expo-fill.over{background:linear-gradient(90deg,#dc2626,#f87171);}
+.expo-tope{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--tx2);opacity:.55;border-radius:2px;}
+.expo-foot{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-size:10px;color:var(--tx3);line-height:1.4;}
+.expo-topelbl{white-space:nowrap;}
+.ci.on{border-color:var(--cyb);box-shadow:0 0 12px var(--cys);}
+
+/* ═══ MI REPORTE ═════════════════════════════════════════════════════════ */
+.mr-card{position:relative;overflow:hidden;background:var(--sf2);border:1px solid var(--bd2);border-radius:var(--rd);padding:16px 18px;margin-bottom:12px;contain:paint;backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);box-shadow:inset 0 1px 0 rgba(167,139,250,.26);}
+.mr-title{font-family:var(--hf);font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--tx2);margin-bottom:12px;}
+.mr-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
+.mr-stats-5{grid-template-columns:repeat(5,1fr);}
+.mrs{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rds);padding:10px 6px;text-align:center;}
+.mrs-v{font-family:var(--hf);font-size:22px;font-weight:900;line-height:1;}
+.mrs-l{font-size:8.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--tx3);margin-top:3px;font-weight:600;}
+.mr-pnl{display:flex;gap:10px;}
+.mr-pnl-item{flex:1;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--rds);padding:12px 14px;}
+.mr-pnl-l{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--tx3);margin-bottom:4px;}
+.mr-pnl-v{font-family:var(--hf);font-size:26px;font-weight:900;line-height:1;}
+.mr-pnl-v.pos{color:var(--gr);}.mr-pnl-v.neg{color:var(--re);}.mr-pnl-v.neu{color:var(--tx2);}
+.mr-note{font-size:11px;color:var(--tx3);line-height:1.55;margin-top:10px;}
+.mr-foot{font-size:10px;color:var(--tx4);line-height:1.55;margin-top:10px;padding-top:10px;border-top:1px solid var(--bd);}
+.mr-foot b,.mr-note b{color:var(--tx2);}
+.mr-empty{font-size:12px;color:var(--tx3);line-height:1.6;}
+.mr-spark{width:100%;height:46px;margin-top:12px;display:block;}
+.mr-comp{display:flex;align-items:center;justify-content:center;gap:16px;margin:4px 0 2px;}
+.mr-comp-col{text-align:center;flex:1;}
+.mr-comp-l{font-family:var(--hf);font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--tx3);margin-bottom:4px;}
+.mr-comp-v{font-family:var(--hf);font-size:26px;font-weight:900;line-height:1;}
+.mr-comp-v.pos{color:var(--gr);}.mr-comp-v.neg{color:var(--re);}.mr-comp-v.neu{color:var(--tx2);}
+.mr-comp-vs{font-family:var(--hf);font-size:12px;font-weight:700;color:var(--tx4);}
+.mr-actions{display:flex;gap:10px;margin-top:4px;}
+.mr-btn{flex:1;font-family:var(--hf);font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:11px 14px;border-radius:var(--rds);border:1px solid var(--bd2);background:var(--sf2);color:var(--tx2);cursor:pointer;transition:all .18s;}
+.mr-btn:hover{border-color:var(--bd3);color:var(--tx);}
+.mr-btn:focus-visible{outline:2px solid var(--pu);outline-offset:2px;}
+.mr-btn-danger{color:var(--re);border-color:var(--reb);background:var(--red);}
+.mr-btn-danger:hover{background:rgba(248,113,113,.2);}
+@media(max-width:500px){.mr-stats,.mr-stats-5{grid-template-columns:repeat(3,1fr);}}
+
+/* ═══ AJUSTES: switch Modo ligero ════════════════════════════════════════ */
+.settings-row{display:flex;align-items:center;gap:14px;background:var(--sf2);border:1px solid var(--bd);border-radius:var(--rds);padding:14px 16px;}
+.set-txt{flex:1;}
+.set-title{font-family:var(--hf);font-size:14px;font-weight:800;color:var(--tx);}
+.set-sub{font-size:11px;color:var(--tx3);line-height:1.5;margin-top:3px;}
+.switch{flex-shrink:0;width:48px;height:28px;border-radius:99px;border:1px solid var(--bd2);background:var(--bg3);position:relative;cursor:pointer;transition:background .2s,border-color .2s;padding:0;}
+.switch-knob{position:absolute;top:2px;left:2px;width:22px;height:22px;border-radius:50%;background:var(--tx3);transition:transform .2s,background .2s;}
+.switch.on{background:var(--cyd);border-color:var(--cyb);}
+.switch.on .switch-knob{transform:translateX(20px);background:var(--cy);}
+.switch:focus-visible{outline:2px solid var(--cy);outline-offset:2px;}
+
+/* ═══ FOCUS VISIBLE en controles existentes ══════════════════════════════ */
+.tab-btn:focus-visible,.day-nav-btn:focus-visible,.day-nav-center:focus-visible{outline:2px solid var(--pu);outline-offset:2px;}
+
+/* ═══ MODO LIGERO: apaga todo el cristal ═════════════════════════════════ */
+body.no-glass .pick-card,body.no-glass .gold-card,body.no-glass .calc-card,body.no-glass .mr-card,body.no-glass .topbar{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+}
+body.no-glass .pick-card,body.no-glass .calc-card,body.no-glass .mr-card{background:var(--bg3);}
+body.no-glass .pick-card::before,body.no-glass .pick-card::after,
+body.no-glass .gold-card::before,body.no-glass .gold-card::after,
+body.no-glass .calc-card::before,body.no-glass .calc-card::after,
+body.no-glass .mr-card::before,body.no-glass .mr-card::after{display:none;}
+
+/* ═══ FALLBACK: navegadores sin backdrop-filter ══════════════════════════ */
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .pick-card,.calc-card,.mr-card{background:var(--bg3);}
+}
+
+/* ═══ RESPETO A prefers-reduced-motion ═══════════════════════════════════ */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important;}
 }
 </style>
 </head>
@@ -498,7 +609,86 @@ function switchTab(id){
   document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
   var s=document.getElementById('sec-'+id);if(s)s.classList.add('active');
   var b=document.querySelector('[data-tab="'+id+'"]');if(b)b.classList.add('active');
+  if(id==='resumen'&&typeof renderMyReport==='function')renderMyReport(); // refresca Mi Reporte al abrir
 }
+
+// ─── STORAGE (Mi Ticket · bankroll · preferencias) ────────────────────────────
+// localStorage versionado, con try/catch por modo privado. Si falla, el sitio
+// funciona igual sin persistencia.
+var TPI={
+  K:{bankroll:'tpi:v1:bankroll',unit:'tpi:v1:unit_pct',lite:'tpi:v1:lite',ticket:'tpi:v1:ticket'},
+  ok:(function(){try{var k='tpi:v1:__t';localStorage.setItem(k,'1');localStorage.removeItem(k);return true;}catch(e){return false;}})(),
+  get:function(k,def){try{var v=localStorage.getItem(k);return v==null?def:v;}catch(e){return def;}},
+  set:function(k,v){try{localStorage.setItem(k,v);}catch(e){}},
+  getJSON:function(k,def){try{var v=localStorage.getItem(k);return v==null?def:JSON.parse(v);}catch(e){return def;}},
+  setJSON:function(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+};
+// Clave estable por pick (no existe campo id). Usa SIEMPRE data.fecha del JSON.
+function pickKey(fecha,p){
+  return (fecha+'|'+(p.matchup||'')+'|'+(p.pick||''))
+    .toLowerCase().replace(/\s+/g,'-').replace(/[^a-z0-9|\-@]/g,'');
+}
+function getBankroll(){var v=parseFloat(TPI.get(TPI.K.bankroll,'10000'));return isFinite(v)&&v>0?v:10000;}
+function getUnitPct(){var v=parseFloat(TPI.get(TPI.K.unit,'1'));return isFinite(v)&&v>0?v:1;}
+function stakeU(stake){var v=parseFloat(String(stake==null?'':stake).replace(/u/i,''));return isFinite(v)?v:0;} // "0.25u" -> 0.25
+// Monto real: 1u = unit_pct% del bankroll. amount = bankroll * stake_u * unit_pct / 100.
+function amountFor(su){return getBankroll()*su*getUnitPct()/100;}
+function fmtMoney(n){var r=Math.round(n);return '$'+String(r).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function getTicket(){var t=TPI.getJSON(TPI.K.ticket,{});return (t&&typeof t==='object')?t:{};}
+function saveTicket(t){TPI.setJSON(TPI.K.ticket,t);}
+function isSelected(fecha,p){var t=getTicket();return !!(t[fecha]&&t[fecha][pickKey(fecha,p)]);}
+function ticketCount(fecha){var t=getTicket();return (t[fecha]?Object.keys(t[fecha]).length:0);}
+function toggleSelection(fecha,p){
+  var t=getTicket(),k=pickKey(fecha,p);
+  if(!t[fecha])t[fecha]={};
+  if(t[fecha][k]){
+    delete t[fecha][k];
+    if(!Object.keys(t[fecha]).length)delete t[fecha];
+  } else {
+    // Guarda la cuota AL MOMENTO de seleccionar (la que el usuario tomó).
+    t[fecha][k]={
+      matchup:p.matchup||'',pick:p.pick||'',liga:p.liga||'',
+      cuota:(p.cuota_bet365!=null?p.cuota_bet365:(p.cuota!=null?p.cuota:null)),
+      stake_u:stakeU(p.stake),ev_pct:(p.ev_pct!=null?p.ev_pct:null),
+      estrellas:p.estrellas||0,ts:Date.now()
+    };
+  }
+  saveTicket(t);
+  syncSelectionUI(fecha);
+  updateExposure();
+  if(typeof renderMyReport==='function')renderMyReport(); // mantiene "Mi Reporte" en sync
+}
+// Aplica/actualiza el estado visual de selección en todas las tarjetas del día.
+function syncSelectionUI(fecha){
+  document.querySelectorAll('[data-selkey]').forEach(function(btn){
+    var sel=btn.getAttribute('data-selkey');
+    var t=getTicket();
+    var on=!!(t[fecha]&&t[fecha][sel]);
+    var card=btn.closest('.pick-card,.gold-card');
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    var pk=btn.getAttribute('data-pickname')||'';
+    btn.setAttribute('aria-label',(on?'Quitar':'Añadir')+' '+pk+(on?' de':' a')+' mi ticket');
+    btn.classList.toggle('on',on);
+    var glyph=btn.querySelector('.sel-glyph');
+    if(glyph)glyph.textContent=on?'✓':'+';
+    var lbl=btn.querySelector('.sel-lbl');
+    if(lbl)lbl.textContent=on?'EN MI TICKET':'MI TICKET';
+    if(card)card.classList.toggle('selected',on);
+  });
+  updateTicketCounters(fecha);
+}
+function updateTicketCounters(fecha){
+  var n=ticketCount(fecha);
+  document.querySelectorAll('.ticket-count').forEach(function(el){el.textContent=n;});
+}
+// Preferencia "Modo ligero": apaga el cristal. Default ON en equipos de gama baja.
+function liteEnabled(){
+  var v=TPI.get(TPI.K.lite,null);
+  if(v==null)v=(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=4)?'1':'0';
+  return v==='1';
+}
+function applyLite(){document.body.classList.toggle('no-glass',liteEnabled());}
+function setLite(on){TPI.set(TPI.K.lite,on?'1':'0');applyLite();}
 
 // ─── SPORT DETECTION ─────────────────────────────────────────────────────────
 function getSport(liga){
@@ -684,6 +874,7 @@ function valueBox(p){
 
 // ─── GOLD PICK ────────────────────────────────────────────────────────────────
 function buildGold(p){
+  var fecha=window._FECHA||'';
   var t=parseTeams(p.matchup);
   var la=t.away?logoHTML(t.away,p.liga,52,p.logo_away||p.photo_away):'';
   var lb=t.home?logoHTML(t.home,p.liga,52,p.logo_home||p.photo_home):'';
@@ -719,6 +910,7 @@ function buildGold(p){
         starsHTML(p.estrellas||5,starTier(p.estrellas||5),16)+
         '<div style="display:flex;gap:8px;align-items:center">'+
           '<div class="stake-pill">STAKE: '+p.stake+'</div>'+
+          '<button type="button" class="sel-btn sel-btn-lg gc-sel-btn" data-selkey="'+pickKey(fecha,p)+'" aria-pressed="false"><span class="sel-glyph">+</span><span class="sel-lbl">MI TICKET</span></button>'+
         '</div>'+
       '</div>'+
     '</div>'+
@@ -728,6 +920,7 @@ function buildGold(p){
 // ─── PICK CARD ────────────────────────────────────────────────────────────────
 function buildCard(p){
   var sc='s'+(p.estrellas||1);
+  var fecha=window._FECHA||'';
   var t=parseTeams(p.matchup);
   var la=t.away?logoHTML(t.away,p.liga,30,p.logo_away||p.photo_away):'';
   var lb=t.home?logoHTML(t.home,p.liga,30,p.logo_home||p.photo_home):'';
@@ -744,6 +937,7 @@ function buildCard(p){
   el.innerHTML=
     '<div class="pc-stripe pc-'+sc+'"></div>'+
     '<div class="pc-inner">'+
+      '<button type="button" class="sel-btn" data-selkey="'+pickKey(fecha,p)+'" aria-pressed="false"><span class="sel-glyph">+</span></button>'+
       '<div class="pc-ctx">'+ctx+'</div>'+
       teamsRow+
       '<div class="pc-mid">'+
@@ -765,6 +959,11 @@ function buildCard(p){
       '</div>'+
       '<div class="pd-txt">'+(p.razonamiento||'')+'</div>'+
     '</div>';
+  var sb=el.querySelector('.sel-btn');
+  if(sb){
+    sb.setAttribute('data-pickname',p.pick||'');
+    sb.addEventListener('click',function(e){e.stopPropagation();toggleSelection(fecha,p);});
+  }
   return el;
 }
 
@@ -874,24 +1073,86 @@ function buildSportMenu(SC){
   return items?'<div class="sport-menu">'+items+'</div>':'';
 }
 
-// ─── BANKROLL CALC ────────────────────────────────────────────────────────────
+// ─── BANKROLL DINÁMICO + EXPOSICIÓN ──────────────────────────────────────────
+var TOPE_PCT=20;            // tope de exposición diaria sugerido (%)
+var _bkDebounce=null;
 function buildCalc(){
+  var bk=getBankroll(),up=getUnitPct();
   return'<div class="calc-card">'+
-    '<div class="calc-title"><div class="calc-icon" style="color:var(--am)">'+useIco('ico-wallet',14)+'</div>CALCULADORA DE STAKES</div>'+
-    '<div class="calc-row"><div class="calc-lbl">Mi Bankroll:</div><div class="calc-curr">MXN $</div>'+
-      '<input class="calc-input" id="bkInput" type="number" value="1000" min="100" step="100" oninput="refreshCalc()"></div>'+
+    '<div class="calc-title"><div class="calc-icon" style="color:var(--am)">'+useIco('ico-wallet',14)+'</div>BANKROLL &amp; EXPOSICIÓN</div>'+
+    '<div class="calc-row">'+
+      '<div class="calc-lbl">Mi Bankroll:</div><div class="calc-curr">MXN $</div>'+
+      '<input class="calc-input" id="bkInput" type="number" value="'+bk+'" min="100" step="100" inputmode="numeric">'+
+      '<div class="calc-unit"><div class="calc-lbl">1u =</div>'+
+        '<input class="calc-input calc-input-sm" id="unitInput" type="number" value="'+up+'" min="0.1" max="10" step="0.1" inputmode="decimal"><span class="calc-curr">%</span>'+
+      '</div>'+
+    '</div>'+
+    '<div class="calc-hint">Cada unidad (1u) vale <b id="unitVal">'+fmtMoney(bk*up/100)+'</b>. El stake de cada pick (p. ej. 0.25u) se convierte a pesos con esta regla: <b>monto = bankroll × stake × unit% ÷ 100</b>.</div>'+
+    '<div class="expo">'+
+      '<div class="expo-head"><span class="expo-lbl">EXPOSICIÓN · <span class="ticket-count">0</span> en mi ticket</span><span class="expo-val" id="expoVal">$0 · 0%</span></div>'+
+      '<div class="expo-bar"><div class="expo-fill ok" id="expoFill"></div><div class="expo-tope" style="left:'+TOPE_PCT+'%"></div></div>'+
+      '<div class="expo-foot"><span id="expoNote">Selecciona picks con “+” para sumarlos a tu ticket.</span><span class="expo-topelbl">tope '+TOPE_PCT+'%</span></div>'+
+    '</div>'+
     '<div class="calc-grid" id="calcGrid"></div>'+
   '</div>';
 }
+// Lee el valor en vivo de los inputs (aunque aún no se haya persistido).
+function liveBankroll(){var v=parseFloat((document.getElementById('bkInput')||{}).value);return (isFinite(v)&&v>0)?v:getBankroll();}
+function liveUnitPct(){var v=parseFloat((document.getElementById('unitInput')||{}).value);return (isFinite(v)&&v>0)?v:getUnitPct();}
+// Escribe con debounce ~300ms; recalcula la UI al instante.
+function onBankrollInput(){
+  var el=document.getElementById('bkInput');if(!el)return;
+  var v=el.value;
+  if(_bkDebounce)clearTimeout(_bkDebounce);
+  _bkDebounce=setTimeout(function(){TPI.set(TPI.K.bankroll,String(parseFloat(v)||10000));},300);
+  refreshCalc();updateExposure();
+}
+function onUnitInput(){
+  var el=document.getElementById('unitInput');if(!el)return;
+  var v=el.value;
+  if(_bkDebounce)clearTimeout(_bkDebounce);
+  _bkDebounce=setTimeout(function(){TPI.set(TPI.K.unit,String(parseFloat(v)||1));},300);
+  refreshCalc();updateExposure();
+}
+function bindCalc(){
+  var b=document.getElementById('bkInput');if(b)b.addEventListener('input',onBankrollInput);
+  var u=document.getElementById('unitInput');if(u)u.addEventListener('input',onUnitInput);
+}
 function refreshCalc(){
-  var val=parseFloat((document.getElementById('bkInput')||{}).value)||1000;
   var grid=document.getElementById('calcGrid');
   if(!grid||!window._PICKS)return;
+  var fecha=window._FECHA||'';
+  var bk=liveBankroll(),up=liveUnitPct();
+  var uv=document.getElementById('unitVal');if(uv)uv.textContent=fmtMoney(bk*up/100);
   grid.innerHTML=window._PICKS.map(function(p){
-    var sp=parseFloat((p.stake||'').replace('u',''))||0;
-    var amt=(val*sp/100).toFixed(0);
-    return'<div class="ci"><div class="ci-pick">'+p.pick.toUpperCase()+'</div><div class="ci-amt">$'+amt+'</div><div class="ci-pct">'+sp+'% bankroll</div></div>';
+    var su=stakeU(p.stake);
+    var amt=bk*su*up/100;
+    var on=isSelected(fecha,p);
+    return'<div class="ci'+(on?' on':'')+'"><div class="ci-pick">'+(p.pick||'').toUpperCase()+'</div><div class="ci-amt">'+fmtMoney(amt)+'</div><div class="ci-pct">'+su+'u · '+(su*up).toFixed(2)+'% bankroll</div></div>';
   }).join('');
+}
+// Barra de exposición = suma de stakes de los picks SELECCIONADOS del día.
+function updateExposure(){
+  var fecha=window._FECHA||'';
+  var t=getTicket(),day=t[fecha]||{};
+  var bk=liveBankroll(),up=liveUnitPct();
+  var sumU=0,amt=0;
+  Object.keys(day).forEach(function(k){var s=day[k];sumU+=(s.stake_u||0);amt+=bk*(s.stake_u||0)*up/100;});
+  var pct=sumU*up; // % del bankroll
+  var fill=document.getElementById('expoFill');
+  var val=document.getElementById('expoVal');
+  var note=document.getElementById('expoNote');
+  var cls=pct>TOPE_PCT?'over':(pct>=TOPE_PCT*0.75?'near':'ok');
+  if(fill){fill.style.width=Math.min(pct,100)+'%';fill.className='expo-fill '+cls;}
+  if(val)val.textContent=fmtMoney(amt)+' · '+pct.toFixed(1)+'%';
+  if(note){
+    var n=Object.keys(day).length;
+    if(!n)note.textContent='Selecciona picks con “+” para sumarlos a tu ticket.';
+    else if(cls==='over')note.textContent='Por encima del tope diario ('+TOPE_PCT+'%). Considera reducir stakes.';
+    else if(cls==='near')note.textContent='Acercándote al tope diario ('+TOPE_PCT+'%).';
+    else note.textContent=n+' pick'+(n===1?'':'s')+' seleccionado'+(n===1?'':'s')+' · dentro del tope.';
+  }
+  updateTicketCounters(fecha);
 }
 
 // ─── EXEC TABLE ───────────────────────────────────────────────────────────────
@@ -919,6 +1180,7 @@ function render(data){
   var parlay=data.parlay_sugerido||{};
   var bkr=data.bankroll||{};
   window._PICKS=picks;
+  window._FECHA=data.fecha||dateStrFromOffset(DAY_OFFSET); // SIEMPRE la fecha del JSON
 
   document.getElementById('hdrDate').textContent=fmtDate(new Date());
 
@@ -989,6 +1251,14 @@ function render(data){
     var sg=document.getElementById('solidGrid');
     if(sg)rest.forEach(function(p){sg.appendChild(buildCard(p));});
     refreshCalc();
+    bindCalc();
+    // Botón "Mi Ticket" del gold pick (buildGold devuelve string → enlazamos aquí)
+    var gb=ini.querySelector('.gc-sel-btn');
+    if(gb&&best){
+      gb.setAttribute('data-pickname',best.pick||'');
+      gb.addEventListener('click',function(e){e.stopPropagation();toggleSelection(window._FECHA,best);});
+    }
+    updateExposure();
   }
 
   // SPORT SECTIONS
@@ -1011,6 +1281,7 @@ function render(data){
         '<div class="na-razon">'+(n.razon||'')+'</div></div></div>';
     }).join('');
     res.innerHTML=
+      '<div id="myReport"></div>'+
       '<div id="learnPanel"></div>'+
       '<div class="sh"><div class="sh-ico" style="background:var(--bld);color:var(--bl)">'+useIco('ico-chart')+'</div><div class="sh-title">RESUMEN EJECUTIVO</div><div class="sh-line"></div></div>'+
       buildTable(picks)+
@@ -1022,8 +1293,20 @@ function render(data){
         '<div class="bs"><div class="bs-v" style="color:var(--am)">'+(bkr.exposicion_total||'—')+'</div><div class="bs-l">Exposición</div></div>'+
         '<div class="bs"><div class="bs-v" style="color:var(--re)">'+(bkr.max_por_juego||'—')+'</div><div class="bs-l">Máx/Juego</div></div>'+
         '<div class="bs"><div class="bs-v" style="color:var(--bl)">Q-KELLY</div><div class="bs-l">Método</div></div>'+
+      '</div>'+
+      // ── Ajustes: Modo ligero ──
+      '<div class="sh" style="margin-top:22px"><div class="sh-ico" style="background:var(--pud);color:var(--pu)">'+useIco('ico-wallet')+'</div><div class="sh-title">AJUSTES</div><div class="sh-line"></div></div>'+
+      '<div class="settings-row">'+
+        '<div class="set-txt"><div class="set-title">Modo ligero</div><div class="set-sub">Apaga el efecto cristal (backdrop-filter) para un scroll más fluido en equipos de gama media. Se recuerda en este dispositivo.</div></div>'+
+        '<button type="button" class="switch" id="liteToggle" role="switch" aria-checked="false"><span class="switch-knob"></span></button>'+
       '</div>';
+    renderMyReport();
+    bindLiteToggle();
   }
+
+  // Estado de selección "Mi Ticket" en todas las tarjetas del día ya renderizadas
+  syncSelectionUI(window._FECHA);
+  updateExposure();
 
   // Animate bars
   setTimeout(function(){
@@ -1100,6 +1383,192 @@ function loadResults(dateStr){
     .then(function(r){if(!r.ok)throw new Error('no results');return r.json();})
     .then(function(d){applyResults(d);})
     .catch(function(){/* sin resultados aún — silencioso */});
+}
+
+// ─── MI REPORTE: liquidación de tu ticket personal ───────────────────────────
+var RES_CACHE={}; // date -> results json | null (404). Cacheado en memoria.
+function fetchResultsCached(date){
+  if(Object.prototype.hasOwnProperty.call(RES_CACHE,date))return Promise.resolve(RES_CACHE[date]);
+  return fetch('/results-'+date+'.json')
+    .then(function(r){if(!r.ok)throw 0;return r.json();})
+    .then(function(j){RES_CACHE[date]=j;return j;})
+    .catch(function(){RES_CACHE[date]=null;return null;});
+}
+// Cruza por pick (preferente) o matchup en minúsculas, igual criterio que applyResults.
+function findResult(resJson,sel){
+  if(!resJson||!resJson.picks)return null;
+  var pk=(sel.pick||'').toLowerCase(),mu=(sel.matchup||'').toLowerCase(),byMatch=null;
+  for(var i=0;i<resJson.picks.length;i++){
+    var r=resJson.picks[i];
+    if((r.pick||'').toLowerCase()===pk)return r;
+    if(!byMatch&&(r.matchup||'').toLowerCase()===mu)byMatch=r;
+  }
+  return byMatch;
+}
+function settleDate(date,resJson){
+  var t=getTicket(),day=t[date]||{};
+  var o={date:date,sel:0,open:0,won:0,lost:0,push:0,staked:0,profit:0};
+  Object.keys(day).forEach(function(k){
+    var s=day[k];o.sel++;
+    var r=findResult(resJson,s);
+    var resu=r?r.resultado:null;
+    var cuota=(s.cuota!=null?s.cuota:(r&&r.cuota!=null?r.cuota:1));
+    var monto=amountFor(s.stake_u||0);
+    if(resu==='win'){o.won++;o.staked+=monto;o.profit+=monto*((cuota||1)-1);}
+    else if(resu==='loss'){o.lost++;o.staked+=monto;o.profit-=monto;}
+    else if(resu==='push'){o.push++;o.staked+=monto;}
+    else{o.open++;}
+  });
+  o.roi=o.staked>0?(o.profit/o.staked*100):0;
+  return o;
+}
+function signMoney(v){return (v>=0?'+':'-')+fmtMoney(Math.abs(v));}
+function signPct(v){return (v>=0?'+':'-')+Math.abs(v).toFixed(1)+'%';}
+function pnlClass(v){return v>0.0001?'pos':v<-0.0001?'neg':'neu';}
+
+function mrTodayHTML(o,fecha){
+  var pnlC=pnlClass(o.profit),roiC=pnlClass(o.roi);
+  var settled=o.won+o.lost+o.push;
+  return '<div class="mr-card">'+
+    '<div class="mr-title">HOY · '+fecha+'</div>'+
+    '<div class="mr-stats">'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--pu)">'+o.sel+'</div><div class="mrs-l">Seleccionados</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--tx3)">'+o.open+'</div><div class="mrs-l">Abiertos</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--gr)">'+o.won+'</div><div class="mrs-l">Ganados</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--re)">'+o.lost+'</div><div class="mrs-l">Perdidos</div></div>'+
+    '</div>'+
+    '<div class="mr-pnl">'+
+      '<div class="mr-pnl-item"><div class="mr-pnl-l">P&amp;L</div><div class="mr-pnl-v '+pnlC+'">'+(settled?signMoney(o.profit):'—')+'</div></div>'+
+      '<div class="mr-pnl-item"><div class="mr-pnl-l">ROI</div><div class="mr-pnl-v '+roiC+'">'+(settled?signPct(o.roi):'—')+'</div></div>'+
+    '</div>'+
+    (settled?'':'<div class="mr-note">Tus picks de hoy aún no se liquidan. El P&amp;L aparece cuando publican los resultados.</div>')+
+  '</div>';
+}
+function mrSparkline(perDate){
+  // curva simple de P&L acumulado por fecha
+  var cum=0,pts=[],anySettled=false;
+  perDate.forEach(function(o){if(o.staked>0)anySettled=true;cum+=o.profit;pts.push(cum);});
+  if(!anySettled||pts.length<2)return '';
+  var W=280,H=46,min=Math.min(0,Math.min.apply(null,pts)),max=Math.max(0,Math.max.apply(null,pts));
+  var rng=(max-min)||1;
+  var step=pts.length>1?W/(pts.length-1):W;
+  var d=pts.map(function(v,i){var x=i*step;var y=H-((v-min)/rng)*H;return (i?'L':'M')+x.toFixed(1)+' '+y.toFixed(1);}).join(' ');
+  var zeroY=H-((0-min)/rng)*H;
+  var last=pts[pts.length-1],col=last>=0?'var(--gr)':'var(--re)';
+  return '<svg class="mr-spark" viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">'+
+    '<line x1="0" y1="'+zeroY.toFixed(1)+'" x2="'+W+'" y2="'+zeroY.toFixed(1)+'" stroke="var(--bd2)" stroke-width="1" stroke-dasharray="3 3"/>'+
+    '<path d="'+d+'" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>'+
+  '</svg>';
+}
+function mrHistHTML(tot,perDate){
+  var settled=tot.won+tot.lost+tot.push;
+  var pnlC=pnlClass(tot.profit),roiC=pnlClass(tot.roi);
+  var days=perDate.length;
+  return '<div class="mr-card">'+
+    '<div class="mr-title">HISTÓRICO · '+days+' día'+(days===1?'':'s')+'</div>'+
+    '<div class="mr-stats mr-stats-5">'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--pu)">'+tot.sel+'</div><div class="mrs-l">Total</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--gr)">'+tot.won+'</div><div class="mrs-l">Ganados</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--re)">'+tot.lost+'</div><div class="mrs-l">Perdidos</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--tx2)">'+tot.push+'</div><div class="mrs-l">Push</div></div>'+
+      '<div class="mrs"><div class="mrs-v" style="color:var(--tx3)">'+tot.open+'</div><div class="mrs-l">Abiertos</div></div>'+
+    '</div>'+
+    '<div class="mr-pnl">'+
+      '<div class="mr-pnl-item"><div class="mr-pnl-l">P&amp;L acumulado</div><div class="mr-pnl-v '+pnlC+'">'+(settled?signMoney(tot.profit):'—')+'</div></div>'+
+      '<div class="mr-pnl-item"><div class="mr-pnl-l">ROI</div><div class="mr-pnl-v '+roiC+'">'+(settled?signPct(tot.roi):'—')+'</div></div>'+
+    '</div>'+
+    (settled?mrSparkline(perDate):'<div class="mr-note">Aún no hay picks liquidados en tu historial; los totales y la curva aparecen cuando haya resultados.</div>')+
+  '</div>';
+}
+function mrCompHTML(today,sys,fecha){
+  var userReady=(today.won+today.lost+today.push)>0;
+  var sysReady=sys&&(sys.wins+sys.losses+sys.pushes)>0;
+  var body;
+  if(!userReady&&!sysReady){
+    body='<div class="mr-note">La comparativa del '+fecha+' aparecerá cuando se liquiden los resultados del día.</div>';
+  } else {
+    var uroi=today.roi, sroi=(sys?sys.roi_pct||0:0);
+    var diff=uroi-sroi;
+    var verdict=!userReady?'Tus picks del día aún no se liquidan.':
+      (diff>0.05?'Tus selecciones van <b>por delante</b> del sistema completo.':
+       diff<-0.05?'Tus selecciones van <b>por detrás</b> del sistema completo.':
+       'Tus selecciones van <b>a la par</b> del sistema completo.');
+    body=
+      '<div class="mr-comp">'+
+        '<div class="mr-comp-col"><div class="mr-comp-l">TÚ</div><div class="mr-comp-v '+pnlClass(uroi)+'">'+(userReady?signPct(uroi):'—')+'</div></div>'+
+        '<div class="mr-comp-vs">vs</div>'+
+        '<div class="mr-comp-col"><div class="mr-comp-l">SISTEMA</div><div class="mr-comp-v '+pnlClass(sroi)+'">'+(sysReady?signPct(sroi):'—')+'</div></div>'+
+      '</div>'+
+      '<div class="mr-note">'+verdict+'</div>';
+  }
+  return '<div class="mr-card">'+
+    '<div class="mr-title">COMPARATIVA · '+fecha+'</div>'+
+    body+
+    '<div class="mr-foot">Con pocas apuestas, la diferencia entre tu ROI y el del sistema es <b>ruido, no habilidad</b>. Necesitas decenas de picks liquidados para leer una ventaja real.</div>'+
+  '</div>';
+}
+function mrActionsHTML(){
+  return '<div class="mr-actions">'+
+    '<button type="button" class="mr-btn" id="exportBtn">Exportar JSON</button>'+
+    '<button type="button" class="mr-btn mr-btn-danger" id="clearBtn">Borrar historial</button>'+
+  '</div>';
+}
+function bindReportActions(){
+  var e=document.getElementById('exportBtn');if(e)e.addEventListener('click',exportTicket);
+  var c=document.getElementById('clearBtn');if(c)c.addEventListener('click',clearTicket);
+}
+function exportTicket(){
+  try{
+    var data={version:'tpi:v1',exported_at:new Date().toISOString(),bankroll:getBankroll(),unit_pct:getUnitPct(),ticket:getTicket()};
+    var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+    var url=URL.createObjectURL(blob);
+    var a=document.createElement('a');a.href=url;a.download='mi-ticket-tipsterpro.json';
+    document.body.appendChild(a);a.click();
+    setTimeout(function(){URL.revokeObjectURL(url);a.remove();},120);
+  }catch(e){}
+}
+function clearTicket(){
+  if(!confirm('¿Borrar todo tu historial de tickets? Esta acción no se puede deshacer.'))return;
+  try{localStorage.removeItem(TPI.K.ticket);}catch(e){}
+  RES_CACHE={};
+  renderMyReport();
+  syncSelectionUI(window._FECHA);
+  updateExposure();
+  refreshCalc();
+}
+function renderMyReport(){
+  var box=document.getElementById('myReport');if(!box)return;
+  var head='<div class="sh"><div class="sh-ico" style="background:var(--cyd);color:var(--cy)">'+useIco('ico-wallet')+'</div><div class="sh-title">MI REPORTE</div><div class="sh-line"></div><div class="sh-ct">TU TICKET</div></div>';
+  var t=getTicket(),dates=Object.keys(t).sort();
+  if(!dates.length){
+    box.innerHTML=head+'<div class="mr-card mr-empty">Aún no has añadido picks a tu ticket. Toca <b>“+”</b> en cualquier tarjeta para seguir tu rendimiento personal: P&amp;L, ROI e histórico con liquidación automática.</div>';
+    return;
+  }
+  box.innerHTML=head+'<div class="mr-card"><div class="mr-note">Liquidando tu ticket…</div></div>';
+  var viewed=window._FECHA||dates[dates.length-1];
+  var needed=dates.slice();
+  if(needed.indexOf(viewed)<0)needed.push(viewed);
+  Promise.allSettled(needed.map(fetchResultsCached)).then(function(){
+    var perDate=dates.map(function(d){return settleDate(d,RES_CACHE[d]);});
+    var tot={sel:0,open:0,won:0,lost:0,push:0,staked:0,profit:0};
+    perDate.forEach(function(o){tot.sel+=o.sel;tot.open+=o.open;tot.won+=o.won;tot.lost+=o.lost;tot.push+=o.push;tot.staked+=o.staked;tot.profit+=o.profit;});
+    tot.roi=tot.staked>0?(tot.profit/tot.staked*100):0;
+    var today=settleDate(viewed,RES_CACHE[viewed]);
+    var sys=(RES_CACHE[viewed]&&RES_CACHE[viewed].resumen)?RES_CACHE[viewed].resumen:null;
+    box.innerHTML=head+mrTodayHTML(today,viewed)+mrHistHTML(tot,perDate)+mrCompHTML(today,sys,viewed)+mrActionsHTML();
+    bindReportActions();
+  });
+}
+// Toggle Modo ligero (Ajustes en Resumen)
+function bindLiteToggle(){
+  var t=document.getElementById('liteToggle');if(!t)return;
+  var on=liteEnabled();
+  t.classList.toggle('on',on);t.setAttribute('aria-checked',on?'true':'false');
+  t.addEventListener('click',function(){
+    var now=!t.classList.contains('on');
+    t.classList.toggle('on',now);t.setAttribute('aria-checked',now?'true':'false');
+    setLite(now);
+  });
 }
 
 // ─── AUTO-APRENDIZAJE: panel de rendimiento/calibración de la IA ──────────────
@@ -1225,6 +1694,7 @@ function tryFetch(url,fb){
     });
 }
 
+applyLite();
 updateDayNav();
 tryFetch('/latest.json','/picks-'+todayStr()+'.json');
 
