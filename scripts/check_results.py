@@ -132,6 +132,70 @@ def fetch_tennis_scores_espn() -> list:
                     })
     return out
 
+# ── Fetch scores de ESPN (gratis, sin API key) — reemplaza a The Odds API ─────
+ESPN_SLUGS = {
+    "baseball_mlb":         "baseball/mlb",
+    "basketball_nba":       "basketball/nba",
+    "americanfootball_nfl": "football/nfl",
+    "soccer_epl":                        "soccer/eng.1",
+    "soccer_spain_la_liga":              "soccer/esp.1",
+    "soccer_italy_serie_a":              "soccer/ita.1",
+    "soccer_germany_bundesliga":         "soccer/ger.1",
+    "soccer_france_ligue_one":           "soccer/fra.1",
+    "soccer_uefa_champs_league":         "soccer/uefa.champions",
+    "soccer_uefa_europa_league":         "soccer/uefa.europa",
+    "soccer_usa_mls":                    "soccer/usa.1",
+    "soccer_mexico_ligamx":              "soccer/mex.1",
+    "soccer_brazil_campeonato":          "soccer/bra.1",
+    "soccer_argentina_primera_division": "soccer/arg.1",
+    "soccer_netherlands_eredivisie":     "soccer/ned.1",
+    "soccer_portugal_primeira_liga":     "soccer/por.1",
+    "soccer_england_efl_champ":          "soccer/eng.2",
+}
+
+def fetch_scores_espn(sport_key: str, target_date: str) -> list:
+    """Marcadores finales de HOY/target_date desde ESPN (deportes de equipo). Devuelve
+    el MISMO formato que usaba Odds API: {away_team, home_team, completed, commence_time,
+    scores:[{name,score}]}. Solo partidos ya jugados (state 'post')."""
+    # soccer_generic u otras claves sin slug directo → intenta por prefijo soccer
+    slug = ESPN_SLUGS.get(sport_key)
+    if not slug and sport_key.startswith("soccer"):
+        slug = None  # sin liga concreta no podemos consultar ESPN
+    if not slug:
+        return []
+    try:
+        d = requests.get(
+            f"https://site.api.espn.com/apis/site/v2/sports/{slug}/scoreboard",
+            params={"dates": target_date.replace("-", "")}, timeout=15).json()
+    except Exception as e:
+        print(f"  ⚠ ESPN scores {slug}: {e}")
+        return []
+    out = []
+    for ev in d.get("events", []):
+        comp = (ev.get("competitions") or [{}])[0]
+        state = (comp.get("status", {}).get("type", {}) or {}).get("state")
+        if state != "post":
+            continue
+        cs = comp.get("competitors", [])
+        away = next((c for c in cs if c.get("homeAway") == "away"), None)
+        home = next((c for c in cs if c.get("homeAway") == "home"), None)
+        if not (away and home):
+            continue
+        an = away.get("team", {}).get("displayName", "")
+        hn = home.get("team", {}).get("displayName", "")
+        if not (an and hn):
+            continue
+        out.append({
+            "away_team": an, "home_team": hn, "completed": True,
+            "commence_time": ev.get("date", ""),
+            "scores": [
+                {"name": an, "score": str(away.get("score", "0"))},
+                {"name": hn, "score": str(home.get("score", "0"))},
+            ],
+        })
+    print(f"  Scores {sport_key} (ESPN) [{target_date}]: {len(out)} completados")
+    return out
+
 def get_sport_key(pick: dict) -> str:
     """
     Prefiere el sport_key exacto que generate_picks.py ya guardó en el pick
@@ -322,7 +386,7 @@ def main():
                                       if _game_date_cdmx(g.get("commence_time", "")) == picks_date]
                 print(f"  Scores tennis (ESPN) [{picks_date}]: {len(scores_cache[ckey])} partidos completados")
             else:
-                scores_cache[ckey] = fetch_scores(sk, picks_date)
+                scores_cache[ckey] = fetch_scores_espn(sk, picks_date)
         return scores_cache[ckey]
 
     results = []
