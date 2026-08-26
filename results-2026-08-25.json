@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-08-25",
+  "resumen": {
+    "total": 2,
+    "wins": 0,
+    "losses": 0,
+    "pushes": 0,
+    "pending": 2,
+    "roi_pct": 0.0
+  },
+  "picks": [
+    {
+      "matchup": "Diane Parry @ Oleksandra Oliynykova",
+      "pick": "Diane Parry Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.36,
+      "stake": "0.25u",
+      "resultado": "pending",
+      "score": null,
+      "sport_key": "tennis_wta_monterrey_open",
+      "prob_propia": 76.3,
+      "prob_justa": 71.3,
+      "prob_ia_cruda": 76.5,
+      "prob_casino": 73.5,
+      "ev_pct": 3.8,
+      "estrellas": 3
+    },
+    {
+      "matchup": "Anna Bondár @ Cristina Bucsa",
+      "pick": "Anna Bondár Moneyline",
+      "tipo": "Moneyline",
+      "liga": "Tennis WTA",
+      "cuota": 1.73,
+      "stake": "0.2u",
+      "resultado": "pending",
+      "score": null,
+      "sport_key": "tennis_wta_monterrey_open",
+      "prob_propia": 61.0,
+      "prob_justa": 56.5,
+      "prob_ia_cruda": 61.0,
+      "prob_casino": 57.8,
+      "ev_pct": 5.5,
+      "estrellas": 3
+    }
+  ]
+}

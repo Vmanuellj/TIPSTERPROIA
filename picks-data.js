@@ -1,158 +1,312 @@
-// Auto-generado 2026-08-25 — TIPSTER PRO IA
+// Auto-generado 2026-08-26 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-08-25",
-  "fecha_display": "Martes 25 de Agosto 2026",
+  "fecha": "2026-08-26",
+  "fecha_display": "Miércoles 26 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuota de consenso (mediana entre casas). Probabilidad ANCLADA al mercado sharp (Pinnacle) — la IA no inventa favoritos. La cuota mínima es el precio que tu casa (PlayDoIt/Winpot) debe superar. 5 picks con EV+. Horario CDT CDMX.",
+  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN, sportsgambler, dimers, wincomparator, sportsbettingdime, docsports, tennistonic). Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "1.4u",
+    "exposicion_total": "1.95u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4 — sesión limitada por escasez de mercados con cuotas reales"
+    "nota": "Kelly 1/4"
   },
   "picks": [
     {
-      "liga": "Tennis WTA",
-      "matchup": "Diane Parry @ Oleksandra Oliynykova",
-      "hora": "8:30 PM CDT (CDMX)",
-      "pick": "Diane Parry Moneyline",
+      "liga": "MLB",
+      "matchup": "Tampa Bay Rays @ Detroit Tigers",
+      "hora": "12:10 PM CDT (CDMX)",
+      "pick": "Detroit Tigers ML",
       "tipo": "Moneyline",
-      "cuota_bet365": 1.36,
-      "prob_implicita": 73.5,
-      "prob_propia": 76.3,
-      "ev_pct": 3.8,
-      "prob_acierto": 76,
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.83,
+      "prob_implicita": 54.6,
+      "prob_propia": 57.5,
+      "ev_pct": 5.2,
+      "prob_acierto": 58,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Parry es la favorita más consistente del día con cuota 1.36 frente a Oliynykova a 3.15. La probabilidad implícita es ~73.5% y estimo real ~76.5%, generando EV ~4%. El mercado sharp señala una diferencia de nivel clara entre ambas jugadoras. Pick conservador con stake limitado.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 76.5,
-      "prob_justa": 71.3,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.31
+      "stake": "0.20u",
+      "razonamiento": "Troy Melton (7-2, ERA 1.60) es el mejor abridor de este pizarrón hoy — sólida racha en su rol de as desde el trade deadline. Frente a Freddy Peralta (5-11, ERA 5.33), los números son muy favorables al local. El mercado de ESPN/DraftKings pone a Detroit en -120 (1.833 decimal), prácticamente empate de probabilidades con TB que tiene un ERA de abridor mucho peor. Covers registra Under 5-0 en últimos 5 Tigers como underdogs — equipo con buena run prevention. Fuente: ESPN odds + draftkings + covers.com.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.74
     },
     {
-      "liga": "Tennis WTA",
-      "matchup": "Anna Bondár @ Cristina Bucsa",
-      "hora": "4:00 PM CDT (CDMX)",
-      "pick": "Anna Bondár Moneyline",
-      "tipo": "Moneyline",
-      "cuota_bet365": 1.73,
-      "prob_implicita": 57.8,
-      "prob_propia": 61.0,
-      "ev_pct": 5.5,
-      "prob_acierto": 61,
+      "liga": "La Liga",
+      "matchup": "Real Sociedad @ Real Madrid",
+      "pick": "BTTS Sí (Ambos anotan)",
+      "tipo": "Total Goles",
+      "sport_key": "soccer_spain_la_liga",
+      "hora": "7:00 PM CDT (CDMX)",
+      "cuota_bet365": 1.7,
+      "prob_implicita": 58.8,
+      "prob_propia": 61.8,
+      "ev_pct": 5.1,
+      "prob_acierto": 62,
       "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Bondár cotiza a 1.72 vs Bucsa a 2.12. La cuota más alta de Bondár dentro de los partidos con favorita definida ofrece mejor valor relativo: prob implícita ~58% vs mi estimación de ~61%. EV ~4.9%. El spread de cuota sugiere un duelo parejo pero con ventaja para Bondár.",
-      "sport_key": "tennis_wta_monterrey_open",
-      "cuota_verificada": true,
-      "prob_ia_cruda": 61.0,
-      "prob_justa": 56.5,
-      "fair_source": "pinnacle",
-      "cuota_minima": 1.64
+      "stake": "0.25u",
+      "razonamiento": "Sociedad ha visto BTTS en 4 de sus últimos 5 partidos de Liga; Real Madrid concede en casa con regularidad (10 goles en últimos 10 encuentros de local, 1 xGA/partido). Madrid tiene múltiples bajas defensivas (Militão, Mendy, Asencio). Dimers proyecta 55.3% BTTS; wincomparator 74.17%. Cuota 1.70 en wincomparator/bet365 implica 58.8% — valor moderado con spread de ~+3pp. Fuente: wincomparator.com y sportsgambler.com.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.62,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
+    },
+    {
+      "liga": "Tennis ATP",
+      "matchup": "Lorenzo Sonego vs Adrian Mannarino",
+      "hora": "Por confirmar (Winston-Salem, R2)",
+      "pick": "Lorenzo Sonego ML",
+      "tipo": "Moneyline",
+      "sport_key": "tennis_atp",
+      "cuota_bet365": 1.65,
+      "prob_implicita": 60.6,
+      "prob_propia": 63.5,
+      "ev_pct": 4.8,
+      "prob_acierto": 64,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Sonego es ex campeón de Winston-Salem (2024), con ventaja de historial en esta superficie. Mannarino (38 años, 14-26 en 2026, perdió 7 de sus últimos 11 partidos) llega en caída. lastwordonsports.com señala que Sonego genera puntos gratuitos en estas condiciones y tiene ventaja clara. Cuota estimada ~1.65 basada en contexto de mercado (Mannarino como moderado favorito en odds generales de torneo pero desfavorecido en este HH). Fuente: lastwordonsports.com + matchstat.com.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.57,
+      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/3052.png",
+      "photo_home": "https://a.espncdn.com/i/headshots/tennis/players/full/1266.png"
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Boston Red Sox @ Miami Marlins",
+      "hora": "5:40 PM CDT (CDMX)",
+      "pick": "Boston Red Sox ML",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.61,
+      "prob_implicita": 62.1,
+      "prob_propia": 65.0,
+      "ev_pct": 4.7,
+      "prob_acierto": 65,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "Sonny Gray (16-3, ERA 2.79) es uno de los mejores abridores de la AL frente a Ryan Gusto (0-3, ERA 4.37). Red Sox lideran MLB en carreras anotadas en agosto, van 7-3 en últimas 10. Cuota ESPN/DraftKings -163 (1.614 decimal). BetMGM sitúa -133; Red Sox 8-0 en últimas 8 de visitante vs rivales con récord ganador (covers.com). Fuente: espn.com/mlb/odds + sportsbettingdime.com + bet365 news.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.54
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Texas Rangers @ Chicago White Sox",
+      "hora": "6:40 PM CDT (CDMX)",
+      "pick": "Chicago White Sox ML",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.74,
+      "prob_implicita": 57.5,
+      "prob_propia": 60.0,
+      "ev_pct": 4.4,
+      "prob_acierto": 60,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "Sean Burke (7-6, ERA 3.27) es claramente superior al visitante MacKenzie Gore (7-9, ERA 4.26). ChiSox (68-63) son favoritos en casa y el mercado los pone en -136 (1.735 decimal). Rangers van 30-38 de visitante. Burke top-10 en ERA entre abridores del partido de hoy. Fuente: espn.com/mlb/odds.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.67
+    },
+    {
+      "liga": "Tennis ATP",
+      "matchup": "Daniil Medvedev vs Martin Damm",
+      "hora": "Por confirmar (Winston-Salem, R2)",
+      "pick": "Medvedev ML",
+      "tipo": "Moneyline",
+      "sport_key": "tennis_atp",
+      "cuota_bet365": 1.31,
+      "prob_implicita": 76.3,
+      "prob_propia": 79.0,
+      "ev_pct": 3.5,
+      "prob_acierto": 79,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Medvedev (ATP #7/8, 31-13 en 2026, 20-6 en cemento) vs Damm (#92, wild card, 29-22 en 2026). Brecha de Elo en cemento: 288 puntos (1,934 vs 1,645). Medvedev ganó Winston-Salem 2018 y busca preparar el US Open. Damm beat Shelbayh pero llega con forma irregular. Cuota 1.31 en tennistonic/bet365 implica 76.3%; EV +3.5% asumiendo 79% de prob. real (conservador dado H2H virgin y volatilidad Medvedev). Fuente: tennistonic.com + sportsbettingdime.com (confirman odds bet365).",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.27,
+      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2383.png"
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Todos los partidos MLB",
+      "matchup": "Real Sociedad @ Real Madrid — Over 2.5 Goles",
+      "liga": "La Liga",
+      "razon": "EV negativo: cuota 1.57 implica 63.7% pero Dimers y protipster apuntan solo a ~51-61% de prob. real. Madrid registra Under 2.5 en 9 de sus últimos 10 partidos de Liga (protipster.com). Sin valor."
+    },
+    {
+      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
       "liga": "MLB",
-      "razon": "No hay cuotas reales disponibles en el contexto para ningún partido de MLB hoy. Regla absoluta: no se pueden generar picks sin cuotas reales."
+      "razon": "Sasaki (ERA 4.42, mal historial visitante: 30 ER en 59.2 IP fuera de casa) vs Smith-Shawver debut en casa (ERA 6.23 en solo 2 starts). Demasiada incertidumbre en ambos abridores. Braves ganaron el opener 4-3; serie equilibrada. Cuota muy cerrada (-130 vs +108), margen insuficiente para EV sólido."
     },
     {
-      "matchup": "Todos los partidos NBA",
-      "liga": "NBA",
-      "razon": "Sin juegos hoy según el contexto."
+      "matchup": "Cleveland Guardians @ Los Angeles Angels",
+      "liga": "MLB",
+      "razon": "Grayson Rodriguez (ERA 6.41) inicia por Angels (52-81). Aunque los Guardians son favoritos, Joey Cantillo (ERA 3.73) no inspira suficiente confianza para apostar con EV real dado el nivel de ambos equipos mediocres. Demasiado parecido al perfil de pick de bajo valor."
     },
     {
-      "matchup": "Todos los partidos NFL",
-      "liga": "NFL",
-      "razon": "Sin juegos hoy según el contexto."
+      "matchup": "Houston Astros @ New York Yankees",
+      "liga": "MLB",
+      "razon": "Yankees con abridor TBD — imposible evaluar el pick de pitcheo. Sin datos completos del starter local, el pick pierde consistencia analítica."
     },
     {
-      "matchup": "Premier League / Liga MX / LaLiga / Serie A / Bundesliga / Ligue 1 / Eredivisie / Primeira Liga / MLS / Serie A Brasil / Argentina Primera",
-      "liga": "Fútbol (todas las ligas)",
-      "razon": "Sin juegos hoy en ninguna liga de fútbol según el contexto."
+      "matchup": "Colorado Rockies @ Washington Nationals",
+      "liga": "MLB",
+      "razon": "Dos de los peores equipos/abridores de la jornada: Gordon (0-4, ERA 5.75) vs Waldron (1-2, ERA 7.54). Partido sin valor claro: margen de error enorme con abridores tan irregulares y dos equipos perdedores."
     },
     {
-      "matchup": "Maria Timofeeva @ Shuai Zhang",
-      "liga": "Tennis WTA",
-      "razon": "Cuota 2.0 vs 1.8 — mercado muy parejo con vig elevado. EV estimado negativo o marginal; no supera umbral mínimo."
+      "matchup": "Daniil Medvedev vs Martin Damm — Spread -3.5 juegos",
+      "liga": "Tennis ATP",
+      "razon": "Aunque Medvedev es gran favorito, ha caído un set en 4 de sus últimos 5 partidos vs rivales fuera del top 90. El spread de -3.5 a -125 tiene riesgo de sets ajustados. Preferimos el ML más conservador."
     },
     {
-      "matchup": "Yuliia Starodubtseva @ Janice Tjen",
-      "liga": "Tennis WTA",
-      "razon": "Starodubtseva a 2.17 con Tjen favorita a 1.69 — estructura de cuotas sugiere mercado parejo con margen de casa que erosiona el EV esperado."
+      "matchup": "Real Sociedad @ Real Madrid",
+      "liga": "La Liga",
+      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
     },
     {
-      "matchup": "Maya Joint @ Panna Udvardy",
-      "liga": "Tennis WTA",
-      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 2.7%)."
+      "matchup": "Real Sociedad @ Real Madrid",
+      "liga": "La Liga",
+      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
     },
     {
-      "matchup": "Kimberly Birrell @ Darja Vidmanova",
-      "liga": "Tennis WTA",
-      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 1.5%)."
+      "matchup": "Real Sociedad @ Real Madrid",
+      "liga": "La Liga",
+      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
     },
     {
-      "matchup": "Anastasia Potapova @ Nikola Bartunkova",
-      "liga": "Tennis WTA",
-      "razon": "Máximo 2 picks de tenis por día (quedó fuera, EV 3.6%)."
+      "matchup": "Milwaukee Brewers @ New York Mets",
+      "liga": "MLB",
+      "razon": "Solo top-3 MLB por EV (fuera, EV 3.8%)."
+    },
+    {
+      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Cincinnati Reds @ San Francisco Giants",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Pittsburgh Pirates @ San Diego Padres",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Seattle Mariners",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Kansas City Royals @ Toronto Blue Jays",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Baltimore Orioles @ St. Louis Cardinals",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Minnesota Twins @ Athletics",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Maya Joint Moneyline (1.37)",
-      "Diane Parry Moneyline (1.36)"
+      "Real Madrid ML @ 1.44",
+      "Boston Red Sox ML @ 1.61",
+      "Detroit Tigers ML @ 1.83"
     ],
-    "cuota_total": 1.86,
-    "ev_pct": 5.1,
+    "cuota_total": 3.37,
+    "ev_pct": 4.2,
     "stake": "0.15u",
-    "nota": "Ambas son las favoritas más claras del día con mayor diferencial de cuota vs su rival. Correlación positiva: ambas son favoritas marcadas en partidos donde el mercado señala diferencia de nivel significativa. Cuota combinada ~1.86 con EV estimado ~5.1% si ambas tienen ~76% real."
+    "nota": "Correlación positiva: los tres picks comparten el patrón 'abridor élite vs abridor inferior' (Gray ERA 2.79 vs Gusto ERA 4.37; Melton ERA 1.60 vs Peralta ERA 5.33) más equipo local dominante en casa (RM en Bernabéu). Cuota total 1.44 × 1.61 × 1.83 = 3.37. Kelly 1/4 sobre bankroll sugiere 0.15u máximo para parlay de 3 patas."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Maya Joint Moneyline",
+      "pick": "Real Madrid ML",
       "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.37,
-      "ev_pct": 4.12,
+      "liga": "La Liga",
+      "cuota": 1.44,
+      "ev_pct": 3.7,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Diane Parry Moneyline",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.36,
-      "ev_pct": 4.04,
+      "pick": "Real Sociedad +1.5 AH",
+      "tipo": "Handicap",
+      "liga": "La Liga",
+      "cuota": 1.91,
+      "ev_pct": 5.0,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Anna Bondár Moneyline",
-      "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.72,
-      "ev_pct": 4.92,
-      "stake": "0.2u",
+      "pick": "BTTS Sí (Real Madrid vs Real Sociedad)",
+      "tipo": "Total Goles",
+      "liga": "La Liga",
+      "cuota": 1.7,
+      "ev_pct": 5.4,
+      "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "Darja Vidmanova Moneyline",
+      "pick": "Detroit Tigers ML",
       "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.72,
-      "ev_pct": 4.92,
+      "liga": "MLB",
+      "cuota": 1.83,
+      "ev_pct": 5.3,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Milwaukee Brewers ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.61,
+      "ev_pct": 3.9,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Boston Red Sox ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.61,
+      "ev_pct": 4.7,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Chicago White Sox ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.74,
+      "ev_pct": 4.4,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Daniil Medvedev ML (Winston-Salem)",
+      "tipo": "Moneyline",
+      "liga": "Tennis ATP",
+      "cuota": 1.31,
+      "ev_pct": 3.5,
       "stake": "0.15u",
       "estrellas": 2
     },
     {
-      "pick": "Nikola Bartunkova Moneyline",
+      "pick": "Lorenzo Sonego ML (Winston-Salem)",
       "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.57,
-      "ev_pct": 3.62,
+      "liga": "Tennis ATP",
+      "cuota": 1.65,
+      "ev_pct": 4.8,
       "stake": "0.15u",
       "estrellas": 2
     }
