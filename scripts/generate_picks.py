@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """
 TIPSTER PRO IA — Generador automático (GitHub Actions)
-Usa: MLB Stats API (gratis) + The Odds API (gratis 500/mes) + Claude API
-v3: Cuotas reales de Bet365 — se sobreescriben post-generación desde Odds API
+v4 (híbrido, sin The Odds API):
+  • Calendario + estadística: MLB Stats API + ESPN (gratis, sin API key)
+  • Cuotas: Claude API con herramienta de BÚSQUEDA WEB (web_search) — las obtiene por
+    partido de fuentes públicas. Marca cuota_verificada=false / fair_source="web".
+  • Tenis: los partidos de hoy los descubre Claude por búsqueda web (ESPN los agrupa por torneo).
 """
 import anthropic, json, os, re, requests
 from datetime import datetime, timezone, timedelta
@@ -29,8 +32,33 @@ MESES = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto",
          "Septiembre","Octubre","Noviembre","Diciembre"]
 fecha_display = f"{DIAS[dt.weekday()]} {dt.day} de {MESES[dt.month-1]} {dt.year}"
 
+# Override de fecha para PRUEBAS manuales: TARGET_DATE=YYYY-MM-DD genera esa fecha
+# (p. ej. mañana, con partidos POR VENIR). Vacío = hoy (uso normal del cron 00:30).
+_TARGET = os.environ.get("TARGET_DATE", "").strip()
+if _TARGET:
+    try:
+        dt    = datetime.strptime(_TARGET, "%Y-%m-%d").replace(tzinfo=CT)
+        today = dt.strftime("%Y-%m-%d")
+        fecha_display = f"{DIAS[dt.weekday()]} {dt.day} de {MESES[dt.month-1]} {dt.year}"
+        print(f"  ⚙ TARGET_DATE activo: generando para {today}")
+    except Exception as _e:
+        print(f"  ⚠ TARGET_DATE inválida ({_TARGET}); uso hoy. {_e}")
+
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 ODDS_KEY      = os.environ.get("ODDS_API_KEY", "")
+
+# ── Modelo + búsqueda web (híbrido: las cuotas las obtiene Claude por web_search) ──
+MODEL          = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
+WEB_SEARCH_MAX = int(os.environ.get("WEB_SEARCH_MAX", "20"))
+
+def _guess_sport_key(liga: str) -> str:
+    l = (liga or "").lower()
+    if "mlb" in l or "beisbol" in l or "béisbol" in l: return "baseball_mlb"
+    if "nba" in l: return "basketball_nba"
+    if "nfl" in l: return "americanfootball_nfl"
+    if "wta" in l: return "tennis_wta"
+    if "atp" in l or "tenis" in l or "tennis" in l: return "tennis_atp"
+    return "soccer_generic"
 
 # ── Helpers de tiempo ─────────────────────────────────────────────────────────
 def utc_str_to_cdmx(utc_str: str) -> str:
@@ -317,6 +345,19 @@ ESPN_SLUGS = {
 # {NOMBRE_EQUIPO_UPPER: url_logo} — se llena desde ESPN en fetch_espn_stats.
 # Sirve para pintar logos reales de fútbol en la web (misma fuente que las stats).
 ESPN_TEAM_LOGOS: dict = {}
+# Etiquetas legibles por liga (antes venían de The Odds API; ahora estáticas).
+LIGA_LABELS = {
+    "baseball_mlb": "MLB", "basketball_nba": "NBA", "americanfootball_nfl": "NFL",
+    "soccer_epl": "Premier League", "soccer_spain_la_liga": "La Liga",
+    "soccer_italy_serie_a": "Serie A", "soccer_germany_bundesliga": "Bundesliga",
+    "soccer_france_ligue_one": "Ligue 1", "soccer_uefa_champs_league": "UEFA Champions League",
+    "soccer_uefa_europa_league": "UEFA Europa League", "soccer_usa_mls": "MLS",
+    "soccer_mexico_ligamx": "Liga MX", "soccer_brazil_campeonato": "Brasileirão",
+    "soccer_argentina_primera_division": "Primera División (Argentina)",
+    "soccer_netherlands_eredivisie": "Eredivisie", "soccer_portugal_primeira_liga": "Primeira Liga",
+    "soccer_england_efl_champ": "Championship",
+}
+SOCCER_KEYS = [k for k in ESPN_SLUGS if k.startswith("soccer_")]
 
 def _espn_competitor_blurb(c: dict) -> str:
     """Resumen de un equipo: nombre (récord, local/visitante, forma) — abridor (récord, ERA)."""
@@ -386,6 +427,51 @@ def fetch_espn_stats(sport_key: str) -> dict:
               (f" ({skipped} ya jugados, descartados)" if skipped else ""))
     return out
 
+def fetch_espn_schedule(sport_key: str, liga_label: str) -> list:
+    """
+    Calendario de HOY desde ESPN (gratis, sin API key) para deportes de equipo
+    (MLB/NBA/NFL/fútbol). Devuelve [{away, home, time, sport_key, liga}].
+    Descarta partidos ya jugados (state 'post'). Reemplaza al calendario que antes
+    daba The Odds API. También aprovecha para cachear logos reales de ESPN.
+    """
+    slug = ESPN_SLUGS.get(sport_key)
+    if not slug:
+        return []
+    try:
+        url = f"https://site.api.espn.com/apis/site/v2/sports/{slug}/scoreboard"
+        data = requests.get(url, params={"dates": today.replace("-", "")}, timeout=12).json()
+    except Exception as e:
+        print(f"  ⚠ ESPN sched {slug}: {e}")
+        return []
+    games = []
+    for ev in data.get("events", []):
+        state = (ev.get("status", {}).get("type", {}) or {}).get("state", "")
+        if state == "post":
+            continue
+        comp = (ev.get("competitions") or [{}])[0]
+        comps = comp.get("competitors", [])
+        away = next((c for c in comps if c.get("homeAway") == "away"), None)
+        home = next((c for c in comps if c.get("homeAway") == "home"), None)
+        if not (away and home):
+            continue
+        an = away.get("team", {}).get("displayName", "")
+        hn = home.get("team", {}).get("displayName", "")
+        if not (an and hn):
+            continue
+        for c in (away, home):
+            t = c.get("team", {})
+            nm, logo = t.get("displayName", ""), t.get("logo")
+            if nm and logo:
+                ESPN_TEAM_LOGOS[nm.upper().strip()] = logo
+        games.append({
+            "away": an, "home": hn,
+            "time": utc_str_to_cdmx((ev.get("date", "") or "").replace("Z", "")),
+            "sport_key": sport_key, "liga": liga_label,
+        })
+    if games:
+        print(f"  ESPN sched ({slug}) {today} → {len(games)} partidos de hoy")
+    return games
+
 def _espn_blurb_for(away_g: str, home_g: str, espn_map: dict):
     """Busca el blurb de ESPN que corresponde a un partido de odds (match por nombre)."""
     for (ea, eh), blurb in (espn_map or {}).items():
@@ -432,108 +518,44 @@ def _totals_lines(game: dict) -> list:
                        f"Under {round(mu,2) if mu else '—'}")
     return out
 
-def build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds=None,
-                   mlb_props=None, nba_props=None, nfl_props=None, futbol_props=None,
-                   espn_stats=None, tennis_odds=None) -> str:
+def build_context(mlb_sched, team_groups, espn_stats):
+    """Contexto con los partidos REALES de hoy (ESPN + MLB). SIN cuotas: Claude las
+    busca en la web. team_groups = [(label, sport_key, [games])]."""
+    espn_stats = espn_stats or {}
     lines = [
         f"FECHA HOY: {today} ({fecha_display})",
         f"ZONA HORARIA: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})",
         "",
-        "⚠️  REGLA CRÍTICA: Solo analiza partidos que aparezcan EXPLÍCITAMENTE en este",
-        "contexto. Si una sección dice 'Sin juegos hoy', esa liga va a NO_APOSTAR.",
+        "⚠️  Estos son los UNICOS partidos reales de hoy (fuente: ESPN + MLB oficial).",
+        "NO inventes partidos ni equipos fuera de esta lista. Para CADA pick debes BUSCAR",
+        "EN LA WEB la cuota actual con la herramienta de búsqueda.",
         "",
+        "=== MLB — PARTIDOS DE HOY (pitchers probables oficiales) ===",
     ]
-    lines.append("=== MLB — PARTIDOS HOY (con pitchers probables) ===")
     if mlb_sched:
         for g in mlb_sched:
             lines.append(f"• {g['away']} @ {g['home']}  ({g['time']} CDMX)")
             lines.append(f"  Pitchers: {g['awp']} (visitante) vs {g['hwp']} (local)")
+            blurb = _espn_blurb_for(g['away'], g['home'], espn_stats.get('baseball_mlb'))
+            if blurb:
+                lines.append(f"  ESTADISTICAS REALES (ESPN): {blurb}")
     else:
         lines.append("  Sin partidos MLB hoy.")
-
-    espn_stats = espn_stats or {}
-
-    def fmt_odds_section(games: list, label: str, espn_map: dict = None):
-        lines.append(f"\n=== {label} ===")
+    for label, sport_key, games in team_groups:
+        lines.append(f"\n=== {label} — PARTIDOS DE HOY ===")
         if not games:
             lines.append("  Sin juegos hoy.")
-            return
+            continue
         for g in games:
-            away  = g.get("away_team", "")
-            home  = g.get("home_team", "")
-            ctime = utc_str_to_cdmx(g.get("commence_time", "").replace("Z", ""))
-            lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
-            blurb = _espn_blurb_for(away, home, espn_map)
+            lines.append(f"• {g['away']} @ {g['home']}  ({g['time']} CDMX)")
+            blurb = _espn_blurb_for(g['away'], g['home'], espn_stats.get(sport_key))
             if blurb:
-                lines.append(f"  ESTADÍSTICAS REALES (ESPN): {blurb}")
-            bm = _best_bookmaker(g.get("bookmakers", []))
-            if not bm:
-                continue
-            bm_name = bm.get("title", bm.get("key", "Casa"))
-            for mkt in bm.get("markets", []):
-                if mkt["key"] == "h2h":
-                    oc   = {o["name"]: o["price"] for o in mkt["outcomes"]}
-                    draw = oc.get("Draw", "")
-                    dstr = f" | Empate {draw}" if draw else ""
-                    lines.append(
-                        f"  {bm_name} 1X2/ML: {away} {oc.get(away, '—')} / "
-                        f"{home} {oc.get(home, '—')}{dstr}"
-                    )
-                elif mkt["key"] == "spreads":
-                    for o in mkt["outcomes"]:
-                        pt = o.get("point", "")
-                        lines.append(
-                            f"  {bm_name} Handicap/Spread: {o['name']} {pt:+g} → {o['price']}"
-                            if isinstance(pt, (int, float)) else
-                            f"  {bm_name} Handicap/Spread: {o['name']} {pt} → {o['price']}"
-                        )
-                elif mkt["key"] == "btts":
-                    oc = {o["name"]: o["price"] for o in mkt["outcomes"]}
-                    lines.append(
-                        f"  {bm_name} Ambos Anotan: Sí {oc.get('Yes','—')} / No {oc.get('No','—')}"
-                    )
-            # Totales de consenso (mediana entre casas): 1.5/2.5/3.5 en fútbol, línea principal en otros.
-            for tl in _totals_lines(g):
-                lines.append(tl)
-
-    def fmt_props_section(games: list, label: str):
-        lines.append(f"\n=== {label} ===")
-        if not games:
-            lines.append("  Sin props disponibles hoy.")
-            return
-        for g in games:
-            away  = g.get("away_team", "")
-            home  = g.get("home_team", "")
-            ctime = utc_str_to_cdmx(g.get("commence_time", "").replace("Z", ""))
-            game_props = []
-            for bm in g.get("bookmakers", []):
-                for mkt in bm.get("markets", []):
-                    for o in mkt.get("outcomes", []):
-                        player = o.get("description", o.get("name", ""))
-                        name   = mkt.get("key", "").replace("_", " ").title()
-                        pt     = o.get("point", "")
-                        price  = o.get("price", "")
-                        if o.get("name", "").upper() == "OVER" and pt and price:
-                            game_props.append(f"  • {player} — {name} Over {pt} @ {price}")
-                if game_props:
-                    break  # Solo necesitamos una casa para el contexto
-            if game_props:
-                lines.append(f"• {away} @ {home}  ({ctime} CDMX)")
-                lines.extend(game_props[:8])  # Máx 8 props por partido
-
-    fmt_odds_section(mlb_odds, "MLB — CUOTAS HOY", espn_stats.get("baseball_mlb"))
-    fmt_odds_section(nba_odds, "NBA — CUOTAS HOY", espn_stats.get("basketball_nba"))
-    fmt_odds_section(nfl_odds, "NFL — CUOTAS HOY", espn_stats.get("americanfootball_nfl"))
-    for key, label in FUTBOL_LEAGUES.items():
-        fmt_odds_section((futbol_odds or {}).get(key, []), f"{label.upper()} — CUOTAS HOY",
-                         espn_stats.get(key))
-    fmt_odds_section(tennis_odds or [], "TENNIS — CUOTAS HOY (jugador A vs jugador B)")
-    fmt_props_section(mlb_props or [], "MLB — PROPS DE JUGADORES HOY")
-    fmt_props_section(nba_props or [], "NBA — PROPS DE JUGADORES HOY")
-    fmt_props_section(nfl_props or [], "NFL — PROPS DE JUGADORES HOY")
-    for key, label in FUTBOL_LEAGUES.items():
-        fmt_props_section((futbol_props or {}).get(key, []), f"{label.upper()} — PROPS DE JUGADORES HOY")
+                lines.append(f"  ESTADISTICAS REALES (ESPN): {blurb}")
+    lines.append("\n=== TENIS ATP/WTA — PARTIDOS DE HOY ===")
+    lines.append(f"  (ESPN no lo lista limpio.) BUSCA EN LA WEB los partidos ATP/WTA de HOY "
+                 f"({today}) de torneos en curso y sus cuotas. Maximo 2 picks de tenis.")
     return "\n".join(lines)
+
 
 # ── 4. Corrección de cuotas reales (Opción A) ─────────────────────────────────
 def _team_match(name_a: str, name_b: str) -> bool:
@@ -1020,79 +1042,52 @@ def build_learning_report(directory="."):
 
 # ── 5. Claude API ─────────────────────────────────────────────────────────────
 PROMPT_SYSTEM = f"""Eres un tipster profesional y analista cuantitativo de apuestas deportivas.
-Casa de referencia principal: 1xBet (cuotas decimales europeas). Si no hay 1xBet, usa la mejor casa disponible.
 Hoy es {today} — horario CDMX ({TZ_LABEL}, UTC{CDMX_OFFSET:+d}).
 
+Tienes una herramienta de BUSQUEDA WEB. Usala para obtener las CUOTAS ACTUALES de los
+partidos reales listados en el contexto. Fuentes utiles: oddspedia, oddsportal, flashscore,
+actionnetwork, ESPN BET, betano, bet365, 1xbet. Cuotas en formato decimal europeo.
+
 REGLAS ABSOLUTAS:
-1. SOLO genera picks de partidos que aparezcan explícitamente en el contexto de datos.
-2. Todos los horarios deben mostrarse en hora CDMX (CDT/CST).
-3. NO inventes partidos, equipos, ni cuotas que no estén en el contexto.
-3b. DATOS DE HOY ÚNICAMENTE: todos los pitchers, récords, forma y estadísticas del
-    contexto son de HOY ({today}). Úsalos TAL CUAL. Muchos equipos juegan series de
-    varios días seguidos contra el MISMO rival: NUNCA cites al pitcher, marcador o
-    dato de un enfrentamiento ANTERIOR de los mismos equipos. Si un pitcher no aparece
-    en el contexto de hoy, NO lo menciones. El pitcher probable correcto es el que
-    dice la sección "MLB — PARTIDOS HOY" (fuente oficial MLB) y el bloque
-    "ESTADÍSTICAS REALES (ESPN)" del mismo partido — no de tu memoria.
-4. CUOTAS REALES: el contexto incluye cuotas REALES para estos mercados:
-   - "1X2/ML" → moneyline (usa para picks Moneyline)
-   - "Handicap/Spread: EQUIPO +X.X → Y.YY" → Asian Handicap (usa para picks AH)
-   - "Total X.X: Over Y.YY / Under Z.ZZ" → totales goles/carreras (usa para picks O/U).
-     En fútbol puede haber VARIAS líneas (Total 1.5, Total 2.5, Total 3.5). Elige la que
-     quieras PERO usa EXACTAMENTE esa cantidad y su cuota: si tu pick es "Over 1.5 Goles",
-     copia la cuota de la línea "Total 1.5" (no la de 2.5). NUNCA inventes una línea que no
-     esté listada; si solo aparece "Total 2.5", solo puedes apostar 2.5.
-   - "Ambos Anotan: Sí X.XX / No Y.YY" → BTTS (usa para picks ambos anotan)
-   Copia la cuota EXACTA del contexto. Si un mercado no aparece, NO lo inventes.
-5. Solo propón tipos de apuesta para los cuales tengas la cuota real en el contexto.
-6. PROPS DE JUGADORES: el contexto incluye secciones "— PROPS DE JUGADORES HOY" para
-   MLB, NBA, NFL y cada liga de fútbol (Premier League, Liga MX). Si hay props
-   disponibles con EV positivo, inclúyelos como picks con tipo "Prop Jugador".
-   Formato del pick: "NOMBRE JUGADOR Over/Under X.X [stat]" (ej: "Gerrit Cole Over 6.5
-   Strikeouts", "Patrick Mahomes Over 275.5 Passing Yards", "Erling Haaland Anytime
-   Goalscorer"). Solo incluye props si la cuota y el stat aparecen EXPLÍCITAMENTE en
-   el contexto. Busca props en TODOS los deportes con datos disponibles, no solo MLB/NBA.
-7. LIGAS DE FÚTBOL: además de MLB/NBA/NFL, el contexto puede incluir Premier League y
-   Liga MX. Trátalas igual que cualquier otra liga — mismas reglas de cuotas reales y EV.
-   En fútbol el empate cuenta como resultado propio para picks de moneyline (1X2).
-8. TENNIS: el contexto puede incluir "TENNIS — CUOTAS HOY" (partidos jugador A vs jugador B,
-   a 2 vías, sin empate). matchup = "Jugador A vs Jugador B", tipo "Moneyline".
+1. SOLO genera picks de partidos que aparezcan en el contexto (fuente ESPN/MLB), mas los
+   partidos de tenis ATP/WTA de HOY que encuentres por busqueda web. NO inventes partidos.
+2. Todos los horarios en hora CDMX ({TZ_LABEL}).
+3. CUOTAS: NO inventes cuotas. Cada cuota (cuota_bet365) debe provenir de una BUSQUEDA WEB
+   real y reciente. Si no encuentras una cuota fiable para un partido/mercado, NO lo incluyas
+   como pick. En 'razonamiento' menciona brevemente la casa/fuente de la cuota.
+4. DATOS DE HOY: pitchers, records, forma y stats del contexto son de HOY. Usalos tal cual;
+   no cites datos de enfrentamientos anteriores ni de tu memoria.
+5. Mercados validos: Moneyline (1X2/ML), Totales (Over/Under con la linea EXACTA), Spread/
+   Handicap, y props de jugador si hallas cuota real. En futbol el empate es resultado propio.
 
-METODOLOGÍA OBLIGATORIA (por cada pick):
-1. prob_implicita = 100 / cuota_bet365 (usando la cuota exacta del contexto)
-2. prob_propia = tu estimación REAL basada en las ESTADÍSTICAS REALES (ESPN) del contexto:
-   récords, récord local/visitante, ERA de equipo y de pitchers probables, AVG, líderes,
-   forma reciente. NO adivines: apóyate en esos números. El razonamiento (razonamiento)
-   DEBE citar estadísticas concretas de las provistas (ej. "record 50-40, ERA del abridor
-   2.00, forma WWLWW"). Prohibido inventar cifras que no estén en el contexto.
-3. ANCLAJE AL MERCADO (CRÍTICO): tu prob_propia será AJUSTADA automáticamente para que no
-   se aleje más de 5 puntos de la probabilidad justa del mercado sharp (Pinnacle). El
-   mercado ya es casi correcto; tu trabajo NO es inventar un favorito, sino detectar cuándo
-   el mercado está LIGERAMENTE mal y justificarlo con datos. Piensa en términos de "creo que
-   este equipo está ~3-4 puntos infravalorado por [razón estadística concreta]", no "gana 75%".
-   Recuerda: en béisbol hasta el mejor equipo rara vez pasa de ~62% en un solo juego.
-4. EV% = (prob_propia/100 × cuota_decimal - 1) × 100. Solo propón picks donde de verdad creas
-   que hay una ventaja pequeña y defendible. Sé conservador — vale más una ventaja real de 3%
-   que un 30% inflado que el sistema va a corregir a la baja.
-5. Stake: Kelly fraccional 1/4. Máx 0.3u por pick. Total sesión ≤ 3u
-6. Parlays: 2-3 patas con correlación positiva; cuota mínima 1.20 por pata
-7. ESTRELLAS (escala de confianza 1 a 5, no 1 a 3):
-   5 = confianza máxima, edge muy claro y bien soportado por los datos (usar poco)
-   4 = confianza alta
-   3 = confianza media
-   2 = confianza baja
-   1 = especulativo / valor marginal
-   Reserva el 5 para el pick más fuerte del día, si lo hay — no todos los días debe
-   haber un pick de 5 estrellas.
+METODOLOGIA (por cada pick):
+1. prob_implicita = 100 / cuota_bet365 (con la cuota real que buscaste).
+2. prob_propia = tu estimacion basada en las ESTADISTICAS REALES (ESPN) del contexto y el
+   consenso del mercado que viste al buscar. El 'razonamiento' DEBE citar datos concretos.
+3. ANCLAJE AL MERCADO (CRITICO): tu prob_propia NO debe alejarse mas de ~4 puntos de la
+   probabilidad implicita de la cuota (100/cuota). El mercado casi siempre tiene razon; tu
+   trabajo NO es inventar un favorito sino detectar una ventaja PEQUENA y defendible. En
+   beisbol/futbol, aun el mejor equipo rara vez pasa de ~62% en un juego.
+4. EV% = (prob_propia/100 x cuota - 1) x 100. Se MUY conservador: un EV realista vive entre
+   +2% y +6%. Un EV de +10% casi siempre es una sobreestimacion tuya — bajalo. Prefiere +3%
+   real que +12% inflado (el sistema lo va a recortar de todas formas).
+5. UN SOLO pick por partido: no combines Moneyline + Total + BTTS del mismo juego; elige el
+   de mayor valor. (La correlacion de varios picks del mismo partido infla el riesgo.)
+6. DIVERSIFICA: no concentres casi todos los picks en una sola liga/competicion si hay valor
+   en otras. Reparte entre las ligas/deportes disponibles.
+7. Stake: Kelly fraccional 1/4. Max 0.3u por pick. Total sesion <= 3u.
+8. Parlays: 2-3 patas de PARTIDOS DISTINTOS con correlacion positiva; cuota minima 1.20 por pata.
+9. ESTRELLAS 1-5 (5 = edge muy claro, usalo poco; puede no haber pick de 5 estrellas).
 
-Responde ÚNICAMENTE JSON válido, sin markdown, sin texto extra."""
+Responde UNICAMENTE JSON valido, sin markdown, sin texto extra."""
 
 SCHEMA_PICK = {
     "liga":           "MLB | NBA | NFL | Premier League | Liga MX | Tennis ATP | Tennis WTA",
     "matchup":        "AWAY @ HOME",
     "hora":           "H:MM AM/PM CDT (CDMX)",
-    "pick":           "descripción concreta",
+    "pick":           "descripcion concreta",
     "tipo":           "Moneyline | Total | Run Line | Total Goles | Spread | Prop Jugador",
+    "sport_key":      "baseball_mlb | basketball_nba | americanfootball_nfl | soccer_epl | tennis_atp | ...",
     "cuota_bet365":   1.85,
     "prob_implicita": 55.5,
     "prob_propia":    61.0,
@@ -1100,7 +1095,7 @@ SCHEMA_PICK = {
     "prob_acierto":   61,
     "estrellas":      3,
     "stake":          "0.2u",
-    "razonamiento":   "2-3 líneas con datos concretos",
+    "razonamiento":   "2-3 lineas con datos concretos + casa/fuente de la cuota",
 }
 
 def generate_picks(context: str) -> dict:
@@ -1109,7 +1104,7 @@ def generate_picks(context: str) -> dict:
         "fecha":         today,
         "fecha_display": fecha_display,
         "generado_a":    "automatico-github-actions",
-        "nota_lineas":   f"Cuotas verificadas con Bet365. Horario {TZ_LABEL} CDMX.",
+        "nota_lineas":   f"Cuotas de consenso por busqueda web (no verificadas con feed). Horario {TZ_LABEL} CDMX.",
         "bankroll":      {"exposicion_total": "Xu", "max_por_juego": "0.3u", "nota": "Kelly 1/4"},
         "picks":         [SCHEMA_PICK],
         "no_apostar":    [{"matchup": "...", "liga": "...", "razon": "..."}],
@@ -1118,7 +1113,7 @@ def generate_picks(context: str) -> dict:
             "cuota_total": 3.50,
             "ev_pct":      5.0,
             "stake":       "0.15u",
-            "nota":        "razón de la correlación",
+            "nota":        "razon de la correlacion",
         },
         "resumen_ejecutivo": [
             {"pick": "...", "tipo": "Moneyline", "liga": "MLB",
@@ -1127,27 +1122,107 @@ def generate_picks(context: str) -> dict:
     }
     user_msg = (
         f"Genera entre 8 y 10 picks para HOY ({today}).\n"
-        f"PRIORIDAD: fútbol primero, luego NBA/NFL, luego tenis. De MLB incluye COMO MÁXIMO "
-        f"3 picks y de TENIS COMO MÁXIMO 2 picks (solo los de mayor ventaja/EV) — el usuario "
-        f"prefiere poco béisbol y poco tenis.\n"
-        f"Usa EXCLUSIVAMENTE los partidos listados en el contexto.\n"
-        f"Copia las cuotas exactamente como aparecen en el contexto (son reales de Bet365).\n\n"
-        f"DATOS REALES:\n{context}\n\n"
-        f"Esquema JSON:\n{json.dumps(schema, indent=2, ensure_ascii=False)}"
+        f"PRIORIDAD: futbol primero, luego NBA/NFL, luego tenis. De MLB incluye COMO MAXIMO "
+        f"3 picks y de TENIS COMO MAXIMO 2 (solo los de mayor EV).\n"
+        f"Usa la BUSQUEDA WEB para obtener la cuota real de cada partido. Solo incluye un pick "
+        f"si encontraste una cuota real y reciente; si no, dejalo fuera.\n"
+        f"REGLAS DE CALIDAD: (a) MAXIMO 1 pick por partido; (b) DIVERSIFICA ligas/deportes, no "
+        f"pongas casi todo en una sola competicion; (c) se CONSERVADOR: EV realista 2-6%, evita "
+        f"prob_propia a mas de 4 puntos de la implicita de la cuota.\n\n"
+        f"PARTIDOS REALES DE HOY:\n{context}\n\n"
+        f"Esquema JSON de salida (responde SOLO el JSON):\n{json.dumps(schema, indent=2, ensure_ascii=False)}"
     )
     msg = client.messages.create(
-        model="claude-sonnet-4-6",
+        model=MODEL,
         max_tokens=8000,
         system=PROMPT_SYSTEM,
+        tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": WEB_SEARCH_MAX}],
         messages=[{"role": "user", "content": user_msg}],
     )
-    raw = msg.content[0].text.strip()
-    if raw.startswith("```"):
-        raw = "\n".join(raw.split("\n")[1:])
-        raw = raw.rstrip("`").strip()
-    return json.loads(raw)
+    parts = [b.text for b in msg.content if getattr(b, "type", "") == "text"]
+    raw = "\n".join(parts).strip()
+    if "```" in raw:
+        m = re.search(r"```(?:json)?\s*(.*?)```", raw, re.S)
+        if m:
+            raw = m.group(1).strip()
+    ia, ib = raw.find("{"), raw.rfind("}")
+    if ia != -1 and ib != -1 and ib > ia:
+        raw = raw[ia:ib + 1]
+    data = json.loads(raw)
+    for p in data.get("picks", []):
+        p.setdefault("cuota_verificada", False)
+        p["fair_source"] = "web"
+        try:
+            c  = float(p.get("cuota_bet365") or 0)
+            pp = float(p.get("prob_propia") or 0)
+            if c > 1 and p.get("prob_implicita") in (None, ""):
+                p["prob_implicita"] = round(100.0 / c, 1)
+            if pp > 0 and p.get("cuota_minima") in (None, ""):
+                p["cuota_minima"] = round(100.0 / pp, 2)
+            if c > 1 and pp > 0 and p.get("ev_pct") in (None, ""):
+                p["ev_pct"] = round((pp / 100.0 * c - 1) * 100, 1)
+            if not p.get("sport_key"):
+                p["sport_key"] = _guess_sport_key(p.get("liga", ""))
+        except Exception:
+            pass
+    return data
 
 # ── 6. Guardar archivos ───────────────────────────────────────────────────────
+ANCHOR_MAX   = int(os.environ.get("ANCHOR_MAX", "3"))    # prob_propia no se aleja más de esto de la implícita
+PER_LIGA_MAX = int(os.environ.get("PER_LIGA_MAX", "4"))  # máximo de picks por competición
+
+def _norm_match(m: str) -> str:
+    m = (m or "").lower().replace(" @ ", " vs ").replace(" vs. ", " vs ")
+    toks = sorted(t.strip() for t in re.split(r"\s+vs\s+", m) if t.strip())
+    return " vs ".join(toks)
+
+def apply_conservatism(data: dict) -> dict:
+    """Post-proceso determinista para calidad/exposición:
+    1) Ancla prob_propia a ±ANCHOR_MAX de la implícita de la cuota y recalcula EV.
+    2) Máximo 1 pick por partido (el de mayor EV).
+    3) Tope de PER_LIGA_MAX picks por competición.
+    Los descartados pasan a 'no_apostar'."""
+    picks = data.get("picks", [])
+    # 1) Ancla al mercado (usa la cuota que Claude buscó como referencia)
+    for p in picks:
+        try:
+            c = float(p.get("cuota_bet365") or 0)
+            if c > 1:
+                imp = 100.0 / c
+                pp  = float(p.get("prob_propia") or imp)
+                pp  = max(imp - ANCHOR_MAX, min(imp + ANCHOR_MAX, pp))
+                p["prob_implicita"] = round(imp, 1)
+                p["prob_propia"]    = round(pp, 1)
+                p["prob_acierto"]   = int(round(pp))
+                p["ev_pct"]         = round((pp / 100.0 * c - 1) * 100, 1)
+                p["cuota_minima"]   = round(100.0 / pp, 2)
+        except Exception:
+            pass
+    # 2) Máximo 1 pick por partido (mayor EV)
+    best = {}
+    for p in picks:
+        k = _norm_match(p.get("matchup", ""))
+        if k and (k not in best or (p.get("ev_pct", 0) or 0) > (best[k].get("ev_pct", 0) or 0)):
+            best[k] = p
+    kept    = list(best.values())
+    dropped = [p for p in picks if p not in kept]
+    # 3) Tope por liga (conserva los de mayor EV)
+    from collections import defaultdict
+    byliga = defaultdict(list)
+    for p in sorted(kept, key=lambda x: -(x.get("ev_pct", 0) or 0)):
+        byliga[p.get("liga", "?")].append(p)
+    final = []
+    for liga, ps in byliga.items():
+        final += ps[:PER_LIGA_MAX]
+        dropped += ps[PER_LIGA_MAX:]
+    final.sort(key=lambda x: -(x.get("ev_pct", 0) or 0))
+    data["picks"] = final
+    for p in dropped:
+        data.setdefault("no_apostar", []).append({
+            "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+            "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."})
+    return data
+
 def save_all(data: dict):
     files = {
         f"picks-{today}.json": json.dumps(data, ensure_ascii=False, indent=2),
@@ -1167,118 +1242,78 @@ def save_all(data: dict):
 if __name__ == "__main__":
     print(f"\n🏆 TIPSTER PRO IA — {fecha_display}")
     print(f"   Zona: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})")
+    print(f"   Fuente: ESPN (calendario+stats) + Claude web_search (cuotas)")
     print("=" * 55)
 
-    print(f"\n📅 MLB schedule para {today}...")
+    print(f"\n📅 Calendario de HOY ({today})...")
     mlb_sched = fetch_mlb_schedule()
-    print(f"   {len(mlb_sched)} partidos encontrados")
+    print(f"   MLB: {len(mlb_sched)} partidos")
 
-    print("\n⚽ Descubriendo ligas de fútbol activas...")
-    FUTBOL_LEAGUES.update(fetch_futbol_leagues() or FUTBOL_FALLBACK)
+    team_groups = []  # [(label, sport_key, games)]
+    for sk in ["basketball_nba", "americanfootball_nfl"] + SOCCER_KEYS:
+        label = LIGA_LABELS.get(sk, sk)
+        games = fetch_espn_schedule(sk, label)
+        if games:
+            team_groups.append((label, sk, games))
+    print(f"   Otras ligas con partidos hoy: {len(team_groups)}")
 
-    print("\n💰 Obteniendo odds HOY (mejor casa disponible por deporte)...")
-    mlb_odds = fetch_odds_today("baseball_mlb")
-    nba_odds = fetch_odds_today("basketball_nba")
-    nfl_odds = fetch_odds_today("americanfootball_nfl")
-    futbol_odds = {key: fetch_odds_today(key) for key in FUTBOL_LEAGUES}
+    print("\n📊 Estadistica ESPN (records, forma, pitchers) + logos...")
+    active_keys = ["baseball_mlb"] + [sk for _, sk, _ in team_groups]
+    espn_stats = {sk: fetch_espn_stats(sk) for sk in active_keys}
 
-    # Líneas alternas de totales (Over/Under 1.5 y 3.5, además del 2.5) por partido.
-    print("  ➕ Líneas alternas de totales de fútbol (1.5/2.5/3.5)...")
-    n_alt = 0
-    for sk, games in futbol_odds.items():
-        for g in games:
-            alt = fetch_alt_totals(sk, g.get("id"))
-            if alt:
-                _merge_alt_totals(g, alt); n_alt += 1
-    print(f"     {n_alt} partidos con líneas alternas añadidas")
-
-    print("\n🎾 Obteniendo tennis HOY (torneos activos)...")
-    tennis_odds = fetch_tennis_today()
-
-    print("\n🎯 Obteniendo props de jugadores HOY...")
-    mlb_props = fetch_props_today("baseball_mlb", "batter_home_runs,batter_hits,pitcher_strikeouts")
-    nba_props = fetch_props_today("basketball_nba", "player_points,player_rebounds,player_assists,player_threes")
-    nfl_props = fetch_props_today("americanfootball_nfl", "player_pass_yds,player_rush_yds,player_receptions,player_anytime_td")
-    # Props solo para ligas que SÍ tienen partido hoy (evita gastar créditos en vano).
-    futbol_props = {key: fetch_props_today(key, "player_goal_scorer_anytime", region="eu")
-                    for key in FUTBOL_LEAGUES if futbol_odds.get(key)}
-
-    print("\n📊 Obteniendo estadística real de ESPN (récords, ERA, forma)...")
-    espn_stats = {sk: fetch_espn_stats(sk) for sk in ESPN_SLUGS}
-
-    all_odds = {
-        "baseball_mlb": mlb_odds,
-        "basketball_nba": nba_odds,
-        "americanfootball_nfl": nfl_odds,
-        "tennis": tennis_odds,
-        **futbol_odds,
-    }
-
-    print("\n🧠 Construyendo reporte de auto-aprendizaje (calibración histórica)...")
+    print("\n🧠 Reporte de auto-aprendizaje (calibracion historica)...")
     learn_summary, lecciones = build_learning_report(".")
     print("  " + lecciones.replace("\n", "\n  "))
     with open("learning-summary.json", "w", encoding="utf-8") as f:
         json.dump(learn_summary, f, ensure_ascii=False, indent=2)
 
-    context = build_context(mlb_sched, mlb_odds, nba_odds, nfl_odds, futbol_odds,
-                             mlb_props, nba_props, nfl_props, futbol_props, espn_stats,
-                             tennis_odds)
-    # Inyectar las lecciones al inicio del contexto para que la IA calibre su criterio
+    context = build_context(mlb_sched, team_groups, espn_stats)
     context = lecciones + "\n\n" + context
-    print("\n--- CONTEXTO (primeras 1200 chars) ---")
-    print(context[:1200])
+    print("\n--- CONTEXTO (primeras 1500 chars) ---")
+    print(context[:1500])
     print("...\n")
 
-    print("🤖 Llamando Claude API (objetivo: 8-10 picks)...")
+    print("🤖 Llamando Claude API con busqueda web (objetivo: 8-10 picks)...")
     try:
         picks_data = generate_picks(context)
+        picks_data = apply_conservatism(picks_data)  # ancla EV + 1/partido + tope por liga
         n = len(picks_data.get("picks", []))
-        print(f"\n✅ {n} picks generados por Claude:")
+        print(f"\n✅ {n} picks (tras ancla de EV y diversificación):")
         for p in picks_data.get("picks", []):
-            print(f"   ★{'★'*(p.get('estrellas',1)-1)} {p['matchup']} — {p['pick']}  cuota:{p.get('cuota_bet365')}  EV+{p['ev_pct']}%")
+            print(f"   ★{p.get('estrellas', 1)} {p.get('matchup')} — {p.get('pick')}  "
+                  f"cuota:{p.get('cuota_bet365')}  EV+{p.get('ev_pct')}%")
 
-        print("\n🔍 Verificando cuotas reales Bet365...")
-        picks_data = fix_cuotas_reales(picks_data, all_odds)
-        n2 = len(picks_data.get("picks", []))
-        print(f"   {n2} picks con EV positivo real tras verificación")
-
-        # ── Priorizar fútbol/otros: máximo 3 picks de MLB (los de mayor EV) ──
+        # MLB maximo 3 (mayor EV)
         MLB_MAX = 3
         mlb_picks = [p for p in picks_data.get("picks", [])
                      if str(p.get("sport_key", "")).startswith("baseball")]
         if len(mlb_picks) > MLB_MAX:
-            keep_ids = {id(p) for p in sorted(mlb_picks, key=lambda x: x.get("ev_pct", 0),
-                                              reverse=True)[:MLB_MAX]}
+            keep_ids = {id(p) for p in sorted(mlb_picks, key=lambda x: x.get("ev_pct", 0), reverse=True)[:MLB_MAX]}
             dropped = [p for p in mlb_picks if id(p) not in keep_ids]
             picks_data["picks"] = [p for p in picks_data["picks"]
-                                   if not str(p.get("sport_key", "")).startswith("baseball")
-                                   or id(p) in keep_ids]
+                                   if not str(p.get("sport_key", "")).startswith("baseball") or id(p) in keep_ids]
             for p in dropped:
                 picks_data.setdefault("no_apostar", []).append({
                     "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
-                    "razon": f"Priorizando fútbol/otros deportes: solo top-{MLB_MAX} MLB por EV "
-                             f"(quedó fuera, EV {p.get('ev_pct')}%)."})
-            print(f"  ⚾ MLB recortado a {MLB_MAX} (fuera {len(dropped)} de {len(mlb_picks)})")
+                    "razon": f"Solo top-{MLB_MAX} MLB por EV (fuera, EV {p.get('ev_pct')}%)."})
+            print(f"  ⚾ MLB recortado a {MLB_MAX}")
 
-        # ── Tenis: máximo 2 picks por día (los de mayor EV) ──
+        # Tenis maximo 2
         TENNIS_MAX = 2
         ten_picks = [p for p in picks_data.get("picks", [])
                      if str(p.get("sport_key", "")).startswith("tennis")]
         if len(ten_picks) > TENNIS_MAX:
-            keep_ids = {id(p) for p in sorted(ten_picks, key=lambda x: x.get("ev_pct", 0),
-                                              reverse=True)[:TENNIS_MAX]}
+            keep_ids = {id(p) for p in sorted(ten_picks, key=lambda x: x.get("ev_pct", 0), reverse=True)[:TENNIS_MAX]}
             dropped = [p for p in ten_picks if id(p) not in keep_ids]
             picks_data["picks"] = [p for p in picks_data["picks"]
-                                   if not str(p.get("sport_key", "")).startswith("tennis")
-                                   or id(p) in keep_ids]
+                                   if not str(p.get("sport_key", "")).startswith("tennis") or id(p) in keep_ids]
             for p in dropped:
                 picks_data.setdefault("no_apostar", []).append({
                     "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
-                    "razon": f"Máximo {TENNIS_MAX} picks de tenis por día "
-                             f"(quedó fuera, EV {p.get('ev_pct')}%)."})
-            print(f"  🎾 Tenis recortado a {TENNIS_MAX} (fuera {len(dropped)} de {len(ten_picks)})")
+                    "razon": f"Maximo {TENNIS_MAX} picks de tenis por dia (fuera, EV {p.get('ev_pct')}%)."})
+            print(f"  🎾 Tenis recortado a {TENNIS_MAX}")
 
-        # ── Imágenes ESPN: logos de equipos (fútbol) y fotos de jugadores (tenis) ──
+        # Imagenes ESPN (logos futbol / fotos tenis)
         n_img = 0
         for p in picks_data.get("picks", []):
             sk = str(p.get("sport_key", ""))
@@ -1298,44 +1333,43 @@ if __name__ == "__main__":
                 if ph:
                     p["photo_home"] = ph; n_img += 1
         if n_img:
-            print(f"  🖼  {n_img} imágenes ESPN (logos fútbol / fotos tenis) añadidas")
+            print(f"  🖼  {n_img} imagenes ESPN anadidas")
 
-        # ── Fútbol: que TODO partido de hoy aparezca (como pick o como "No Apostar") ──
-        # Antes, si un partido no era pick, desaparecía. Ahora se lista en no_apostar,
-        # igual que MLB/NBA, para que nunca diga "sin partidos" habiéndolos.
-        def _ya_listado(ga: str, gh: str) -> bool:
+        # Que TODO partido real de hoy aparezca (pick o No Apostar)
+        def _ya_listado(ga, gh):
             for lst in (picks_data.get("picks", []), picks_data.get("no_apostar", [])):
                 for it in lst:
                     mm = _parse_matchup(it.get("matchup", ""))
                     if mm and _team_match(mm[0], ga) and _team_match(mm[1], gh):
                         return True
             return False
-        n_fut_na = 0
-        for sk, games in futbol_odds.items():
-            label = FUTBOL_LEAGUES.get(sk, sk)
+        all_real = [{"away": g["away"], "home": g["home"], "liga": "MLB"} for g in mlb_sched]
+        for label, sk, games in team_groups:
             for g in games:
-                ga, gh = g.get("away_team", ""), g.get("home_team", "")
-                if not (ga and gh) or _ya_listado(ga, gh):
-                    continue
-                picks_data.setdefault("no_apostar", []).append({
-                    "matchup": f"{ga} @ {gh}", "liga": label,
-                    "razon": "Sin ventaja (EV+) clara hoy; el mercado no ofrece valor suficiente."})
-                n_fut_na += 1
-        if n_fut_na:
-            print(f"  ⚽ {n_fut_na} partidos de fútbol sin pick añadidos a 'No Apostar'")
+                all_real.append({"away": g["away"], "home": g["home"], "liga": label})
+        n_na = 0
+        for g in all_real:
+            ga, gh = g["away"], g["home"]
+            if not (ga and gh) or _ya_listado(ga, gh):
+                continue
+            picks_data.setdefault("no_apostar", []).append({
+                "matchup": f"{ga} @ {gh}", "liga": g["liga"],
+                "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."})
+            n_na += 1
+        if n_na:
+            print(f"  📋 {n_na} partidos sin pick anadidos a 'No Apostar'")
 
         n2 = len(picks_data.get("picks", []))
         if n2 == 0:
-            print("\n⚠️  0 picks con EV positivo — NO se sobreescriben archivos existentes.")
+            print("\n⚠️  0 picks — NO se sobreescriben archivos existentes.")
         else:
             print("\n💾 Guardando archivos...")
             save_all(picks_data)
-            print("\n🎉 Listo — GitHub Actions hará el push automático.")
+            print("\n🎉 Listo — GitHub Actions hara el push automatico.")
 
     except Exception as e:
         import traceback
         print(f"\n❌ Error: {e}")
-        traceback.print_exc()
         traceback.print_exc()
         fallback = {
             "fecha":         today,
