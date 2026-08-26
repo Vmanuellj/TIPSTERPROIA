@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: '30 5 * * *'  # 12:30am CDT (UTC-5, horario verano CDMX)
   workflow_dispatch:         # Botón manual en GitHub para probar
+    inputs:
+      target_date:
+        description: "Fecha a generar YYYY-MM-DD (p. ej. mañana, con juegos por venir). Vacío = hoy (uso normal)."
+        required: false
+        default: ""
 
 jobs:
   generate:
@@ -33,6 +38,7 @@ jobs:
       - name: Generate picks for today
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TARGET_DATE: ${{ github.event.inputs.target_date }}
           # Odds API ya no se usa: calendario/resultados desde ESPN, cuotas via web_search de Claude.
           # Opcional: CLAUDE_MODEL y WEB_SEARCH_MAX para ajustar el modelo / nº de búsquedas.
         run: python scripts/generate_picks.py

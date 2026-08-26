@@ -32,6 +32,18 @@ MESES = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto",
          "Septiembre","Octubre","Noviembre","Diciembre"]
 fecha_display = f"{DIAS[dt.weekday()]} {dt.day} de {MESES[dt.month-1]} {dt.year}"
 
+# Override de fecha para PRUEBAS manuales: TARGET_DATE=YYYY-MM-DD genera esa fecha
+# (p. ej. mañana, con partidos POR VENIR). Vacío = hoy (uso normal del cron 00:30).
+_TARGET = os.environ.get("TARGET_DATE", "").strip()
+if _TARGET:
+    try:
+        dt    = datetime.strptime(_TARGET, "%Y-%m-%d").replace(tzinfo=CT)
+        today = dt.strftime("%Y-%m-%d")
+        fecha_display = f"{DIAS[dt.weekday()]} {dt.day} de {MESES[dt.month-1]} {dt.year}"
+        print(f"  ⚙ TARGET_DATE activo: generando para {today}")
+    except Exception as _e:
+        print(f"  ⚠ TARGET_DATE inválida ({_TARGET}); uso hoy. {_e}")
+
 ANTHROPIC_KEY = os.environ.get("ANTHROPIC_API_KEY", "")
 ODDS_KEY      = os.environ.get("ODDS_API_KEY", "")
 
@@ -1052,13 +1064,20 @@ METODOLOGIA (por cada pick):
 1. prob_implicita = 100 / cuota_bet365 (con la cuota real que buscaste).
 2. prob_propia = tu estimacion basada en las ESTADISTICAS REALES (ESPN) del contexto y el
    consenso del mercado que viste al buscar. El 'razonamiento' DEBE citar datos concretos.
-3. ANCLAJE AL MERCADO: no te alejes mas de ~5 puntos de la probabilidad implicita del mercado.
-   El mercado casi siempre tiene razon; busca ventajas PEQUENAS y defendibles, no favoritos
-   inventados. En beisbol, aun el mejor equipo rara vez pasa de ~62% en un juego.
-4. EV% = (prob_propia/100 x cuota - 1) x 100. Se conservador: mejor +3% real que +30% inflado.
-5. Stake: Kelly fraccional 1/4. Max 0.3u por pick. Total sesion <= 3u.
-6. Parlays: 2-3 patas con correlacion positiva; cuota minima 1.20 por pata.
-7. ESTRELLAS 1-5 (5 = edge muy claro, usalo poco; puede no haber pick de 5 estrellas).
+3. ANCLAJE AL MERCADO (CRITICO): tu prob_propia NO debe alejarse mas de ~4 puntos de la
+   probabilidad implicita de la cuota (100/cuota). El mercado casi siempre tiene razon; tu
+   trabajo NO es inventar un favorito sino detectar una ventaja PEQUENA y defendible. En
+   beisbol/futbol, aun el mejor equipo rara vez pasa de ~62% en un juego.
+4. EV% = (prob_propia/100 x cuota - 1) x 100. Se MUY conservador: un EV realista vive entre
+   +2% y +6%. Un EV de +10% casi siempre es una sobreestimacion tuya — bajalo. Prefiere +3%
+   real que +12% inflado (el sistema lo va a recortar de todas formas).
+5. UN SOLO pick por partido: no combines Moneyline + Total + BTTS del mismo juego; elige el
+   de mayor valor. (La correlacion de varios picks del mismo partido infla el riesgo.)
+6. DIVERSIFICA: no concentres casi todos los picks en una sola liga/competicion si hay valor
+   en otras. Reparte entre las ligas/deportes disponibles.
+7. Stake: Kelly fraccional 1/4. Max 0.3u por pick. Total sesion <= 3u.
+8. Parlays: 2-3 patas de PARTIDOS DISTINTOS con correlacion positiva; cuota minima 1.20 por pata.
+9. ESTRELLAS 1-5 (5 = edge muy claro, usalo poco; puede no haber pick de 5 estrellas).
 
 Responde UNICAMENTE JSON valido, sin markdown, sin texto extra."""
 
@@ -1106,7 +1125,10 @@ def generate_picks(context: str) -> dict:
         f"PRIORIDAD: futbol primero, luego NBA/NFL, luego tenis. De MLB incluye COMO MAXIMO "
         f"3 picks y de TENIS COMO MAXIMO 2 (solo los de mayor EV).\n"
         f"Usa la BUSQUEDA WEB para obtener la cuota real de cada partido. Solo incluye un pick "
-        f"si encontraste una cuota real y reciente; si no, dejalo fuera.\n\n"
+        f"si encontraste una cuota real y reciente; si no, dejalo fuera.\n"
+        f"REGLAS DE CALIDAD: (a) MAXIMO 1 pick por partido; (b) DIVERSIFICA ligas/deportes, no "
+        f"pongas casi todo en una sola competicion; (c) se CONSERVADOR: EV realista 2-6%, evita "
+        f"prob_propia a mas de 4 puntos de la implicita de la cuota.\n\n"
         f"PARTIDOS REALES DE HOY:\n{context}\n\n"
         f"Esquema JSON de salida (responde SOLO el JSON):\n{json.dumps(schema, indent=2, ensure_ascii=False)}"
     )
@@ -1146,6 +1168,61 @@ def generate_picks(context: str) -> dict:
     return data
 
 # ── 6. Guardar archivos ───────────────────────────────────────────────────────
+ANCHOR_MAX   = int(os.environ.get("ANCHOR_MAX", "3"))    # prob_propia no se aleja más de esto de la implícita
+PER_LIGA_MAX = int(os.environ.get("PER_LIGA_MAX", "4"))  # máximo de picks por competición
+
+def _norm_match(m: str) -> str:
+    m = (m or "").lower().replace(" @ ", " vs ").replace(" vs. ", " vs ")
+    toks = sorted(t.strip() for t in re.split(r"\s+vs\s+", m) if t.strip())
+    return " vs ".join(toks)
+
+def apply_conservatism(data: dict) -> dict:
+    """Post-proceso determinista para calidad/exposición:
+    1) Ancla prob_propia a ±ANCHOR_MAX de la implícita de la cuota y recalcula EV.
+    2) Máximo 1 pick por partido (el de mayor EV).
+    3) Tope de PER_LIGA_MAX picks por competición.
+    Los descartados pasan a 'no_apostar'."""
+    picks = data.get("picks", [])
+    # 1) Ancla al mercado (usa la cuota que Claude buscó como referencia)
+    for p in picks:
+        try:
+            c = float(p.get("cuota_bet365") or 0)
+            if c > 1:
+                imp = 100.0 / c
+                pp  = float(p.get("prob_propia") or imp)
+                pp  = max(imp - ANCHOR_MAX, min(imp + ANCHOR_MAX, pp))
+                p["prob_implicita"] = round(imp, 1)
+                p["prob_propia"]    = round(pp, 1)
+                p["prob_acierto"]   = int(round(pp))
+                p["ev_pct"]         = round((pp / 100.0 * c - 1) * 100, 1)
+                p["cuota_minima"]   = round(100.0 / pp, 2)
+        except Exception:
+            pass
+    # 2) Máximo 1 pick por partido (mayor EV)
+    best = {}
+    for p in picks:
+        k = _norm_match(p.get("matchup", ""))
+        if k and (k not in best or (p.get("ev_pct", 0) or 0) > (best[k].get("ev_pct", 0) or 0)):
+            best[k] = p
+    kept    = list(best.values())
+    dropped = [p for p in picks if p not in kept]
+    # 3) Tope por liga (conserva los de mayor EV)
+    from collections import defaultdict
+    byliga = defaultdict(list)
+    for p in sorted(kept, key=lambda x: -(x.get("ev_pct", 0) or 0)):
+        byliga[p.get("liga", "?")].append(p)
+    final = []
+    for liga, ps in byliga.items():
+        final += ps[:PER_LIGA_MAX]
+        dropped += ps[PER_LIGA_MAX:]
+    final.sort(key=lambda x: -(x.get("ev_pct", 0) or 0))
+    data["picks"] = final
+    for p in dropped:
+        data.setdefault("no_apostar", []).append({
+            "matchup": p.get("matchup", ""), "liga": p.get("liga", ""),
+            "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."})
+    return data
+
 def save_all(data: dict):
     files = {
         f"picks-{today}.json": json.dumps(data, ensure_ascii=False, indent=2),
@@ -1199,8 +1276,9 @@ if __name__ == "__main__":
     print("🤖 Llamando Claude API con busqueda web (objetivo: 8-10 picks)...")
     try:
         picks_data = generate_picks(context)
+        picks_data = apply_conservatism(picks_data)  # ancla EV + 1/partido + tope por liga
         n = len(picks_data.get("picks", []))
-        print(f"\n✅ {n} picks generados por Claude:")
+        print(f"\n✅ {n} picks (tras ancla de EV y diversificación):")
         for p in picks_data.get("picks", []):
             print(f"   ★{p.get('estrellas', 1)} {p.get('matchup')} — {p.get('pick')}  "
                   f"cuota:{p.get('cuota_bet365')}  EV+{p.get('ev_pct')}%")
