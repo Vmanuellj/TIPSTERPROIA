@@ -2,18 +2,37 @@
   "fecha": "2026-08-27",
   "fecha_display": "Jueves 27 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN/Oddspedia/bet365/DraftKings/capperspicks). Horario CDT CDMX.",
+  "nota_lineas": "Cuotas de consenso por busqueda web (Betfred, ESPN, predictem, capperspicks, mahoningmatters, 1xbet, youwager.lv). Horario CDT CDMX.",
   "bankroll": {
     "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4 — sesion conservadora, tenis excluido (solo clasificacion US Open hoy, sin mercados fiables)"
+    "nota": "Kelly 1/4 — tope sesion 3u"
   },
   "picks": [
+    {
+      "liga": "MLB",
+      "matchup": "Milwaukee Brewers @ New York Mets",
+      "hora": "6:10 PM CDT (CDMX)",
+      "pick": "Under 7.0 Carreras",
+      "tipo": "Total",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.97,
+      "prob_implicita": 50.8,
+      "prob_propia": 53.8,
+      "ev_pct": 5.9,
+      "prob_acierto": 54,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "ESPN muestra U7 -103 (~1.97). Misiorowski arranca con 1.68 ERA, 0.76 WHIP y 216 K en 145 IP — favorito Cy Young. Mets sin Soto, Vientos y Polanco (IL); Bichette day-to-day. Under ha entrado en 16/25 últimos juegos de Brewers y 15/20 de los Mets en casa. Juego en Citi Field (park factor 0.97, leve supresor de carreras). Línea total baja de 8.5 a 7.0 refleja el reconocimiento del mercado. Predictem recomienda U7.0 explícitamente. EV real estimado +7.3% (alto por stack de tendencias; recortar a 3★). Cuota fuente: ESPN odds/predictem.com.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.86
+    },
     {
       "liga": "La Liga",
       "matchup": "Osasuna @ Celta Vigo",
       "hora": "6:30 PM CDT (CDMX)",
-      "pick": "Celta Vigo Gana (1X2 Local)",
+      "pick": "Celta Vigo Moneyline (Victoria local)",
       "tipo": "Moneyline",
       "sport_key": "soccer_spain_la_liga",
       "cuota_bet365": 2.05,
@@ -22,8 +41,8 @@
       "ev_pct": 5.6,
       "prob_acierto": 52,
       "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cuota ~2.05 obtenida de RotoWire/DraftKings (+105 = 2.05 decimal) y wincomparator (1xbet 2.11 para Celta). Celta Vigo termino 6° en Liga 2025-26 con 54 pts; Osasuna apenas sobrevivio el descenso por H2H. Celta juega de local en Balaidos, donde sus ultimos 6 partidos terminaron con 3+ goles. El modelo Dimers da 47.6% a Celta (ligeramente conservador). Asumimos leve ventaja local real = 51.5%. Riesgo: ambos arrancaron 0-0 en jornada 1.",
+      "stake": "0.20u",
+      "razonamiento": "1xbet ofrece Celta 2.11; consenso DK +105 (~2.05). Celta terminó 6° en 2025-26 con 54 pts vs Osasuna que sobrevivió por H2H en descenso. Los últimos 6 partidos en casa de Celta terminaron con 3+ goles; Osasuna tuvo solo 7 remates contra Levante en 0-0. H2H últimas 10: 4-4-2, pero Celta tiene ventaja local y mayor calidad de plantilla. Estimación 51.5% vs implícita 48.8%. Cuota fuente: 1xbet/RotoWire (DK).",
       "cuota_verificada": false,
       "fair_source": "web",
       "cuota_minima": 1.94,
@@ -31,80 +50,23 @@
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png"
     },
     {
-      "liga": "MLB",
-      "matchup": "Milwaukee Brewers @ New York Mets",
-      "hora": "6:10 PM CDT (CDMX)",
-      "pick": "Under 7.0 Carreras",
-      "tipo": "Total",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.88,
-      "prob_implicita": 53.2,
-      "prob_propia": 56.2,
-      "ev_pct": 5.6,
-      "prob_acierto": 56,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Cuota U7.0 extraida de ESPN odds (-114 = 1.88 decimal). Misiorowski 1.68 ERA (mejor de NL, 13-5) vs Manaea 4.31 ERA. El Under ha entrado en 15 de los ultimos 19 partidos en casa de los Mets y 4 consecutivos de los Brewers (GamblingUSA/foxsports). Ambas rotaciones son de las mejores en run-prevention esta temporada. Total de 7.0 es la linea mas baja del dia; el pitcher marquee de Misiorowski (1.68 ERA) ancla el pick. Fuente ESPN odds + GamblingUSA Aug 27.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.78
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Arizona Diamondbacks @ San Francisco Giants",
-      "hora": "8:45 PM CDT (CDMX)",
-      "pick": "Arizona Diamondbacks Ganan (Moneyline)",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.88,
-      "prob_implicita": 53.2,
-      "prob_propia": 56.0,
-      "ev_pct": 5.3,
-      "prob_acierto": 56,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cuota ARI -114 (= 1.88 decimal) confirmada en ESPN odds (ARI -114 ML vs SF -106). Giants 54-79 — uno de los peores records de MLB; Roupp 7-13 / 4.34 ERA. Cabrera (0-2, 5.60 ERA) es riesgo, pero Arizona 71-63 con mejor bullpen y ofensiva. SF en casa pero su record local 31-34 no da ventaja real. Mercado casi pick'em sugiere oportunidad leve; diferencia de calidad de roster es clara.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.79
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
-      "hora": "6:15 PM CDT (CDMX)",
-      "pick": "Atlanta Braves Ganan (Moneyline)",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.83,
-      "prob_implicita": 54.6,
-      "prob_propia": 57.5,
-      "ev_pct": 5.2,
-      "prob_acierto": 58,
-      "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cuota Braves ~1.83 (-120 moneyline) confirmada en freetips.com (fuente Stake/bet365 consenso Aug 27). Chris Sale 2.20 ERA vs Yamamoto 2.61 ERA: duelo de ases, pero Sale lleva 12-9 con mejor ERA y los Braves son 44-23 en casa (65.7% ganando en casa segun capperspicks). Braves 3-0 en 2026 vs Dodgers; ganaron gane 1 de la serie 4-3 con Iglesias cerrando. Stats Insider da ATL 51.2%; nuestro modelo 57.5% ajustado por ventaja local y H2H 2026.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.74
-    },
-    {
       "liga": "La Liga",
       "matchup": "Athletic Club @ Barcelona",
       "hora": "7:00 PM CDT (CDMX)",
-      "pick": "Barcelona Gana (1X2 Local)",
-      "tipo": "Moneyline",
+      "pick": "Over 2.5 Goles",
+      "tipo": "Total Goles",
       "sport_key": "soccer_spain_la_liga",
-      "cuota_bet365": 1.42,
-      "prob_implicita": 70.4,
-      "prob_propia": 73.4,
-      "ev_pct": 4.3,
-      "prob_acierto": 73,
-      "estrellas": 4,
-      "stake": "0.25u",
-      "razonamiento": "Cuota 1.42 confirmada en Oddspedia (consenso de casas incluyendo bet365). Barcelona bicampeon defiende Camp Nou, arrancó con goleada 5-0 en Elche. Athletic Club perdió 3-1 en jornada 1 con un expulsado temprano y no gana en Camp Nou desde noviembre 2001 (historial 8-2-0 favorable a Barca en ultimos 10 H2H). Barca promedia 2.2 goles/partido en sus ultimos 10. Prob implicita 70.4% vs nuestra estimacion 73.5%; EV moderado pero edge real dado el contexto.",
+      "cuota_bet365": 1.67,
+      "prob_implicita": 59.9,
+      "prob_propia": 62.9,
+      "ev_pct": 5.0,
+      "prob_acierto": 63,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "⚠️ NOTA: Pick adicional sobre el mismo partido Barcelona-Athletic sólo porque el mercado es distinto (Total Goles vs ML). Barcelona promedia 2.2 goles en últimos 10; Athletic concede 2.0 de media. Over 2.5 salió en 7 de los últimos 9 partidos de Barca y en 5 de los últimos 10 H2H. Under 2.5 cotiza 3/2 (2.50) en easyodds, lo que implica Over 2.5 ~1.67. Barca tiene amplitud ofensiva con Raphinha (4 goles en 6), Yamal, Adeyemi, Gordon. Cuota fuente: easyodds/toffeeweb.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.36,
+      "cuota_minima": 1.59,
       "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
       "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
     },
@@ -112,152 +74,195 @@
       "liga": "NFL",
       "matchup": "Pittsburgh Steelers @ Buffalo Bills",
       "hora": "7:00 PM CDT (CDMX)",
-      "pick": "Buffalo Bills Ganan (Moneyline Preseason)",
-      "tipo": "Moneyline",
+      "pick": "Buffalo Bills -3 Spread (Preseason)",
+      "tipo": "Spread",
       "sport_key": "americanfootball_nfl",
-      "cuota_bet365": 1.56,
-      "prob_implicita": 64.1,
-      "prob_propia": 66.5,
-      "ev_pct": 3.7,
-      "prob_acierto": 66,
+      "cuota_bet365": 1.91,
+      "prob_implicita": 52.4,
+      "prob_propia": 55.0,
+      "ev_pct": 5.0,
+      "prob_acierto": 55,
       "estrellas": 3,
-      "stake": "0.2u",
-      "razonamiento": "Cuota Bills ML ~1.56 (-180 equivalente) conforme a linea inicial -208 y movimiento a -180/-190 rango (mahoning matters/covers.com Aug 26). Josh Allen NO juega, pero Bills 2-0 en preseason con profundidad superior. Kyle Allen como QB backup vs Will Howard/Drew Allar en Pittsburgh (0 puntos vs Jets semana 2). Steelers back-up OL pobre. Bills juegan 'algunos titulares'. ADVERTENCIA: preseason tiene alta varianza; stake minimo.",
+      "stake": "0.20u",
+      "razonamiento": "Mahoningmatters reporta Bills -208 ML y spread se ha movido de -1.5 a -3 (Predictem). Bills 2-0 preseason (29-14 vs Carolina, 31-7 vs Cleveland); Steelers 1-1, siendo blanqueados 17-0 vs Jets semana 2. Josh Allen NO juega pero Bills tienen a Kyle Allen como QB suplente sólido con apoyos de titulares selectos. Pittsburgh con Will Howard y Drew Allar (0 puntos la semana pasada). Pese a nuestro historial flojo en Spread (-81% ROI), la ventaja de profundidad de roster es clara en este preseason final. EV +5.1%. Cuota fuente: Mahoningmatters/predictem (consenso mercado).",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.5
+      "cuota_minima": 1.82
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
+      "hora": "6:15 PM CDT (CDMX)",
+      "pick": "Atlanta Braves Moneyline (Victoria local)",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
+      "prob_propia": 55.5,
+      "ev_pct": 4.3,
+      "prob_acierto": 56,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "ESPN -114 Braves (1.88 decimal). Chris Sale arranca con 2.20 ERA, mejor que Yamamoto 2.61. Braves 44-23 en casa; Dodgers apenas marginalmente mejores en el global. Modelos cuantitativos dan Braves 51.2% (CleverScores) y youwager recomienda ATL +106. Braves ganaron los últimos 3 H2H. Spread de mercado casi moneda cara-cruz entre estos dos primeros de división. Estimación propia 55.5% vs implícita 53.2%. Cuota fuente: ESPN odds/capperspicks.com.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.8
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Houston Astros @ New York Yankees",
+      "hora": "6:05 PM CDT (CDMX)",
+      "pick": "New York Yankees Moneyline (Victoria local)",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.61,
+      "prob_implicita": 62.1,
+      "prob_propia": 64.0,
+      "ev_pct": 3.0,
+      "prob_acierto": 64,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "ESPN muestra NYY -163 (~1.61 decimal). Gerrit Cole arranca con 3.11 ERA, sólido en casa. Astros con Wesneski 4.23 ERA. Yankees 75-57 vs Astros 66-67; Yankees 60-42 como favorito ML esta temporada. NBCSports/BetMGM modelo da ~54.5% para NYY. Venimos de que NYY ganó ayer cerrando el juego fuerte en 7.ª y 8.ª entrada. EV modesto pero defendible a cuota 1.61. Cuota fuente: ESPN odds.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.56
     }
   ],
   "no_apostar": [
     {
       "matchup": "Colorado Rockies @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Hughes 0-5 / 6.54 ERA vs Irvin 2-8 / 5.82 ERA: duelo de pitchers con ERA altos. Mercado incierto con dos equipos sub-.500. Sin edge claro; alto riesgo de varianza."
+      "razon": "Ambos pitchers tienen ERAs elevados (Hughes 6.54, Irvin 5.82) en equipos con records muy malos. Juego de alto riesgo y baja predictibilidad; valor negativo esperado en cualquier línea. Ambos equipos en zona de sótano."
     },
     {
       "matchup": "Baltimore Orioles @ St. Louis Cardinals",
       "liga": "MLB",
-      "razon": "Lanzador local TBD al cierre de seleccion: sin informacion de pitcher local hace imposible valorar el mercado con rigor."
+      "razon": "Graceffo 7-1/3.13 es atractivo para STL pero Orioles tienen mejor record general. La cuota de STL está ya muy ajustada para el valor; no se encontró edge claro +EV con margen conservador."
     },
     {
       "matchup": "Kansas City Royals @ Toronto Blue Jays",
       "liga": "MLB",
-      "razon": "KC 59-75 visitante 23-45 vs TOR 65-69. Blue Jays -113 ML (casi pick'em). Cameron vs Arrighetti (4.73 ERA): sin edge diferencial claro. Mercado equilibrado."
+      "razon": "ESPN da TOR como favorito (-107 ML aprox) pero Royals 59-75 y KC tiene solo 23 victorias de visitante. Pitchers medianos en ambos lados; no hay edge nítido sobre la línea de mercado."
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ San Francisco Giants",
+      "liga": "MLB",
+      "razon": "Cabrera 0-2/5.60 ERA es un abridor débil pero SF Giants 54-79. ESPN muestra ARI -114 (~1.88). Edge marginal; riesgo de línea movida. No supera umbral mínimo de calidad."
     },
     {
       "matchup": "New England Patriots @ Cleveland Browns",
       "liga": "NFL",
-      "razon": "Juego de preseason: starters de ambos equipos ausentes. Cleveland 0-2 en preseason; mercado muy incierto con lineups de reservas. No hay edge fiable."
+      "razon": "Preseason Week 3, ambos equipos con backups. Browns 0-2 preseason, pero en casa. Sin starters confirmados jugando tiempo significativo; demasiada incertidumbre de roster para encontrar edge real."
     },
     {
       "matchup": "San Francisco 49ers @ Las Vegas Raiders",
       "liga": "NFL",
-      "razon": "Preseason Week 3: alta varianza con backups. Sin cuota suficientemente clara encontrada para generar EV positivo defendible."
+      "razon": "49ers 1-1 preseason pero Vegas como local con starters limitados. No se encontraron cuotas suficientemente confiables en fuentes verificadas para este partido en concreto."
     },
     {
       "matchup": "Los Angeles Rams @ Los Angeles Chargers",
       "liga": "NFL",
-      "razon": "Derby de LA en preseason: ambos equipos con starters fuera. Resultado determinado por terceras y cuartas unidades; sin prediccion fiable."
+      "razon": "Derby de LA en preseason. Rams 2-0 pero es tarde (2 AM CDMX). No se encontraron líneas suficientemente verificadas con edge positivo para este horario tardío."
     },
     {
-      "matchup": "US Open Tennis 2026 - Qualifying Round",
-      "liga": "Tennis ATP/WTA",
-      "razon": "Hoy 27 agosto es solo la RONDA DE CLASIFICACION del US Open (main draw arranca el 30/31 agosto). Los partidos de qualifying tienen volatilidad extrema y cuotas poco eficientes. Sin picks de tenis hoy."
+      "matchup": "Tenis ATP/WTA US Open Qualifying",
+      "liga": "Tennis ATP / WTA",
+      "razon": "Solo encontramos rondas de clasificación del US Open 2026 (Wong, Lajovic, Samuel, Garin, Jorge, Ristic). Partidos de qualifying con jugadores de baja visibilidad y alta varianza; riesgo de datos incompletos. No se incluyen picks de tenis por falta de cuotas verificadas en tier-1 books para matchups concretos de hoy."
     },
     {
-      "matchup": "Osasuna @ Celta Vigo",
+      "matchup": "Athletic Club @ Barcelona",
       "liga": "La Liga",
       "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
     },
     {
-      "matchup": "Houston Astros @ New York Yankees",
-      "liga": "MLB",
-      "razon": "Solo top-3 MLB por EV (fuera, EV 4.7%)."
+      "matchup": "Pittsburgh Steelers @ Buffalo Bills",
+      "liga": "NFL",
+      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Barcelona ML 1.42",
-      "Brewers Under 7.0 Runs 1.88",
-      "Yankees ML 1.61"
+      "Barcelona Moneyline (1.36)",
+      "Brewers/Mets Under 7.0 (1.97)",
+      "Atlanta Braves Moneyline (1.88)"
     ],
-    "cuota_total": 4.3,
+    "cuota_total": 5.04,
     "ev_pct": 4.8,
     "stake": "0.15u",
-    "nota": "Correlacion positiva: las tres patas son picks independientes con alta prob_propia (73.5% + 57% + 65%). El parlay diversifica ligas (LaLiga + MLB x2). Cuota combinada 1.42 x 1.88 x 1.61 ≈ 4.30. Ganancia potencial 0.645u con exposure de 0.15u. Solo apostar si los tres picks individuales siguen teniendo valor al momento de apostar."
+    "nota": "Correlación positiva moderada: las tres patas se favorecen de pitcheo dominante (Sale 2.20 ERA, Misiorowski 1.68 ERA) y de condiciones que limitan carreras. Barcelona ML es el ancla segura del parlay. Cuota total = 1.36 × 1.97 × 1.88 ≈ 5.04. EV estimado (+4.8%) usando probabilidades propias: (0.765 × 0.545 × 0.555) × 5.04 − 1 ≈ +0.16 (+4.8% sobre stake). Riesgo: si Manaea implosiona o Sale tiene mala tarde, el parlay cae. Max 0.15u."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Barcelona Gana ML",
+      "pick": "Barcelona ML",
       "tipo": "Moneyline",
       "liga": "La Liga",
-      "cuota": 1.42,
-      "ev_pct": 4.4,
+      "cuota": 1.36,
+      "ev_pct": 4.0,
       "stake": "0.25u",
       "estrellas": 4
-    },
-    {
-      "pick": "Celta Vigo Gana ML",
-      "tipo": "Moneyline",
-      "liga": "La Liga",
-      "cuota": 2.05,
-      "ev_pct": 5.6,
-      "stake": "0.2u",
-      "estrellas": 3
     },
     {
       "pick": "Brewers/Mets Under 7.0",
       "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.88,
-      "ev_pct": 7.2,
+      "cuota": 1.97,
+      "ev_pct": 7.3,
       "stake": "0.25u",
-      "estrellas": 4
+      "estrellas": 3
     },
     {
-      "pick": "Yankees Ganan ML",
+      "pick": "Celta Vigo ML",
+      "tipo": "Moneyline",
+      "liga": "La Liga",
+      "cuota": 2.05,
+      "ev_pct": 5.6,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Barcelona Over 2.5 Goles",
+      "tipo": "Total Goles",
+      "liga": "La Liga",
+      "cuota": 1.67,
+      "ev_pct": 5.2,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Atlanta Braves ML",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.88,
+      "ev_pct": 4.4,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "New York Yankees ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.61,
-      "ev_pct": 4.7,
-      "stake": "0.2u",
+      "ev_pct": 3.0,
+      "stake": "0.20u",
       "estrellas": 3
     },
     {
-      "pick": "Braves Ganan ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.83,
-      "ev_pct": 5.3,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Bills Ganan ML (Preseason)",
-      "tipo": "Moneyline",
+      "pick": "Buffalo Bills -3 Spread",
+      "tipo": "Spread",
       "liga": "NFL",
-      "cuota": 1.56,
-      "ev_pct": 3.8,
-      "stake": "0.2u",
+      "cuota": 1.91,
+      "ev_pct": 5.1,
+      "stake": "0.20u",
       "estrellas": 3
     },
     {
-      "pick": "Celta Vigo vs Osasuna BTTS Si",
-      "tipo": "Total Goles",
-      "liga": "La Liga",
-      "cuota": 1.86,
-      "ev_pct": 6.0,
-      "stake": "0.2u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Diamondbacks Ganan ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.88,
-      "ev_pct": 5.3,
-      "stake": "0.2u",
-      "estrellas": 3
+      "pick": "Steelers/Bills Over 35.5",
+      "tipo": "Total",
+      "liga": "NFL",
+      "cuota": 1.91,
+      "ev_pct": 4.1,
+      "stake": "0.15u",
+      "estrellas": 2
     }
   ]
 }
