@@ -1,20 +1,79 @@
-// Auto-generado 2026-08-26 — TIPSTER PRO IA
+// Auto-generado 2026-08-27 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-08-26",
-  "fecha_display": "Miércoles 26 de Agosto 2026",
+  "fecha": "2026-08-27",
+  "fecha_display": "Jueves 27 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN, sportsgambler, dimers, wincomparator, sportsbettingdime, docsports, tennistonic). Horario CDT CDMX.",
+  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN/Oddspedia/bet365/DraftKings/capperspicks). Horario CDT CDMX.",
   "bankroll": {
-    "exposicion_total": "1.95u",
+    "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4"
+    "nota": "Kelly 1/4 — sesion conservadora, tenis excluido (solo clasificacion US Open hoy, sin mercados fiables)"
   },
   "picks": [
     {
+      "liga": "La Liga",
+      "matchup": "Osasuna @ Celta Vigo",
+      "hora": "6:30 PM CDT (CDMX)",
+      "pick": "Celta Vigo Gana (1X2 Local)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_spain_la_liga",
+      "cuota_bet365": 2.05,
+      "prob_implicita": 48.8,
+      "prob_propia": 51.5,
+      "ev_pct": 5.6,
+      "prob_acierto": 52,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Cuota ~2.05 obtenida de RotoWire/DraftKings (+105 = 2.05 decimal) y wincomparator (1xbet 2.11 para Celta). Celta Vigo termino 6° en Liga 2025-26 con 54 pts; Osasuna apenas sobrevivio el descenso por H2H. Celta juega de local en Balaidos, donde sus ultimos 6 partidos terminaron con 3+ goles. El modelo Dimers da 47.6% a Celta (ligeramente conservador). Asumimos leve ventaja local real = 51.5%. Riesgo: ambos arrancaron 0-0 en jornada 1.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.94,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/97.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png"
+    },
+    {
       "liga": "MLB",
-      "matchup": "Tampa Bay Rays @ Detroit Tigers",
-      "hora": "12:10 PM CDT (CDMX)",
-      "pick": "Detroit Tigers ML",
+      "matchup": "Milwaukee Brewers @ New York Mets",
+      "hora": "6:10 PM CDT (CDMX)",
+      "pick": "Under 7.0 Carreras",
+      "tipo": "Total",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
+      "prob_propia": 56.2,
+      "ev_pct": 5.6,
+      "prob_acierto": 56,
+      "estrellas": 4,
+      "stake": "0.25u",
+      "razonamiento": "Cuota U7.0 extraida de ESPN odds (-114 = 1.88 decimal). Misiorowski 1.68 ERA (mejor de NL, 13-5) vs Manaea 4.31 ERA. El Under ha entrado en 15 de los ultimos 19 partidos en casa de los Mets y 4 consecutivos de los Brewers (GamblingUSA/foxsports). Ambas rotaciones son de las mejores en run-prevention esta temporada. Total de 7.0 es la linea mas baja del dia; el pitcher marquee de Misiorowski (1.68 ERA) ancla el pick. Fuente ESPN odds + GamblingUSA Aug 27.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.78
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Arizona Diamondbacks @ San Francisco Giants",
+      "hora": "8:45 PM CDT (CDMX)",
+      "pick": "Arizona Diamondbacks Ganan (Moneyline)",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
+      "prob_propia": 56.0,
+      "ev_pct": 5.3,
+      "prob_acierto": 56,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Cuota ARI -114 (= 1.88 decimal) confirmada en ESPN odds (ARI -114 ML vs SF -106). Giants 54-79 — uno de los peores records de MLB; Roupp 7-13 / 4.34 ERA. Cabrera (0-2, 5.60 ERA) es riesgo, pero Arizona 71-63 con mejor bullpen y ofensiva. SF en casa pero su record local 31-34 no da ventaja real. Mercado casi pick'em sugiere oportunidad leve; diferencia de calidad de roster es clara.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.79
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
+      "hora": "6:15 PM CDT (CDMX)",
+      "pick": "Atlanta Braves Ganan (Moneyline)",
       "tipo": "Moneyline",
       "sport_key": "baseball_mlb",
       "cuota_bet365": 1.83,
@@ -23,292 +82,183 @@ window.PICKS_DATA = {
       "ev_pct": 5.2,
       "prob_acierto": 58,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Troy Melton (7-2, ERA 1.60) es el mejor abridor de este pizarrón hoy — sólida racha en su rol de as desde el trade deadline. Frente a Freddy Peralta (5-11, ERA 5.33), los números son muy favorables al local. El mercado de ESPN/DraftKings pone a Detroit en -120 (1.833 decimal), prácticamente empate de probabilidades con TB que tiene un ERA de abridor mucho peor. Covers registra Under 5-0 en últimos 5 Tigers como underdogs — equipo con buena run prevention. Fuente: ESPN odds + draftkings + covers.com.",
+      "stake": "0.2u",
+      "razonamiento": "Cuota Braves ~1.83 (-120 moneyline) confirmada en freetips.com (fuente Stake/bet365 consenso Aug 27). Chris Sale 2.20 ERA vs Yamamoto 2.61 ERA: duelo de ases, pero Sale lleva 12-9 con mejor ERA y los Braves son 44-23 en casa (65.7% ganando en casa segun capperspicks). Braves 3-0 en 2026 vs Dodgers; ganaron gane 1 de la serie 4-3 con Iglesias cerrando. Stats Insider da ATL 51.2%; nuestro modelo 57.5% ajustado por ventaja local y H2H 2026.",
       "cuota_verificada": false,
       "fair_source": "web",
       "cuota_minima": 1.74
     },
     {
       "liga": "La Liga",
-      "matchup": "Real Sociedad @ Real Madrid",
-      "pick": "BTTS Sí (Ambos anotan)",
-      "tipo": "Total Goles",
-      "sport_key": "soccer_spain_la_liga",
+      "matchup": "Athletic Club @ Barcelona",
       "hora": "7:00 PM CDT (CDMX)",
-      "cuota_bet365": 1.7,
-      "prob_implicita": 58.8,
-      "prob_propia": 61.8,
-      "ev_pct": 5.1,
-      "prob_acierto": 62,
-      "estrellas": 3,
+      "pick": "Barcelona Gana (1X2 Local)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_spain_la_liga",
+      "cuota_bet365": 1.42,
+      "prob_implicita": 70.4,
+      "prob_propia": 73.4,
+      "ev_pct": 4.3,
+      "prob_acierto": 73,
+      "estrellas": 4,
       "stake": "0.25u",
-      "razonamiento": "Sociedad ha visto BTTS en 4 de sus últimos 5 partidos de Liga; Real Madrid concede en casa con regularidad (10 goles en últimos 10 encuentros de local, 1 xGA/partido). Madrid tiene múltiples bajas defensivas (Militão, Mendy, Asencio). Dimers proyecta 55.3% BTTS; wincomparator 74.17%. Cuota 1.70 en wincomparator/bet365 implica 58.8% — valor moderado con spread de ~+3pp. Fuente: wincomparator.com y sportsgambler.com.",
+      "razonamiento": "Cuota 1.42 confirmada en Oddspedia (consenso de casas incluyendo bet365). Barcelona bicampeon defiende Camp Nou, arrancó con goleada 5-0 en Elche. Athletic Club perdió 3-1 en jornada 1 con un expulsado temprano y no gana en Camp Nou desde noviembre 2001 (historial 8-2-0 favorable a Barca en ultimos 10 H2H). Barca promedia 2.2 goles/partido en sus ultimos 10. Prob implicita 70.4% vs nuestra estimacion 73.5%; EV moderado pero edge real dado el contexto.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.62,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/86.png"
+      "cuota_minima": 1.36,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/93.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/83.png"
     },
     {
-      "liga": "Tennis ATP",
-      "matchup": "Lorenzo Sonego vs Adrian Mannarino",
-      "hora": "Por confirmar (Winston-Salem, R2)",
-      "pick": "Lorenzo Sonego ML",
+      "liga": "NFL",
+      "matchup": "Pittsburgh Steelers @ Buffalo Bills",
+      "hora": "7:00 PM CDT (CDMX)",
+      "pick": "Buffalo Bills Ganan (Moneyline Preseason)",
       "tipo": "Moneyline",
-      "sport_key": "tennis_atp",
-      "cuota_bet365": 1.65,
-      "prob_implicita": 60.6,
-      "prob_propia": 63.5,
-      "ev_pct": 4.8,
-      "prob_acierto": 64,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Sonego es ex campeón de Winston-Salem (2024), con ventaja de historial en esta superficie. Mannarino (38 años, 14-26 en 2026, perdió 7 de sus últimos 11 partidos) llega en caída. lastwordonsports.com señala que Sonego genera puntos gratuitos en estas condiciones y tiene ventaja clara. Cuota estimada ~1.65 basada en contexto de mercado (Mannarino como moderado favorito en odds generales de torneo pero desfavorecido en este HH). Fuente: lastwordonsports.com + matchstat.com.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.57,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/3052.png",
-      "photo_home": "https://a.espncdn.com/i/headshots/tennis/players/full/1266.png"
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Boston Red Sox @ Miami Marlins",
-      "hora": "5:40 PM CDT (CDMX)",
-      "pick": "Boston Red Sox ML",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.61,
-      "prob_implicita": 62.1,
-      "prob_propia": 65.0,
-      "ev_pct": 4.7,
-      "prob_acierto": 65,
+      "sport_key": "americanfootball_nfl",
+      "cuota_bet365": 1.56,
+      "prob_implicita": 64.1,
+      "prob_propia": 66.5,
+      "ev_pct": 3.7,
+      "prob_acierto": 66,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Sonny Gray (16-3, ERA 2.79) es uno de los mejores abridores de la AL frente a Ryan Gusto (0-3, ERA 4.37). Red Sox lideran MLB en carreras anotadas en agosto, van 7-3 en últimas 10. Cuota ESPN/DraftKings -163 (1.614 decimal). BetMGM sitúa -133; Red Sox 8-0 en últimas 8 de visitante vs rivales con récord ganador (covers.com). Fuente: espn.com/mlb/odds + sportsbettingdime.com + bet365 news.",
+      "stake": "0.2u",
+      "razonamiento": "Cuota Bills ML ~1.56 (-180 equivalente) conforme a linea inicial -208 y movimiento a -180/-190 rango (mahoning matters/covers.com Aug 26). Josh Allen NO juega, pero Bills 2-0 en preseason con profundidad superior. Kyle Allen como QB backup vs Will Howard/Drew Allar en Pittsburgh (0 puntos vs Jets semana 2). Steelers back-up OL pobre. Bills juegan 'algunos titulares'. ADVERTENCIA: preseason tiene alta varianza; stake minimo.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.54
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Texas Rangers @ Chicago White Sox",
-      "hora": "6:40 PM CDT (CDMX)",
-      "pick": "Chicago White Sox ML",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.74,
-      "prob_implicita": 57.5,
-      "prob_propia": 60.0,
-      "ev_pct": 4.4,
-      "prob_acierto": 60,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Sean Burke (7-6, ERA 3.27) es claramente superior al visitante MacKenzie Gore (7-9, ERA 4.26). ChiSox (68-63) son favoritos en casa y el mercado los pone en -136 (1.735 decimal). Rangers van 30-38 de visitante. Burke top-10 en ERA entre abridores del partido de hoy. Fuente: espn.com/mlb/odds.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.67
-    },
-    {
-      "liga": "Tennis ATP",
-      "matchup": "Daniil Medvedev vs Martin Damm",
-      "hora": "Por confirmar (Winston-Salem, R2)",
-      "pick": "Medvedev ML",
-      "tipo": "Moneyline",
-      "sport_key": "tennis_atp",
-      "cuota_bet365": 1.31,
-      "prob_implicita": 76.3,
-      "prob_propia": 79.0,
-      "ev_pct": 3.5,
-      "prob_acierto": 79,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Medvedev (ATP #7/8, 31-13 en 2026, 20-6 en cemento) vs Damm (#92, wild card, 29-22 en 2026). Brecha de Elo en cemento: 288 puntos (1,934 vs 1,645). Medvedev ganó Winston-Salem 2018 y busca preparar el US Open. Damm beat Shelbayh pero llega con forma irregular. Cuota 1.31 en tennistonic/bet365 implica 76.3%; EV +3.5% asumiendo 79% de prob. real (conservador dado H2H virgin y volatilidad Medvedev). Fuente: tennistonic.com + sportsbettingdime.com (confirman odds bet365).",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.27,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2383.png"
+      "cuota_minima": 1.5
     }
   ],
   "no_apostar": [
     {
-      "matchup": "Real Sociedad @ Real Madrid — Over 2.5 Goles",
-      "liga": "La Liga",
-      "razon": "EV negativo: cuota 1.57 implica 63.7% pero Dimers y protipster apuntan solo a ~51-61% de prob. real. Madrid registra Under 2.5 en 9 de sus últimos 10 partidos de Liga (protipster.com). Sin valor."
-    },
-    {
-      "matchup": "Los Angeles Dodgers @ Atlanta Braves",
-      "liga": "MLB",
-      "razon": "Sasaki (ERA 4.42, mal historial visitante: 30 ER en 59.2 IP fuera de casa) vs Smith-Shawver debut en casa (ERA 6.23 en solo 2 starts). Demasiada incertidumbre en ambos abridores. Braves ganaron el opener 4-3; serie equilibrada. Cuota muy cerrada (-130 vs +108), margen insuficiente para EV sólido."
-    },
-    {
-      "matchup": "Cleveland Guardians @ Los Angeles Angels",
-      "liga": "MLB",
-      "razon": "Grayson Rodriguez (ERA 6.41) inicia por Angels (52-81). Aunque los Guardians son favoritos, Joey Cantillo (ERA 3.73) no inspira suficiente confianza para apostar con EV real dado el nivel de ambos equipos mediocres. Demasiado parecido al perfil de pick de bajo valor."
-    },
-    {
-      "matchup": "Houston Astros @ New York Yankees",
-      "liga": "MLB",
-      "razon": "Yankees con abridor TBD — imposible evaluar el pick de pitcheo. Sin datos completos del starter local, el pick pierde consistencia analítica."
-    },
-    {
       "matchup": "Colorado Rockies @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Dos de los peores equipos/abridores de la jornada: Gordon (0-4, ERA 5.75) vs Waldron (1-2, ERA 7.54). Partido sin valor claro: margen de error enorme con abridores tan irregulares y dos equipos perdedores."
-    },
-    {
-      "matchup": "Daniil Medvedev vs Martin Damm — Spread -3.5 juegos",
-      "liga": "Tennis ATP",
-      "razon": "Aunque Medvedev es gran favorito, ha caído un set en 4 de sus últimos 5 partidos vs rivales fuera del top 90. El spread de -3.5 a -125 tiene riesgo de sets ajustados. Preferimos el ML más conservador."
-    },
-    {
-      "matchup": "Real Sociedad @ Real Madrid",
-      "liga": "La Liga",
-      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
-    },
-    {
-      "matchup": "Real Sociedad @ Real Madrid",
-      "liga": "La Liga",
-      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
-    },
-    {
-      "matchup": "Real Sociedad @ Real Madrid",
-      "liga": "La Liga",
-      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
-    },
-    {
-      "matchup": "Milwaukee Brewers @ New York Mets",
-      "liga": "MLB",
-      "razon": "Solo top-3 MLB por EV (fuera, EV 3.8%)."
-    },
-    {
-      "matchup": "Chicago Cubs @ Arizona Diamondbacks",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Cincinnati Reds @ San Francisco Giants",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Pittsburgh Pirates @ San Diego Padres",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Philadelphia Phillies @ Seattle Mariners",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Kansas City Royals @ Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "razon": "Hughes 0-5 / 6.54 ERA vs Irvin 2-8 / 5.82 ERA: duelo de pitchers con ERA altos. Mercado incierto con dos equipos sub-.500. Sin edge claro; alto riesgo de varianza."
     },
     {
       "matchup": "Baltimore Orioles @ St. Louis Cardinals",
       "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "razon": "Lanzador local TBD al cierre de seleccion: sin informacion de pitcher local hace imposible valorar el mercado con rigor."
     },
     {
-      "matchup": "Minnesota Twins @ Athletics",
+      "matchup": "Kansas City Royals @ Toronto Blue Jays",
       "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "razon": "KC 59-75 visitante 23-45 vs TOR 65-69. Blue Jays -113 ML (casi pick'em). Cameron vs Arrighetti (4.73 ERA): sin edge diferencial claro. Mercado equilibrado."
+    },
+    {
+      "matchup": "New England Patriots @ Cleveland Browns",
+      "liga": "NFL",
+      "razon": "Juego de preseason: starters de ambos equipos ausentes. Cleveland 0-2 en preseason; mercado muy incierto con lineups de reservas. No hay edge fiable."
+    },
+    {
+      "matchup": "San Francisco 49ers @ Las Vegas Raiders",
+      "liga": "NFL",
+      "razon": "Preseason Week 3: alta varianza con backups. Sin cuota suficientemente clara encontrada para generar EV positivo defendible."
+    },
+    {
+      "matchup": "Los Angeles Rams @ Los Angeles Chargers",
+      "liga": "NFL",
+      "razon": "Derby de LA en preseason: ambos equipos con starters fuera. Resultado determinado por terceras y cuartas unidades; sin prediccion fiable."
+    },
+    {
+      "matchup": "US Open Tennis 2026 - Qualifying Round",
+      "liga": "Tennis ATP/WTA",
+      "razon": "Hoy 27 agosto es solo la RONDA DE CLASIFICACION del US Open (main draw arranca el 30/31 agosto). Los partidos de qualifying tienen volatilidad extrema y cuotas poco eficientes. Sin picks de tenis hoy."
+    },
+    {
+      "matchup": "Osasuna @ Celta Vigo",
+      "liga": "La Liga",
+      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
+    },
+    {
+      "matchup": "Houston Astros @ New York Yankees",
+      "liga": "MLB",
+      "razon": "Solo top-3 MLB por EV (fuera, EV 4.7%)."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Real Madrid ML @ 1.44",
-      "Boston Red Sox ML @ 1.61",
-      "Detroit Tigers ML @ 1.83"
+      "Barcelona ML 1.42",
+      "Brewers Under 7.0 Runs 1.88",
+      "Yankees ML 1.61"
     ],
-    "cuota_total": 3.37,
-    "ev_pct": 4.2,
+    "cuota_total": 4.3,
+    "ev_pct": 4.8,
     "stake": "0.15u",
-    "nota": "Correlación positiva: los tres picks comparten el patrón 'abridor élite vs abridor inferior' (Gray ERA 2.79 vs Gusto ERA 4.37; Melton ERA 1.60 vs Peralta ERA 5.33) más equipo local dominante en casa (RM en Bernabéu). Cuota total 1.44 × 1.61 × 1.83 = 3.37. Kelly 1/4 sobre bankroll sugiere 0.15u máximo para parlay de 3 patas."
+    "nota": "Correlacion positiva: las tres patas son picks independientes con alta prob_propia (73.5% + 57% + 65%). El parlay diversifica ligas (LaLiga + MLB x2). Cuota combinada 1.42 x 1.88 x 1.61 ≈ 4.30. Ganancia potencial 0.645u con exposure de 0.15u. Solo apostar si los tres picks individuales siguen teniendo valor al momento de apostar."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Real Madrid ML",
+      "pick": "Barcelona Gana ML",
       "tipo": "Moneyline",
       "liga": "La Liga",
-      "cuota": 1.44,
-      "ev_pct": 3.7,
+      "cuota": 1.42,
+      "ev_pct": 4.4,
       "stake": "0.25u",
-      "estrellas": 3
+      "estrellas": 4
     },
     {
-      "pick": "Real Sociedad +1.5 AH",
-      "tipo": "Handicap",
-      "liga": "La Liga",
-      "cuota": 1.91,
-      "ev_pct": 5.0,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "BTTS Sí (Real Madrid vs Real Sociedad)",
-      "tipo": "Total Goles",
-      "liga": "La Liga",
-      "cuota": 1.7,
-      "ev_pct": 5.4,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Detroit Tigers ML",
+      "pick": "Celta Vigo Gana ML",
       "tipo": "Moneyline",
+      "liga": "La Liga",
+      "cuota": 2.05,
+      "ev_pct": 5.6,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Brewers/Mets Under 7.0",
+      "tipo": "Total",
       "liga": "MLB",
-      "cuota": 1.83,
-      "ev_pct": 5.3,
-      "stake": "0.20u",
-      "estrellas": 3
+      "cuota": 1.88,
+      "ev_pct": 7.2,
+      "stake": "0.25u",
+      "estrellas": 4
     },
     {
-      "pick": "Milwaukee Brewers ML",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.61,
-      "ev_pct": 3.9,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Boston Red Sox ML",
+      "pick": "Yankees Ganan ML",
       "tipo": "Moneyline",
       "liga": "MLB",
       "cuota": 1.61,
       "ev_pct": 4.7,
-      "stake": "0.20u",
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Chicago White Sox ML",
+      "pick": "Braves Ganan ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.74,
-      "ev_pct": 4.4,
-      "stake": "0.20u",
+      "cuota": 1.83,
+      "ev_pct": 5.3,
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Daniil Medvedev ML (Winston-Salem)",
+      "pick": "Bills Ganan ML (Preseason)",
       "tipo": "Moneyline",
-      "liga": "Tennis ATP",
-      "cuota": 1.31,
-      "ev_pct": 3.5,
-      "stake": "0.15u",
-      "estrellas": 2
+      "liga": "NFL",
+      "cuota": 1.56,
+      "ev_pct": 3.8,
+      "stake": "0.2u",
+      "estrellas": 3
     },
     {
-      "pick": "Lorenzo Sonego ML (Winston-Salem)",
+      "pick": "Celta Vigo vs Osasuna BTTS Si",
+      "tipo": "Total Goles",
+      "liga": "La Liga",
+      "cuota": 1.86,
+      "ev_pct": 6.0,
+      "stake": "0.2u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Diamondbacks Ganan ML",
       "tipo": "Moneyline",
-      "liga": "Tennis ATP",
-      "cuota": 1.65,
-      "ev_pct": 4.8,
-      "stake": "0.15u",
-      "estrellas": 2
+      "liga": "MLB",
+      "cuota": 1.88,
+      "ev_pct": 5.3,
+      "stake": "0.2u",
+      "estrellas": 3
     }
   ]
 };
