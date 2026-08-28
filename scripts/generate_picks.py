@@ -7,7 +7,7 @@ v4 (híbrido, sin The Odds API):
     partido de fuentes públicas. Marca cuota_verificada=false / fair_source="web".
   • Tenis: los partidos de hoy los descubre Claude por búsqueda web (ESPN los agrupa por torneo).
 """
-import anthropic, json, os, re, requests
+import anthropic, json, os, re, requests, sys
 from datetime import datetime, timezone, timedelta
 
 # ── Zona horaria CDMX con DST dinámico ───────────────────────────────────────
@@ -1244,6 +1244,22 @@ if __name__ == "__main__":
     print(f"   Zona: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})")
     print(f"   Fuente: ESPN (calendario+stats) + Claude web_search (cuotas)")
     print("=" * 55)
+
+    # ── Guarda anti-regeneración: si los picks de HOY ya existen (con picks reales),
+    # no regenerar. Evita que los crons de respaldo gasten búsquedas/tokens de más.
+    # FORCE=1 o TARGET_DATE saltan la guarda.
+    _FORCE = os.environ.get("FORCE", "").strip().lower() not in ("", "0", "false", "no")
+    if not _FORCE and not _TARGET:
+        _fn = f"picks-{today}.json"
+        if os.path.exists(_fn):
+            try:
+                _ex = json.load(open(_fn, encoding="utf-8-sig"))
+                if _ex.get("picks") and _ex.get("generado_a") != "error":
+                    print(f"  ⏭  {_fn} ya existe con {len(_ex['picks'])} picks — "
+                          f"omito regeneración (usa FORCE=1 para forzar).")
+                    sys.exit(0)
+            except Exception:
+                pass
 
     print(f"\n📅 Calendario de HOY ({today})...")
     mlb_sched = fetch_mlb_schedule()

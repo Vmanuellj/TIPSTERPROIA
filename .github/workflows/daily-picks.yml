@@ -2,11 +2,21 @@ name: Daily Picks Generator
 
 on:
   schedule:
-    - cron: '30 5 * * *'  # 12:30am CDT (UTC-5, horario verano CDMX)
+    # GitHub retrasa/omite crons en :00 y :30 (a veces horas). Usamos minutos "raros"
+    # y varios respaldos a lo largo de la mañana. La guarda en generate_picks.py evita
+    # regenerar si el día ya tiene picks, así los respaldos NO gastan búsquedas/tokens.
+    - cron: '7 5 * * *'    # ~00:07 CDMX (principal)
+    - cron: '19 6 * * *'   # ~01:19 CDMX (respaldo 1)
+    - cron: '41 8 * * *'   # ~03:41 CDMX (respaldo 2)
+    - cron: '33 13 * * *'  # ~08:33 CDMX (red de seguridad matutina)
   workflow_dispatch:         # Botón manual en GitHub para probar
     inputs:
       target_date:
         description: "Fecha a generar YYYY-MM-DD (p. ej. mañana, con juegos por venir). Vacío = hoy (uso normal)."
+        required: false
+        default: ""
+      force:
+        description: "Regenerar aunque ya existan los picks de hoy (pon 1 para forzar)."
         required: false
         default: ""
 
@@ -39,6 +49,7 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           TARGET_DATE: ${{ github.event.inputs.target_date }}
+          FORCE: ${{ github.event.inputs.force }}
           # Odds API ya no se usa: calendario/resultados desde ESPN, cuotas via web_search de Claude.
           # Opcional: CLAUDE_MODEL y WEB_SEARCH_MAX para ajustar el modelo / nº de búsquedas.
         run: python scripts/generate_picks.py
