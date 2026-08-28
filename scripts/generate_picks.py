@@ -49,7 +49,7 @@ ODDS_KEY      = os.environ.get("ODDS_API_KEY", "")
 
 # ── Modelo + búsqueda web (híbrido: las cuotas las obtiene Claude por web_search) ──
 MODEL          = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
-WEB_SEARCH_MAX = int(os.environ.get("WEB_SEARCH_MAX", "20"))
+WEB_SEARCH_MAX = int(os.environ.get("WEB_SEARCH_MAX", "8"))  # tope de búsquedas web/run (control de costo)
 
 def _guess_sport_key(liga: str) -> str:
     l = (liga or "").lower()
