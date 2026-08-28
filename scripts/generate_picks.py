@@ -7,7 +7,7 @@ v4 (híbrido, sin The Odds API):
     partido de fuentes públicas. Marca cuota_verificada=false / fair_source="web".
   • Tenis: los partidos de hoy los descubre Claude por búsqueda web (ESPN los agrupa por torneo).
 """
-import anthropic, json, os, re, requests, sys
+import anthropic, json, os, re, requests, sys, time
 from datetime import datetime, timezone, timedelta
 
 # ── Zona horaria CDMX con DST dinámico ───────────────────────────────────────
@@ -1098,6 +1098,30 @@ SCHEMA_PICK = {
     "razonamiento":   "2-3 lineas con datos concretos + casa/fuente de la cuota",
 }
 
+def _salvage_json(raw: str):
+    """Best-effort: recupera un JSON truncado balanceando llaves/corchetes al final."""
+    if not raw:
+        return None
+    s = raw.rstrip()
+    s = re.sub(r',\s*"[^"]*"\s*:?\s*[^,{}\[\]]*$', '', s).rstrip().rstrip(',')
+    cands = [s]
+    last = s.rfind('}')
+    if last != -1:
+        cands.append(s[:last + 1])
+    for cand in cands:
+        if not cand:
+            continue
+        opens = cand.count('{') - cand.count('}')
+        obr   = cand.count('[') - cand.count(']')
+        fixed = cand + (']' * max(obr, 0)) + ('}' * max(opens, 0))
+        try:
+            obj = json.loads(fixed)
+            if isinstance(obj, dict):
+                return obj
+        except Exception:
+            continue
+    return None
+
 def generate_picks(context: str) -> dict:
     client = anthropic.Anthropic(api_key=ANTHROPIC_KEY)
     schema = {
@@ -1132,23 +1156,47 @@ def generate_picks(context: str) -> dict:
         f"PARTIDOS REALES DE HOY:\n{context}\n\n"
         f"Esquema JSON de salida (responde SOLO el JSON):\n{json.dumps(schema, indent=2, ensure_ascii=False)}"
     )
-    msg = client.messages.create(
-        model=MODEL,
-        max_tokens=8000,
-        system=PROMPT_SYSTEM,
-        tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": WEB_SEARCH_MAX}],
-        messages=[{"role": "user", "content": user_msg}],
-    )
-    parts = [b.text for b in msg.content if getattr(b, "type", "") == "text"]
-    raw = "\n".join(parts).strip()
-    if "```" in raw:
-        m = re.search(r"```(?:json)?\s*(.*?)```", raw, re.S)
-        if m:
-            raw = m.group(1).strip()
-    ia, ib = raw.find("{"), raw.rfind("}")
-    if ia != -1 and ib != -1 and ib > ia:
-        raw = raw[ia:ib + 1]
-    data = json.loads(raw)
+    MAXTOK = int(os.environ.get("MAX_TOKENS", "16000"))
+    def _extract(m):
+        parts = [b.text for b in m.content if getattr(b, "type", "") == "text"]
+        r = "\n".join(parts).strip()
+        mm = re.search(r"```(?:json)?\s*(.*?)```", r, re.S) if "```" in r else None
+        if mm:
+            r = mm.group(1).strip()
+        a, b = r.find("{"), r.rfind("}")
+        if a != -1 and b != -1 and b > a:
+            r = r[a:b + 1]
+        return r
+    data, last_err, mt = None, None, MAXTOK
+    for attempt in range(3):
+        try:
+            msg = client.messages.create(
+                model=MODEL, max_tokens=mt, system=PROMPT_SYSTEM,
+                tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": WEB_SEARCH_MAX}],
+                messages=[{"role": "user", "content": user_msg}],
+            )
+            sr = getattr(msg, "stop_reason", "?")
+            raw = _extract(msg)
+            print(f"  🤖 intento {attempt+1}: stop_reason={sr}, json_len={len(raw)}")
+            try:
+                data = json.loads(raw)
+                break
+            except Exception as je:
+                last_err = je
+                print(f"  ⚠ JSON inválido: {str(je)[:140]}")
+                salv = _salvage_json(raw)
+                if salv is not None and salv.get("picks"):
+                    data = salv
+                    print(f"  🩹 JSON recuperado por salvage ({len(salv.get('picks', []))} picks)")
+                    break
+                if sr == "max_tokens":
+                    mt = min(mt + 8000, 32000)   # truncó: más presupuesto y reintenta
+        except Exception as ae:
+            last_err = ae
+            print(f"  ⚠ error API/red (intento {attempt+1}): {str(ae)[:180]}")
+            time.sleep(5 * (attempt + 1))
+    if data is None:
+        raise RuntimeError(f"Claude no devolvió JSON válido tras 3 intentos: {str(last_err)[:200]}")
     for p in data.get("picks", []):
         p.setdefault("cuota_verificada", False)
         p["fair_source"] = "web"
