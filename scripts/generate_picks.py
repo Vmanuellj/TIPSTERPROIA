@@ -49,7 +49,7 @@ ODDS_KEY      = os.environ.get("ODDS_API_KEY", "")
 
 # ── Modelo + búsqueda web (híbrido: las cuotas las obtiene Claude por web_search) ──
 MODEL          = os.environ.get("CLAUDE_MODEL", "claude-sonnet-4-6")
-WEB_SEARCH_MAX = int(os.environ.get("WEB_SEARCH_MAX", "8"))  # tope de búsquedas web/run (control de costo)
+WEB_SEARCH_MAX = int(os.environ.get("WEB_SEARCH_MAX", "20"))  # tope de búsquedas web/run
 
 def _guess_sport_key(liga: str) -> str:
     l = (liga or "").lower()
@@ -1061,6 +1061,12 @@ REGLAS ABSOLUTAS:
    Handicap, y props de jugador si hallas cuota real. En futbol el empate es resultado propio.
 
 METODOLOGIA (por cada pick):
+0. PROCESO DE ANALISIS (razona a fondo ANTES de decidir): por cada partido candidato:
+   (a) revisa la cuota/linea REAL del mercado que buscaste; (b) forma tu propia estimacion con
+   las ESTADISTICAS REALES (ESPN) del contexto; (c) compara — donde crees que el mercado esta
+   ligeramente mal y POR QUE (dato estadistico concreto); (d) solo si puedes articular una
+   ventaja PEQUENA, concreta y defendible con datos, conviertelo en pick. Descarta corazonadas
+   sin dato. Cruza varias casas/fuentes para la cuota. Calidad antes que cantidad.
 1. prob_implicita = 100 / cuota_bet365 (con la cuota real que buscaste).
 2. prob_propia = tu estimacion basada en las ESTADISTICAS REALES (ESPN) del contexto y el
    consenso del mercado que viste al buscar. El 'razonamiento' DEBE citar datos concretos.
@@ -1145,7 +1151,8 @@ def generate_picks(context: str) -> dict:
         ],
     }
     user_msg = (
-        f"Genera entre 8 y 10 picks para HOY ({today}).\n"
+        f"Genera entre 7 y 12 picks para HOY ({today}) — apunta a ~10 si hay valor suficiente.\n"
+        f"Prioriza CALIDAD: incluye menos de 7 SOLO si de verdad no hay más apuestas con ventaja real.\n"
         f"PRIORIDAD: futbol primero, luego NBA/NFL, luego tenis. De MLB incluye COMO MAXIMO "
         f"3 picks y de TENIS COMO MAXIMO 2 (solo los de mayor EV).\n"
         f"Usa la BUSQUEDA WEB para obtener la cuota real de cada partido. Solo incluye un pick "
@@ -1167,17 +1174,26 @@ def generate_picks(context: str) -> dict:
         if a != -1 and b != -1 and b > a:
             r = r[a:b + 1]
         return r
+    THINK = int(os.environ.get("THINK_BUDGET", "4000"))  # extended thinking; 0 = desactivado
+    if 0 < THINK < 1024:
+        THINK = 1024
+    def _create(mtok, think_on):
+        kw = dict(
+            model=MODEL, max_tokens=mtok, system=PROMPT_SYSTEM,
+            tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": WEB_SEARCH_MAX}],
+            messages=[{"role": "user", "content": user_msg}],
+        )
+        if think_on and THINK > 0:
+            kw["thinking"] = {"type": "enabled", "budget_tokens": THINK}
+        return client.messages.create(**kw)
     data, last_err, mt = None, None, MAXTOK
+    think_on = THINK > 0
     for attempt in range(3):
         try:
-            msg = client.messages.create(
-                model=MODEL, max_tokens=mt, system=PROMPT_SYSTEM,
-                tools=[{"type": "web_search_20250305", "name": "web_search", "max_uses": WEB_SEARCH_MAX}],
-                messages=[{"role": "user", "content": user_msg}],
-            )
+            msg = _create(mt, think_on)
             sr = getattr(msg, "stop_reason", "?")
             raw = _extract(msg)
-            print(f"  🤖 intento {attempt+1}: stop_reason={sr}, json_len={len(raw)}")
+            print(f"  🤖 intento {attempt+1} (thinking={'on' if think_on else 'off'}): stop_reason={sr}, json_len={len(raw)}")
             try:
                 data = json.loads(raw)
                 break
@@ -1194,7 +1210,11 @@ def generate_picks(context: str) -> dict:
         except Exception as ae:
             last_err = ae
             print(f"  ⚠ error API/red (intento {attempt+1}): {str(ae)[:180]}")
-            time.sleep(5 * (attempt + 1))
+            if think_on:
+                think_on = False   # fallback: reintenta SIN extended thinking (ruta conocida)
+                print("  ↩ reintento sin extended thinking")
+            else:
+                time.sleep(5 * (attempt + 1))
     if data is None:
         raise RuntimeError(f"Claude no devolvió JSON válido tras 3 intentos: {str(last_err)[:200]}")
     for p in data.get("picks", []):
@@ -1217,7 +1237,7 @@ def generate_picks(context: str) -> dict:
 
 # ── 6. Guardar archivos ───────────────────────────────────────────────────────
 ANCHOR_MAX   = int(os.environ.get("ANCHOR_MAX", "3"))    # prob_propia no se aleja más de esto de la implícita
-PER_LIGA_MAX = int(os.environ.get("PER_LIGA_MAX", "4"))  # máximo de picks por competición
+PER_LIGA_MAX = int(os.environ.get("PER_LIGA_MAX", "6"))  # máximo de picks por competición
 
 def _norm_match(m: str) -> str:
     m = (m or "").lower().replace(" @ ", " vs ").replace(" vs. ", " vs ")
