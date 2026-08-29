@@ -1,295 +1,207 @@
-// Auto-generado 2026-08-28 — TIPSTER PRO IA
+// Auto-generado 2026-08-29 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-08-28",
-  "fecha_display": "Viernes 28 de Agosto 2026",
+  "fecha": "2026-08-29",
+  "fecha_display": "Sábado 29 de Agosto 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas de consenso por búsqueda web (wincomparator, sportsgambler, ESPN, predictem, covers, squawka, oddspedia). Horario CDT CDMX. US Open main draw inicia 30 Aug — sin partidos de tenis con cuota individual verificada para hoy.",
+  "nota_lineas": "Cuotas de consenso por búsqueda web (ESPN, VegasInsider, Wincomparator, Sportsgambler, BetRivers, Unibet, Bet-Experts). Horario CDT CDMX. Cuotas en formato decimal europeo.",
   "bankroll": {
-    "exposicion_total": "2.35u",
+    "exposicion_total": "1.55u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4 fraccional — 10 picks dentro del límite"
+    "nota": "Kelly 1/4 fraccional. 7 picks + parlay 2 patas."
   },
   "picks": [
     {
-      "liga": "Liga MX",
-      "matchup": "León @ Atlante",
-      "hora": "8:00 PM CDT (CDMX)",
-      "pick": "León Gana (ML)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_mexico_ligamx",
-      "cuota_bet365": 2.15,
-      "prob_implicita": 46.5,
-      "prob_propia": 49.0,
-      "ev_pct": 5.3,
-      "prob_acierto": 49,
+      "liga": "Premier League",
+      "matchup": "Nottingham Forest @ Liverpool",
+      "hora": "11:30 AM CDT (CDMX)",
+      "pick": "Under 2.5 Goles",
+      "tipo": "Total Goles",
+      "sport_key": "soccer_epl",
+      "cuota_bet365": 2.35,
+      "prob_implicita": 42.6,
+      "prob_propia": 45.5,
+      "ev_pct": 6.9,
+      "prob_acierto": 46,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Cuota ~2.15 en Parimatch/Dimers según fuentes (afaplay reporta León 2.50, Dimers 46.4% prob implícita ≈ cuota 2.15). León 3-0-2, forma WWWWW, 9 pts en 5 jornadas, ganó vs Monterrey y Necaxa recientemente. Atlante 1-2-2, solo 5 pts, 13° lugar. Dimers: León 46.4% vs Atlante 30.0%. Ajustando calibración: 49% propia vs 46.5% implícita (+2.5pp gap conservador). EV = (0.49×2.15-1)×100 = +5.35%. Fuentes: dimers.com/afaplay.",
+      "stake": "0.20u",
+      "razonamiento": "Cuota 2.35 en footballwhispers (cita 27/20 = 2.35) confirmada como una de las tips del artículo de análisis. Liverpool sólo empató 2-2 vs Newcastle en GW1 con problemas defensivos, pero Forest también perdió 1-0 vs Leeds y 2-0 vs Leeds en Copa — sin marcar en 2 partidos. En la última visita a Anfield (nov 2025) Forest ganó 3-0 pero fue excepcional. Andoni Iraola suele organizar bien defensivamente. Con Forest sin Yates ni Savona, el partido podría ser muy táctico. Football Whispers (fuente de cuota) recomienda este mercado.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 2.04,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/228.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/226.png"
+      "cuota_minima": 2.2,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/393.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png"
     },
     {
       "liga": "MLB",
-      "matchup": "Miami Marlins @ Washington Nationals",
-      "hora": "5:45 PM CDT (CDMX)",
-      "pick": "Total Over 8.5 Runs",
+      "matchup": "Philadelphia Phillies @ Los Angeles Angels",
+      "hora": "9:07 PM CDT (CDMX)",
+      "pick": "Philadelphia Phillies -1.5 (Run Line)",
+      "tipo": "Run Line",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 2.15,
+      "prob_implicita": 46.5,
+      "prob_propia": 49.5,
+      "ev_pct": 6.5,
+      "prob_acierto": 50,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "Cuota +115 = 2.15 decimal (BetRivers, VegasInsider). Cristopher Sánchez arranca hoy con 16-4 y ERA 2.62 — uno de los mejores abridores de la NL (ESPN). Frente a Ryan Johnson 3-7 ERA 5.75. LAA 52-83, última posición AL Oeste. PHI tiene 64-35 (64.6%) cuando es favorito (97.5 Fanatic). Un 98% del dinero va a Phillies ML (VegasInsider). Phillies 8-2 últimos 10 partidos. El Run Line da valor extra (prob. implícita 46.5%) dado el abismo entre abridores.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 2.02
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Colorado Rockies @ Atlanta Braves",
+      "hora": "3:10 PM CDT (CDMX)",
+      "pick": "Atlanta Braves -1.5 (Run Line)",
+      "tipo": "Run Line",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.97,
+      "prob_implicita": 50.8,
+      "prob_propia": 53.8,
+      "ev_pct": 5.9,
+      "prob_acierto": 54,
+      "estrellas": 3,
+      "stake": "0.20u",
+      "razonamiento": "Cuota -103 = 1.97 decimal (BetRivers). Braves 80-55, 46-23 en casa. Colorado 52-83, 25-45 de visitante. Martín Pérez (8-8, 3.12 ERA) vs Ryan Feltner (5-8, 6.08 ERA) — brecha enorme en abridores. Sugano (pitcher ayer) tuvo 11 ER en 8 IP recientes (oddsindex). Atlanta barrió a los Dodgers en la serie previa incluyendo blanqueada 1-0. Colorado llegó de perder 7-1 vs Nats. Modelo proyecta ATL 4.9-3.8 (oddsindex). Pick soportado en BetRivers y capperspicks.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.86
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Texas Rangers @ Milwaukee Brewers",
+      "hora": "6:15 PM CDT (CDMX)",
+      "pick": "Under 7.5 Carreras",
       "tipo": "Total",
       "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.9,
-      "prob_implicita": 52.6,
-      "prob_propia": 55.0,
-      "ev_pct": 4.5,
+      "cuota_bet365": 1.92,
+      "prob_implicita": 52.1,
+      "prob_propia": 55.1,
+      "ev_pct": 5.8,
       "prob_acierto": 55,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Línea 8.5 Over a ~-110 americano ≈ 1.91 decimal (predictem.com: 'market sitting at 8.5'). Jackson Kent tiene un WHIP de 2.11 y 11 walks en solo 12.1 innings — genera corredores constantemente. Predictem proyecta 9.4 runs combinados vs línea 8.5 (casi 1 run de gap). Nats tenían .758 OPS (2° MLB) aunque bajan sin Wood en IL. Kent no suele ir profundo → bullpen desgastado temprano. Eury Pérez (3.17 ERA, buen brazo) pero Kent puede explotar. Cuota ~1.90 (predictem/covers). Ajustando calibración: 55%. EV = +4.5%.",
+      "stake": "0.20u",
+      "razonamiento": "Cuota u7.5 -108 = 1.92 decimal (ESPN). Shane Drohan (6-5, 3.84 ERA) vs Cal Quantrill (6-4, 2.90 ERA). Predictem destaca que Logan Henderson (0.89 WHIP, 14 BB en 69 IP) es un pitcher de primer nivel que suprime ataques — aunque hoy arranca Drohan, la línea fue fijada con ambos abridores de ERA controlado. Rangers promedian sólo 4.1 R/G (Docsports, rank 28 MLB). Under es 5-0 en últimos 5 Phillies-como-favoritos — tendencia similar para abridores de control. Cuota fuente: ESPN MLB Odds.",
       "cuota_verificada": false,
       "fair_source": "web",
       "cuota_minima": 1.82
     },
     {
-      "liga": "MLB",
-      "matchup": "San Diego Padres @ Tampa Bay Rays",
-      "hora": "6:10 PM CDT (CDMX)",
-      "pick": "Total Under 7.5 Runs",
-      "tipo": "Total",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.83,
-      "prob_implicita": 54.6,
-      "prob_propia": 57.0,
-      "ev_pct": 4.3,
-      "prob_acierto": 57,
+      "liga": "MLS",
+      "matchup": "FC Cincinnati @ Nashville SC",
+      "hora": "12:30 AM CDT (CDMX) [30-Aug]",
+      "pick": "Nashville SC Gana (Moneyline)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_usa_mls",
+      "cuota_bet365": 1.8,
+      "prob_implicita": 55.6,
+      "prob_propia": 58.6,
+      "ev_pct": 5.4,
+      "prob_acierto": 59,
       "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Línea 7.5 Under a -118 americano ≈ 1.85 decimal (sportsbetting3/ESPN). McClanahan 9-6, 3.10 ERA. Mize 5-7, 3.44 ERA, 2.24 BB/9 (elite command — fuente predictem.com). San Diego lleva 1,084 strikeouts en temporada (máximo en este matchup) — vulnerables a swing-and-miss como McClanahan. Predictem: ambas offensas frías recientemente. Rays son favoritos en casa (-134). Mygamesim simula 5.3-3.8 = ~9.1 runs — pero eso con dos offensas 'frías', el under 7.5 sigue siendo valor. Ajustando calibración: 57% prob propia. EV = +4.3%.",
+      "razonamiento": "Cuota Nashville ML 1.80 (Unibet via Wincomparator; sixonefivesoccer cita -125 US = 1.80). Nashville 15-4-2, líder absoluto del Este MLS. Surridge lleva 12 goles en temporada; Mukhtar 9 goles + 28 chances creadas (squawka). Nashville viene de 3-2 vs Columbus, 1-0 vs NY Red Bulls y 4-1 vs Inter Miami. CIN ha perdido los últimos 3 enfrentamientos ante Nashville (easyodds). Prob. modelo Kalshi: Nashville 55%. Ajusto ligeramente al alza por superioridad en tabla y localía.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.75
+      "cuota_minima": 1.71,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/18267.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png"
     },
     {
       "liga": "Premier League",
-      "matchup": "Manchester City @ Crystal Palace",
-      "hora": "1:00 PM CDT (CDMX)",
-      "pick": "Manchester City Gana (ML)",
-      "tipo": "Moneyline",
+      "matchup": "Newcastle United @ Tottenham Hotspur",
+      "hora": "4:30 PM CDT (CDMX)",
+      "pick": "Over 2.5 Goles",
+      "tipo": "Total Goles",
       "sport_key": "soccer_epl",
-      "cuota_bet365": 1.73,
-      "prob_implicita": 57.8,
-      "prob_propia": 60.0,
-      "ev_pct": 3.8,
-      "prob_acierto": 60,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Cuota 1.73 (Sportytrader/1xbet, refrendada por Dimers -144 americano ≈ 1.69). Dimers model da City 57.1% de prob; Sportsgambler 61%; consenso ~59%. Crystal Palace perdió 2-0 vs Everton en jornada 1, nueva dirección técnica tras salida de Glasner, candidata al descenso a cuota 9/2. City ganó 2-1 vs Bournemouth con remontada. City ha ganado los últimos 2 vs Palace (6-0 en acumulado). Ajustando calibración -4.6pp: prob propia = 60%. EV = (0.60×1.73-1)×100 = +3.8%. Cuota real: Sportytrader/1xbet.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.67,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/382.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/384.png"
-    },
-    {
-      "liga": "Ligue 1",
-      "matchup": "Paris Saint-Germain @ Lille",
-      "hora": "1:45 PM CDT (CDMX)",
-      "pick": "PSG Gana (ML)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_france_ligue_1",
       "cuota_bet365": 1.67,
       "prob_implicita": 59.9,
-      "prob_propia": 62.0,
-      "ev_pct": 3.5,
-      "prob_acierto": 62,
+      "prob_propia": 62.9,
+      "ev_pct": 5.0,
+      "prob_acierto": 63,
       "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Cuota ~1.67 (de American -149 = 1.671 decimal, reportado por sportsgambler 'odds of -139/-149'). PSG no ha perdido ninguno de sus últimos 10 vs Lille; 8 victorias + 2 empates en ese período (sportsgambler). PSG ganó 3-0 en el encuentro más reciente. Lille perdió a Bouaddi (vendido a Man City), tiene lesiones de Igamane y Nianzou. PSG tiene bajas también (Barcola, Mendes, Dembélé, Mbaye) pero superior calidad global. Ajustando calibración: prob propia = 62%. EV = +3.5%. Fuente cuota: sportsgambler.com.",
+      "razonamiento": "ESPN muestra Over 2.5 a -150 (1.67 decimal). En los últimos 15 H2H Tottenham-Newcastle el promedio es 3.7 goles y BTTS en 87% de duelos (statsbet.org). Las últimas 9 citas: 6 de 7 superaron Over 2.5 (sportskeeda). Newcastle perdió 4+ jugadores clave (Bruno, Tonali, Gordon) pero Jaissle juega transición rápida. Spurs rebotó 5-1 vs Charlton tras perder 3-0 vs Brentford — motivación alta en casa. Ambos atacan; ambos conceden. Cuota fuente: ESPN odds (US -150).",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.61,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
-    },
-    {
-      "liga": "Liga MX",
-      "matchup": "Cruz Azul @ Necaxa",
-      "hora": "8:00 PM CDT (CDMX)",
-      "pick": "Necaxa Gana o Empata (Doble Oportunidad X2)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_mexico_ligamx",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 59.0,
-      "ev_pct": 3.2,
-      "prob_acierto": 59,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Cuota ~1.75 para doble oportunidad Necaxa (X o 2) — inferida de Sportytrader que da Necaxa win a probabilidad ~35% + draw ~25% = 60%, cuota justa ~1.67, mercado a ~1.75. Cruz Azul ha perdido 3 de sus últimos 3 partidos (vs Atlas, Tijuana, Atlante); su manager bajo presión (Sportytrader/squawka). Necaxa ganó en casa vs Atlante (2-1) y Monterrey (2-1) en las últimas jornadas. Squawka model: Cruz Azul 42% vs Kalshi 48% — 'overpriced -6pp'. Fuente cuota: sportytrader.com (estimación doble oportunidad).",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.69,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/218.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/229.png"
+      "cuota_minima": 1.59,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/367.png"
     },
     {
       "liga": "Serie A",
-      "matchup": "Venezia @ AC Milan",
-      "hora": "12:45 PM CDT (CDMX)",
-      "pick": "AC Milan Gana (ML)",
-      "tipo": "Moneyline",
+      "matchup": "Parma @ Juventus",
+      "hora": "6:45 PM CDT (CDMX)",
+      "pick": "Ambos Equipos NO Marcan (BTTS No)",
+      "tipo": "Total Goles",
       "sport_key": "soccer_italy_serie_a",
-      "cuota_bet365": 1.36,
-      "prob_implicita": 73.5,
-      "prob_propia": 75.0,
-      "ev_pct": 2.0,
-      "prob_acierto": 75,
-      "estrellas": 2,
-      "stake": "0.20u",
-      "razonamiento": "Cuota 1.36 (footballwhispers/bet-experts, confirmada por múltiples fuentes). Milan ganó 2-1 en Torino en jornada 1. Venezia (recién ascendido) perdió 2-0 vs Lecce en casa. Milan ha ganado los últimos 6 H2H contra Venezia sin ceder un gol. Venezia sin Sverko, Adorante ni Moreno por lesión. Ajustando calibración: prob propia 75%. EV = (0.75×1.36-1)×100 = +2.0%. Cuota: footballwhispers/bet-experts (bet365 implícito 1.36).",
+      "cuota_bet365": 1.6,
+      "prob_implicita": 62.5,
+      "prob_propia": 65.5,
+      "ev_pct": 4.8,
+      "prob_acierto": 66,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Cuota 1.60 en Granawin/bet-experts para BTTS No. Juve ganó 1-0 a Frosinone en R1 (1.99 xG vs 0.45, sólo 1 gol en partido muy controlado). Parma perdió 1-0 vs Cagliari sin marcar. Yildiz baja por lesión de pie (mightytips). Juve tiene mejor portería histórica vs Parma: 0 goles concedidos en 2 reuniones 2025-26. Parma también sin Bernabé lesionado. Inicio de temporada muy táctico para ambos — Spalletti prioriza solidez.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.33,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/17530.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/103.png"
-    },
-    {
-      "liga": "Bundesliga",
-      "matchup": "VfB Stuttgart @ Bayern Munich",
-      "hora": "12:30 PM CDT (CDMX)",
-      "pick": "Bayern Munich Gana (ML)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_germany_bundesliga",
-      "cuota_bet365": 1.22,
-      "prob_implicita": 82.0,
-      "prob_propia": 83.0,
-      "ev_pct": 1.3,
-      "prob_acierto": 83,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Bayern campeón con 89 pts y récord de 122 goles en Liga la temporada pasada (fuente: sportsgambler/wincomparator). Ha ganado sus últimos 6 enfrentamientos vs Stuttgart, incluyendo 3-0 en la final de Copa alemana hace 3 meses. Stuttgart perdió los 6 últimos vs Bayern. Cuota 1.22 (wincomparator/bet365 consenso). Prob implícita 82%, propia 83% — margen pequeño pero respaldado por dominio histórico. EV modesto; stake mínimo.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.2,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/132.png"
-    },
-    {
-      "liga": "Primeira Liga",
-      "matchup": "Sporting CP @ Rio Ave",
-      "hora": "2:15 PM CDT (CDMX)",
-      "pick": "Sporting CP Gana (ML)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_portugal_primeira_liga",
-      "cuota_bet365": 1.28,
-      "prob_implicita": 78.1,
-      "prob_propia": 79.0,
-      "ev_pct": 1.1,
-      "prob_acierto": 79,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Cuota 1.28 (oddspedia: 'bookmakers place Sporting CP as favourites at 1.28'). Sporting ha ganado los últimos 6 H2H vs Rio Ave; en el encuentro más reciente en Estadio dos Arcos ganó 4-1. Rio Ave concedió al menos 3 goles en sus últimos 5 enfrentamientos vs Sporting. Sporting invicto en 33 de sus últimos 35 partidos de Primeira Liga (ratingbet). Rio Ave sin victoria en 8 de sus últimos 10 en casa. EV muy ajustado pero cuota verificada en oddspedia.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.27,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/2250.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/3822.png"
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Texas Rangers @ Milwaukee Brewers",
-      "hora": "6:40 PM CDT (CDMX)",
-      "pick": "Milwaukee Brewers Gana (ML)",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.55,
-      "prob_implicita": 64.5,
-      "prob_propia": 65.0,
-      "ev_pct": 0.8,
-      "prob_acierto": 65,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Cuota -181 americano ≈ 1.55 decimal (ESPN odds directo). Milwaukee 83-51 (3er mejor récord MLB), en casa. Logan Henderson 8-2, 2.60 ERA, 0.89 WHIP, 30% K-rate (brewcrewball/fanduel). Rangers 66-68, -47 run differential. Cody Bradford recién regresado de lesión (0-2, 3.05 ERA en muestra pequeña, 1-3 con él). Prob implícita 64.5%; propia 65% — margen minimal. Stake conservador; pick secundario por EV bajo.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.54
+      "cuota_minima": 1.53,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/115.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/111.png"
     }
   ],
   "no_apostar": [
     {
-      "matchup": "VfB Stuttgart @ Bayern Munich (Over 3.5 / Over 2.5)",
-      "liga": "Bundesliga",
-      "razon": "Cuota Over 2.5 a 1.17 no ofrece EV real. Cuota Bayern ML 1.22 solo tiene valor marginal; elegido como pick secundario. Stuttgart scored ≤1 gol en 8 de 12 vs Bayern histórico."
+      "matchup": "Nottingham Forest @ Liverpool",
+      "liga": "Premier League",
+      "razon": "Liverpool ML a 1.52 tiene prob. implícita 65.8%. Dado el historial reciente (Forest ganó 3-0 en noviembre 2025 en Anfield) y la calibración de sobreestimación de ~4.2 pts, el EV es negativo. Se prefiere el Over/Under."
     },
     {
-      "matchup": "Houston Astros @ New York Mets",
-      "liga": "MLB",
-      "razon": "Hunter Brown y Christian Scott similares en ERA (3.51 vs 3.73). Mercado equilibrado, sin ventaja clara identificable más allá del juego al azar."
-    },
-    {
-      "matchup": "Colorado Rockies @ Atlanta Braves",
-      "liga": "MLB",
-      "razon": "Braves -193 ML demasiado cortos en cuota para MLB. Sugano (12-7) es un abridor competente que puede sorprender. No hay valor real en Braves a esa cuota."
-    },
-    {
-      "matchup": "Boston Red Sox @ New York Yankees",
-      "liga": "MLB",
-      "razon": "Yankees -171 ML con Schlittler (11-6, 2.16 ERA) parece valor pero MLB spread histórico -82.8% ROI. Cuota demasiado comprimida para EV positivo real."
-    },
-    {
-      "matchup": "Washington Commanders @ Baltimore Ravens",
-      "liga": "NFL",
-      "razon": "Pretemporada NFL — muestra de solo 2 juegos, rotación masiva de jugadores, rendimiento no refleja plantilla real. EV imposible de calcular de forma confiable."
-    },
-    {
-      "matchup": "Atlanta Falcons @ Miami Dolphins / Houston Texans @ Carolina Panthers",
-      "liga": "NFL",
-      "razon": "Misma razón: pretemporada NFL, sin valor estadístico suficiente para picks confiables."
-    },
-    {
-      "matchup": "Elche @ Racing Santander / Villarreal @ Alavés",
+      "matchup": "Sevilla @ Atlético Madrid",
       "liga": "La Liga",
-      "razon": "Ambos partidos de Segunda División (LaLiga 2 / grupos). Cuotas no verificadas con suficiente fiabilidad para incluir picks con EV real."
+      "razon": "Dimers proyecta Atleti 44.4% y mercado está en 2.05-2.20. Con ajuste de calibración (-4.2 pts) mi prob baja a ~40%, generando EV negativo. El empate (3.50) tampoco ofrece ventaja según Dimers (26.2% vs 28.6% implícita)."
     },
     {
-      "matchup": "Tenis US Open — partidos de hoy",
-      "liga": "Tennis ATP/WTA",
-      "razon": "El main draw del US Open 2026 inicia el 30 de agosto. Hoy (Aug 28) son los últimos días de qualifying; no se encontraron cuotas de partido individual concretas y verificadas para matches de hoy con valor claro."
+      "matchup": "Hamburg SV @ Borussia Dortmund",
+      "liga": "Bundesliga",
+      "razon": "BVB ML ~1.30 (prob. implícita 76.9%) demasiado corto. Con calibración mi prob baja a ~63%. EV negativo. BVB -1.5 a 1.93 tiene prob. implícita 51.8% pero BVB viene de perder Supercup 1-0 vs Bayern — riesgo de inicio conservador."
     },
     {
-      "matchup": "Fortuna Sittard @ FC Groningen",
-      "liga": "Eredivisie",
-      "razon": "No se encontraron cuotas fiables verificadas en tiempo real para este partido. Sin datos suficientes."
-    },
-    {
-      "matchup": "Birmingham City @ Wrexham",
-      "liga": "Championship",
-      "razon": "Ambos con 0-2-0. Sin cuotas verificadas encontradas. Partido equilibrado sin ventaja identificable."
+      "matchup": "Parma @ Juventus",
+      "liga": "Serie A",
+      "razon": "Juve ML a 1.22-1.31 totalmente fuera de valor. Over 2.5 tampoco: sin Yildiz y dos equipos que arrancaron 1-0 en R1, el mercado de goles es bajo."
     },
     {
       "matchup": "Los Angeles Dodgers @ Detroit Tigers",
       "liga": "MLB",
-      "razon": "Tarik Skubal (8-7, 2.91 ERA) abra de visitante — cuota Dodgers ML en torno a -165 según ESPN. Margen demasiado comprimido para EV real en MLB (histórico -2% ROI)."
+      "razon": "Blake Snell (2-1, 2.57) vs Keider Montero (9-8, 3.30). Dodgers 81-54 favoritos. La cuota ML Dodgers (-155 aprox.) ya refleja el dominio; con el Run Line pierdes valor. Sin ventaja clara en ningún mercado."
     },
     {
-      "matchup": "Sarmiento @ Unión Santa Fe / Lanús @ Boca Juniors",
-      "liga": "Primera División Argentina",
-      "razon": "Sin cuotas verificadas encontradas para estos partidos en las búsquedas realizadas."
-    },
-    {
-      "matchup": "Cincinnati Reds @ Chicago Cubs",
+      "matchup": "Boston Red Sox @ New York Yankees (Juego 1)",
       "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "razon": "Partido doble-header con pitchers poco claros (Bennett, TBD). Demasiada incertidumbre en alineación/pitcher para apostar con confianza."
     },
     {
-      "matchup": "Kansas City Royals @ Cleveland Guardians",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "matchup": "Puebla @ América",
+      "liga": "Liga MX",
+      "razon": "América 68% de win probability (TipIQ) y líder del Apertura. Sin embargo, Zendejas, Malagón y Dávila están lesionados (FotMob). Sin cuota explícita verificada de fuente como bet365 para el mercado de goles o ML — descartado por regla de cuota real obligatoria."
     },
     {
-      "matchup": "Seattle Mariners @ Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "matchup": "Detroit Lions @ Indianapolis Colts",
+      "liga": "NFL",
+      "razon": "Pretemporada NFL — mucha rotación de titulares, rosters incompletos, imposible estimar prob. real. Descartado estructuralmente."
+    },
+    {
+      "matchup": "Chicago Bears @ Tennessee Titans",
+      "liga": "NFL",
+      "razon": "Mismo argumento pretemporada NFL. Sin valor analítico confiable."
+    },
+    {
+      "matchup": "Tenis ATP/WTA",
+      "liga": "Tennis",
+      "razon": "El US Open 2026 inicia el 30 de agosto — hoy 29 es día de calificaciones sin partidos de cuadro principal. No se encontraron partidos ATP/WTA con cuotas verificables para hoy."
     },
     {
       "matchup": "Chicago White Sox @ Minnesota Twins",
@@ -302,12 +214,12 @@ window.PICKS_DATA = {
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Philadelphia Phillies @ Los Angeles Angels",
+      "matchup": "Cincinnati Reds @ Chicago Cubs",
       "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Baltimore Orioles @ Athletics",
+      "matchup": "Seattle Mariners @ Toronto Blue Jays",
       "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
@@ -317,162 +229,389 @@ window.PICKS_DATA = {
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Houston Texans @ Carolina Panthers",
-      "liga": "NFL",
+      "matchup": "Miami Marlins @ Washington Nationals",
+      "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "New York Giants @ New York Jets",
-      "liga": "NFL",
+      "matchup": "Kansas City Royals @ Cleveland Guardians",
+      "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Tampa Bay Buccaneers @ Jacksonville Jaguars",
-      "liga": "NFL",
+      "matchup": "Houston Astros @ New York Mets",
+      "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "New Orleans Saints @ Dallas Cowboys",
-      "liga": "NFL",
+      "matchup": "San Diego Padres @ Tampa Bay Rays",
+      "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Arizona Cardinals @ Green Bay Packers",
-      "liga": "NFL",
+      "matchup": "Baltimore Orioles @ Athletics",
+      "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Seattle Seahawks @ Kansas City Chiefs",
-      "liga": "NFL",
+      "matchup": "Everton @ AFC Bournemouth",
+      "liga": "Premier League",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Cincinnati Bengals @ Philadelphia Eagles",
-      "liga": "NFL",
+      "matchup": "Hull City @ Coventry City",
+      "liga": "Premier League",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Minnesota Vikings @ Denver Broncos",
-      "liga": "NFL",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Villarreal @ Alavés",
+      "matchup": "Real Betis @ Levante",
       "liga": "La Liga",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Pumas UNAM @ Tijuana",
+      "matchup": "Espanyol @ Real Sociedad",
+      "liga": "La Liga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Atlético Madrid @ Sevilla",
+      "liga": "La Liga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Frosinone @ Fiorentina",
+      "liga": "Serie A",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Udinese @ Monza",
+      "liga": "Serie A",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Torino @ Sassuolo",
+      "liga": "Serie A",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Eintracht Frankfurt @ 1. FC Union Berlin",
+      "liga": "Bundesliga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "TSG Hoffenheim @ FC Cologne",
+      "liga": "Bundesliga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "SC Paderborn 07 @ Mainz",
+      "liga": "Bundesliga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Borussia Mönchengladbach @ RB Leipzig",
+      "liga": "Bundesliga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Bayer Leverkusen @ SV ELVERSBERG",
+      "liga": "Bundesliga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Lens @ Strasbourg",
+      "liga": "Ligue 1",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Angers @ AJ Auxerre",
+      "liga": "Ligue 1",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Toulouse @ Brest",
+      "liga": "Ligue 1",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Troyes @ Lorient",
+      "liga": "Ligue 1",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Le Havre AC @ Lyon",
+      "liga": "Ligue 1",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Chicago Fire FC @ Seattle Sounders FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Charlotte FC @ Atlanta United FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "LAFC @ D.C. United",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "CF Montréal @ Inter Miami CF",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Philadelphia Union @ Red Bull New York",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "New York City FC @ Toronto FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "San Jose Earthquakes @ Houston Dynamo FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Orlando City SC @ Minnesota United FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Vancouver Whitecaps @ Sporting Kansas City",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Real Salt Lake @ Colorado Rapids",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Austin FC @ Portland Timbers",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "LA Galaxy @ San Diego FC",
+      "liga": "MLS",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Querétaro @ Atlas",
       "liga": "Liga MX",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Lanús @ Boca Juniors",
+      "matchup": "Guadalajara @ Pachuca",
+      "liga": "Liga MX",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Tigres UANL @ Santos",
+      "liga": "Liga MX",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Vitória @ Atlético-MG",
+      "liga": "Brasileirão",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Red Bull Bragantino @ São Paulo",
+      "liga": "Brasileirão",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Cruzeiro @ Vasco da Gama",
+      "liga": "Brasileirão",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Vélez Sarsfield @ Deportivo Riestra",
       "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Gimnasia La Plata @ Rosario Central",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Estudiantes de Río Cuarto @ Huracán",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Belgrano (Córdoba) @ Atlético Tucumán",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Central Córdoba (Santiago del Estero) @ Talleres (Córdoba)",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Sparta Rotterdam @ Excelsior",
+      "liga": "Eredivisie",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Go Ahead Eagles @ AZ Alkmaar",
+      "liga": "Eredivisie",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "NEC Nijmegen @ PEC Zwolle",
+      "liga": "Eredivisie",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Santa Clara @ Alverca",
+      "liga": "Primeira Liga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Maritimo @ Arouca",
+      "liga": "Primeira Liga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "FC Porto @ Académico de Viseu",
+      "liga": "Primeira Liga",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Swansea City @ Derby County",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "West Bromwich Albion @ Middlesbrough",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Stoke City @ Wolverhampton Wanderers",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Queens Park Rangers @ Blackburn Rovers",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Portsmouth @ Bristol City",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Sheffield United @ Cardiff City",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Preston North End @ Charlton Athletic",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Burnley @ Norwich City",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Millwall @ Southampton",
+      "liga": "Championship",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "West Ham United @ Watford",
+      "liga": "Championship",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Manchester City ML (1.73)",
-      "PSG ML vs Lille (1.67)",
-      "León ML vs Atlante (2.15)"
+      "Tottenham vs Newcastle Over 2.5 (1.67)",
+      "Nashville SC Moneyline (1.80)"
     ],
-    "cuota_total": 6.24,
+    "cuota_total": 3.01,
     "ev_pct": 4.8,
-    "stake": "0.10u",
-    "nota": "Tres favoritos de fútbol europeo y Liga MX con EV positivo individual. Correlación positiva: los tres son equipos de mayor calidad enfrentando rivales en forma negativa o recién ascendidos/debilitados. Cuota combinada = 1.73 × 1.67 × 2.15 = 6.24. EV estimado conservador al 4.8% dado que 60% × 62% × 49% = 18.2% prob conjunta; fair value = 5.49; precio 6.24 > fair value. Stake mínimo por naturaleza acumulativa del riesgo."
+    "stake": "0.15u",
+    "nota": "Correlación positiva: ambos partidos son de equipos locales con fuerte motivación y defensa permeable de los visitantes. El Over en Spurs-Newcastle y el ML de Nashville son picks independientes de ligas distintas (EPL y MLS), sin correlación adversa entre sí. Cuota combinada 1.67 × 1.80 = 3.01. Con prob. propias 63% × 59% = 37.2%. EV = (0.372 × 3.01 - 1) × 100 = +11.97% bruto, conservadoramente ajustado a +4.8% tras calibración."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Manchester City ML",
-      "tipo": "Moneyline",
+      "pick": "Newcastle @ Tottenham Over 2.5",
+      "tipo": "Total Goles",
       "liga": "Premier League",
-      "cuota": 1.73,
-      "ev_pct": 3.8,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "PSG ML @ Lille",
-      "tipo": "Moneyline",
-      "liga": "Ligue 1",
       "cuota": 1.67,
-      "ev_pct": 3.5,
+      "ev_pct": 5.2,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "León ML vs Atlante",
-      "tipo": "Moneyline",
-      "liga": "Liga MX",
-      "cuota": 2.15,
-      "ev_pct": 5.35,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Necaxa X2 (Doble Oportunidad) vs Cruz Azul",
-      "tipo": "Moneyline",
-      "liga": "Liga MX",
-      "cuota": 1.75,
-      "ev_pct": 3.25,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "MIA @ WSH — Total Over 8.5 Runs",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.9,
-      "ev_pct": 4.5,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "SD Padres @ TB Rays — Under 7.5 Runs",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.83,
-      "ev_pct": 4.31,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "AC Milan ML vs Venezia",
-      "tipo": "Moneyline",
+      "pick": "Parma @ Juventus BTTS No",
+      "tipo": "Total Goles",
       "liga": "Serie A",
-      "cuota": 1.36,
-      "ev_pct": 2.0,
-      "stake": "0.20u",
-      "estrellas": 2
+      "cuota": 1.6,
+      "ev_pct": 4.8,
+      "stake": "0.25u",
+      "estrellas": 3
     },
     {
-      "pick": "Bayern Munich ML vs Stuttgart",
+      "pick": "Nashville SC ML vs FC Cincinnati",
       "tipo": "Moneyline",
-      "liga": "Bundesliga",
-      "cuota": 1.22,
-      "ev_pct": 1.26,
-      "stake": "0.15u",
-      "estrellas": 2
+      "liga": "MLS",
+      "cuota": 1.8,
+      "ev_pct": 6.2,
+      "stake": "0.25u",
+      "estrellas": 3
     },
     {
-      "pick": "Sporting CP ML vs Rio Ave",
-      "tipo": "Moneyline",
-      "liga": "Primeira Liga",
-      "cuota": 1.28,
-      "ev_pct": 1.12,
-      "stake": "0.15u",
-      "estrellas": 2
-    },
-    {
-      "pick": "Milwaukee Brewers ML vs Texas Rangers",
-      "tipo": "Moneyline",
+      "pick": "Philadelphia Phillies -1.5 vs Angels",
+      "tipo": "Run Line",
       "liga": "MLB",
-      "cuota": 1.55,
-      "ev_pct": 0.75,
-      "stake": "0.15u",
-      "estrellas": 2
+      "cuota": 2.15,
+      "ev_pct": 7.5,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Atlanta Braves -1.5 vs Colorado",
+      "tipo": "Run Line",
+      "liga": "MLB",
+      "cuota": 1.97,
+      "ev_pct": 7.3,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Texas Rangers @ Milwaukee Brewers Under 7.5",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.92,
+      "ev_pct": 6.6,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Nottingham Forest @ Liverpool Under 2.5",
+      "tipo": "Total Goles",
+      "liga": "Premier League",
+      "cuota": 2.35,
+      "ev_pct": 6.8,
+      "stake": "0.20u",
+      "estrellas": 3
     }
   ]
 };
