@@ -1090,7 +1090,7 @@ Responde UNICAMENTE JSON valido, sin markdown, sin texto extra."""
 SCHEMA_PICK = {
     "liga":           "MLB | NBA | NFL | Premier League | Liga MX | Tennis ATP | Tennis WTA",
     "matchup":        "AWAY @ HOME",
-    "hora":           "H:MM AM/PM CDT (CDMX)",
+    "hora":           "H:MM AM/PM (CDMX)",
     "pick":           "descripcion concreta",
     "tipo":           "Moneyline | Total | Run Line | Total Goles | Spread | Prop Jugador",
     "sport_key":      "baseball_mlb | basketball_nba | americanfootball_nfl | soccer_epl | tennis_atp | ...",
