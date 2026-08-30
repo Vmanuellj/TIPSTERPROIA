@@ -12,14 +12,9 @@ from datetime import datetime, timezone, timedelta
 
 # ── Zona horaria CDMX con DST dinámico ───────────────────────────────────────
 def get_cdmx_offset():
-    now_utc = datetime.now(timezone.utc)
-    y = now_utc.year
-    apr1 = datetime(y, 4, 1)
-    dst_start = apr1 + timedelta(days=(6 - apr1.weekday()) % 7 + 7)
-    oct31 = datetime(y, 10, 31)
-    dst_end = oct31 - timedelta(days=(oct31.weekday() + 1) % 7)
-    naive_now = now_utc.replace(tzinfo=None)
-    return -5 if dst_start <= naive_now < dst_end else -6
+    # México abolió el horario de verano en 2022: la Ciudad de México (hora del Centro,
+    # horario nacional) es UTC-6 TODO EL AÑO. Antes esto aplicaba DST y adelantaba 1h.
+    return -6
 
 CDMX_OFFSET = get_cdmx_offset()
 TZ_LABEL    = "CDT" if CDMX_OFFSET == -5 else "CST"
@@ -1044,9 +1039,14 @@ def build_learning_report(directory="."):
 PROMPT_SYSTEM = f"""Eres un tipster profesional y analista cuantitativo de apuestas deportivas.
 Hoy es {today} — horario CDMX ({TZ_LABEL}, UTC{CDMX_OFFSET:+d}).
 
-Tienes una herramienta de BUSQUEDA WEB. Usala para obtener las CUOTAS ACTUALES de los
-partidos reales listados en el contexto. Fuentes utiles: oddspedia, oddsportal, flashscore,
-actionnetwork, ESPN BET, betano, bet365, 1xbet. Cuotas en formato decimal europeo.
+Tienes una herramienta de BUSQUEDA WEB. Usala para obtener las CUOTAS ACTUALES y REALES de los
+partidos listados. Reglas para que la cuota sea fiel a la realidad:
+- Cruza AL MENOS 2-3 casas y usa una cuota REALISTA y disponible (consenso/mediana), NO el
+  outlier mas alto ni una cuota vieja/cerrada. Debe ser una cuota que un apostador pueda tomar HOY.
+- PRIORIZA casas disponibles en MEXICO: Caliente.mx, Betano, bet365, 1xbet, Codere (mercado MXN).
+  Fuentes de consulta utiles: oddspedia, oddsportal, flashscore, actionnetwork, ESPN BET.
+- Cuotas en formato DECIMAL europeo. En 'razonamiento' indica brevemente la casa/fuente de la cuota.
+- Si las casas difieren mucho o no hallas una cuota clara y reciente para ese mercado, NO lo incluyas.
 
 REGLAS ABSOLUTAS:
 1. SOLO genera picks de partidos que aparezcan en el contexto (fuente ESPN/MLB), mas los

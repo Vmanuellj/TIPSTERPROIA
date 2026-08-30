@@ -11,14 +11,8 @@ ODDS_KEY = os.environ.get("ODDS_API_KEY", "")
 
 # Zona CDMX
 def get_cdmx_offset():
-    now_utc = datetime.now(timezone.utc)
-    y = now_utc.year
-    apr1 = datetime(y, 4, 1)
-    dst_start = apr1 + timedelta(days=(6 - apr1.weekday()) % 7 + 7)
-    oct31 = datetime(y, 10, 31)
-    dst_end = oct31 - timedelta(days=(oct31.weekday() + 1) % 7)
-    naive_now = now_utc.replace(tzinfo=None)
-    return -5 if dst_start <= naive_now < dst_end else -6
+    # México sin horario de verano desde 2022: Ciudad de México = UTC-6 todo el año.
+    return -6
 
 CDMX_OFFSET = get_cdmx_offset()
 CT = timezone(timedelta(hours=CDMX_OFFSET))

@@ -5,10 +5,11 @@ on:
     # GitHub retrasa/omite crons en :00 y :30 (a veces horas). Usamos minutos "raros"
     # y varios respaldos a lo largo de la mañana. La guarda en generate_picks.py evita
     # regenerar si el día ya tiene picks, así los respaldos NO gastan búsquedas/tokens.
-    - cron: '7 5 * * *'    # ~00:07 CDMX (principal)
-    - cron: '19 6 * * *'   # ~01:19 CDMX (respaldo 1)
-    - cron: '41 8 * * *'   # ~03:41 CDMX (respaldo 2)
-    - cron: '33 13 * * *'  # ~08:33 CDMX (red de seguridad matutina)
+    # CDMX = UTC-6 todo el año (sin horario de verano desde 2022).
+    - cron: '17 6 * * *'   # ~00:17 CDMX (principal)
+    - cron: '23 7 * * *'   # ~01:23 CDMX (respaldo 1)
+    - cron: '41 9 * * *'   # ~03:41 CDMX (respaldo 2)
+    - cron: '33 14 * * *'  # ~08:33 CDMX (red de seguridad matutina)
   workflow_dispatch:         # Botón manual en GitHub para probar
     inputs:
       target_date:
@@ -58,8 +59,8 @@ jobs:
         run: |
           git config user.email "leunam2900@gmail.com"
           git config user.name "Tipster Bot [Auto]"
-          FECHA=$(python3 -c "from datetime import datetime,timezone,timedelta; print(datetime.now(timezone(timedelta(hours=-5))).strftime('%Y-%m-%d'))")
-          FECHA_AYER=$(python3 -c "from datetime import datetime,timezone,timedelta; print((datetime.now(timezone(timedelta(hours=-5)))-timedelta(days=1)).strftime('%Y-%m-%d'))")
+          FECHA=$(python3 -c "from datetime import datetime,timezone,timedelta; print(datetime.now(timezone(timedelta(hours=-6))).strftime('%Y-%m-%d'))")
+          FECHA_AYER=$(python3 -c "from datetime import datetime,timezone,timedelta; print((datetime.now(timezone(timedelta(hours=-6)))-timedelta(days=1)).strftime('%Y-%m-%d'))")
           # Mantener picks de los últimos 30 días (para historial)
           find . -maxdepth 1 -name "picks-*.json" -mtime +30 -delete 2>/dev/null || true
           find . -maxdepth 1 -name "results-*.json" -mtime +30 -delete 2>/dev/null || true
