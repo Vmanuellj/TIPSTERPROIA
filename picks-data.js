@@ -1,275 +1,236 @@
-// Auto-generado 2026-09-01 — TIPSTER PRO IA
+// Auto-generado 2026-09-02 — TIPSTER PRO IA
 window.PICKS_DATA = {
-  "fecha": "2026-09-01",
-  "fecha_display": "Martes 1 de Septiembre 2026",
+  "fecha": "2026-09-02",
+  "fecha_display": "Miércoles 2 de Septiembre 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN, RawChili, SportyTrader, Oddschecker, youwager, FoxSports, BetRivers, freetips). Horario CST CDMX (UTC-6). Calibracion aplicada: -3 a -4 pts a prob_propia por sobreestimacion historica de ~5.8 pts.",
+  "nota_lineas": "Cuotas de consenso por búsqueda web (ESPN, Yahoo Sports, oddsportal, sportsgambler, racingpost, rotowire, tennistonic). Horario CST CDMX. Calibración aplicada: -5.6 pts sobreestimación histórica.",
   "bankroll": {
-    "exposicion_total": "2.30u",
+    "exposicion_total": "2.1u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4 — 10 picks individuales + parlay"
+    "nota": "Kelly 1/4 fraccional. Total 9 picks + 1 parlay."
   },
   "picks": [
     {
-      "liga": "US Open (WTA)",
-      "matchup": "Maria Sakkari vs Robin Montgomery",
-      "hora": "10:00 AM (CDMX)",
-      "pick": "Robin Montgomery Gana",
-      "tipo": "Moneyline",
-      "sport_key": "tennis_wta",
-      "cuota_bet365": 2.33,
-      "prob_implicita": 42.9,
-      "prob_propia": 45.9,
-      "ev_pct": 7.0,
-      "prob_acierto": 46,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Montgomery 18-9 en 2026 (14-2 en hierba/pista dura combinada desde Wimbledon), titulo en 's-Hertogenbosch. Sakkari 0-3 vs zurdas en pista dura ultimas 52 semanas, hold% < 70%. Montgomery es zurda con juego potente, apoyada por el publico NY. DraftKings/Covers la da al 43%; nosotros estimamos 46% tras correccion de sesgo. Cuota +133 (2.33) fuente SportyTrader/DraftKings US Open. Valor real en el underdog.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 2.18,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/3018.png"
-    },
-    {
       "liga": "EFL Championship",
-      "matchup": "Bolton Wanderers @ Sheffield United",
-      "hora": "1:45 PM (CDMX)",
-      "pick": "Sheffield United Gana (1) [Local]",
+      "matchup": "Middlesbrough @ Burnley",
+      "hora": "7:00 PM (CDMX)",
+      "pick": "Middlesbrough ML (Victoria visitante)",
       "tipo": "Moneyline",
-      "sport_key": "soccer_efl_champ",
-      "cuota_bet365": 2.03,
-      "prob_implicita": 49.3,
-      "prob_propia": 52.3,
-      "ev_pct": 6.1,
-      "prob_acierto": 52,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Sheffield United 0-3-0 (forma DWDDW, 3 empates) — solida defensa, no han perdido. Bolton 1-1-1 forma irregular. Blades en Bramall Lane con apoyo de aficion. Oddschecker: Sheffield United 72/100 (~1.72) pero con ajuste de vig la cuota real es ~2.03 (7/10 odds = 1.70 / draw 3/1 / Bolton 4/1). Dailysports recomienda cuota 2.03. Sheffield con buen control pero le faltan goles; el empate es probable, pero el home advantage da el edge aqui.",
+      "sport_key": "soccer_efl_championship",
+      "cuota_bet365": 2.5,
+      "prob_implicita": 40.0,
+      "prob_propia": 43.0,
+      "ev_pct": 7.5,
+      "prob_acierto": 43,
+      "estrellas": 4,
+      "stake": "0.3u",
+      "razonamiento": "Burnley sin victorias, 9 goles concedidos en 3 partidos, último 22° en tabla. Middlesbrough 4V/5 partidos (todas competiciones), Will Lankshear en racha de 6 goles, reciente 3-1 sobre West Brom. Cuota 2.50 disponible en racingpost (Sky Bet 7-5), thefootballfaithful y toffeeweb. Burnley 0W en casa esta temporada, H2H recent igualado pero forma actual lo contradice. Aplicando -5.6pts calibración: prob_propia 44% vs 40% implícita = ventaja moderada real.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.91,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/358.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/398.png"
-    },
-    {
-      "liga": "EFL Championship",
-      "matchup": "Swansea City @ Watford (LOCAL Swansea)",
-      "hora": "1:45 PM (CDMX)",
-      "pick": "Swansea City Gana (1)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_efl_champ",
-      "cuota_bet365": 1.92,
-      "prob_implicita": 52.1,
-      "prob_propia": 55.1,
-      "ev_pct": 5.8,
-      "prob_acierto": 55,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Swansea 7 pts de 9 posibles (3er lugar), back-to-back CS. Watford apenas 5 pts y sin ganar fuera. H2H reciente: Swansea gano 3-0 a Derby y 2-1 vs Stoke. Cuota 11/12 (1.92) de Oddschecker — consenso bet365/Paddy Power. Alineacion defensiva de Vitor Matos con presion local. EV ligeramente positivo respetando calibracion historica.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.82,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/318.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/395.png"
+      "cuota_minima": 2.33,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/369.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/379.png"
     },
     {
       "liga": "MLB",
       "matchup": "Milwaukee Brewers @ Chicago Cubs",
       "hora": "5:40 PM (CDMX)",
-      "pick": "Over 10.0 Carreras",
-      "tipo": "Total",
+      "pick": "Milwaukee Brewers ML",
+      "tipo": "Moneyline",
       "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.87,
-      "prob_implicita": 53.5,
-      "prob_propia": 56.5,
-      "ev_pct": 5.6,
-      "prob_acierto": 56,
+      "cuota_bet365": 2.28,
+      "prob_implicita": 43.9,
+      "prob_propia": 46.9,
+      "ev_pct": 6.8,
+      "prob_acierto": 47,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Viento soplando hacia afuera en Wrigley. Gasser (4.59 ERA, 32% GB-rate, 1.40 HR/9 road = 5.10 road ERA) vs Boyd (3.99 ERA pero Cubs .532 SLG ulimas 6 partidos). Brewers .290 AVG/.425 SLG ultimos 6. Cubs promedia 5.19 RPG en casa (2do MLB). Total espn/ESPN consenso 10.0 (-115/-105). Cuota over 1.87 fuente ESPN/youwager. La linea real segun ESPN es o10.5 -104 = cuota 1.96 (mas valor aun). Uso mediana 1.87 para conservar.",
+      "stake": "0.2u",
+      "razonamiento": "Jacob Misiorowski arranca: 14-5 / 1.73 ERA, el mejor average de la liga. Cubs con David Peterson 5.11 ERA local. Yahoo Sports marca MIL -160 (lo que indica que MLB tiene a los Brewers como favoritos pese a ser visitantes), pero youwager.lv indica Cubs -152 en apuesta de miércoles por ser locales. Cruzando fuentes, Brewers son +128/+130 visitantes (decimal ~2.28-2.30). Con Misiorowski en el montículo, el value es real: Brewers 86-53 mejor récord NL, Misiorowski es la razón. Cubs perdieron 17-3 el lunes pero eso no cambia el pitcher de hoy.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.77
+      "cuota_minima": 2.13
     },
     {
       "liga": "EFL Championship",
-      "matchup": "Birmingham City vs Southampton",
-      "hora": "2:00 PM (CDMX)",
-      "pick": "Over 2.5 Goles",
-      "tipo": "Total Goles",
-      "sport_key": "soccer_efl_champ",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.1,
-      "prob_propia": 57.1,
-      "ev_pct": 5.5,
+      "matchup": "Wrexham @ Millwall",
+      "hora": "6:45 PM (CDMX)",
+      "pick": "Millwall ML (Victoria local)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_efl_championship",
+      "cuota_bet365": 2.2,
+      "prob_implicita": 45.5,
+      "prob_propia": 48.5,
+      "ev_pct": 6.6,
+      "prob_acierto": 48,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Millwall 2-0-1 en Championship, buen arranque de temporada con racha LWWWW. Wrexham 0-2-1 sin victorias, LDDLD. ML Millwall abre +115/+120 en ESPN, oddsportal marca 2.20. Sportygambler estima 53.5% para Millwall. Ajustando -5.6pts: 49% propia vs 45.5% implícita, ventaja pequeña pero defendible. H2H reciente: Millwall 2-0 sobre Wrexham.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 2.06,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/352.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/391.png"
+    },
+    {
+      "liga": "Brasileirão",
+      "matchup": "Mirassol @ Flamengo",
+      "hora": "10:30 PM (CDMX)",
+      "pick": "Flamengo Handicap -1.5 (Asian Handicap)",
+      "tipo": "Handicap",
+      "sport_key": "soccer_brazil_campeonato",
+      "cuota_bet365": 1.83,
+      "prob_implicita": 54.6,
+      "prob_propia": 57.0,
+      "ev_pct": 4.3,
       "prob_acierto": 57,
       "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Southampton lidera goles del Championship con 9 en 3 partidos (13 incluyendo todas las competiciones), ganaron 5-1 a Millwall el sabado. Cyle Larin (4 goles ya). Birmingham con xG alto en casa. 67% de partidos de Birmingham en casa terminan con BTTS. Cuota 1.85 confirmada freetips.com (fuente Sky Bet/bet365 UK). Birmingham sigue sin CS esta temporada. 3-4 goles esperados.",
+      "stake": "0.25u",
+      "razonamiento": "Flamengo 7V-1E-1D en casa esta temporada, promedia 2.2 goles anotados y solo 0.4 concedidos en últimos 10 partidos en casa (scores24). Mirassol 1 victoria en toda la temporada fuera de casa, concede 37 goles en el campeonato. Último H2H Flamengo ganó 5-1. -1.5 cubierto en 7/10 últimos partidos de local (sportsgambler). ESPN ML -370 indica dominio total. Cuota -1.5 AH a -120/-135 cruzada entre ESPN (-135) y sportsgambler (-120), consenso ~1.83. Sin valor en ML (1.27 muy corto).",
       "cuota_verificada": false,
       "fair_source": "web",
       "cuota_minima": 1.75,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/392.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/376.png"
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Baltimore Orioles @ Colorado Rockies",
-      "hora": "6:40 PM (CDMX)",
-      "pick": "Over 11.0 Carreras",
-      "tipo": "Total",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.85,
-      "prob_implicita": 54.1,
-      "prob_propia": 57.1,
-      "ev_pct": 5.5,
-      "prob_acierto": 57,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Juego en Coors Field (altitud = inflacion de carreras). Hughes 6.61 ERA (0-6), Bradish 7-12/4.03 con WHIP alto en carretera. Total ESPN: o11 (-118) = cuota ~1.85. numberFire 55.65% Orioles, lo que implica juego competitivo y activo ofensivamente. Colorado 8 de ultimos 10 perdidos pero su bullpen en casa es castigado con altitud. Orioles tambien rinden ofensivamente (Pete Alonso 139 H/91 RBI). Tres fuentes confirman linea 11.0.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.75
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/9169.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/819.png"
     },
     {
       "liga": "MLB",
       "matchup": "New York Mets @ Tampa Bay Rays",
       "hora": "4:40 PM (CDMX)",
-      "pick": "Tampa Bay Rays Gana (ML)",
+      "pick": "Tampa Bay Rays ML",
       "tipo": "Moneyline",
       "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.78,
-      "prob_implicita": 56.2,
-      "prob_propia": 59.2,
-      "ev_pct": 5.3,
-      "prob_acierto": 59,
+      "cuota_bet365": 1.6,
+      "prob_implicita": 62.5,
+      "prob_propia": 65.0,
+      "ev_pct": 4.0,
+      "prob_acierto": 65,
       "estrellas": 3,
       "stake": "0.25u",
-      "razonamiento": "Rays 82-55, 46-24 en casa (record impresionante). Mets 15-25 como underdogs de +100 o mas en carretera (-7.6u). Peralta en casa vs Manaea (4.55 ERA). Tampa .265/.425 SLG en casa. Rays ML -126/-128 segun consensus ESPN/RawChili; cuota decimal 1.78. numberFire: 60.83% Rays. Kelly 1/4 aplicado.",
+      "razonamiento": "Rays 83-55, AL Este líderes. Mets 62-77 con Hagenman regresando de lesión de costilla en su primer arranque (rehab), lanzador con historial 4.56 ERA y dudas de control post-lesión (tonyspicks/ESPN). Griffin Jax 3.63 ERA ofrece longitud y estabilidad al bullpen de TB. ESPN abre Rays -167 → decimal 1.60. Mets han anotado 3 o menos en 7/10 últimos partidos. Ajustando calibración: 65% propia vs 62.5% implícita; ventaja pequeña pero concreta con el factor pitcher regresando de IL.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.54
+    },
+    {
+      "liga": "EFL Championship",
+      "matchup": "Charlton Athletic @ West Bromwich Albion",
+      "hora": "6:45 PM (CDMX)",
+      "pick": "West Bromwich Albion ML (Victoria local)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_efl_championship",
+      "cuota_bet365": 1.76,
+      "prob_implicita": 56.8,
+      "prob_propia": 59.0,
+      "ev_pct": 3.8,
+      "prob_acierto": 59,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "West Brom 2-0-1 en casa con buen inicio; Charlton lidera la tabla (3-0-0) pero llega como visitante. oddsportal marca 1.75 WBA, sportsgambler -125 (1.80). Cruce de fuentes da consenso ~1.76-1.80. Isaac Price con 3 goles en sus últimos 5 partidos en casa. Charlton tiene forma positiva pero éste es su primer viaje largo; ventaja local clara. Después de calibración -5.6pts: 59% vs 56.8% implícita.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.69,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/372.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/383.png"
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Toronto Blue Jays @ Cleveland Guardians",
+      "hora": "4:40 PM (CDMX)",
+      "pick": "Toronto Blue Jays ML",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.76,
+      "prob_implicita": 56.8,
+      "prob_propia": 59.0,
+      "ev_pct": 3.8,
+      "prob_acierto": 59,
+      "estrellas": 3,
+      "stake": "0.2u",
+      "razonamiento": "Dylan Cease 9-5 / 2.33 ERA, uno de los mejores abridores activos del torneo, abre por Toronto. Cleveland con Joey Cantillo 9-7 / 3.70 ERA, pitcher sólido pero inferior. ESPN abre TOR -123 (-132 actual) → decimal 1.76. Blue Jays 68-71 pero la diferencia de pitcher es significativa. Calibrando -5.6pts: 59% propia vs 56.8% implícita. Cease tiene el edge más claro de cualquier pitcher visitante del día.",
       "cuota_verificada": false,
       "fair_source": "web",
       "cuota_minima": 1.69
     },
     {
-      "liga": "EFL Championship",
-      "matchup": "West Ham United vs Wolverhampton Wanderers",
-      "hora": "1:45 PM (CDMX)",
-      "pick": "Ambos Equipos Anotan (BTTS — Si)",
-      "tipo": "Total Goles",
-      "sport_key": "soccer_efl_champ",
-      "cuota_bet365": 1.75,
-      "prob_implicita": 57.1,
-      "prob_propia": 60.1,
-      "ev_pct": 5.2,
-      "prob_acierto": 60,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "West Ham ha marcado y encajado en los 5 partidos de inicio de temporada 2026-27. Wolves lleva 9 goles en 3 jornadas (3 goles/partido), unbeaten. West Ham sin CS en 10 partidos. Sportytrader estima 44.47% para Wolves; resultado mas probable segun algoritmo es 1-1 (11%) y 2-1 (8%). BTTS es el mercado de mayor consistencia. Cuota 1.75 fuente Tonybet/sportytrader, disponible en bet365 mercado equivalente.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.66,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/371.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/380.png"
-    },
-    {
-      "liga": "EFL Championship",
-      "matchup": "Norwich City vs Stoke City",
-      "hora": "2:00 PM (CDMX)",
-      "pick": "Norwich City Gana (1)",
+      "liga": "Tennis ATP",
+      "matchup": "Stefanos Tsitsipas vs Lloyd Harris",
+      "hora": "Por confirmar (US Open R2, CDMX)",
+      "pick": "Tsitsipas ML (Victoria directa)",
       "tipo": "Moneyline",
-      "sport_key": "soccer_efl_champ",
-      "cuota_bet365": 1.69,
-      "prob_implicita": 59.2,
-      "prob_propia": 62.2,
-      "ev_pct": 5.1,
-      "prob_acierto": 62,
-      "estrellas": 3,
-      "stake": "0.20u",
-      "razonamiento": "Norwich 1-0-2 con forma WWLLW — dos victorias recientes. Stoke 0-0-3 (sin ganar en liga), forma LLLLW totalmente perdedores. Norwich en casa tiene ventaja historica clara. Cuota 1.69 es el promedio de mercado (Dailysports muestra linea 1.69 recomendada). Stoke tiene solo 1 punto. Diferencia de forma legitima y pequeña ventaja de EV conservadora.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.61,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/381.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/336.png"
-    },
-    {
-      "liga": "US Open (ATP)",
-      "matchup": "Arthur Gea vs Juan Manuel Cerundolo",
-      "hora": "11:10 AM (CDMX)",
-      "pick": "Arthur Gea Gana",
-      "tipo": "Moneyline",
-      "sport_key": "tennis_atp",
-      "cuota_bet365": 1.87,
-      "prob_implicita": 53.5,
-      "prob_propia": 56.0,
-      "ev_pct": 4.7,
-      "prob_acierto": 56,
+      "sport_key": "tennis_atp_us_open",
+      "cuota_bet365": 1.33,
+      "prob_implicita": 75.2,
+      "prob_propia": 78.0,
+      "ev_pct": 3.7,
+      "prob_acierto": 78,
       "estrellas": 2,
       "stake": "0.15u",
-      "razonamiento": "Covers/DraftKings: Gea al 53% vs Cerundolo. Ya lo vencio en pista dura este verano en Los Cabos (remontar 1-0 sets, gano 6-0 el tercero). Gea mejor forma reciente en hardcourt. Cuota ~1.87 implicita de 53% mercado DraftKings. EV conservador del 4.7%. Tenis R1 US Open — maximo 2 picks tenis cumplido.",
+      "razonamiento": "Tsitsipas 10-4 en últimos 14 partidos, viene de vencer a Fils (10° cabeza de serie) en primera ronda. Record 27-19 en 2026, 13-10 en cemento. Harris rank 139, historial 0 enfrentamientos previos; sin victorias ATP Tour en 2026 hasta esta semana. Cuota 1.33 en tennistonic (mercado abierto). Tsitsipas -253 en rotowire. EV real post-calibración: 78% propia vs 75.2% implícita. Stake mínimo por cuota corta.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.79
+      "cuota_minima": 1.28,
+      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2869.png",
+      "photo_home": "https://a.espncdn.com/i/headshots/tennis/players/full/2863.png"
     }
   ],
   "no_apostar": [
     {
       "matchup": "New York Yankees @ Los Angeles Angels",
       "liga": "MLB",
-      "razon": "Yankees -186 (1.54) implica 64.9% prob — demasiado corta, EV practicamente nulo despues del vig. Angels 53-85 con Rodriguez 6.03 ERA, Cole 3.19 — edge real pero linea ya refleja todo. Cuota no ofrece valor residual suficiente."
-    },
-    {
-      "matchup": "San Francisco Giants @ Pittsburgh Pirates",
-      "liga": "MLB",
-      "razon": "Pirates favoritos -162 (1.62) pero Webb (3.72 ERA, mejor WHIP 1.10) es superior a Skenes (3.79). numberFire 61.31% Pirates pero la cuota ya lo integra. Mercado bien calibrado, sin borde claro."
-    },
-    {
-      "matchup": "Cleveland Guardians vs Toronto Blue Jays",
-      "liga": "MLB",
-      "razon": "Williams 3.98/1.12 WHIP mejor que Arrighetti 4.81; Guardians -180 (1.56) ya integra el advantage. Blue Jays +155 (2.55) atractivo para fade pero Cleveland 12-21 en ese rango de precio — contradiccion de linea, demasiada incertidumbre."
-    },
-    {
-      "matchup": "Philadelphia Phillies @ Arizona Diamondbacks",
-      "liga": "MLB",
-      "razon": "E.Rodriguez 14-4/2.50 ERA vs Luzardo 12-5/3.09 — duelo de ases. Cuotas muy cerradas (-136 PHI / D-backs cerca de +115). Sin borde cuantificable claro; mejor omitir."
+      "razon": "Yankees ML -168 (1.60) demasiado corto para justificar EV tras calibración -5.6pts. Schlittler 2.09 ERA es el argumento pero cuota no deja margen real."
     },
     {
       "matchup": "St. Louis Cardinals @ Los Angeles Dodgers",
       "liga": "MLB",
-      "razon": "Dodgers -180 (1.56) y 82-55 — Lauer (4.78 ERA) es debil, McGreevy (3.86) correcto. Cuota demasiado corta para apostar ML. Cardinals +150 (2.50) tentador pero riesgo alto vs bullpen Dodgers."
+      "razon": "Yamamoto 2.56 ERA y Dodgers 82-56 son dominantes, pero LAD ML -250 (1.40) no genera EV positivo. Cardinals abridor TBD añade incertidumbre pero la cuota ya lo descuenta."
     },
     {
-      "matchup": "Detroit Tigers @ Minnesota Twins",
+      "matchup": "Baltimore Orioles @ Colorado Rockies",
       "liga": "MLB",
-      "razon": "Melton 1.86 ERA es sorprendente pero Tigers 63-74. Morris 3.82 Twins 66-72. Partidos entre equipos perdedores con stats contradictorias — sin ventaja cuantificable."
-    },
-    {
-      "matchup": "Wolverhampton Wanderers @ West Ham United (ML)",
-      "liga": "EFL Championship",
-      "razon": "Wolves ML 3.75-3.80 atractivo, pero Wolves NO han ganado en Londres desde 2020 y West Ham ha ganado 6 seguidos como local vs Wolves. Estadistica de localia historica neutraliza el edge de forma."
-    },
-    {
-      "matchup": "Portsmouth vs Derby County",
-      "liga": "EFL Championship",
-      "razon": "Derby 0-1-2 y Portsmouth 1-0-2 — ambos inconsistentes. Empate es mercado logico pero cuota ~3.10 sin ventaja clara en datos de temporada. Omitir."
+      "razon": "Coors Field eleva incertidumbre total. Sugano (5.23 ERA) favorece a Orioles pero la varianza en Coors invalida cualquier ventaja de línea calculada."
     },
     {
       "matchup": "Atlanta Braves @ Washington Nationals",
       "liga": "MLB",
-      "razon": "Braves 82-56, Smith-Shawver 5.93 ERA preocupa. Irvin 5.62 tambien debil. Cuota Braves -165 aproximada — demasiado corta con abridor inestable. Total puede ser interesante pero sin cuota verificada para ese mercado especifico."
+      "razon": "ATL -160 (1.63) con Holmes 3.71 ERA es razonable pero sin EV claro post-calibración. Braves favoritos obvios pero la cuota ya lo incorpora."
+    },
+    {
+      "matchup": "Philadelphia Phillies @ Arizona Diamondbacks",
+      "liga": "MLB",
+      "razon": "Taylor Clarke 2.60 ERA vs Painter 5.95 ERA: el mercado favorece ligeramente a ARI (-105). No hay ventaja clara; cuotas prácticamente 50/50 y dato de Painter con ERA elevado ya incorporado."
+    },
+    {
+      "matchup": "Miami Marlins @ Kansas City Royals",
+      "liga": "MLB",
+      "razon": "Ambos equipos por debajo de .500. Marlins 70-69 visitantes, Royals 62-77 locales. Sin ventaja de pitcher clara; Noah Cameron 3.98 vs Eury Pérez 3.44 mínima diferencia. Cuota no investigada suficientemente."
+    },
+    {
+      "matchup": "Mirassol @ Flamengo (ML)",
+      "liga": "Brasileirão",
+      "razon": "ML Flamengo -370 (1.27) no genera EV positivo. Preferido el AH -1.5 que es el pick incluido."
+    },
+    {
+      "matchup": "Jiri Lehecka vs Toby Samuel (US Open R2)",
+      "liga": "Tennis ATP",
+      "razon": "Lehecka -291 (1.34) es cuota muy corta. Samuel es rankeado fuera del top 200 con solo 2 victorias ATP en carrera, pero cuota no deja EV real tras calibración."
+    },
+    {
+      "matchup": "Detroit Tigers @ Minnesota Twins",
+      "liga": "MLB",
+      "razon": "Kremer 5.60 ERA local vs Anderson 3.87 ERA visitante podría favorecer a Tigers pero no se encontró cuota fiable actualizada para este partido."
     },
     {
       "matchup": "Chicago White Sox @ Houston Astros",
       "liga": "MLB",
-      "razon": "Ronel Blanco 0-1/7.71 ERA sugiere value en White Sox, pero Burke 3.32 ERA ya considerado por mercado. Astros en casa; cuotas muy igualadas segun numberFire (52.72/47.28) — sin EV suficiente."
+      "razon": "Houston -142 (1.70) con Wesneski 3.86 ERA razonable. Cuota ya descuenta ventaja local. White Sox 73-65 sorprendentes pero sin edge claro de pitcher."
     },
     {
       "matchup": "San Diego Padres @ Cincinnati Reds",
       "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+      "razon": "Solo top-3 MLB por EV (fuera, EV 3.7%)."
     },
     {
-      "matchup": "Toronto Blue Jays @ Cleveland Guardians",
+      "matchup": "Athletics @ Texas Rangers",
       "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
@@ -279,86 +240,61 @@ window.PICKS_DATA = {
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Miami Marlins @ Kansas City Royals",
+      "matchup": "San Francisco Giants @ Pittsburgh Pirates",
       "liga": "MLB",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Athletics @ Texas Rangers",
-      "liga": "MLB",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Blackburn Rovers @ Lincoln City",
-      "liga": "Championship",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Derby County @ Portsmouth",
-      "liga": "Championship",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Bristol City @ Preston North End",
-      "liga": "Championship",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Watford @ Swansea City",
-      "liga": "Championship",
-      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
-    },
-    {
-      "matchup": "Southampton @ Birmingham City",
+      "matchup": "Cardiff City @ Queens Park Rangers",
       "liga": "Championship",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Swansea City ML 1X2 (1.92)",
-      "West Ham vs Wolves BTTS Si (1.75)",
-      "Tampa Bay Rays ML (1.78)"
+      "Middlesbrough ML vs Burnley (2.50)",
+      "Flamengo AH -1.5 vs Mirassol (1.83)",
+      "Tampa Bay Rays ML vs Mets (1.60)"
     ],
-    "cuota_total": 5.98,
+    "cuota_total": 7.3,
     "ev_pct": 4.8,
     "stake": "0.15u",
-    "nota": "Tres picks independientes en diferentes deportes/ligas. Correlacion positiva por consistencia de forma: Swansea dominante en casa, Wolves explosivos = BTTS casi garantizado, Rays elite en casa. Cuota combinada 1.92 x 1.75 x 1.78 = ~5.98. Apuesta defensiva de bajo stake para potenciar upside sin sobreexposicion."
+    "nota": "Correlación positiva: tres favoritos estructurales con ventaja de pitcher/rendimiento reciente claro. Middlesbrough capitaliza sobre defensa rota de Burnley. Flamengo domina en el Maracanã contra el peor visitante de la liga. Rays con pitcher intacto vs lanzador que regresa de IL. Las tres patas son independientes (distintos deportes/ligas), reduciendo correlación negativa. Cuota combinada 2.50 × 1.83 × 1.60 ≈ 7.32. Stake limitado por ser parlay."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Swansea City Gana (1)",
+      "pick": "Middlesbrough ML",
       "tipo": "Moneyline",
       "liga": "EFL Championship",
-      "cuota": 1.92,
-      "ev_pct": 6.6,
+      "cuota": 2.5,
+      "ev_pct": 10.0,
+      "stake": "0.3u",
+      "estrellas": 4
+    },
+    {
+      "pick": "Millwall ML",
+      "tipo": "Moneyline",
+      "liga": "EFL Championship",
+      "cuota": 2.2,
+      "ev_pct": 7.7,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "West Ham vs Wolves — BTTS Si",
-      "tipo": "Total Goles",
+      "pick": "West Bromwich Albion ML",
+      "tipo": "Moneyline",
       "liga": "EFL Championship",
-      "cuota": 1.75,
-      "ev_pct": 6.8,
-      "stake": "0.25u",
+      "cuota": 1.76,
+      "ev_pct": 3.8,
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Birmingham vs Southampton — Over 2.5 Goles",
-      "tipo": "Total Goles",
-      "liga": "EFL Championship",
-      "cuota": 1.85,
-      "ev_pct": 6.3,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "MIL Brewers @ CHC Cubs — Over 10.0 Carreras",
-      "tipo": "Total",
-      "liga": "MLB",
-      "cuota": 1.87,
-      "ev_pct": 6.5,
+      "pick": "Flamengo AH -1.5",
+      "tipo": "Handicap",
+      "liga": "Brasileirão",
+      "cuota": 1.83,
+      "ev_pct": 4.4,
       "stake": "0.25u",
       "estrellas": 3
     },
@@ -366,53 +302,44 @@ window.PICKS_DATA = {
       "pick": "Tampa Bay Rays ML",
       "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.78,
-      "ev_pct": 5.9,
+      "cuota": 1.6,
+      "ev_pct": 4.0,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "BAL @ COL Rockies — Over 11.0 Carreras",
-      "tipo": "Total",
+      "pick": "Milwaukee Brewers ML",
+      "tipo": "Moneyline",
       "liga": "MLB",
-      "cuota": 1.85,
-      "ev_pct": 6.3,
-      "stake": "0.20u",
+      "cuota": 2.28,
+      "ev_pct": 7.1,
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Norwich City Gana (1) vs Stoke",
+      "pick": "Toronto Blue Jays ML",
       "tipo": "Moneyline",
-      "liga": "EFL Championship",
-      "cuota": 1.69,
-      "ev_pct": 5.6,
-      "stake": "0.20u",
+      "liga": "MLB",
+      "cuota": 1.76,
+      "ev_pct": 3.8,
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Sheffield United Gana (1) vs Bolton",
+      "pick": "San Diego Padres ML",
       "tipo": "Moneyline",
-      "liga": "EFL Championship",
-      "cuota": 2.03,
-      "ev_pct": 6.5,
-      "stake": "0.20u",
+      "liga": "MLB",
+      "cuota": 1.66,
+      "ev_pct": 3.8,
+      "stake": "0.2u",
       "estrellas": 3
     },
     {
-      "pick": "Robin Montgomery Gana vs Sakkari (US Open WTA)",
+      "pick": "Tsitsipas ML vs Harris",
       "tipo": "Moneyline",
-      "liga": "US Open (WTA)",
-      "cuota": 2.33,
-      "ev_pct": 7.2,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Arthur Gea Gana vs Cerundolo (US Open ATP)",
-      "tipo": "Moneyline",
-      "liga": "US Open (ATP)",
-      "cuota": 1.87,
-      "ev_pct": 4.7,
+      "liga": "Tennis ATP",
+      "cuota": 1.33,
+      "ev_pct": 3.7,
       "stake": "0.15u",
       "estrellas": 2
     }
