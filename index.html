@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta name="theme-color" content="#060a14">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>TIPSTER PRO IA</title>
+<title>SPORTWISE</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
@@ -54,6 +54,7 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 .tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 0 9px;}
 .logo{display:flex;align-items:center;gap:9px;font-family:var(--hf);font-size:21px;font-weight:900;letter-spacing:-.3px;}
 .logo-circle{width:32px;height:32px;border-radius:50%;background:#0a0720;border:2px solid #8b5cf6;box-shadow:0 0 10px #8b5cf699,0 0 22px #8b5cf633,inset 0 0 8px #8b5cf618;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.logo-wm{display:inline-flex;align-items:baseline;text-transform:uppercase;letter-spacing:.5px;}
 .logo-t{color:#a78bfa;text-shadow:0 0 14px #8b5cf688;}
 .logo-p{color:#eef2ff;}
 .logo-img{width:38px;height:38px;border-radius:9px;object-fit:cover;flex-shrink:0;border:1px solid rgba(139,92,246,.35);box-shadow:0 0 14px rgba(139,92,246,.35),0 0 6px rgba(96,165,250,.35);}
@@ -522,8 +523,8 @@ body.no-glass .mr-card::before,body.no-glass .mr-card::after{display:none;}
   <div class="tb-inner">
     <div class="tb-hdr">
       <div class="logo">
-  <img class="logo-img" src="/logo.png" alt="TIPSTER PRO IA" width="38" height="38">
-  <span class="logo-t">TIPSTER</span><span class="logo-p">&nbsp;PRO</span>
+  <img class="logo-img" src="/logo.png" alt="SPORTWISE" width="38" height="38">
+  <span class="logo-wm"><span class="logo-t">SPORT</span><span class="logo-p">WISE</span></span>
 </div>
       <div class="tb-right">
         <div class="live-badge"><div class="live-dot"></div>LIVE</div>
@@ -1224,7 +1225,7 @@ function render(data){
               '</svg>'+
             '</div>'+
             '<div class="hr-brand-txt">'+
-              '<div class="hr-brand-name">TIPSTER PRO IA</div>'+
+              '<div class="hr-brand-name">SPORTWISE</div>'+
               '<div class="hr-brand-sub">ANÁLISIS CUANTITATIVO · VALOR ESPERADO</div>'+
             '</div>'+
           '</div>'+
@@ -1522,7 +1523,7 @@ function exportTicket(){
     var data={version:'tpi:v1',exported_at:new Date().toISOString(),bankroll:getBankroll(),unit_pct:getUnitPct(),ticket:getTicket()};
     var blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
     var url=URL.createObjectURL(blob);
-    var a=document.createElement('a');a.href=url;a.download='mi-ticket-tipsterpro.json';
+    var a=document.createElement('a');a.href=url;a.download='mi-ticket-sportwise.json';
     document.body.appendChild(a);a.click();
     setTimeout(function(){URL.revokeObjectURL(url);a.remove();},120);
   }catch(e){}

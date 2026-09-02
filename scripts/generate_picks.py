@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-TIPSTER PRO IA — Generador automático (GitHub Actions)
+Sportwise — Generador automático (GitHub Actions)
 v4 (híbrido, sin The Odds API):
   • Calendario + estadística: MLB Stats API + ESPN (gratis, sin API key)
   • Cuotas: Claude API con herramienta de BÚSQUEDA WEB (web_search) — las obtiene por
@@ -1296,7 +1296,7 @@ def save_all(data: dict):
         f"picks-{today}.json": json.dumps(data, ensure_ascii=False, indent=2),
         "latest.json":         json.dumps(data, ensure_ascii=False, indent=2),
         "picks-data.js": (
-            f"// Auto-generado {today} — TIPSTER PRO IA\n"
+            f"// Auto-generado {today} — Sportwise\n"
             f"window.PICKS_DATA = "
             + json.dumps(data, ensure_ascii=False, indent=2) + ";\n"
         ),
@@ -1308,7 +1308,7 @@ def save_all(data: dict):
 
 # ── MAIN ──────────────────────────────────────────────────────────────────────
 if __name__ == "__main__":
-    print(f"\n🏆 TIPSTER PRO IA — {fecha_display}")
+    print(f"\n🏆 Sportwise — {fecha_display}")
     print(f"   Zona: CDMX / {TZ_LABEL} (UTC{CDMX_OFFSET:+d})")
     print(f"   Fuente: ESPN (calendario+stats) + Claude web_search (cuotas)")
     print("=" * 55)

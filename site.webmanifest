@@ -1,6 +1,6 @@
 {
-  "name": "TIPSTER PRO IA",
-  "short_name": "TIPSTER PRO",
+  "name": "SPORTWISE",
+  "short_name": "SPORTWISE",
   "description": "Picks diarios de apuestas deportivas con IA",
   "start_url": "/",
   "display": "standalone",

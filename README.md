@@ -1,4 +1,4 @@
-# ⚡ TIPSTER PRO IA
+# ⚡ Sportwise
 
 Web app de picks deportivos diarios con metodología +EV real.
 
@@ -8,7 +8,7 @@ Web app de picks deportivos diarios con metodología +EV real.
 ```bash
 git init
 git add .
-git commit -m "🎯 Tipster Pro IA init"
+git commit -m "🎯 Sportwise init"
 git remote add origin https://github.com/TU_USUARIO/tipster-pro-ia.git
 git push -u origin main
 ```
