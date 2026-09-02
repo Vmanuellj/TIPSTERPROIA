@@ -51,15 +51,14 @@ body{background:var(--bg);color:var(--tx);font-family:var(--bf);min-height:100vh
 /* ─── TOPBAR ─────────────────────────────────────── */
 .topbar{position:sticky;top:0;z-index:200;background:linear-gradient(180deg,rgba(13,9,32,.96) 0%,rgba(8,6,26,.92) 100%);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid rgba(139,92,246,.18);box-shadow:0 1px 40px rgba(109,40,217,.12);}
 .tb-inner{max-width:920px;margin:0 auto;padding:0 18px;}
-.tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 0 9px;position:relative;}
+.tb-hdr{display:flex;align-items:center;justify-content:space-between;padding:13px 0 9px;}
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--hf);font-size:27px;font-weight:900;letter-spacing:-.3px;}
 .logo-circle{width:32px;height:32px;border-radius:50%;background:#0a0720;border:2px solid #8b5cf6;box-shadow:0 0 10px #8b5cf699,0 0 22px #8b5cf633,inset 0 0 8px #8b5cf618;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.logo-wm{display:inline-flex;align-items:baseline;text-transform:uppercase;letter-spacing:.5px;font-family:var(--hf);font-weight:900;font-size:27px;}
-.logo-wm-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;}
+.logo-wm{display:inline-flex;align-items:baseline;text-transform:uppercase;letter-spacing:.5px;}
 .logo-t{color:#a78bfa;text-shadow:0 0 14px #8b5cf688;}
 .logo-p{color:#eef2ff;}
 .logo-img{width:46px;height:46px;border-radius:11px;object-fit:cover;flex-shrink:0;border:1px solid rgba(139,92,246,.35);box-shadow:0 0 14px rgba(139,92,246,.35),0 0 6px rgba(96,165,250,.35);}
-@media(max-width:430px){.logo-wm-center{font-size:21px;}.logo-img{width:40px;height:40px;}.hdr-date{display:none;}}
+@media(max-width:430px){.logo{font-size:23px;gap:9px;}.logo-img{width:40px;height:40px;}}
 .tb-right{display:flex;align-items:center;gap:10px;}
 .live-badge{display:flex;align-items:center;gap:5px;background:var(--pud);border:1px solid var(--pub);color:var(--pu);font-family:var(--hf);font-size:9px;font-weight:800;letter-spacing:1.5px;padding:4px 10px;border-radius:99px;}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--pu);animation:blink 1.6s ease-in-out infinite;}
@@ -526,8 +525,8 @@ body.no-glass .mr-card::before,body.no-glass .mr-card::after{display:none;}
     <div class="tb-hdr">
       <div class="logo">
   <img class="logo-img" src="/logo.png" alt="SPORTWISE" width="46" height="46">
+  <span class="logo-wm"><span class="logo-t">SPORT</span><span class="logo-p">WISE</span></span>
 </div>
-      <span class="logo-wm logo-wm-center"><span class="logo-t">SPORT</span><span class="logo-p">WISE</span></span>
       <div class="tb-right">
         <div class="live-badge"><div class="live-dot"></div>LIVE</div>
         <div class="hdr-date">
