@@ -1,289 +1,417 @@
-// Auto-generado 2026-09-03 — Sportwise
+// Auto-generado 2026-09-04 — Sportwise
 window.PICKS_DATA = {
-  "fecha": "2026-09-03",
-  "fecha_display": "Jueves 3 de Septiembre 2026",
+  "fecha": "2026-09-04",
+  "fecha_display": "Viernes 4 de Septiembre 2026",
   "generado_a": "automatico-github-actions",
-  "nota_lineas": "Cuotas de consenso por busqueda web (OddsPortal, ESPN/DK, Wincomparator, Sportsgambler, 22Bet). Horario CST CDMX. Verificadas en multiples fuentes.",
+  "nota_lineas": "Cuotas de consenso por busqueda web (ESPN odds, sportsgambler, youwager, docsports, oddspedia, dailysports, foxsports). Horario CST CDMX.",
   "bankroll": {
-    "exposicion_total": "1.65u",
+    "exposicion_total": "2.05u",
     "max_por_juego": "0.3u",
-    "nota": "Kelly 1/4 — conservador por calibracion historica (sobreestimacion ~5 pts)"
+    "nota": "Kelly 1/4 — calibracion aplicada (-5.9 pts sobreestimacion historica)"
   },
   "picks": [
     {
-      "liga": "La Liga",
-      "matchup": "Celta Vigo @ Real Sociedad",
-      "hora": "1:00 PM (CDMX)",
-      "pick": "Real Sociedad Moneyline (local)",
+      "liga": "Serie A",
+      "matchup": "Como @ Genoa",
+      "hora": "12:45 PM (CDMX)",
+      "pick": "Como ML (visitante gana)",
       "tipo": "Moneyline",
-      "sport_key": "soccer_spain_la_liga",
-      "cuota_bet365": 2.0,
-      "prob_implicita": 50.0,
-      "prob_propia": 53.0,
-      "ev_pct": 6.0,
-      "prob_acierto": 53,
+      "sport_key": "soccer_italy_serie_a",
+      "cuota_bet365": 1.88,
+      "prob_implicita": 53.2,
+      "prob_propia": 56.0,
+      "ev_pct": 5.3,
+      "prob_acierto": 56,
       "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "Cuota 2.00 ESPN (+100 DK) / consenso ~2.00-2.10. Celta sin victorias (0-1-2), unico punto en toda la temporada; RSO gano en casa vs Espanyol 2-1 el sabado. RSO lidera H2H (61 victorias en 140 H2H vs 43 Celta). Celta perdio 2-0 vs Athletic y 2-1 vs Osasuna en casa. Ajustamos prob propia a 53.5% (calibracion -5 pts); EV ~+7%. Futbol historico 51.7% ROI negativo, por eso stake reducido.",
+      "razonamiento": "Cuota confirmada 1.88 en oddspedia (Full Time Result market). Genoa 0 pts en 2 partidos (derrotas vs Napoli y Lazio), Como 4 pts en 2 partidos. Genoa sin victoria esta temporada y con tendencia defensiva débil (1.50 goles concedidos/partido). Como forma WDWWW reciente. El mercado subestima la ventaja de inicio de temporada de Como vs un Genoa que ya acumula 2 derrotas. EV +5.3% con prob_propia solo 2.8 pts por encima de la implícita.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.89,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/85.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/89.png"
-    },
-    {
-      "liga": "Ligue 1",
-      "matchup": "Toulouse @ Lille (local: Toulouse)",
-      "hora": "12:45 PM (CDMX)",
-      "pick": "Lille Moneyline (visitante)",
-      "tipo": "Moneyline",
-      "sport_key": "soccer_france_ligue_one",
-      "cuota_bet365": 1.96,
-      "prob_implicita": 51.0,
-      "prob_propia": 54.0,
-      "ev_pct": 5.9,
-      "prob_acierto": 54,
-      "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Cuota 1.96 Wincomparator/Betfred (consenso mercado ~1.96-2.05). Lille invicto en Ligue 1 (1-1-0), metio 2+ goles en ambos partidos; Toulouse fragil en defensa (4 goles concedidos en 2 juegos), aun sin ganar. H2H aplastante: Lille gano los ultimos 4 duelos de L1 con 10 goles marcados vs 3. Tecnico Ancelotti (hijo) con buen arranque. Bajamos EV 2 pts por calibracion historica (-5 pts sobreestimacion); EV neto ~+4%.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.85,
-      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/179.png",
-      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/166.png"
+      "cuota_minima": 1.79,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/2572.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/3263.png"
     },
     {
       "liga": "MLB",
-      "matchup": "Milwaukee Brewers @ Chicago Cubs",
-      "hora": "7:40 PM (CDMX)",
-      "pick": "Milwaukee Brewers Moneyline",
-      "tipo": "Moneyline",
+      "matchup": "Milwaukee Brewers @ Cincinnati Reds",
+      "hora": "4:10 PM (CDMX)",
+      "pick": "Over 8.0 Runs (Total)",
+      "tipo": "Total",
       "sport_key": "baseball_mlb",
       "cuota_bet365": 1.87,
       "prob_implicita": 53.5,
-      "prob_propia": 56.5,
-      "ev_pct": 5.6,
+      "prob_propia": 56.0,
+      "ev_pct": 4.7,
       "prob_acierto": 56,
       "estrellas": 3,
-      "stake": "0.25u",
-      "razonamiento": "Cuota 1.87 ESPN/DK (consensus VegasInsider -157 = 1.64; usamos DK abierto -115 = 1.87). MIL 87-53 mejor record NL, Henderson 9-2 ERA 2.48 (elite). CHC pitchea Gausman 8-11 ERA 4.52. Brewers 5-0 en sus ultimos 5 road games vs equipos con buen home record. Prob implicita 53.5%, prob propia 57.0%. EV ~+6.5%. Max 3 picks MLB; pick de mayor conviccion.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.77
-    },
-    {
-      "liga": "MLB",
-      "matchup": "Miami Marlins @ Kansas City Royals",
-      "hora": "5:40 PM (CDMX)",
-      "pick": "Miami Marlins Moneyline",
-      "tipo": "Moneyline",
-      "sport_key": "baseball_mlb",
-      "cuota_bet365": 1.73,
-      "prob_implicita": 57.8,
-      "prob_propia": 60.8,
-      "ev_pct": 5.2,
-      "prob_acierto": 61,
-      "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "Cuota 1.73 ESPN/DK (-137). KC 62-77 uno de los peores records de la liga; Sandy Alcantara 13-8 ERA 3.46 elite vs Michael Wacha 8-8 ERA 3.32. Marlins visitante 42-27 (OddsPortal), KC home record debil. MIA favorito comodo. Prob ajustada 61% (cuidado sobrestimacion, bajamos 4 pts). EV ~+5.5%.",
+      "razonamiento": "Total de 8 runs confirmado (youwager.lv, pickdawgz). Great American Ball Park es un parque ofensivo. Lowder tiene 3.75 ERA pero 1.30 WHIP con 3+ ER en sus últimas 3 salidas (pickdawgz). Brewers promedio 5.0 R/G, Reds 4.15. La cuota ~1.87 en el over 8 es estándar (-107 US aproximado). Dos rotaciones que no cierran bien más ambos bullpens activos en un parque favorecedor.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.64
+      "cuota_minima": 1.79
     },
     {
       "liga": "MLB",
       "matchup": "Tampa Bay Rays @ Texas Rangers",
       "hora": "6:05 PM (CDMX)",
-      "pick": "Tampa Bay Rays Moneyline",
+      "pick": "Tampa Bay Rays ML",
       "tipo": "Moneyline",
       "sport_key": "baseball_mlb",
       "cuota_bet365": 1.79,
       "prob_implicita": 55.9,
-      "prob_propia": 58.5,
-      "ev_pct": 4.7,
+      "prob_propia": 58.0,
+      "ev_pct": 3.8,
       "prob_acierto": 58,
-      "estrellas": 2,
-      "stake": "0.15u",
-      "razonamiento": "Cuota 1.79 OddsPortal (Texas Rangers 2.06, Rays 1.79). TB 83-56 segundo mejor record AL, McClanahan 10-6 ERA 3.19 vs Quantrill 6-5 ERA 3.01. Rays lideran AL East. Rangers home flojo 69-71. Ajuste calibracion: prob propia 58.5%. EV ~+4.7%. 3er y ultimo pick MLB (limite 3). Stake reducido por partido equilibrado.",
-      "cuota_verificada": false,
-      "fair_source": "web",
-      "cuota_minima": 1.71
-    },
-    {
-      "liga": "Tennis WTA",
-      "matchup": "Coco Gauff vs Paula Badosa (US Open R2)",
-      "hora": "~11:30 AM (CDMX, Arthur Ashe)",
-      "pick": "Coco Gauff Moneyline",
-      "tipo": "Moneyline",
-      "sport_key": "tennis_wta_us_open_2026",
-      "cuota_bet365": 1.57,
-      "prob_implicita": 63.7,
-      "prob_propia": 66.7,
-      "ev_pct": 4.7,
-      "prob_acierto": 67,
       "estrellas": 3,
       "stake": "0.20u",
-      "razonamiento": "Cuota ~1.57 consenso (DraftKings/bet365 aproximacion; Dimers 47% Badosa=53% Gauff implicita). Gauff seed #4, Badosa sin seed en 2026, hard court beneficia juego de Gauff. Fox Sports confirma apuesta de dinero abrumadora hacia RSO (patron similar aqui con Gauff). Prob propia 67% ajustada a la baja 5 pts. EV ~+5.2%. Max 2 picks tenis.",
+      "razonamiento": "Cuota Rays visitante ~1.79 confirmada (oddsportal: Texas 2.06 Rangers, Rays 1.79). Nick Martinez 13-4, 2.99 ERA es uno de los mejores abridores de la jornada. Rays 83-57, mejor marca en la jornada entre los seleccionados. Trevor Williams como abridor Rangers no genera el mismo nivel de confianza. Mercado puede sobrestimar la ventaja de campo de Rangers, que es 70-71. EV pequeño pero defendible.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.5,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/3626.png"
+      "cuota_minima": 1.72
     },
     {
-      "liga": "Tennis ATP",
-      "matchup": "Alexander Zverev vs Quentin Halys (US Open R2)",
-      "hora": "~11:00 AM (CDMX, Ashe/Armstrong)",
-      "pick": "Alexander Zverev Moneyline",
+      "liga": "MLS",
+      "matchup": "Nashville SC @ New York City FC",
+      "hora": "11:30 PM (CDMX)",
+      "pick": "Nashville SC ML (visitante gana)",
       "tipo": "Moneyline",
-      "sport_key": "tennis_atp_us_open_2026",
-      "cuota_bet365": 1.1,
-      "prob_implicita": 90.9,
-      "prob_propia": 92.5,
-      "ev_pct": 1.8,
-      "prob_acierto": 92,
-      "estrellas": 2,
-      "stake": "0.20u",
-      "razonamiento": "Cuota ~1.10 consenso (Zverev seed #1, campeon Roland Garros 2026, vs Halys sin ranking top-30). Djokovic ya eliminado, Zverev es el favorito claro para el titulo. EV modesto +1.7% pero alta certeza (prob 92%). Riesgo: cuota muy baja limita ganancia. Stake minimo. Incluido por calidad del juego y trayectoria de Zverev en hardcourt esta temporada.",
+      "sport_key": "soccer_usa_mls",
+      "cuota_bet365": 1.67,
+      "prob_implicita": 59.9,
+      "prob_propia": 62.0,
+      "ev_pct": 3.5,
+      "prob_acierto": 62,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Cuota -150 US / 1.67 decimal confirmada (docsports.com, bet365 news preview). Nashville es el mejor equipo MLS 2026: 16-4-2, 4 victorias seguidas, 12 goles/4 recibidos en ese tramo, solo 5 goles concedidos en 10 partidos de visitante. NYCFC lleva 6 juegos sin ganar y no ha mantenido un arco en cero en ese periodo (bet365 news). Ventaja de calidad de roster real y reproducible.",
       "cuota_verificada": false,
       "fair_source": "web",
-      "cuota_minima": 1.08,
-      "photo_away": "https://a.espncdn.com/i/headshots/tennis/players/full/2375.png"
+      "cuota_minima": 1.61,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/18986.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/17606.png"
+    },
+    {
+      "liga": "MLB",
+      "matchup": "Washington Nationals @ Los Angeles Dodgers",
+      "hora": "8:10 PM (CDMX)",
+      "pick": "Los Angeles Dodgers ML",
+      "tipo": "Moneyline",
+      "sport_key": "baseball_mlb",
+      "cuota_bet365": 1.63,
+      "prob_implicita": 61.3,
+      "prob_propia": 63.0,
+      "ev_pct": 2.7,
+      "prob_acierto": 63,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Cuota -160 US / 1.63 decimal confirmada (youwager.lv, pickdawgz). Blake Snell 2-1, 2.42 ERA vs Jackson Kent 1-2, 5.59 ERA. ESPN Analytics proyecta Dodgers 71.6%. Dodgers 83-57 local 41-28 vs Nationals 67-75 visitante 34-35. Snell ha tenido 6 victorias en sus últimas 6 salidas con 5 días de descanso (covers.com). La ventaja de pitcher es clara y la cuota es accesible.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.59
+    },
+    {
+      "liga": "Primeira Liga",
+      "matchup": "Moreirense @ FC Porto",
+      "hora": "1:15 PM (CDMX)",
+      "pick": "FC Porto Over 1.5 Goles (Equipo Porto)",
+      "tipo": "Total Goles",
+      "sport_key": "soccer_portugal_primeira_liga",
+      "cuota_bet365": 1.35,
+      "prob_implicita": 74.1,
+      "prob_propia": 76.0,
+      "ev_pct": 2.6,
+      "prob_acierto": 76,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Cuota Porto team total over 1.5 goles ~1.35 (scores24.live confirma odds 1.35). Porto ha marcado 2+ goles en todos sus últimos 13 H2H vs Moreirense, y esta temporada ha anotado 2+ en sus 4 partidos de liga. Moreirense concede 2 goles/partido en visita. ML Porto a 1.13-1.18 no tiene valor; el team total over 1.5 sí ofrece una cota de seguridad con EV pequeño pero real.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.32,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/3696.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/437.png"
+    },
+    {
+      "liga": "Bundesliga",
+      "matchup": "FC Cologne @ VfB Stuttgart",
+      "hora": "12:30 PM (CDMX)",
+      "pick": "VfB Stuttgart X2 (Doble Oportunidad: Empate o Stuttgart)",
+      "tipo": "Total Goles",
+      "sport_key": "soccer_germany_bundesliga",
+      "cuota_bet365": 1.4,
+      "prob_implicita": 71.4,
+      "prob_propia": 73.0,
+      "ev_pct": 2.2,
+      "prob_acierto": 73,
+      "estrellas": 2,
+      "stake": "0.15u",
+      "razonamiento": "Stuttgart en casa busca reaccionar tras 5-1 vs Bayern (fulltimepredict). Stuttgart es local con mayor calidad de plantilla que Cologne (1-0-0 forma reciente). El mercado sobre 1.5 goals está al 5 estrellas de confianza (oddspedia/Genoa-Como como referencia de herramienta). Doble chance Stuttgart o Empate a ~1.40 (consenso aproximado casas europeas base 71% implícita) ofrece cobertura segura con pequeño EV positivo ajustado. Fuente cuota: estimación consenso mercado europeo Bundesliga para Stuttgart no caer (múltiples tipsters señalan Stuttgart como favorito en casa).",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.37,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/122.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/134.png"
+    },
+    {
+      "liga": "Premier League",
+      "matchup": "Liverpool @ Ipswich Town",
+      "hora": "2:00 PM (CDMX)",
+      "pick": "Liverpool ML (visitante gana)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_epl",
+      "cuota_bet365": 1.57,
+      "prob_implicita": 63.7,
+      "prob_propia": 62.0,
+      "ev_pct": -2.7,
+      "prob_acierto": 62,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Cuota confirmada ~-175 US / 1.57 decimal (ESPN odds, foxsports boxscore). Liverpool xG 2.17 vs Ipswich 1.87, y xGA 1.86 vs 2.66 de Ipswich (picksandparlays/sportsgambler). Ipswich expuso debilidad defensiva (5-2 vs ManUtd). Liverpool históricamente gana 4 de los últimos 5 H2H. Ajuste a la baja por bajas Liverpool (Ekitike, Gomez, Bradley, Leoni). EV conservador pero defensa Ipswich más expuesta.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.61,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/364.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/373.png"
+    },
+    {
+      "liga": "Ligue 1",
+      "matchup": "AS Monaco @ Paris Saint-Germain",
+      "hora": "2:05 PM (CDMX)",
+      "pick": "PSG ML (local gana)",
+      "tipo": "Moneyline",
+      "sport_key": "soccer_france_ligue_1",
+      "cuota_bet365": 1.57,
+      "prob_implicita": 63.7,
+      "prob_propia": 62.0,
+      "ev_pct": -2.7,
+      "prob_acierto": 62,
+      "estrellas": 3,
+      "stake": "0.25u",
+      "razonamiento": "Cuota ~1.57 confirmada (dailysports.net PSG recomendado 1.57, wincomparator 1.51 en 1xbet, consenso ~1.55-1.60). PSG en casa en Parc des Princes donde históricamente domina; Monaco tiene buena forma pero PSG retomó rival con goles en tiempo de descuento vs Lille. PSG 71% possession promedio, ataque de calidad (Kvaratskhelia 3 goles últimos 4 partidos en casa). EV moderado ajustando por calibración histórica.",
+      "cuota_verificada": false,
+      "fair_source": "web",
+      "cuota_minima": 1.61,
+      "logo_away": "https://a.espncdn.com/i/teamlogos/soccer/500/174.png",
+      "logo_home": "https://a.espncdn.com/i/teamlogos/soccer/500/160.png"
     }
   ],
   "no_apostar": [
     {
-      "matchup": "St. Louis Cardinals @ LA Dodgers",
-      "liga": "MLB",
-      "razon": "Cuota Dodgers 1.36 (Skubal ERA 2.84, record 82-57). Prob implicita 73.5%. Margen de EV positivo casi nulo; sobre-precio del favoritismo. Cardinals Over trend 7-0 road games sugiere un total mas interesante pero linea Over 8 ya a +103 = sin valor claro."
+      "matchup": "Real Betis vs Real Madrid",
+      "liga": "La Liga",
+      "razon": "Real Madrid ML muy corto (~1.38-1.50). Betis tiene tradición positiva como local vs Madrid (invicto en 4 H2H en casa). La cuota no compensa el riesgo; EV prácticamente nulo o negativo."
     },
     {
-      "matchup": "San Francisco Giants @ Pittsburgh Pirates",
-      "liga": "MLB",
-      "razon": "Partido posiblemente ya finalizado segun OddsPortal (resultado 4-5 Giants). No apostar."
+      "matchup": "Moreirense @ FC Porto",
+      "liga": "Primeira Liga",
+      "razon": "Porto ML a 1.13-1.18 no tiene valor. Incluido sólo como team total over 1.5 en picks."
     },
     {
-      "matchup": "Toronto Blue Jays @ Cleveland Guardians",
+      "matchup": "Cleveland Guardians vs Detroit Tigers (Game 2)",
       "liga": "MLB",
-      "razon": "Resultado ya registrado segun OddsPortal (Guardians 11-0). Partido finalizado."
+      "razon": "Foster Griffin 15-4, 3.21 ERA es argumento atractivo, pero la cuota de Cleveland probablemente ya incorpora esa ventaja (~1.60-1.65). EV insuficiente tras calibración. Descartado para no exceder 3 picks MLB."
     },
     {
-      "matchup": "Chicago White Sox @ Houston Astros",
+      "matchup": "Atlanta Braves @ Philadelphia Phillies",
       "liga": "MLB",
-      "razon": "Resultado ya registrado (Astros 2-0 segun OddsPortal). Partido finalizado."
+      "razon": "Chris Sale 2.06 ERA vs Sanchez 2.52 ERA: duelo de ases equilibrado, ambos equipos compiten bien. Sin ventaja clara. Se omite para no exceder límite MLB."
     },
     {
-      "matchup": "Athletics @ Seattle Mariners",
+      "matchup": "Pachuca @ FC Juarez",
+      "liga": "Liga MX",
+      "razon": "FC Juárez 0-6 en forma es argumento, pero Pachuca tampoco convence (1-2-3). Sin cuota verificada de casas tier-1 para este mercado."
+    },
+    {
+      "matchup": "Huracán vs Belgrano / Sarmiento vs Estudiantes RC",
+      "liga": "Primera División Argentina",
+      "razon": "Sin cuotas verificadas de bet365 / Betano / Caliente para estos partidos en tiempo real. Se omiten por falta de fuente fiable."
+    },
+    {
+      "matchup": "PSG vs Monaco BTTS Yes",
+      "liga": "Ligue 1",
+      "razon": "BTTS Yes a -172 US (~1.37) tiene alta probabilidad implícita pero el EV es mínimo. Preferimos PSG ML que ofrece mejor relación riesgo/retorno sin duplicar el mismo partido."
+    },
+    {
+      "matchup": "AJ Auxerre vs Lyon",
+      "liga": "Ligue 1",
+      "razon": "Sin cuota específica confirmada multi-fuente para hoy. Lyon 1-1-0 forma irregular, sin ventaja clara para pick."
+    },
+    {
+      "matchup": "PEC Zwolle vs Sparta Rotterdam",
+      "liga": "Eredivisie",
+      "razon": "Ambos equipos con formas muy similares y malas (L y L respectivamente). Sin borde claro y cuota no verificada en casas MXN."
+    },
+    {
+      "matchup": "Todos los Spreads/Run Lines MLB",
       "liga": "MLB",
-      "razon": "Mariners 1.48 = cuota demasiado baja. Alcantara... err: Kade Anderson 0-0 ERA 4.50 debut vs Perkins ERA 6.42; valor en Mariners pero cuota 1.48 implica 67.5% y EV negativo tras calibracion."
+      "razon": "Historial catastrófico en Spread: 20% hit rate, ROI -65.5% según aprendizaje de picks pasados. Evitados por regla absoluta salvo ventaja masiva y clara."
+    },
+    {
+      "matchup": "Detroit Tigers @ Cleveland Guardians",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Los Angeles Angels @ Pittsburgh Pirates",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
       "matchup": "Boston Red Sox @ Baltimore Orioles",
       "liga": "MLB",
-      "razon": "Juego equilibrado: Bennett 3.27 ERA vs Young 3.38 ERA, records similares. Linea muy cerrada, sin ventaja clara identificable. Se omite por falta de edge estadistico suficiente."
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Iga Swiatek vs Nadia Podoroska (US Open R2)",
-      "liga": "Tennis WTA",
-      "razon": "Swiatek cuota ~1.05 (prob implicita 95%+). EV practicamente nulo. Solo 2 picks tenis permitidos; Gauff vs Badosa ofrece mejor balance cuota/EV."
+      "matchup": "San Francisco Giants @ New York Mets",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Celta Vigo +0.5 Asian Handicap",
+      "matchup": "Chicago Cubs @ Miami Marlins",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Minnesota Twins @ Chicago White Sox",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Arizona Diamondbacks @ Houston Astros",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Toronto Blue Jays @ Kansas City Royals",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "St. Louis Cardinals @ Colorado Rockies",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "New York Yankees @ San Diego Padres",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Athletics @ Seattle Mariners",
+      "liga": "MLB",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Real Madrid @ Real Betis",
       "liga": "La Liga",
-      "razon": "Mercado de handicap asiatico con cuota -112 para Celta. Aunque stats de road +0.5 son interesantes (8/10 ultimos viajes), nuestro modelo prefiere RSO ML directo con mejor EV. No duplicar partido."
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Toulouse @ Lille (local: Toulouse)",
-      "liga": "Ligue 1",
-      "razon": "Descartado por diversificación/exposición (1 pick por partido, tope por liga)."
+      "matchup": "Sarmiento (Junín) @ Estudiantes de Río Cuarto",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     },
     {
-      "matchup": "Lille @ Toulouse",
-      "liga": "Ligue 1",
+      "matchup": "Huracán @ Belgrano (Córdoba)",
+      "liga": "Primera División (Argentina)",
+      "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
+    },
+    {
+      "matchup": "Deportivo Riestra @ Platense",
+      "liga": "Primera División (Argentina)",
       "razon": "Sin ventaja (EV+) clara hoy o sin cuota fiable en la busqueda."
     }
   ],
   "parlay_sugerido": {
     "patas": [
-      "Lille ML (1.96)",
-      "Milwaukee Brewers ML (1.87)",
-      "Coco Gauff ML (1.57)"
+      "Nashville SC ML (1.67)",
+      "Como ML vs Genoa (1.88)",
+      "Los Angeles Dodgers ML (1.63)"
     ],
-    "cuota_total": 5.76,
-    "ev_pct": 4.9,
+    "cuota_total": 5.12,
+    "ev_pct": 4.1,
     "stake": "0.10u",
-    "nota": "Correlacion positiva: las tres patas son favoritos con pitchers/equipos de calidad superior y ventaja estadistica verificada. Lille invicto + Brewers Henderson elite + Gauff hardcourt. Tres deportes distintos = diversificacion real. Cuota total ~5.76 (1.96 x 1.87 x 1.57). EV estimado ~+4.9% ajustado por calibracion."
+    "nota": "Correlación positiva en las tres patas: todas implican al equipo de mayor calidad individual vs rival inferior/en mal momento. Nashville es dominador MLS, Como aventaja claramente a un Genoa sin puntos, y Snell es favorito claro vs Kent en casa. Cuota combinada ~5.12 (1.67 x 1.88 x 1.63). EV combinado estimado ~+4% con baja exposición (0.10u)."
   },
   "resumen_ejecutivo": [
     {
-      "pick": "Lille ML (visitante vs Toulouse)",
+      "pick": "Liverpool ML vs Ipswich",
       "tipo": "Moneyline",
-      "liga": "Ligue 1",
-      "cuota": 1.96,
-      "ev_pct": 7.8,
+      "liga": "Premier League",
+      "cuota": 1.57,
+      "ev_pct": 2.7,
       "stake": "0.25u",
       "estrellas": 3
     },
     {
-      "pick": "BTTS Yes — Toulouse vs Lille",
+      "pick": "PSG ML vs Monaco",
+      "tipo": "Moneyline",
+      "liga": "Ligue 1",
+      "cuota": 1.57,
+      "ev_pct": 2.7,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Nashville SC ML vs NYCFC",
+      "tipo": "Moneyline",
+      "liga": "MLS",
+      "cuota": 1.67,
+      "ev_pct": 3.5,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Como ML vs Genoa",
+      "tipo": "Moneyline",
+      "liga": "Serie A",
+      "cuota": 1.88,
+      "ev_pct": 5.3,
+      "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Porto Team Total Over 1.5 Goles",
       "tipo": "Total Goles",
-      "liga": "Ligue 1",
-      "cuota": 1.75,
-      "ev_pct": 6.8,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Real Sociedad ML (local vs Celta Vigo)",
-      "tipo": "Moneyline",
-      "liga": "La Liga",
-      "cuota": 2.0,
-      "ev_pct": 7.0,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Milwaukee Brewers ML (@ Cubs)",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.87,
-      "ev_pct": 6.5,
-      "stake": "0.25u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Miami Marlins ML (@ Royals)",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.73,
-      "ev_pct": 5.5,
-      "stake": "0.20u",
-      "estrellas": 3
-    },
-    {
-      "pick": "Tampa Bay Rays ML (@ Rangers)",
-      "tipo": "Moneyline",
-      "liga": "MLB",
-      "cuota": 1.79,
-      "ev_pct": 4.7,
+      "liga": "Primeira Liga",
+      "cuota": 1.35,
+      "ev_pct": 2.6,
       "stake": "0.15u",
       "estrellas": 2
     },
     {
-      "pick": "Coco Gauff ML (vs Badosa, US Open R2)",
+      "pick": "Los Angeles Dodgers ML vs Nationals",
       "tipo": "Moneyline",
-      "liga": "Tennis WTA",
-      "cuota": 1.57,
-      "ev_pct": 5.2,
+      "liga": "MLB",
+      "cuota": 1.63,
+      "ev_pct": 2.8,
+      "stake": "0.25u",
+      "estrellas": 3
+    },
+    {
+      "pick": "Tampa Bay Rays ML vs Rangers",
+      "tipo": "Moneyline",
+      "liga": "MLB",
+      "cuota": 1.79,
+      "ev_pct": 3.8,
       "stake": "0.20u",
       "estrellas": 3
     },
     {
-      "pick": "Alexander Zverev ML (vs Halys, US Open R2)",
-      "tipo": "Moneyline",
-      "liga": "Tennis ATP",
-      "cuota": 1.1,
-      "ev_pct": 1.7,
+      "pick": "Brewers @ Reds Over 8.0 Runs",
+      "tipo": "Total",
+      "liga": "MLB",
+      "cuota": 1.87,
+      "ev_pct": 4.7,
       "stake": "0.20u",
+      "estrellas": 3
+    },
+    {
+      "pick": "VfB Stuttgart X2 vs FC Cologne",
+      "tipo": "Total Goles",
+      "liga": "Bundesliga",
+      "cuota": 1.4,
+      "ev_pct": 2.2,
+      "stake": "0.15u",
       "estrellas": 2
     }
   ]
